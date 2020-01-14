@@ -1,6 +1,6 @@
 Qubit Jump! 
 
-An interactive game designed on JavaScript to introduce key quantum mechanics concepts. 
+An interactive game built using JavaScript to introduce key quantum mechanics concepts. 
 
 Guide your Qubit through the landscape, avoiding any barriers you find along the way. Watch out, there are many other Qubits in the system as well! Move through 'absorption', 'emission', and 'tunneling'. Beware, however, tunneling is based on probability and success is not guaranteed.
 
