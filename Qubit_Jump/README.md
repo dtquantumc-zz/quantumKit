@@ -6,6 +6,6 @@ Guide your Qubit through the landscape, avoiding any barriers you find along the
 
 *To play this game, download the folder and run 'index.html' in your browser*
 
-![](scrn.png)
+![](scrn.PNG)
 
 If you'd prefer to play the game online, you can do so with the OpenProcessing IDE: https://www.openprocessing.org/sketch/815868
