@@ -55,15 +55,16 @@ function draw(){
 	ellipse(100, 450, 150, 75);
 	textSize(15);
 	fill(0, 102, 153)
-	text("Absorption - UP Key", 100, 450);
+	text("Noise - UP Key", 100, 450);
 	
 	// Emission - going down
 	
 	fill(220,20,60);
 	ellipse(300, 450, 150, 75);
 	textSize(15);
-	fill(0, 102, 153)
-	text("Emission - DOWN Key", 300, 450);
+	fill(0, 102, 153);
+	text("Thermalization", 300, 440);
+	text("DOWN Key", 300, 470);
 	
 	// Tunneling - Left/Right Arrow Keys
 	
