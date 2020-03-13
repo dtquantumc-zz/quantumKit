@@ -1067,17 +1067,6 @@ placing your screws.
 
 ---
 
-#### Acknowledgments
-
-I'd like to thank Rafael Haenel, Pedro Lopes and Haris Amiri for
-feedback, and Rafael particularly for his encouragement.
-Some of this material was tested at the
-[UBC Physics Circle](https://outreach.phas.ubc.ca/events/metro-vancouver-physics-circle/),
-as part of a workshop run by
-[Geering Up](https://geeringup.apsc.ubc.ca/) and
-[Diversifying Talent in Quantum Computing](https://www.digitalsupercluster.ca/programs/capacity-building-program/diversifying-talent-in-quantum-computing/),
-so I would also like the students for their participation and feedback!
-
 #### References
 
 - ["**NP-complete problems and physical reality**"](https://www.scottaaronson.com/papers/npcomplete.pdf)
@@ -1085,3 +1074,5 @@ so I would also like the students for their participation and feedback!
 - *What is Mathematics?* (1941), Richard Courant and Herbert Robbins.
 - ["**The Steiner minimal tree**"](https://thatsmaths.com/2015/01/29/the-steiner-minimal-tree/) (2015), Peter Lynch.
 - "**Structural Hierarchy**" in *Aesthetics in Science* (1981), Cyril Stanley Smith.
+
+David Wakeham, 2019--20
