@@ -1,13 +1,4 @@
----
-Layout: post
-mathjax: true
-comments: true
-title:  "Steiner trees and soap bubbles"
-categories: [Mathematics, Physics, Hacks]
-date:  2020-03-11
----
-
-**March 11, 2020.** *This is a self-contained introduction to minimal
+*This is a self-contained introduction to minimal
   networks (aka Steiner trees) in the plane. The first section
   discusses local geometric features, the second network structure,
   and the final section a connection to the physics of soap bubbles.*
@@ -36,7 +27,7 @@ Two simple examples of connected networks are shown below.
 
 <figure>
     <div style="text-align:center"><img src
-    ="/images/posts/steiner1.png" width="75%"/>
+    ="/steiner/pics/steiner1.png" width="75%"/>
 		    <figcaption><i>Figure 1. Rail networks (triangle and
     trident) connecting three towns.</i></figcaption>
 	</div>
@@ -99,7 +90,7 @@ The triangular network has total length $L_\Lambda = 2d$.
 
 <figure>
     <div style="text-align:center"><img src
-    ="/images/posts/steiner2.png" width="80%"/>
+    ="/steiner/pics/steiner2.png" width="80%"/>
 		    <figcaption><i>Figure 2. Rail networks on an equilateral triangle.</i></figcaption>
 	</div>
 	</figure>
@@ -130,7 +121,7 @@ First of all, draw an axis of symmetry of the triangle, represented by the red l
 
 <figure>
     <div style="text-align:center"><img src
-    ="/images/posts/steiner3.png" width="40%"/>
+    ="/steiner/pics/steiner3.png" width="40%"/>
 		    <figcaption><i>Figure 3. Wiggling the hub around an axis
     of symmetry.</i></figcaption>
 	</div>
@@ -146,7 +137,7 @@ So, for a minimal network, we must place $D$ on the red line.
 
 <figure>
     <div style="text-align:center"><img src
-    ="/images/posts/steiner7.png" width="40%"/>
+    ="/steiner/pics/steiner7.png" width="40%"/>
 		    <figcaption><i>Figure 4. The minimal network on an
     equilateral triangle.</i></figcaption>
 	</div>
@@ -173,7 +164,7 @@ and the corresponding smooth change of hub in green.
 
 <figure>
     <div style="text-align:center"><img src
-    ="/images/posts/steiner8.png" width="35%"/>
+    ="/steiner/pics/steiner8.png" width="35%"/>
 		    <figcaption><i>Figure 5. The optimal hub position changes smoothly
     as we deform the corners.</i></figcaption>
 	</div>
@@ -187,7 +178,7 @@ simpler triangular network, formed from two sides of the triangle.
 
 <figure>
     <div style="text-align:center"><img src
-    ="/images/posts/steiner9.png" width="45%"/>
+    ="/steiner/pics/steiner9.png" width="45%"/>
 		    <figcaption><i>Figure 6. At some critical angle, the trident
     network becomes triangular.</i></figcaption>
 	</div>
@@ -202,7 +193,7 @@ The question is: what is the angle?
 
 <figure>
     <div style="text-align:center"><img src
-    ="/images/posts/steiner10.png" width="40%"/>
+    ="/steiner/pics/steiner10.png" width="40%"/>
 		    <figcaption><i>Figure 7. Removing a corner city removes a
     leg from the equilateral trident.</i></figcaption>
 	</div>
@@ -247,7 +238,7 @@ the case.
 
 <figure>
     <div style="text-align:center"><img src
-    ="/images/posts/steiner18.png" width="50%"/>
+    ="/steiner/pics/steiner18.png" width="50%"/>
 		    <figcaption><i>Figure 8. Critical angle on an isosceles triangle.</i></figcaption>
 	</div>
 	</figure>
@@ -313,7 +304,7 @@ which are (for simplicity) the same distance from $H$.
 
 <figure>
     <div style="text-align:center"><img src
-    ="/images/posts/steiner11.png" width="80%"/>
+    ="/steiner/pics/steiner11.png" width="80%"/>
 		    <figcaption><i>Figure 9. Left: A hub with incoming
     angle less than 120°. Right: A shorter network.</i></figcaption>
 	</div>
@@ -344,7 +335,7 @@ So, we have the situation depicted on the left of Figure 10:
 
 <figure>
     <div style="text-align:center"><img src
-    ="/images/posts/steiner12.png" width="80%"/>
+    ="/steiner/pics/steiner12.png" width="80%"/>
 		    <figcaption><i>Figure 10. Left: A hub with incoming
     angle greater than 120°. Right: A shorter network.</i></figcaption>
 	</div>
@@ -418,7 +409,7 @@ Figure 11 shows why.
 
 <figure>
     <div style="text-align:center"><img src
-    ="/images/posts/steiner13.png" width="70%"/>
+    ="/steiner/pics/steiner13.png" width="70%"/>
 		    <figcaption><i>Figure 11. Pruning an unnecessary path,
     e.g. path 2, cannot disconnect a network.</i></figcaption>
 	</div>
@@ -454,7 +445,7 @@ An example is shown in Figure 12.
 
 <figure>
     <div style="text-align:center"><img src
-    ="/images/posts/steiner14.png" width="35%"/>
+    ="/steiner/pics/steiner14.png" width="35%"/>
 		    <figcaption><i>Figure 12. A tree network, with unique
     paths between each node.</i></figcaption>
 	</div>
@@ -484,7 +475,7 @@ Since there is a unique path between two nodes in a tree, this is well-defined.
 
 <figure>
     <div style="text-align:center"><img src
-    ="/images/posts/steiner15.png" width="80%"/>
+    ="/steiner/pics/steiner15.png" width="80%"/>
 		    <figcaption><i>Figure 13. Finding leaves in a tree.</i></figcaption>
 	</div>
 	</figure>
@@ -543,7 +534,7 @@ In diagrams,
 
 <figure>
     <div style="text-align:center"><img src
-    ="/images/posts/steiner16.png" width="30%"/>
+    ="/steiner/pics/steiner16.png" width="30%"/>
 	</div>
 	</figure>
 
@@ -586,7 +577,7 @@ pairs, as shown in Figure 14.
 
 <figure>
     <div style="text-align:center"><img src
-    ="/images/posts/steiner19.png" width="55%"/>
+    ="/steiner/pics/steiner19.png" width="55%"/>
 		    <figcaption><i>Figure 14. The tinkertoy for a rectangle.</i></figcaption>
 	</div>
 	</figure>
@@ -614,7 +605,7 @@ you will need multiple tinkertoys. Here we give examples of both.
 
 <figure>
     <div style="text-align:center"><img src
-    ="/images/posts/steiner17.png" width="75%"/>
+    ="/steiner/pics/steiner17.png" width="75%"/>
 		    <figcaption><i>Figure 15. Centred hexagon and pentagon.</i></figcaption>
 	</div>
 	</figure>
@@ -643,7 +634,7 @@ For instance, we show the four different tinkertoys for $h = 6$ (or $n = 8$) in 
 
 <figure>
     <div style="text-align:center"><img src
-    ="/images/posts/steiner20.png" width="90%"/>
+    ="/steiner/pics/steiner20.png" width="90%"/>
 		    <figcaption><i>Figure 16. A few tinkertoys for h = 6.</i></figcaption>
 	</div>
 	</figure>
@@ -670,7 +661,7 @@ where we calculate for small $h$ and guess the rest of the sequence.
 
 <figure>
     <div style="text-align:center"><img src
-    ="/images/posts/steiner21.png" width="85%"/>
+    ="/steiner/pics/steiner21.png" width="85%"/>
 		    <figcaption><i>Figure 17. Snake tinkertoys for h = 5.</i></figcaption>
 	</div>
 	</figure>
@@ -720,7 +711,7 @@ Figure 18.
 
 <figure>
     <div style="text-align:center"><img src
-    ="/images/posts/steiner22.png" width="85%"/>
+    ="/steiner/pics/steiner22.png" width="85%"/>
 		    <figcaption><i>Figure 18. A soap bubble in three and two dimensions.</i></figcaption>
 	</div>
 	</figure>
@@ -759,7 +750,7 @@ Exercise 14 guides you through a proof of this formula.
 
 <figure>
     <div style="text-align:center"><img src
-    ="/images/posts/steiner23.png" width="75%"/>
+    ="/steiner/pics/steiner23.png" width="75%"/>
 		    <figcaption><i>Figure 19. Euler's formula illustrated for a cube.</i></figcaption>
 	</div>
 	</figure>
@@ -785,7 +776,7 @@ Rewriting in terms of $F'$, we get $3F' - E = 3$.
 
 <figure>
     <div style="text-align:center"><img src
-    ="/images/posts/steiner24.png" width="53%"/>
+    ="/steiner/pics/steiner24.png" width="53%"/>
 		    <figcaption><i>Figure 20. An example calculation of the difference from hexagonality.</i></figcaption>
 	</div>
 	</figure>
@@ -845,7 +836,7 @@ the maximum number of large faces!
 
 <figure>
     <div style="text-align:center"><img src
-    ="/images/posts/steiner28.png" width="50%"/>
+    ="/steiner/pics/steiner28.png" width="50%"/>
 		    <figcaption><i>Figure 21. Approximate scaling of internal
     and external edges with total size L.</i></figcaption>
 	</div>
@@ -921,7 +912,7 @@ polyhedron to get its net, which is a *network*.
 
 <figure>
     <div style="text-align:center"><img src
-    ="/images/posts/steiner26.png" width="50%"/>
+    ="/steiner/pics/steiner26.png" width="50%"/>
 		    <figcaption><i>Figure 22. Steps (a), (b), (c) and (e) illustrated.</i></figcaption>
 	</div>
 	</figure>
@@ -990,7 +981,7 @@ The answer is yes!
 
 <figure>
     <div style="text-align:center"><img src
-    ="/images/posts/steiner27.png" width="65%"/>
+    ="/steiner/pics/steiner27.png" width="65%"/>
 		    <figcaption><i>Figure 23. Soap bubbles computing a minimal
     network.</i></figcaption>
 	</div>
@@ -1015,7 +1006,7 @@ difficult problems.
 
 <figure>
     <div style="text-align:center"><img src
-    ="/images/posts/steiner30.png" width="95%"/>
+    ="/steiner/pics/steiner30.png" width="95%"/>
 		    <figcaption><i>Figure 24. Hardware, software and cheap operations.</i></figcaption>
 	</div>
 	</figure>
@@ -1064,7 +1055,7 @@ The cities are drawn in Figure 25:
 
 <figure>
     <div style="text-align:center"><img src
-    ="/images/posts/steiner25.png" width="58%"/>
+    ="/steiner/pics/steiner25.png" width="58%"/>
 		    <figcaption><i>Figure 25. German cities to be connected by rail.</i></figcaption>
 	</div>
 	</figure>
