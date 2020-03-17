@@ -49,6 +49,9 @@ general, we can derive some beautiful results about their geometry and layout.
 We step through the reasoning in bite-sized chunks, starting with
 the problem of connecting three cities.
 
+### Historical note
+*Swiss mathematician Jacob Steiner (1796-1863) solved and popularized the problem of joining three villages by a system of roads of minimum total length; the problem evolved to many variants, originating the class of 'combinatorial optimization' problems. Jacob Steiner’s work is allegedly independent but not the first; Pierre de Fermat (1601-1665) already proposed it to Evangelista Torricelli (1608-1647) two centuries in advance. Even before, this problem had been discussed in a 1647 book by the Italian mathematician Bonaventura Francesco Cavalieri (1598- 1647).*
+
 ---
 
 *Exercise 1 (choosing sides).* Suppose $A$, $B$ and $C$ are separated
@@ -68,6 +71,12 @@ See if you can do better than either.
 *Hint.* Measure lengths on the screen with a ruler. Simple but it works!
 
 ---
+
+### Application anecdotes 
+
+Steiner trees play a role in concrete real world applications. They are generally useful in any situation where the task is to minimize the cost of connection among some important locations, including the design of integrated circuits, computer networks routing, phylogenetic tree reconstruction in biology, and civil engineering.
+
+An interesting story follows: finding minimal Steiner trees have saved big bucks in telephone business. When corporate customers in the US operate large private telephone networks, they lease the lines from a telephone company. The amount  billed is not calculated on the basis of how the wires are actually used, but on the shortest network that would suffice -- the customer shouldn’t have to pay extra just because the telephone company uses a round-about route. Originally, the algorithm that calculated how much to charge worked by determining the minimal spanning tree. However, it was noticed by a customer -— an airline, in fact, with three major hubs —- that if another hub was created at an intermediate point, the total length of the network would be reduced. The telephone company was forced to reduce charges to what they would have been if there was a telephone exchange at the Steiner point! Although, for typical configurations, the minimal Steiner tree is only 5% or 10% shorter than the minimal spanning tree, this can be a worthwhile when large amounts of money are involved. The Steiner tree problem is sometimes called the “shortest network problem” because it involves finding the shortest network that connects a set of sites
 
 ## 2. Triangles <a id="sec-2" name="sec-2"></a>
 
