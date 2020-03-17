@@ -1085,3 +1085,4 @@ placing your screws.
 - "**Structural Hierarchy**" in *Aesthetics in Science* (1981), Cyril Stanley Smith.
 
 David Wakeham, 2019--20
+Pedro Lopes, 2020
