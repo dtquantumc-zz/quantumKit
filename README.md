@@ -14,8 +14,8 @@ To learn more, please visit this [link](https://quantumcomputing.ubc.ca/educatio
 # Project partners
 
 ![](UBC.png)
-![](CDTS.png)
-![](DWave.png)
-![](MS.png)
-![](GU.png)
+![](DTS_Dark_00.png)
+![](image (3).png)
+![](msft.jpg)
+![](GU Icon - Blue.png)
 
