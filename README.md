@@ -15,7 +15,7 @@ To learn more, please visit this [link](https://quantumcomputing.ubc.ca/educatio
 
 ![](UBC.png)
 ![](DTS_Dark_00.png)
-![](image (3).png)
+![](DWave.png)
 ![](msft.jpg)
-![](GU Icon - Blue.png)
+![](GUIconBlue.png)
 
