@@ -1,5 +1,7 @@
 # Quantum Kit
 An educative toolkit with custom developed Quantum Computing workshops, games, and interactive tools.
+We also offer a ['Quantum Hub'](https://quantum-hub.herokuapp.com/app/lattice), a gallery of web applications and games that run directly on D-Wave's 2000-Qubit Quantum Computer. To visit the repository for the quantum hub, click [here](https://github.com/dtquantumc/quantum-hub).
+
 
 # Diversifying Talent in Quantum Computing
 
@@ -13,9 +15,5 @@ To learn more, please visit this [link](https://quantumcomputing.ubc.ca/educatio
 
 # Project partners
 
-<img src="https://github.com/dtquantumc/quantumKit/blob/master/UBC.png" width="300" />
-<img src="https://github.com/dtquantumc/quantumKit/blob/master/DTS_Dark_00.png" width="300" />
-<img src="https://github.com/dtquantumc/quantumKit/blob/master/DWave.png" width="300" />
-<img src="https://github.com/dtquantumc/quantumKit/blob/master/msft.jpg" width="300" />
-<img src="https://github.com/dtquantumc/quantumKit/blob/master/GUIconBlue.png" width="300" />
+<img src="https://github.com/dtquantumc/quantumKit/blob/master/Project_partners/UBC.png" width="450" height="100" />      &nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/dtquantumc/quantumKit/blob/master/Project_partners/DTS_Dark_00.png" width="300" />   &nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/dtquantumc/quantumKit/blob/master/Project_partners/DWave.png" width="300" />   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/dtquantumc/quantumKit/blob/master/Project_partners/msft.jpg" width="300" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/dtquantumc/quantumKit/blob/master/Project_partners/GUIconBlue.png" width="150" height = "160" />
 
