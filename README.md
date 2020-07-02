@@ -13,9 +13,9 @@ To learn more, please visit this [link](https://quantumcomputing.ubc.ca/educatio
 
 # Project partners
 
-![](UBC.png)
-![](DTS_Dark_00.png)
-![](DWave.png)
-![](msft.jpg)
-![](GUIconBlue.png)
+<img src="https://github.com/dtquantumc/quantumKit/blob/master/UBC.png" width="300" />
+<img src="https://github.com/dtquantumc/quantumKit/blob/master/DTS_Dark_00.png" width="300" />
+<img src="https://github.com/dtquantumc/quantumKit/blob/master/DWave.png" width="300" />
+<img src="https://github.com/dtquantumc/quantumKit/blob/master/msft.jpg" width="300" />
+<img src="https://github.com/dtquantumc/quantumKit/blob/master/GUIconBlue.png" width="300" />
 
