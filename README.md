@@ -15,9 +15,5 @@ To learn more, please visit this [link](https://quantumcomputing.ubc.ca/educatio
 
 # Project partners
 
-<img src="https://github.com/dtquantumc/quantumKit/blob/master/Project_partners/UBC.png" width="300" />
-<img src="https://github.com/dtquantumc/quantumKit/blob/master/Project_partners/DTS_Dark_00.png" width="300" />
-<img src="https://github.com/dtquantumc/quantumKit/blob/master/Project_partners/DWave.png" width="300" />
-<img src="https://github.com/dtquantumc/quantumKit/blob/master/Project_partners/msft.jpg" width="300" />
-<img src="https://github.com/dtquantumc/quantumKit/blob/master/Project_partners/GUIconBlue.png" width="300" />
+<img src="https://github.com/dtquantumc/quantumKit/blob/master/Project_partners/UBC.png" width="450" height="100" />      &nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/dtquantumc/quantumKit/blob/master/Project_partners/DTS_Dark_00.png" width="300" />   &nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/dtquantumc/quantumKit/blob/master/Project_partners/DWave.png" width="300" />   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/dtquantumc/quantumKit/blob/master/Project_partners/msft.jpg" width="300" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/dtquantumc/quantumKit/blob/master/Project_partners/GUIconBlue.png" width="150" height = "160" />
 
