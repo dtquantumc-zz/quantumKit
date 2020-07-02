@@ -1,5 +1,7 @@
 # Quantum Kit
 An educative toolkit with custom developed Quantum Computing workshops, games, and interactive tools.
+We also offer a ['Quantum Hub'](https://quantum-hub.herokuapp.com/app/lattice), a gallery of web applications and games that run directly on D-Wave's 2000-Qubit Quantum Computer. To visit the repository for the quantum hub, click [here](https://github.com/dtquantumc/quantum-hub).
+
 
 # Diversifying Talent in Quantum Computing
 
