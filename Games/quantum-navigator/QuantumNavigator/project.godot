@@ -19,6 +19,10 @@ config/name="QuantumNavigator"
 run/main_scene="res://World.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+OtterStats="*res://Otter/OtterStats.tscn"
+
 [display]
 
 window/size/width=320
@@ -49,6 +53,13 @@ texture={
 "stream": false,
 "svg/scale": 1.0
 }
+
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Otter"
+2d_physics/layer_3="OtterHurtbox"
+2d_physics/layer_4="EnemyHurtbox"
 
 [rendering]
 
