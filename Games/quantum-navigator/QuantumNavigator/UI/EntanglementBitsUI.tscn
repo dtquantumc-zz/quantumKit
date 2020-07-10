@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://UI/BlueEntanglementBitEmpty.png" type="Texture" id=1]
+[ext_resource path="res://UI/RedEntanglementBitEmpty.png" type="Texture" id=2]
+[ext_resource path="res://UI/BlueEntanglementBitFull.png" type="Texture" id=3]
+[ext_resource path="res://UI/RedEntanglementBitFull.png" type="Texture" id=4]
+
+[node name="EntanglementBitsUI" type="Control"]
+margin_right = 56.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RedEntanglementBitEmpty" type="TextureRect" parent="."]
+margin_right = 28.0
+margin_bottom = 14.0
+texture = ExtResource( 2 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlueEntanglementBitEmpty" type="TextureRect" parent="."]
+margin_left = 28.0
+margin_right = 56.0
+margin_bottom = 14.0
+texture = ExtResource( 1 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RedEntanglementBitFull" type="TextureRect" parent="."]
+margin_right = 28.0
+margin_bottom = 14.0
+texture = ExtResource( 4 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlueEntanglementBitFull" type="TextureRect" parent="."]
+margin_left = 28.0
+margin_right = 56.0
+margin_bottom = 14.0
+texture = ExtResource( 3 )
+stretch_mode = 2

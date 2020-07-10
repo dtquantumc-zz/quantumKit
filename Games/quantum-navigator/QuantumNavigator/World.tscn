@@ -1,8 +1,25 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Otter/Otter.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/EntanglementBitsUI.tscn" type="PackedScene" id=2]
 
 [node name="World" type="Node2D"]
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 16, 38 )
+current = true
+smoothing_enabled = true
+
 [node name="Otter" parent="." instance=ExtResource( 1 )]
-position = Vector2( 13, 21 )
+position = Vector2( 16, 38 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Otter"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="EntanglementBitsUI" parent="CanvasLayer" instance=ExtResource( 2 )]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 59.0
+margin_bottom = 18.0
