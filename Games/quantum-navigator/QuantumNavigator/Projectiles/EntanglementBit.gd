@@ -1,21 +1,28 @@
 extends Area2D
 
-const FIREBALL_SPEED = 200
-var direction = null
+const ENTANGLEMENT_BIT_SPEED = 200
+const UTIL = preload("res://Utility.gd")
 
-func start(_direction):
+var direction = null
+var color = UTIL.BLUE
+func start(_direction, _color):
 	direction = _direction
+	color = _color
+	if color == UTIL.BLUE:
+		var blueBit = load("res://UI/BlueEntanglementBitFull.png")
+		get_node("Sprite").set_texture(blueBit)
 
 func _process(delta):
-	var speed_x = 1
-	var speed_y = 0
-	var motion = direction * FIREBALL_SPEED
-	
+	var motion = direction * ENTANGLEMENT_BIT_SPEED
 	set_global_position(get_global_position() + motion * delta)
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 
-func _on_EntanglementBit_area_entered(area):
+func _on_EntanglementBit_area_entered(_area):
 	queue_free()
-	area.queue_free()  # destroy target
+	CustomSignals.emit_signal("entanglement_bit_collision", color)
+	if color == UTIL.RED:
+		OtterStats.red_bits -= 1
+	else:
+		OtterStats.blue_bits -= 1
