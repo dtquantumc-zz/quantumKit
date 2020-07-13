@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Otter/Otter.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/EntanglementBitsUI.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Teleporter/Teleporter.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Computer/Computer.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Traps/SpikeTrap.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Teleporter/GrayPhoneBooth/GrayPhoneBooth.tscn" type="PackedScene" id=11]
 
 [sub_resource type="TileSet" id=1]
 0/name = "LabTile.png 0"
@@ -269,6 +270,14 @@ position = Vector2( 176, -17 )
 [node name="SpikeTrap6" parent="YSort/SpikeTraps" instance=ExtResource( 10 )]
 position = Vector2( 176, 127 )
 
+[node name="Teleporters" type="YSort" parent="YSort"]
+
+[node name="GrayPhoneBooth" parent="YSort/Teleporters" instance=ExtResource( 11 )]
+position = Vector2( 277, 93 )
+
+[node name="GrayPhoneBooth2" parent="YSort/Teleporters" instance=ExtResource( 11 )]
+position = Vector2( 273, -52 )
+
 [node name="Computer" parent="." instance=ExtResource( 9 )]
 position = Vector2( 64, 32 )
 
@@ -280,7 +289,7 @@ margin_top = 2.0
 margin_right = 59.0
 margin_bottom = 18.0
 
-[node name="Control" parent="CanvasLayer" instance=ExtResource( 5 )]
+[node name="PickleCountsUI" parent="CanvasLayer" instance=ExtResource( 5 )]
 margin_left = 66.0
 margin_top = 2.0
 margin_right = 74.0

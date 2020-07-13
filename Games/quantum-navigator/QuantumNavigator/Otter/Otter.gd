@@ -11,6 +11,7 @@ enum {
 }
 
 var state = MOVE
+var entanglement_bit_direction = Vector2(0, 1)
 var velocity = Vector2.ZERO
 var stats = OtterStats
 
@@ -18,6 +19,11 @@ onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 onready var hurtbox = $Hurtbox
+
+# Timer for the entanglement bit projectile
+onready var timer = get_node("Timer")
+
+const ENTANGLEMENT_BIT_SCENE = preload("res://Projectiles/RedEntanglementBit.tscn")
 
 func _ready():
 	stats.connect("no_health", self, "queue_free")
@@ -46,6 +52,8 @@ func move_state(delta):
 		animationTree.set("parameters/Push/blend_position", input_vector)
 		animationState.travel("Run")
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
+					
+		entanglement_bit_direction = input_vector
 	else:
 		animationState.travel("Idle")
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
@@ -63,6 +71,9 @@ func push_state():
 	
 func shoot_state():
 	animationState.travel("Shoot")
+	if timer.is_stopped():
+		create_entanglement_bit()
+		restart_timer()
 
 func shoot_animation_finished():
 	reset_to_move_state()
@@ -77,3 +88,15 @@ func reset_to_move_state():
 func _on_Hurtbox_area_entered(area):
 	stats.health -= 1
 	hurtbox.start_invincibility(0.5)
+
+func create_entanglement_bit():
+	var entanglementBit = ENTANGLEMENT_BIT_SCENE.instance()
+	get_parent().add_child(entanglementBit)
+	entanglementBit.start(entanglement_bit_direction)
+	entanglementBit.set_global_position(get_node("Position2D").get_global_position())
+
+func restart_timer():
+	timer.start(0.5)
+
+func _on_Timer_timeout():
+	timer.stop()
