@@ -3,6 +3,7 @@ extends KinematicBody2D
 export var ACCELERATION = 500
 export var MAX_SPEED = 80
 export var FRICTION = 500
+export(NodePath) var PARENT
 
 enum {
 	MOVE,
@@ -13,17 +14,15 @@ enum {
 var state = MOVE
 var velocity = Vector2.ZERO
 var stats = OtterStats
-var followers = []
-var isTeleporting = false
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 onready var hurtbox = $Hurtbox
-onready var followOtter = preload("res://Otter/FollowOtter.tscn")
 
 func _ready():
-	stats.connect("no_health", self, "queue_free")
+#	stats.connect("no_health", self, "queue_free")
+	$End_Teleport_Particles.emitting = true
 
 func _physics_process(delta):
 	match state:
@@ -35,12 +34,13 @@ func _physics_process(delta):
 			shoot_state()
 
 func move_state(delta):
-	if isTeleporting: return
 	var input_vector = Vector2.ZERO
-	input_vector.x = (Input.get_action_strength("ui_right") - 
-		Input.get_action_strength("ui_left"))
-	input_vector.y = (Input.get_action_strength("ui_down") - 
-		Input.get_action_strength("ui_up"))
+	var parent = get_node(PARENT)
+
+	input_vector.x = parent.position.x - position.x
+	input_vector.y = parent.position.y - position.y
+	if (input_vector.length() < 30): input_vector = Vector2.ZERO
+
 	input_vector = input_vector.normalized()
 	
 	if input_vector != Vector2.ZERO:
@@ -51,14 +51,17 @@ func move_state(delta):
 		animationState.travel("Run")
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
 	else:
-		animationState.travel("Idle")
+#		animationState.travel("Idle")
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 	
 	velocity = move_and_slide(velocity)
 	
+	if velocity == Vector2.ZERO:
+		animationState.travel("Idle")
+	
 	if Input.is_action_just_pressed("push"):
 		state = PUSH
-	
+
 	if Input.is_action_just_pressed("shoot"):
 		state = SHOOT
 
@@ -81,33 +84,3 @@ func reset_to_move_state():
 func _on_Hurtbox_area_entered(_area):
 	stats.health -= 1
 	hurtbox.start_invincibility(0.5)
-
-func _on_Computer_effect_process_start():
-	$Teleport_Particles.emitting = true
-	isTeleporting = true
-
-func _on_Computer_effect_process_done(computer_position):
-	print(computer_position)
-	$Teleport_Particles.emitting = false
-	$End_Teleport_Particles.emitting = true
-#	self.position = 2 * computer_position - self.position
-	self.spawn_followers(2)
-	var comput_dir = (computer_position - self.position).normalized()
-	var perp = Vector2(-comput_dir.y, comput_dir.x)
-	var center_pos = computer_position + 30 * comput_dir
-	self.position = center_pos + 15 * perp
-	followers[0].position = center_pos
-	followers[1].position = center_pos - 15 * perp
-	isTeleporting = false
-
-func spawn_followers(num_followers):
-	for _i in range(num_followers):
-		followers.append(followOtter.instance())
-		get_parent().add_child(followers[-1])
-	
-	followers[0].position = position + Vector2(-20, 0)
-	followers[0].PARENT = self.get_path()
-	for i in range(1, followers.size()):
-		followers[i].position = followers[i-1].position + Vector2(-20, 0)
-		followers[i].PARENT = followers[i-1].get_path()
-	

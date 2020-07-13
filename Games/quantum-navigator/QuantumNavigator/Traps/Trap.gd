@@ -7,6 +7,6 @@ func create_spike_effect():
 	world.add_child(spikeEffect)
 	spikeEffect.global_position = global_position
 
-func _on_Hurtbox_area_entered(area):
+func _on_Hurtbox_area_entered(_area):
 	create_spike_effect()
 	queue_free()
