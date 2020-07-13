@@ -7,9 +7,9 @@
 [ext_resource path="res://UI/PickleCountsUI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Pickle/Pickle.tscn" type="PackedScene" id=6]
 [ext_resource path="res://GrassBackground.png" type="Texture" id=7]
-[ext_resource path="res://Teleporter/Teleporter.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Computer/Computer.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Traps/SpikeTrap.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Teleporter/PhoneBooth.tscn" type="PackedScene" id=11]
 
 [sub_resource type="TileSet" id=1]
 0/name = "LabTile.png 0"
@@ -249,6 +249,14 @@ position = Vector2( 205, 100 )
 [node name="Pickle2" parent="YSort/Pickles" instance=ExtResource( 6 )]
 position = Vector2( 202, -43 )
 
+[node name="Teleporters" type="YSort" parent="YSort"]
+
+[node name="PhoneBooth" parent="YSort/Teleporters" instance=ExtResource( 11 )]
+position = Vector2( 127, 64 )
+
+[node name="PhoneBooth2" parent="YSort/Teleporters" instance=ExtResource( 11 )]
+position = Vector2( 121, -5 )
+
 [node name="SpikeTraps" type="YSort" parent="YSort"]
 
 [node name="SpikeTrap" parent="YSort/SpikeTraps" instance=ExtResource( 10 )]
@@ -285,5 +293,3 @@ margin_left = 66.0
 margin_top = 2.0
 margin_right = 74.0
 margin_bottom = 18.0
-
-[node name="Teleporter" parent="." instance=ExtResource( 8 )]

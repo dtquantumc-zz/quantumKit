@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 OtterStats="*res://Otter/OtterStats.tscn"
+CustomSignals="*res://CustomSignals.tscn"
 
 [display]
 
