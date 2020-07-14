@@ -124,8 +124,8 @@ func spawn_followers(num_followers):
 		followers[i].PARENT = followers[i-1].get_path()
 
 func _on_Hurtbox_area_entered(area):
-	stats.health -= area.damage
-	hurtbox.start_invincibility(0.5)
+	stats.health -= 1
+	# hurtbox.start_invincibility(0.5)
 
 func create_entanglement_bit():
 	var entanglementBit = ENTANGLEMENT_BIT_SCENE.instance()

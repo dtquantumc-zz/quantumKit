@@ -938,7 +938,6 @@ position = Vector2( 0, -9 )
 [node name="Timer" type="Timer" parent="."]
 
 [node name="BodyHitbox" parent="." instance=ExtResource( 5 )]
-visible = false
 position = Vector2( -4, -3.99999 )
 rotation = 3.14159
 collision_layer = 64

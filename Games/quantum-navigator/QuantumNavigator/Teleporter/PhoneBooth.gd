@@ -9,7 +9,7 @@ func _ready():
 	TeleporterState.connect("teleporters_are_connected", self, "on_teleporters_are_connected")
 
 func _on_Hurtbox_area_entered(area):
-	if TeleporterState.are_all_teleporters_connected():
+	if !is_gray_phone_booth():
 		return
 
 	update_teleporter_state()
@@ -20,6 +20,10 @@ func _on_Hurtbox_area_entered(area):
 		TeleporterState.are_blue_teleporters_connected = true
 	else:
 		update_teleporter_color()
+
+func is_gray_phone_booth():
+	return (get_node("Sprite").get_texture().get_path() ==
+	"res://Teleporter/GrayPhoneBooth/PhoneBoothGray.png")
 
 func update_teleporter_state():
 	if TeleporterState.current_bit_color == UTIL.RED:
