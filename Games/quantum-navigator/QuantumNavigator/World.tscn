@@ -255,7 +255,7 @@ position = Vector2( 202, -43 )
 position = Vector2( 127, 64 )
 
 [node name="PhoneBooth2" parent="YSort/Teleporters" instance=ExtResource( 11 )]
-position = Vector2( 121, -5 )
+position = Vector2( 125, -1 )
 
 [node name="SpikeTraps" type="YSort" parent="YSort"]
 
@@ -277,8 +277,8 @@ position = Vector2( 176, -17 )
 [node name="SpikeTrap6" parent="YSort/SpikeTraps" instance=ExtResource( 10 )]
 position = Vector2( 176, 127 )
 
-[node name="Computer" parent="." instance=ExtResource( 9 )]
-position = Vector2( 64, 32 )
+[node name="Computer" parent="YSort" instance=ExtResource( 9 )]
+position = Vector2( 62, 34 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -293,3 +293,5 @@ margin_left = 66.0
 margin_top = 2.0
 margin_right = 74.0
 margin_bottom = 18.0
+
+[node name="Node" type="Node" parent="."]

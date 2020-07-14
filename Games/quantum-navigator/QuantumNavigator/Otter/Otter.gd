@@ -24,9 +24,9 @@ onready var hurtbox = $Hurtbox
 onready var followOtter = preload("res://Otter/FollowOtter.tscn")
 
 # Timer for the entanglement bit projectile
-onready var timer = get_node("Hurtbox/Timer")
+onready var timer = get_node("Timer")
 
-const ENTANGLEMENT_BIT_SCENE = preload("res://Projectiles/EntanglementBit.tscn")
+const ENTANGLEMENT_BIT_SCENE = preload("res://Projectiles/EntanglementBitProjectile.tscn")
 const UTIL = preload("res://Utility.gd")
 
 func _ready():
@@ -78,9 +78,11 @@ func shoot_state():
 	animationState.travel("Shoot")
 	if timer.is_stopped() and UTIL.hasBitsToUse():
 		if UTIL.hasRedBits():
-			create_entanglement_bit(UTIL.RED)
+			TeleporterState.current_bit_color = UTIL.RED
+			create_entanglement_bit()
 		else:
-			create_entanglement_bit(UTIL.BLUE)
+			TeleporterState.current_bit_color = UTIL.BLUE
+			create_entanglement_bit()
 		restart_timer()
 
 func shoot_animation_finished():
@@ -98,7 +100,6 @@ func _on_Computer_effect_process_start():
 	isTeleporting = true
 
 func _on_Computer_effect_process_done(computer_position):
-	print(computer_position)
 	$Teleport_Particles.emitting = false
 	$End_Teleport_Particles.emitting = true
 #	self.position = 2 * computer_position - self.position
@@ -115,25 +116,25 @@ func spawn_followers(num_followers):
 	for _i in range(num_followers):
 		followers.append(followOtter.instance())
 		get_parent().add_child(followers[-1])
-	
+
 	followers[0].position = position + Vector2(-20, 0)
 	followers[0].PARENT = self.get_path()
 	for i in range(1, followers.size()):
 		followers[i].position = followers[i-1].position + Vector2(-20, 0)
 		followers[i].PARENT = followers[i-1].get_path()
-	
+
 func _on_Hurtbox_area_entered(area):
 	stats.health -= area.damage
 	hurtbox.start_invincibility(0.5)
 
-func create_entanglement_bit(color):
+func create_entanglement_bit():
 	var entanglementBit = ENTANGLEMENT_BIT_SCENE.instance()
 	get_parent().add_child(entanglementBit)
-	entanglementBit.start(entanglement_bit_direction, color)
+	entanglementBit.start(entanglement_bit_direction)
 	entanglementBit.set_global_position(get_node("Position2D").get_global_position())
 
 func restart_timer():
-	timer.start(0.5)
+	timer.start(1)
 
 func _on_Timer_timeout():
 	timer.stop()

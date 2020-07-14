@@ -22,7 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 OtterStats="*res://Otter/OtterStats.tscn"
-CustomSignals="*res://CustomSignals.tscn"
+TeleporterState="*res://Teleporter/TeleporterState.tscn"
 
 [display]
 
@@ -116,6 +116,8 @@ swap={
 2d_physics/layer_5="Enemy"
 2d_physics/layer_6="InteractableHurtbox"
 2d_physics/layer_7="OtterBodyHitbox"
+2d_physics/layer_8="ProjectileHitbox"
+2d_physics/layer_9="TeleporterHurtbox"
 
 [rendering]
 

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Overlap/Hitbox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/RedEntanglementBitFull.png" type="Texture" id=2]
+[ext_resource path="res://Projectiles/EntanglementBitProjectile.gd" type="Script" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 2.23607
+
+[node name="EntanglementBitProjectile" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 1.19209e-07, 4.76837e-07 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="Hitbox" parent="." instance=ExtResource( 1 )]
+collision_layer = 128
+collision_mask = 256
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource( 1 )
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
+
+[editable path="Hitbox"]

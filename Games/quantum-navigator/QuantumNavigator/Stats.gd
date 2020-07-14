@@ -25,8 +25,8 @@ func set_pickles(value):
 
 func set_red_bits(value):
 	red_bits = value
-	emit_signal("red_bits_changed", pickles)
+	emit_signal("red_bits_changed", red_bits)
 
 func set_blue_bits(value):
 	blue_bits = value
-	emit_signal("blue_bits_changed", pickles)
+	emit_signal("blue_bits_changed", red_bits)
