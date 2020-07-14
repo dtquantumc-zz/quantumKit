@@ -11,6 +11,8 @@ func create_computer_effect():
 	print("test")
 
 func _on_Hurtbox_area_entered(_area):
-	create_computer_effect()
-	queue_free()
+	if ($'/root/World/YSort/Otter'.stats.pickles >= 2):
+		$'/root/World/YSort/Otter'.stats.pickles -= 2
+		create_computer_effect()
+		queue_free()
 
