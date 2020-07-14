@@ -11,4 +11,5 @@ func set_pickles(value):
 
 func _ready():
 	self.pickles = OtterStats.pickles
+	# warning-ignore:return_value_discarded
 	OtterStats.connect("pickles_changed", self, "set_pickles")

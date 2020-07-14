@@ -872,6 +872,7 @@ hframes = 123
 frame = 44
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 rotation = -1.5708
 shape = SubResource( 1 )
 
@@ -911,7 +912,6 @@ parameters/Run/blend_position = Vector2( -0.898305, -0.0818182 )
 parameters/Shoot/blend_position = Vector2( -0.00518137, 0.224138 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 4 )]
-visible = false
 collision_layer = 4
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
@@ -921,15 +921,15 @@ shape = SubResource( 60 )
 
 [node name="HitboxPivot" type="Position2D" parent="."]
 position = Vector2( 0, -4 )
-rotation = 3.14159
 
 [node name="HandHitbox" parent="HitboxPivot" instance=ExtResource( 5 )]
 position = Vector2( 4, 0 )
-collision_layer = 32
-collision_mask = 40
+collision_layer = 2
+collision_mask = 32
 
 [node name="CollisionShape2D" parent="HitboxPivot/HandHitbox" index="0"]
 shape = SubResource( 61 )
+disabled = true
 
 [node name="Position2D" type="Position2D" parent="."]
 visible = false
@@ -938,6 +938,7 @@ position = Vector2( 0, -9 )
 [node name="Timer" type="Timer" parent="."]
 
 [node name="BodyHitbox" parent="." instance=ExtResource( 5 )]
+visible = false
 position = Vector2( -4, -3.99999 )
 rotation = 3.14159
 collision_layer = 64
