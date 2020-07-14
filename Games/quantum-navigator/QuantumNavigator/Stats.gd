@@ -3,6 +3,7 @@ extends Node
 export var max_health = 1
 export var red_bits = 2 setget set_red_bits
 export var blue_bits = 2 setget set_blue_bits
+export var max_pickles = 2
 export var pickles = 0 setget set_pickles
 
 onready var health = max_health setget set_health
@@ -12,6 +13,7 @@ signal health_changed(value)
 signal pickles_changed(value)
 signal red_bits_changed(value)
 signal blue_bits_changed(value)
+signal max_pickles_collected
 
 func set_health(value):
 	health = value
@@ -22,6 +24,8 @@ func set_health(value):
 func set_pickles(value):
 	pickles = value
 	emit_signal("pickles_changed", pickles)
+	if pickles == max_pickles:
+		emit_signal("max_pickles_collected")
 
 func set_red_bits(value):
 	red_bits = value
@@ -29,4 +33,4 @@ func set_red_bits(value):
 
 func set_blue_bits(value):
 	blue_bits = value
-	emit_signal("blue_bits_changed", red_bits)
+	emit_signal("blue_bits_changed", blue_bits)

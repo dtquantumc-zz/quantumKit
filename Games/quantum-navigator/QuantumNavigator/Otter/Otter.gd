@@ -157,8 +157,8 @@ func swap_followers():
 	
 
 func _on_Hurtbox_area_entered(area):
-	stats.health -= area.damage
-	hurtbox.start_invincibility(0.5)
+	stats.health -= 1
+	# hurtbox.start_invincibility(0.5)
 
 func create_entanglement_bit():
 	var entanglementBit = ENTANGLEMENT_BIT_SCENE.instance()
