@@ -3,6 +3,7 @@ extends KinematicBody2D
 export var ACCELERATION = 500
 export var MAX_SPEED = 80
 export var FRICTION = 500
+export(NodePath) var FOLLOW_TARGET = null
 
 enum {
 	MOVE,
@@ -21,7 +22,7 @@ onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 onready var hurtbox = $Hurtbox
-onready var followOtter = preload("res://Otter/FollowOtter.tscn")
+
 
 # Timer for the entanglement bit projectile
 onready var timer = get_node("Timer")
@@ -44,10 +45,18 @@ func _physics_process(delta):
 func move_state(delta):
 	if isTeleporting: return
 	var input_vector = Vector2.ZERO
-	input_vector.x = (Input.get_action_strength("ui_right") -
-		Input.get_action_strength("ui_left"))
-	input_vector.y = (Input.get_action_strength("ui_down") -
-		Input.get_action_strength("ui_up"))
+	
+	if FOLLOW_TARGET == null:	
+		input_vector.x = (Input.get_action_strength("ui_right") -
+			Input.get_action_strength("ui_left"))
+		input_vector.y = (Input.get_action_strength("ui_down") -
+			Input.get_action_strength("ui_up"))
+	else:
+		var target = get_node(FOLLOW_TARGET)
+		input_vector.x = target.position.x - position.x
+		input_vector.y = target.position.y - position.y
+		if (input_vector.length() < 30): input_vector = Vector2.ZERO
+	
 	input_vector = input_vector.normalized()
 
 	if input_vector != Vector2.ZERO:
@@ -60,16 +69,22 @@ func move_state(delta):
 
 		entanglement_bit_direction = input_vector
 	else:
-		animationState.travel("Idle")
+#		animationState.travel("Idle")
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 
 	velocity = move_and_slide(velocity)
+
+	if velocity == Vector2.ZERO:
+		animationState.travel("Idle")
 
 	if Input.is_action_just_pressed("push"):
 		state = PUSH
 
 	if Input.is_action_just_pressed("shoot"):
 		state = SHOOT
+	
+	if Input.is_action_just_pressed("swap") and FOLLOW_TARGET == null:
+		self.call_deferred("swap_followers")
 
 func push_state():
 	animationState.travel("Push")
@@ -114,14 +129,32 @@ func _on_Computer_effect_process_done(computer_position):
 
 func spawn_followers(num_followers):
 	for _i in range(num_followers):
-		followers.append(followOtter.instance())
+		followers.append(load("res://Otter/Otter.tscn").instance())
 		get_parent().add_child(followers[-1])
 
 	followers[0].position = position + Vector2(-20, 0)
-	followers[0].PARENT = self.get_path()
+	followers[0].FOLLOW_TARGET = self.get_path()
+	followers[0].get_node("End_Teleport_Particles").emitting = true
 	for i in range(1, followers.size()):
 		followers[i].position = followers[i-1].position + Vector2(-20, 0)
-		followers[i].PARENT = followers[i-1].get_path()
+		followers[i].FOLLOW_TARGET = followers[i-1].get_path()
+		followers[i].get_node("End_Teleport_Particles").emitting = true
+
+func swap_followers():
+	print(followers.size())
+	if (followers.size() == 0):
+		return
+	var mainOtter = followers[0]
+	for i in range(1, followers.size()):
+		mainOtter.followers.append(followers[i])
+	mainOtter.FOLLOW_TARGET = null
+	FOLLOW_TARGET = followers[-1].get_path()
+	mainOtter.followers.append(self)
+	followers = []
+	var rmTrans = $RemoteTransform2D
+	self.remove_child(rmTrans)
+	mainOtter.add_child(rmTrans)
+	
 
 func _on_Hurtbox_area_entered(area):
 	stats.health -= area.damage
