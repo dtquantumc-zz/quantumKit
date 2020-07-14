@@ -8,6 +8,7 @@ func create_computer_effect():
 	var world = get_tree().current_scene
 	world.add_child(computerEffect)
 	computerEffect.global_position = global_position
+	print("test")
 
 func _on_Hurtbox_area_entered(_area):
 	create_computer_effect()
