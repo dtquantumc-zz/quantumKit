@@ -3,9 +3,9 @@ extends Node
 export var max_health = 1
 export var red_bits = 2 setget set_red_bits
 export var blue_bits = 2 setget set_blue_bits
+export var pickles = 0 setget set_pickles
 
 onready var health = max_health setget set_health
-var pickles = 0 setget set_pickles
 
 signal no_health
 signal health_changed(value)

@@ -4,3 +4,4 @@
 
 [node name="Stats" type="Node"]
 script = ExtResource( 1 )
+blue_bits = 0
