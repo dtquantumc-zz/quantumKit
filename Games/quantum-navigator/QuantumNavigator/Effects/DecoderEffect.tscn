@@ -83,3 +83,4 @@ animations = [ {
 frames = SubResource( 18 )
 frame = 16
 script = ExtResource( 2 )
+[connection signal="animation_finished" from="." to="." method="_on_DecoderEffect_animation_finished"]

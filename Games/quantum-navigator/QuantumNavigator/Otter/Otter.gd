@@ -125,6 +125,7 @@ func _on_Computer_effect_process_done(computer_position):
 	self.position = center_pos + 15 * perp
 	followers[0].position = center_pos
 	followers[1].position = center_pos - 15 * perp
+	stats.isEncoded = true
 	isTeleporting = false
 
 func spawn_followers(num_followers):
@@ -172,3 +173,23 @@ func restart_timer():
 func _on_Timer_timeout():
 	timer.stop()
 
+func _on_Decoder_effect_process_start():
+	$Teleport_Particles.emitting = true
+	isTeleporting = true
+	for follower in followers:
+		follower.get_node("Teleport_Particles").emitting = true
+
+func _on_Decoder_effect_process_done(computer_position):
+	$Teleport_Particles.emitting = false
+	$End_Teleport_Particles.emitting = true
+#	self.position = 2 * computer_position - self.position
+	for follower in followers:
+		follower.queue_free()
+	followers.clear()
+	var comput_dir = (computer_position - self.position).normalized()
+
+	var center_pos = computer_position + 30 * comput_dir
+	self.position = center_pos
+
+	stats.isEncoded = false
+	isTeleporting = false

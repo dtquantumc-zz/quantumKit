@@ -5,6 +5,7 @@ export var red_bits = 2 setget set_red_bits
 export var blue_bits = 2 setget set_blue_bits
 export var max_pickles = 2
 export var pickles = 0 setget set_pickles
+export var isEncoded = false
 
 onready var health = max_health setget set_health
 
