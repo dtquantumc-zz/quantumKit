@@ -1,6 +1,6 @@
 extends Area2D
 
-
+export(PackedScene) var nextScene = null
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -17,4 +17,5 @@ func _ready():
 
 
 func _on_Area2D_area_entered(area):
-	print("move levels")
+	if nextScene != null:
+		get_tree().change_scene_to(nextScene)

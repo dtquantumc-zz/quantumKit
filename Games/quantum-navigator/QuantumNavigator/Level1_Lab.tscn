@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Lab/LabWall.png" type="Texture" id=1]
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Assets/BigManaPotion.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Assets/SmallHealthPotion.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Level_Transition/Level_Transition_Box.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Level2_Maze.tscn" type="PackedScene" id=20]
 
 [sub_resource type="TileSet" id=1]
 0/name = "LabTile.png 0"
@@ -1008,3 +1009,4 @@ margin_bottom = 18.0
 
 [node name="Level_Transition" parent="." instance=ExtResource( 19 )]
 position = Vector2( 374.131, 94.9815 )
+nextScene = ExtResource( 20 )
