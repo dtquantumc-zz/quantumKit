@@ -31,7 +31,7 @@ const ENTANGLEMENT_BIT_SCENE = preload("res://Projectiles/EntanglementBitProject
 const UTIL = preload("res://Utility.gd")
 
 func _ready():
-	stats.connect("no_health", self, "queue_free")
+	stats.connect("no_health", self, "zero_health")
 
 func _physics_process(delta):
 	match state:
@@ -130,8 +130,9 @@ func _on_Computer_effect_process_done(computer_position):
 
 func spawn_followers(num_followers):
 	for _i in range(num_followers):
-		followers.append(load("res://Otter/Otter.tscn").instance())
-		get_parent().add_child(followers[-1])
+		var newFollower = load("res://Otter/Otter.tscn").instance()
+		get_parent().add_child(newFollower)
+		followers.append(newFollower)
 
 	followers[0].position = position + Vector2(-20, 0)
 	followers[0].FOLLOW_TARGET = self.get_path()
@@ -158,7 +159,8 @@ func swap_followers():
 	
 
 func _on_Hurtbox_area_entered(area):
-	stats.health -= 1
+	if FOLLOW_TARGET == null: # Is not a follower
+		stats.health -= 1
 	# hurtbox.start_invincibility(0.5)
 
 func create_entanglement_bit():
@@ -193,3 +195,21 @@ func _on_Decoder_effect_process_done(computer_position):
 
 	stats.isEncoded = false
 	isTeleporting = false
+
+func zero_health():
+	if FOLLOW_TARGET == null:
+		self.call_deferred("die")
+
+func die():
+	if followers.size() > 0:
+		var mainOtter = followers[0]
+		for i in range(1, followers.size()):
+			mainOtter.followers.append(followers[i])
+		mainOtter.FOLLOW_TARGET = null
+		var rmTrans = $RemoteTransform2D
+		print(rmTrans)
+		self.remove_child(rmTrans)
+		mainOtter.add_child(rmTrans)
+	stats.health = 5
+	queue_free()
+
