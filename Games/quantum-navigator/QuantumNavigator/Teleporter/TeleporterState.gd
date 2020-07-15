@@ -9,6 +9,8 @@ var current_bit_color = UTIL.RED setget set_current_bit_color
 var are_red_teleporters_connected = false setget set_are_red_teleporters_connected
 var are_blue_teleporters_connected = false setget set_are_blue_teleporters_connected
 
+var teleporters = []
+
 signal teleporters_are_connected(value)
 
 func set_num_teleporters(value):

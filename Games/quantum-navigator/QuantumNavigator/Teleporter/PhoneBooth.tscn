@@ -32,6 +32,9 @@ collision_mask = 2
 [node name="CollisionShape2D" parent="InteractableHurtbox" index="0"]
 position = Vector2( 0, -1 )
 shape = SubResource( 2 )
+
+[node name="Teleport_Timer" type="Timer" parent="."]
+one_shot = true
 [connection signal="area_entered" from="TeleporterHurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="area_entered" from="InteractableHurtbox" to="." method="_on_InteractableHurtbox_area_entered"]
 

@@ -1,6 +1,13 @@
 extends Node2D
 
 const UTIL = preload("res://Utility.gd")
+const redClosed = preload("res://Teleporter/RedPhoneBooth/PhoneBoothClosed.png")
+const redClosedGlow = preload("res://Teleporter/RedPhoneBooth/PhoneBoothClosedGlowing.png")
+const redOpen = preload("res://Teleporter/RedPhoneBooth/PhoneBoothOpenConnected.png")
+const blueClosed = preload("res://Teleporter/BluePhoneBooth/PhoneBoothClosed.png")
+const blueClosedGlow = preload("res://Teleporter/BluePhoneBooth/PhoneBoothClosedGlowing.png")
+const blueOpen = preload("res://Teleporter/BluePhoneBooth/PhoneBoothOpenConnected.png")
+var color = "grey"
 
 func on_teleporters_are_connected(texture):
 	get_node("Sprite").set_texture(texture)
@@ -39,35 +46,89 @@ func all_blue_teleporters_are_same_color():
 
 func update_teleporter_color():
 	if TeleporterState.current_bit_color == UTIL.RED:
+		color = "red"
 		set_red_teleporter_color()
 	else:
+		color = "blue"
 		set_blue_teleporter_color()
 
 func set_red_teleporter_color():
-	var red_teleporter = load("res://Teleporter/RedPhoneBooth/PhoneBoothClosed.png")
-	get_node("Sprite").set_texture(red_teleporter)
+	get_node("Sprite").set_texture(redClosed)
 
 func set_blue_teleporter_color():
-	var blue_teleporter = load("res://Teleporter/BluePhoneBooth/PhoneBoothClosed.png")
-	get_node("Sprite").set_texture(blue_teleporter)
+	get_node("Sprite").set_texture(blueClosed)
 
 func handle_red_bit_fired():
 	OtterStats.red_bits -= 1
 	TeleporterState.current_bit_color = UTIL.RED
 	TeleporterState.num_red_teleporters += 1
+	TeleporterState.teleporters.append([self, 'red'])
+	color = 'red'
 
 func handle_blue_bit_fired():
 	OtterStats.blue_bits -= 1
 	TeleporterState.current_bit_color = UTIL.BLUE
 	TeleporterState.num_blue_teleporters += 1
+	TeleporterState.teleporters.append([self, 'blue'])
+	color = 'blue'
+
+func open_booth():
+	if color == "red":
+		$Sprite.set_texture(redOpen)
+	else:
+		$Sprite.set_texture(blueOpen)
+
+func close_booth():
+	if color == "red":
+		$Sprite.set_texture(redClosedGlow)
+	else:
+		$Sprite.set_texture(blueClosedGlow)
 
 func _on_InteractableHurtbox_area_entered(area):
 	if !TeleporterState.are_all_teleporters_connected():
 		return
 
-	if TeleporterState.are_red_teleporters_connected:
-		var openedRedTeleporter = load("res://Teleporter/RedPhoneBooth/PhoneBoothOpenConnected.png")
-		get_node("Sprite").set_texture(openedRedTeleporter)
-	else:
-		var openedBlueTeleporter = load("res://Teleporter/BluePhoneBooth/PhoneBoothOpenConnected.png")
-		get_node("Sprite").set_texture(openedBlueTeleporter)
+	var toTeleport = area.owner
+	toTeleport.visible = false
+	toTeleport.isTeleporting = true
+
+	open_booth()
+	
+	var otherBooth = null
+	for booth in TeleporterState.teleporters:
+		if booth[0] != self and booth[1] == color:
+			otherBooth = booth[0]
+	if otherBooth == null:
+		print("Couldn't find second teleporter!")
+		return
+	
+	$Teleport_Timer.connect(
+		"timeout",
+		self,
+		"make_Teleport",
+		[toTeleport, otherBooth],
+		CONNECT_ONESHOT
+	)
+	$Teleport_Timer.start(0.7)
+
+func make_Teleport(toTeleport, teleportTo):
+	toTeleport.position = teleportTo.position + Vector2(-8, 16)
+	teleportTo.get_node("Teleport_Timer").connect(
+		"timeout",
+		teleportTo,
+		"complete_Teleport",
+		[toTeleport],
+		CONNECT_ONESHOT
+	)
+	teleportTo.get_node("Teleport_Timer").start(0.3)
+	teleportTo.open_booth()
+	complete_Teleport(null)
+
+func complete_Teleport(toTeleport):
+	if (toTeleport != null):
+		toTeleport.visible = true
+		toTeleport.isTeleporting = false
+	
+	close_booth()
+
+
