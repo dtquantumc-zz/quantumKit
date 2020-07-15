@@ -85,7 +85,7 @@ func close_booth():
 		$Sprite.set_texture(blueClosedGlow)
 
 func _on_InteractableHurtbox_area_entered(area):
-	if !TeleporterState.are_all_teleporters_connected():
+	if !TeleporterState.are_all_teleporters_connected() or area.owner.stats.isEncoded == true:
 		return
 
 	var toTeleport = area.owner
