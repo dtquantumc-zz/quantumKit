@@ -1,5 +1,7 @@
 extends Node2D
 
+# The LeftBoulder explodes on max pickles being collected
+
 func create_explosion_effect():
 	var ExplosionEffect = load("res://Effects/BoulderExplosionEffect.tscn")
 	var explosionEffect = ExplosionEffect.instance()

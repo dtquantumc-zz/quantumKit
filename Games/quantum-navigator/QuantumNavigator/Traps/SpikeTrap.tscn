@@ -6,10 +6,10 @@
 [ext_resource path="res://Overlap/Hitbox.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 10, 40 )
+extents = Vector2( 3, 16 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 16, 40 )
+extents = Vector2( 16, 16 )
 
 [node name="SpikeTrap" type="Node2D"]
 script = ExtResource( 3 )
@@ -22,7 +22,7 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2( 24, -24 )
+position = Vector2( 17, 0 )
 shape = SubResource( 1 )
 
 [node name="Hitbox" parent="." instance=ExtResource( 4 )]
@@ -30,7 +30,6 @@ collision_layer = 16
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2( 0, -24 )
 shape = SubResource( 2 )
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
