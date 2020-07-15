@@ -17,6 +17,7 @@ signal max_pickles_collected
 
 func set_health(value):
 	health = value
+	print(health)
 	emit_signal("health_changed", health)
 	if health <= 0:
 		emit_signal("no_health")

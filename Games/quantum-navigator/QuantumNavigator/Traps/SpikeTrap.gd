@@ -10,3 +10,8 @@ func create_spike_effect():
 func _on_Hurtbox_area_entered(_area):
 	create_spike_effect()
 	queue_free()
+
+
+func _on_Hurtbox_area_exited(area):
+	create_spike_effect()
+	queue_free()
