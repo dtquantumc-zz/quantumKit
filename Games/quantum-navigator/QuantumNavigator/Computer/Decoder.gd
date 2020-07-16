@@ -1,5 +1,17 @@
 extends Node2D
 
+onready var playerDetectionZone = $PlayerDetectionZone
+onready var dialogPlayer = $Dialog_Player
+func _physics_process(_delta):
+	var story = "res://Stories/InfoBoxesBakedStory.tres"
+
+	if playerDetectionZone.can_see_player():
+		OtterStats.set_can_see_encoder(true)
+		if Input.is_action_just_pressed("info"):
+			dialogPlayer.play_dialog("EncoderInfoBox")
+	else:
+		OtterStats.set_can_see_encoder(false)
+		dialogPlayer.stop_dialog()
 func create_decoder_effect(toTeleport):
 	var DecoderEffect = load("res://Effects/DecoderEffect.tscn")
 	var decoderEffect = DecoderEffect.instance()
