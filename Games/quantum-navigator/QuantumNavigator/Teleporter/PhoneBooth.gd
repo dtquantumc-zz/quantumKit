@@ -1,5 +1,8 @@
 extends Node2D
 
+onready var playerDetectionZone = $PlayerDetectionZone
+onready var dialogPlayer = $Dialog_Player
+
 const UTIL = preload("res://Utility.gd")
 const redClosed = preload("res://Teleporter/RedPhoneBooth/PhoneBoothClosed.png")
 const redClosedGlow = preload("res://Teleporter/RedPhoneBooth/PhoneBoothClosedGlowing.png")
@@ -9,11 +12,20 @@ const blueClosedGlow = preload("res://Teleporter/BluePhoneBooth/PhoneBoothClosed
 const blueOpen = preload("res://Teleporter/BluePhoneBooth/PhoneBoothOpenConnected.png")
 var color = "grey"
 
+func _ready():
+	TeleporterState.connect("teleporters_are_connected", self, "on_teleporters_are_connected")
+
 func on_teleporters_are_connected(texture):
 	get_node("Sprite").set_texture(texture)
 
-func _ready():
-	TeleporterState.connect("teleporters_are_connected", self, "on_teleporters_are_connected")
+func _physics_process(_delta):
+	if playerDetectionZone.can_see_player():
+		OtterStats.set_can_see_teleporter(true)
+		if Input.is_action_just_pressed("info"):
+			dialogPlayer.play_dialog("TeleporterInfoBox")
+	else:
+		OtterStats.set_can_see_teleporter(false)
+		dialogPlayer.stop_dialog()
 
 func _on_Hurtbox_area_entered(area):
 	if !is_gray_phone_booth():
@@ -93,7 +105,7 @@ func _on_InteractableHurtbox_area_entered(area):
 	toTeleport.isTeleporting = true
 
 	open_booth()
-	
+
 	var otherBooth = null
 	for booth in TeleporterState.teleporters:
 		if booth[0] != self and booth[1] == color:
@@ -101,7 +113,7 @@ func _on_InteractableHurtbox_area_entered(area):
 	if otherBooth == null:
 		print("Couldn't find second teleporter!")
 		return
-	
+
 	$Teleport_Timer.connect(
 		"timeout",
 		self,
@@ -128,7 +140,7 @@ func complete_Teleport(toTeleport):
 	if (toTeleport != null):
 		toTeleport.visible = true
 		toTeleport.isTeleporting = false
-	
+
 	close_booth()
 
 

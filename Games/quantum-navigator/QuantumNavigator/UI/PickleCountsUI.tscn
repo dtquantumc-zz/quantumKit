@@ -23,7 +23,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="."]
 margin_left = 7.0
 margin_top = 12.0
-margin_right = 15.0
+margin_right = 31.0
 margin_bottom = 26.0
 rect_scale = Vector2( 0.25, 0.25 )
 text = "0"

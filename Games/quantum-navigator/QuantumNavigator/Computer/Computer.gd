@@ -1,5 +1,16 @@
 extends Node2D
 
+onready var playerDetectionZone = $PlayerDetectionZone
+onready var dialogPlayer = $Dialog_Player
+func _physics_process(_delta):
+	if playerDetectionZone.can_see_player():
+		OtterStats.set_can_see_encoder(true)
+		if Input.is_action_just_pressed("info"):
+			dialogPlayer.play_dialog("EncoderInfoBox")
+	else:
+		OtterStats.set_can_see_encoder(false)
+		dialogPlayer.stop_dialog()
+
 func create_computer_effect(toTeleport):
 	var ComputerEffect = load("res://Effects/ComputerEffect.tscn")
 	var computerEffect = ComputerEffect.instance()

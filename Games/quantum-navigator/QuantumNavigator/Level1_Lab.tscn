@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Lab/LabWall.png" type="Texture" id=1]
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://Assets/SmallHealthPotion.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Level_Transition/Level_Transition_Box.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Level2_Maze.tscn" type="PackedScene" id=20]
+[ext_resource path="res://UI/TeleporterHelpUI.tscn" type="PackedScene" id=21]
 
 [sub_resource type="TileSet" id=1]
 0/name = "LabTile.png 0"
@@ -289,14 +290,6 @@ position = Vector2( 311.183, 72.8244 )
 
 [node name="Pickle2" parent="YSort/Pickles" instance=ExtResource( 8 )]
 position = Vector2( 311.616, -39.0509 )
-
-[node name="Teleporters" type="YSort" parent="YSort"]
-
-[node name="PhoneBooth" parent="YSort/Teleporters" instance=ExtResource( 9 )]
-position = Vector2( 328, 112 )
-
-[node name="PhoneBooth2" parent="YSort/Teleporters" instance=ExtResource( 9 )]
-position = Vector2( 296, -104 )
 
 [node name="SpikeTraps" type="YSort" parent="YSort"]
 
@@ -991,6 +984,14 @@ position = Vector2( 128, 128 )
 [node name="BigManaPotion5" parent="YSort/Potions" instance=ExtResource( 17 )]
 position = Vector2( 192, 128 )
 
+[node name="Teleporters" type="YSort" parent="YSort"]
+
+[node name="PhoneBooth" parent="YSort/Teleporters" instance=ExtResource( 9 )]
+position = Vector2( 328, 112 )
+
+[node name="PhoneBooth2" parent="YSort/Teleporters" instance=ExtResource( 9 )]
+position = Vector2( 296, -104 )
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="EntanglementBitsUI" parent="CanvasLayer" instance=ExtResource( 5 )]
@@ -1005,7 +1006,11 @@ margin_top = 2.0
 margin_right = 74.0
 margin_bottom = 18.0
 
-[node name="Node" type="Node" parent="."]
+[node name="TeleporterHelpUI" parent="CanvasLayer" instance=ExtResource( 21 )]
+margin_left = 4.0
+margin_top = 17.0
+margin_right = 16.0
+margin_bottom = 32.0
 
 [node name="Level_Transition" parent="." instance=ExtResource( 19 )]
 position = Vector2( 374.131, 94.9815 )

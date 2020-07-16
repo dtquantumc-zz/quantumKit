@@ -1,0 +1,174 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/EXP-System-Dialog/Resource_BakedStory/EXP_BakedStory.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+TYPE = "EXP_Baked_Story"
+story = {
+1: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Encoder</speaker>
+<dialog>An ENCODER stores the state of one qubit into three qubits.</dialog> "
+},
+3: {
+"links": {
+0: 4
+},
+"text": "<speaker>Encoder></speaker>
+<dialog>It does this in a special way called an error correcting code, so that even if one qubit is lost the other two can be used to get the original qubit back. </dialog>
+"
+},
+4: {
+"links": {
+0: 5
+},
+"text": "<speaker>Encoder</speaker>
+<dialog>To get back the original qubit you’ll need a DECODER.</dialog>"
+},
+5: {
+"links": {
+
+},
+"text": "<end>"
+}
+}
+},
+2: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Decoder</speaker>
+<dialog>A DECODER takes the parts of an error-correcting code and gives you back the original qubit. </dialog>"
+},
+3: {
+"links": {
+0: 4
+},
+"text": "<speaker>Decoder</speaker>
+<dialog>You need at least two of the three qubits of the error correcting code for the decoder to work. </dialog>"
+},
+4: {
+"links": {
+
+},
+"text": "<end>"
+}
+}
+},
+3: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Bell Pairs</speaker>
+<dialog>Sometimes two qubits can be ENTANGLED.</dialog>"
+},
+3: {
+"links": {
+0: 4
+},
+"text": "<speaker>Bell Pairs</speaker>
+<dialog>When qubits are entangled they share a special relationship, and can be used to do QUANTUM TELEPORTATION.</dialog>"
+},
+4: {
+"links": {
+
+},
+"text": "<end>"
+}
+}
+},
+4: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Teleporter</speaker>
+<dialog>A quantum teleporter can be used to send qubits from place to place.</dialog>"
+},
+3: {
+"links": {
+0: 4
+},
+"text": "<speaker>Teleporter</speaker>
+<dialog>To travel between two teleporters, the teleporters have to each hold one of the qubits from a single Bell pair.</dialog>"
+},
+4: {
+"links": {
+0: 5
+},
+"text": "<speaker>Teleporter</speaker>
+<dialog>The teleporters will change colour to show you which other teleporter they share a Bell pair with. </dialog>"
+},
+5: {
+"links": {
+
+},
+"text": "<end>"
+}
+}
+},
+5: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Fire Hazard</speaker>
+<dialog>Qubits are fragile. If they get too warm, they’ll decohere. This means they lose their quantum information.</dialog>"
+},
+3: {
+"links": {
+
+},
+"text": "<end>"
+}
+}
+}
+}
+names = {
+"BellPairsInfoBox": 3,
+"DecoderInfoBox": 2,
+"EncoderInfoBox": 1,
+"FireHazardInfoBox": 5,
+"TeleporterInfoBox": 4
+}
