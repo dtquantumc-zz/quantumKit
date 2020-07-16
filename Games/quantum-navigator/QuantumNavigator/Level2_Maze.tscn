@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=2]
+[gd_scene load_steps=72 format=2]
 
 [ext_resource path="res://World/CliffTileset.png" type="Texture" id=1]
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=2]
@@ -20,7 +20,8 @@
 [ext_resource path="res://Boulders/RightBoulder.png" type="Texture" id=18]
 [ext_resource path="res://UI/EncoderHelpUI.tscn" type="PackedScene" id=19]
 [ext_resource path="res://UI/FireHazardHelpUI.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Computer/Decoder.tscn" type="PackedScene" id=21]
+[ext_resource path="res://UI/BlueBellPairHelpUI.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Computer/Decoder.tscn" type="PackedScene" id=22]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -1002,6 +1003,9 @@ position = Vector2( 696, 24 )
 [node name="Computer" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 94, 47 )
 
+[node name="Decoder" parent="YSort" instance=ExtResource( 22 )]
+position = Vector2( 1252, 53 )
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="EntanglementBitsUI" parent="CanvasLayer" instance=ExtResource( 7 )]
@@ -1021,12 +1025,15 @@ margin_top = 14.0
 margin_bottom = 27.0
 
 [node name="FireHazardHelpUI" parent="CanvasLayer" instance=ExtResource( 20 )]
+margin_left = 16.0
+margin_top = 15.0
+margin_right = 23.0
+margin_bottom = 24.0
+
+[node name="Control2" parent="CanvasLayer" instance=ExtResource( 21 )]
 margin_left = 2.0
-margin_top = 16.0
-margin_right = 9.0
-margin_bottom = 25.0
+margin_top = 18.0
+margin_right = 42.0
+margin_bottom = 58.0
 
 [node name="Node" type="Node" parent="."]
-
-[node name="Decoder" parent="." instance=ExtResource( 21 )]
-position = Vector2( 1103.4, 21.3958 )
