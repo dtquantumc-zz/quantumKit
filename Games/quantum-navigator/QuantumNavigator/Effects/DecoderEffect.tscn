@@ -80,6 +80,7 @@ animations = [ {
 } ]
 
 [node name="DecoderEffect" type="AnimatedSprite"]
+scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 18 )
 frame = 16
 script = ExtResource( 2 )

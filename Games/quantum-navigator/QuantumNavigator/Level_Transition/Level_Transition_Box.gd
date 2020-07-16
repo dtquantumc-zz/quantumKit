@@ -19,3 +19,4 @@ func _ready():
 func _on_Area2D_area_entered(area):
 	if nextScene != null:
 		get_tree().change_scene_to(nextScene)
+		OtterStats.reset()

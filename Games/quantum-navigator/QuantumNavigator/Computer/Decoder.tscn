@@ -8,6 +8,7 @@
 extents = Vector2( 20, 20 )
 
 [node name="Decoder" type="Node2D"]
+scale = Vector2( 0.3, 0.3 )
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
