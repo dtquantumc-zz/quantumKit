@@ -47,7 +47,7 @@ story = {
 },
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
-"text": "<speaker>Encoder></speaker>
+"text": "<speaker>Encoder</speaker>
 <dialog>It does this in a special way called an error correcting code, so that even if one qubit is lost the other two can be used to get the original qubit back. </dialog>
 ",
 "type": "line"

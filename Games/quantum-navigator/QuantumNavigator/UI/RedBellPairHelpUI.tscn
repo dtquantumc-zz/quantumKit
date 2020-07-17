@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/RedBellPair.png" type="Texture" id=1]
+[ext_resource path="res://UI/RedBellPairHelpUI.gd" type="Script" id=2]
+
+[node name="RedBellPairsHelpUI" type="Control"]
+margin_right = 16.0
+margin_bottom = 8.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="."]
+margin_right = 28.0
+margin_bottom = 14.0
+rect_scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 3.0
+margin_right = 31.0
+margin_bottom = 17.0
+rect_scale = Vector2( 0.25, 0.25 )
+text = "info"
+__meta__ = {
+"_edit_use_anchors_": false
+}

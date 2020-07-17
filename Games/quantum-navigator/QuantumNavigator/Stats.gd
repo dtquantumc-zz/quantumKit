@@ -11,6 +11,8 @@ export var can_see_encoder = false setget set_can_see_encoder
 export var can_see_decoder = false setget set_can_see_decoder
 export var can_see_teleporter = false setget set_can_see_teleporter
 export var can_see_fire_hazard = false setget set_can_see_fire_hazard
+export var can_see_red_bell_pair = false setget set_can_see_red_bell_pair
+export var can_see_blue_bell_pair = false setget set_can_see_blue_bell_pair
 
 onready var health = max_health setget set_health
 
@@ -25,6 +27,8 @@ signal encoder_visible(value)
 signal decoder_visible(value)
 signal teleporter_visible(value)
 signal fire_hazard_visible(value)
+signal red_bell_pair_visible(dict)
+signal blue_bell_pair_visible(dict)
 
 func set_health(value):
 	health = value
@@ -69,3 +73,12 @@ func set_can_see_teleporter(value):
 func set_can_see_fire_hazard(value):
 	can_see_fire_hazard = value
 	emit_signal("fire_hazard_visible", can_see_fire_hazard)
+
+func set_can_see_red_bell_pair(dict):
+	can_see_red_bell_pair = dict.value
+	emit_signal("red_bell_pair_visible", dict)
+
+func set_can_see_blue_bell_pair(dict):
+	can_see_blue_bell_pair = dict.value
+	emit_signal("blue_bell_pair_visible", dict)
+	emit_signal("blue_bell_pair_visible", dict)

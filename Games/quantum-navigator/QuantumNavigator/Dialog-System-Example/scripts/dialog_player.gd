@@ -91,13 +91,6 @@ func _play_node():
 
 func _get_story():
 	# Default Example Story:
-	var story = "res://Dialog-System-Example/stories/Example_Story_Baked.tres"
+	# "res://Dialog-System-Example/stories/Example_Story_Baked.tres"
 
-	var parent = get_parent().name
-	# TODO: Temporarily have a select number of hardcoded strings
-	if (parent == "Computer") || (parent == "PhoneBooth") || (parent == "PhoneBooth2") || (parent == "FireTrap"):
-		story = "res://Stories/InfoBoxesBakedStory.tres"
-	else:
-		print("parent: ", parent)
-	print(story)
-	return story
+	return "res://Stories/InfoBoxesBakedStory.tres"

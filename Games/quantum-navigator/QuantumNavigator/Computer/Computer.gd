@@ -2,6 +2,7 @@ extends Node2D
 
 onready var playerDetectionZone = $PlayerDetectionZone
 onready var dialogPlayer = $Dialog_Player
+
 func _physics_process(_delta):
 	if playerDetectionZone.can_see_player():
 		OtterStats.set_can_see_encoder(true)
