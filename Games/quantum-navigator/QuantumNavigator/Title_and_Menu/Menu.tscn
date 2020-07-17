@@ -1,0 +1,103 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://TitleAssets/Start_0.png" type="Texture" id=1]
+[ext_resource path="res://TitleAssets/Start_1.png" type="Texture" id=2]
+[ext_resource path="res://TitleAssets/Exit_1.png" type="Texture" id=3]
+[ext_resource path="res://Title_and_Menu/Menu.gd" type="Script" id=4]
+[ext_resource path="res://Shadows/SmallShadow.png" type="Texture" id=5]
+[ext_resource path="res://TitleAssets/Exit_0.png" type="Texture" id=6]
+[ext_resource path="res://EntanglementBit/RedEntanglementBitFloating.png" type="Texture" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "Static",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "Selected",
+"speed": 2.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "Static",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Selected",
+"speed": 2.0
+} ]
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 12, 16 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 7 )
+region = Rect2( 12, 0, 12, 16 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 7 )
+region = Rect2( 24, 0, 12, 16 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 7 )
+region = Rect2( 36, 0, 12, 16 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 7 )
+region = Rect2( 48, 0, 12, 16 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 7 )
+region = Rect2( 60, 0, 12, 16 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 7 )
+region = Rect2( 72, 0, 12, 16 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 7 )
+region = Rect2( 84, 0, 12, 16 )
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
+
+[node name="Menu" type="Node2D"]
+position = Vector2( 48, 32 )
+script = ExtResource( 4 )
+
+[node name="Start_Item" type="AnimatedSprite" parent="."]
+position = Vector2( 16, -16 )
+frames = SubResource( 1 )
+animation = "Selected"
+frame = 1
+playing = true
+
+[node name="Exit_Item" type="AnimatedSprite" parent="."]
+position = Vector2( 16, 16 )
+frames = SubResource( 2 )
+animation = "Static"
+playing = true
+
+[node name="Selection_Particle" type="AnimatedSprite" parent="."]
+position = Vector2( -40, -16 )
+frames = SubResource( 11 )
+frame = 7
+playing = true
+
+[node name="ShadowSprite" type="Sprite" parent="Selection_Particle"]
+show_behind_parent = true
+position = Vector2( 0, 7 )
+texture = ExtResource( 5 )

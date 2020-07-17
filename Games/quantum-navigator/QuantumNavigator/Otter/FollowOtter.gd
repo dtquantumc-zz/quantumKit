@@ -3,17 +3,17 @@ extends KinematicBody2D
 export var ACCELERATION = 500
 export var MAX_SPEED = 80
 export var FRICTION = 500
-export(NodePath) var PARENT
 
 enum {
 	MOVE,
-	PUSH,
-	SHOOT
+	STOP
 }
 
-var state = MOVE
+var rng = RandomNumberGenerator.new()
+
+var state = STOP
 var velocity = Vector2.ZERO
-var stats = OtterStats
+var dir = Vector2.ZERO
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
@@ -25,21 +25,20 @@ func _ready():
 	$End_Teleport_Particles.emitting = true
 
 func _physics_process(delta):
+	move_state(delta)
 	match state:
 		MOVE:
-			move_state(delta)
-		PUSH:
-			push_state()
-		SHOOT:
-			shoot_state()
+			if rng.randi_range(0, 60) < 1:
+				state = STOP
+				dir = Vector2.ZERO
+		STOP:
+			if rng.randi_range(0, 60) < 1:
+				state = MOVE
+				dir = Vector2(rng.randf_range(-1, 1), rng.randf_range(-1, 1)).normalized()
+		
 
 func move_state(delta):
-	var input_vector = Vector2.ZERO
-	var parent = get_node(PARENT)
-
-	input_vector.x = parent.position.x - position.x
-	input_vector.y = parent.position.y - position.y
-	if (input_vector.length() < 30): input_vector = Vector2.ZERO
+	var input_vector = dir
 
 	input_vector = input_vector.normalized()
 	
@@ -58,12 +57,7 @@ func move_state(delta):
 	
 	if velocity == Vector2.ZERO:
 		animationState.travel("Idle")
-	
-	if Input.is_action_just_pressed("push"):
-		state = PUSH
 
-	if Input.is_action_just_pressed("shoot"):
-		state = SHOOT
 
 func push_state():
 	animationState.travel("Push")
@@ -82,5 +76,4 @@ func reset_to_move_state():
 	state = MOVE
 
 func _on_Hurtbox_area_entered(_area):
-	stats.health -= 1
 	hurtbox.start_invincibility(0.5)
