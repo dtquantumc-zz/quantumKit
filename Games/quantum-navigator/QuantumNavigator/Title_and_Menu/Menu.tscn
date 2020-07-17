@@ -10,28 +10,28 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "Static",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "Selected",
 "speed": 2.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "Static",
+"speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "Static",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "Selected",
 "speed": 2.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "Static",
+"speed": 5.0
 } ]
 
 [sub_resource type="AtlasTexture" id=3]
@@ -94,7 +94,7 @@ playing = true
 [node name="Selection_Particle" type="AnimatedSprite" parent="."]
 position = Vector2( -40, -16 )
 frames = SubResource( 11 )
-frame = 7
+frame = 5
 playing = true
 
 [node name="ShadowSprite" type="Sprite" parent="Selection_Particle"]

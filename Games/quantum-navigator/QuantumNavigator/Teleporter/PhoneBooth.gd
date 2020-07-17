@@ -110,8 +110,11 @@ func _on_InteractableHurtbox_area_entered(area):
 		get_parent().add_child(errorSound)
 
 		return
-	
+
 	if !([self, color] in TeleporterState.activeTeleporters):
+		var errorSound = ErrorSound.instance()
+		get_parent().add_child(errorSound)
+
 		return
 
 	var toTeleport = area.owner

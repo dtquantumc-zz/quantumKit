@@ -10,7 +10,8 @@ export(PackedScene) var startScene = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	BackgroundMusic.start_music()
+	pass
 
 func set_selection(val):
 	if Selected == val: return

@@ -1039,7 +1039,6 @@ scale_random = 1.0
 color = Color( 0.564706, 0.937255, 1, 1 )
 
 [sub_resource type="Animation" id=65]
-resource_local_to_scene = true
 resource_name = "Start"
 length = 0.2
 loop = true
@@ -1057,7 +1056,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=66]
-resource_local_to_scene = true
 resource_name = "Stop"
 length = 0.1
 tracks/0/type = "value"
