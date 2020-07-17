@@ -45,3 +45,13 @@ func emit_red_teleporters_are_connected_signal():
 func emit_blue_teleporters_are_connected_signal():
 	var connected_blue_teleporter = load("res://Teleporter/BluePhoneBooth/PhoneBoothClosedGlowing.png")
 	emit_signal("teleporters_are_connected", connected_blue_teleporter)
+
+func reset():
+	num_teleporters = 2
+	num_red_teleporters = 0
+	num_blue_teleporters = 0
+	current_bit_color = UTIL.RED
+	are_red_teleporters_connected = false
+	are_blue_teleporters_connected = false
+
+	activeTeleporters = []
