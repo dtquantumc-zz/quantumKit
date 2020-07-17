@@ -8,7 +8,7 @@ onready var dialogPlayer = $Dialog_Player
 var bit_collected = false
 
 func _physics_process(_delta):
-	if !bit_collected && playerDetectionZone.can_see_player():
+	if !bit_collected and playerDetectionZone.can_see_player():
 		OtterStats.set_can_see_red_bell_pair({"name": get_name(), "value": true})
 		if Input.is_action_just_pressed("info"):
 			dialogPlayer.play_dialog("BellPairsInfoBox")
