@@ -1,14 +1,14 @@
 extends Control
 
-var teleporter_visible = false setget set_teleporter_visible
+var teleporter_visible = {} setget set_teleporter_visible
 
 onready var icon = $Icon
 onready var label = $Label
 
-func set_teleporter_visible(value):
-	teleporter_visible = value
+func set_teleporter_visible(dict):
+	teleporter_visible[dict.name] = dict.value
 
-	if teleporter_visible:
+	if teleporter_visible.values().has(true):
 		icon.rect_size.x = 25
 		icon.rect_size.y = 52
 		label.set_percent_visible(1)

@@ -66,9 +66,9 @@ func set_can_see_decoder(value):
 	can_see_decoder = value
 	emit_signal("decoder_visible", can_see_decoder)
 
-func set_can_see_teleporter(value):
-	can_see_teleporter = value
-	emit_signal("teleporter_visible", can_see_teleporter)
+func set_can_see_teleporter(dict):
+	can_see_teleporter = dict.value
+	emit_signal("teleporter_visible", dict)
 
 func set_can_see_fire_hazard(value):
 	can_see_fire_hazard = value
