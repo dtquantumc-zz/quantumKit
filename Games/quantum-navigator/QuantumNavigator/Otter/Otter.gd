@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+const OtterHurtSound = preload("res://Otter/OtterHurtSound.tscn")
+
 export var ACCELERATION = 500
 export var MAX_SPEED = 80
 export var FRICTION = 500
@@ -22,7 +24,7 @@ onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 onready var hurtbox = $Hurtbox
-
+onready var blinkAnimationPlayer = $BlinkAnimationPlayer
 
 # Timer for the entanglement bit projectile
 onready var timer = get_node("Timer")
@@ -45,8 +47,8 @@ func _physics_process(delta):
 func move_state(delta):
 	if isTeleporting: return
 	var input_vector = Vector2.ZERO
-	
-	if FOLLOW_TARGET == null:	
+
+	if FOLLOW_TARGET == null:
 		input_vector.x = (Input.get_action_strength("ui_right") -
 			Input.get_action_strength("ui_left"))
 		input_vector.y = (Input.get_action_strength("ui_down") -
@@ -56,7 +58,7 @@ func move_state(delta):
 		input_vector.x = target.position.x - position.x
 		input_vector.y = target.position.y - position.y
 		if (input_vector.length() < 30): input_vector = Vector2.ZERO
-	
+
 	input_vector = input_vector.normalized()
 
 	if input_vector != Vector2.ZERO:
@@ -82,7 +84,7 @@ func move_state(delta):
 
 	if Input.is_action_just_pressed("shoot"):
 		state = SHOOT
-	
+
 	if Input.is_action_just_pressed("swap") and FOLLOW_TARGET == null:
 		self.call_deferred("swap_followers")
 
@@ -156,12 +158,28 @@ func swap_followers():
 	var rmTrans = $RemoteTransform2D
 	self.remove_child(rmTrans)
 	mainOtter.add_child(rmTrans)
-	
 
 func _on_Hurtbox_area_entered(area):
-	if FOLLOW_TARGET == null: # Is not a follower
+	if !is_a_fire_trap(area) and !is_a_follower_otter():
 		stats.health -= 1
+		var otterHurtSound = OtterHurtSound.instance()
+		get_tree().current_scene.add_child(otterHurtSound)
+	elif is_a_fire_trap(area):
+		blinkAnimationPlayer.play("Start")
 	# hurtbox.start_invincibility(0.5)
+
+func is_a_fire_trap(area):
+	return area.get_parent().get_name()
+
+func is_a_follower_otter():
+	return FOLLOW_TARGET == null
+
+func _on_Hurtbox_area_exited(area):
+	if is_a_fire_trap(area):
+		stats.health -= 1
+		var otterHurtSound = OtterHurtSound.instance()
+		get_tree().current_scene.add_child(otterHurtSound)
+		blinkAnimationPlayer.play("Stop")
 
 func create_entanglement_bit():
 	var entanglementBit = ENTANGLEMENT_BIT_SCENE.instance()
@@ -213,3 +231,8 @@ func die():
 	stats.health = 5
 	queue_free()
 
+func _on_Hurtbox_invincibility_started():
+	blinkAnimationPlayer.play("Start")
+
+func _on_Hurtbox_invincibility_ended():
+	blinkAnimationPlayer.play("Stop")

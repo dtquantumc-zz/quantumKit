@@ -27,7 +27,7 @@ func _physics_process(_delta):
 		OtterStats.set_can_see_teleporter(false)
 		dialogPlayer.stop_dialog()
 
-func _on_Hurtbox_area_entered(area):
+func _on_Hurtbox_area_entered(_area):
 	if !is_gray_phone_booth():
 		return
 

@@ -5,11 +5,11 @@ onready var dialogPlayer = $Dialog_Player
 
 func _physics_process(_delta):
 	if playerDetectionZone.can_see_player():
-		OtterStats.set_can_see_fire_hazard(true)
+		OtterStats.set_can_see_fire_hazard({"name": get_name(), "value": true})
 		if Input.is_action_just_pressed("info"):
 			dialogPlayer.play_dialog("FireHazardInfoBox")
 	else:
-		OtterStats.set_can_see_fire_hazard(false)
+		OtterStats.set_can_see_fire_hazard({"name": get_name(), "value": false})
 		dialogPlayer.stop_dialog()
 
 func create_fire_effect():

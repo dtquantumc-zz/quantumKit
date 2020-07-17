@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Boulders/BoulderExplosionEffect.png" type="Texture" id=1]
 [ext_resource path="res://Effects/BoulderExplosionEffect.gd" type="Script" id=2]
+[ext_resource path="res://Music and Sounds/BoulderExplosion.wav" type="AudioStream" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -55,3 +56,7 @@ animations = [ {
 frames = SubResource( 11 )
 frame = 7
 script = ExtResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true

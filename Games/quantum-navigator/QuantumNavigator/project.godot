@@ -23,6 +23,7 @@ config/icon="res://icon.png"
 
 OtterStats="*res://Otter/OtterStats.tscn"
 TeleporterState="*res://Teleporter/TeleporterState.tscn"
+CustomSignals="*res://CustomSignals.tscn"
 
 [display]
 
