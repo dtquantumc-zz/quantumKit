@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 const PickupItemEffect = preload("res://Effects/PickUpItemEffect.tscn")
+const PickleCollectionSound = preload("res://Pickle/PickleCollectionSound.tscn")
 
 func create_pickupitem_effect():
 	var pickupItemEffect = PickupItemEffect.instance()
@@ -10,4 +11,8 @@ func create_pickupitem_effect():
 func _on_Hurtbox_area_entered(_area):
 	OtterStats.pickles += 1
 	create_pickupitem_effect()
+
+	var pickleCollectionSound = PickleCollectionSound.instance()
+	get_parent().add_child(pickleCollectionSound)
+
 	queue_free()

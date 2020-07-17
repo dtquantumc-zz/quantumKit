@@ -11,7 +11,9 @@ const redOpen = preload("res://Teleporter/RedPhoneBooth/PhoneBoothOpenConnected.
 const blueClosed = preload("res://Teleporter/BluePhoneBooth/PhoneBoothClosed.png")
 const blueClosedGlow = preload("res://Teleporter/BluePhoneBooth/PhoneBoothClosedGlowing.png")
 const blueOpen = preload("res://Teleporter/BluePhoneBooth/PhoneBoothOpenConnected.png")
+
 var color = "gray"
+var ErrorSound = preload("res://Teleporter/ErrorSound.tscn")
 
 func _ready():
 	TeleporterState.connect("teleporters_are_connected", self, "on_teleporters_are_connected")
@@ -104,6 +106,9 @@ func set_gray():
 
 func _on_InteractableHurtbox_area_entered(area):
 	if !TeleporterState.are_all_teleporters_connected() or area.owner.stats.isEncoded == true:
+		var errorSound = ErrorSound.instance()
+		get_parent().add_child(errorSound)
+
 		return
 	
 	if !([self, color] in TeleporterState.activeTeleporters):

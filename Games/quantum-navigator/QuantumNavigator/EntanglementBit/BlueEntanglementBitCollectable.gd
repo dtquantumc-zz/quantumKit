@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 const PickupItemEffect = preload("res://Effects/PickUpItemEffect.tscn")
+const BitCollectionSound = preload("res://EntanglementBit/BitCollectionSound.tscn")
 
 onready var playerDetectionZone = $PlayerDetectionZone
 onready var dialogPlayer = $Dialog_Player
@@ -33,5 +34,8 @@ func _on_Hurtbox_area_entered(_area):
 	OtterStats.set_can_see_blue_bell_pair({"name": get_name(), "value": false})
 	dialogPlayer.stop_dialog()
 	bit_collected = true
+
+	var bitCollectionSound = BitCollectionSound.instance()
+	get_parent().add_child(bitCollectionSound)
 
 	queue_free()
