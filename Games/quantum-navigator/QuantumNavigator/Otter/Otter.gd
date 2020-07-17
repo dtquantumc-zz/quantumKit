@@ -123,8 +123,8 @@ func _on_Computer_effect_process_done(computer_position):
 	self.spawn_followers(2)
 	var comput_dir = (computer_position - self.position).normalized()
 	var perp = Vector2(-comput_dir.y, comput_dir.x)
-	var center_pos = computer_position + 30 * comput_dir
-	self.position = center_pos + 15 * perp
+	var center_pos = computer_position + 10 * comput_dir
+	self.position = center_pos + 5 * perp
 	followers[0].position = center_pos
 	followers[1].position = center_pos - 15 * perp
 	stats.isEncoded = true
@@ -160,19 +160,24 @@ func swap_followers():
 	mainOtter.add_child(rmTrans)
 
 func _on_Hurtbox_area_entered(area):
-	if !is_a_fire_trap(area) and !is_a_follower_otter():
+	if is_a_follower_otter():
+		print("I am a follower")
+		return
+	if !is_a_fire_trap(area):
 		stats.health -= 1
 		var otterHurtSound = OtterHurtSound.instance()
 		get_tree().current_scene.add_child(otterHurtSound)
-	elif is_a_fire_trap(area):
+	else:
 		blinkAnimationPlayer.play("Start")
 	# hurtbox.start_invincibility(0.5)
 
 func is_a_fire_trap(area):
-	return area.get_parent().get_name()
+	print(area.owner.get_name())
+	print(area.get_name())
+	return area.owner.get_name() in ["FireTrap", "SpikeTrap"]
 
 func is_a_follower_otter():
-	return FOLLOW_TARGET == null
+	return FOLLOW_TARGET != null
 
 func _on_Hurtbox_area_exited(area):
 	if is_a_fire_trap(area):
@@ -208,7 +213,7 @@ func _on_Decoder_effect_process_done(computer_position):
 	followers.clear()
 	var comput_dir = (computer_position - self.position).normalized()
 
-	var center_pos = computer_position + 30 * comput_dir
+	var center_pos = computer_position + 10 * comput_dir
 	self.position = center_pos
 
 	stats.isEncoded = false
@@ -228,11 +233,12 @@ func die():
 		print(rmTrans)
 		self.remove_child(rmTrans)
 		mainOtter.add_child(rmTrans)
-	stats.health = 5
+	stats.health = stats.max_health
 	queue_free()
 
-func _on_Hurtbox_invincibility_started():
-	blinkAnimationPlayer.play("Start")
-
-func _on_Hurtbox_invincibility_ended():
-	blinkAnimationPlayer.play("Stop")
+#func _on_Hurtbox_invincibility_started():
+#	if FOLLOW_TARGET == null:
+#		blinkAnimationPlayer.play("Start")
+#
+#func _on_Hurtbox_invincibility_ended():
+#	blinkAnimationPlayer.play("Stop")

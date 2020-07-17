@@ -66,7 +66,7 @@ extents = Vector2( 15.5966, 15.7389 )
 [sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 13.1839, 13.7288 )
 
-[node name="Node2D" type="StaticBody2D"]
+[node name="SpikeTrap" type="StaticBody2D"]
 
 [node name="SpikeEffect" type="AnimatedSprite" parent="."]
 frames = SubResource( 13 )
