@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ShootingBit.wav-8c4ff553c648e1e129c7cf40ede8c71a.sample"
+
+[deps]
+
+source_file="res://Music and Sounds/ShootingBit.wav"
+dest_files=[ "res://.import/ShootingBit.wav-8c4ff553c648e1e129c7cf40ede8c71a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

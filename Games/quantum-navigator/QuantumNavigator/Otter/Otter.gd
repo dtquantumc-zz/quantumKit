@@ -1,6 +1,8 @@
 extends KinematicBody2D
 
 const OtterHurtSound = preload("res://Otter/OtterHurtSound.tscn")
+const ENTANGLEMENT_BIT_SCENE = preload("res://Projectiles/EntanglementBitProjectile.tscn")
+const UTIL = preload("res://Utility.gd")
 
 export var ACCELERATION = 500
 export var MAX_SPEED = 80
@@ -28,9 +30,6 @@ onready var blinkAnimationPlayer = $BlinkAnimationPlayer
 
 # Timer for the entanglement bit projectile
 onready var timer = get_node("Timer")
-
-const ENTANGLEMENT_BIT_SCENE = preload("res://Projectiles/EntanglementBitProjectile.tscn")
-const UTIL = preload("res://Utility.gd")
 
 func _ready():
 	stats.connect("no_health", self, "zero_health")

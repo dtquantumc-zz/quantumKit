@@ -692,13 +692,22 @@ region_enabled = true
 region_rect = Rect2( -3, 0, 320, 180 )
 
 [node name="Title" type="Sprite" parent="."]
-position = Vector2( 160, 56 )
+position = Vector2( 168, 56 )
 texture = ExtResource( 12 )
 
 [node name="Grasses" type="YSort" parent="."]
 
 [node name="Grass" parent="Grasses" instance=ExtResource( 8 )]
 position = Vector2( 48, 144 )
+
+[node name="Grass6" parent="Grasses" instance=ExtResource( 8 )]
+position = Vector2( 32, 144 )
+
+[node name="Grass7" parent="Grasses" instance=ExtResource( 8 )]
+position = Vector2( 32, 128 )
+
+[node name="Grass8" parent="Grasses" instance=ExtResource( 8 )]
+position = Vector2( 32, 112 )
 
 [node name="Grass2" parent="Grasses" instance=ExtResource( 8 )]
 position = Vector2( 64, 144 )
@@ -712,20 +721,14 @@ position = Vector2( 96, 144 )
 [node name="Grass5" parent="Grasses" instance=ExtResource( 8 )]
 position = Vector2( 112, 144 )
 
-[node name="Grass6" parent="Grasses" instance=ExtResource( 8 )]
-position = Vector2( 112, 160 )
-
-[node name="Grass7" parent="Grasses" instance=ExtResource( 8 )]
-position = Vector2( 96, 160 )
-
-[node name="Grass8" parent="Grasses" instance=ExtResource( 8 )]
-position = Vector2( 80, 160 )
-
-[node name="Grass9" parent="Grasses" instance=ExtResource( 8 )]
-position = Vector2( 64, 160 )
-
 [node name="Grass10" parent="Grasses" instance=ExtResource( 8 )]
-position = Vector2( 48, 160 )
+position = Vector2( 128, 144 )
+
+[node name="Grass20" parent="Grasses" instance=ExtResource( 8 )]
+position = Vector2( 128, 128 )
+
+[node name="Grass21" parent="Grasses" instance=ExtResource( 8 )]
+position = Vector2( 128, 112 )
 
 [node name="Grass11" parent="Grasses" instance=ExtResource( 8 )]
 position = Vector2( 288, 16 )
@@ -827,7 +830,7 @@ position = Vector2( 256, 8 )
 position = Vector2( 288, 8 )
 
 [node name="PhoneBooth" type="Sprite" parent="YSort"]
-position = Vector2( 105.371, 83.5946 )
+position = Vector2( 104, 96 )
 texture = ExtResource( 5 )
 
 [node name="Menu" parent="." instance=ExtResource( 10 )]

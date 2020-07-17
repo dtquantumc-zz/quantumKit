@@ -57,6 +57,6 @@ frames = SubResource( 11 )
 frame = 7
 script = ExtResource( 2 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
 autoplay = true
