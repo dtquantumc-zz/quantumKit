@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=2]
+[gd_scene load_steps=72 format=2]
 
 [ext_resource path="res://World/CliffTileset.png" type="Texture" id=1]
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://World/Grass.tscn" type="PackedScene" id=13]
 [ext_resource path="res://World/Tree.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Boulders/RightBoulder.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Level_Control.gd" type="Script" id=16]
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=17]
 [ext_resource path="res://UI/EncoderHelpUI.tscn" type="PackedScene" id=19]
 [ext_resource path="res://UI/FireHazardHelpUI.tscn" type="PackedScene" id=20]
@@ -497,6 +498,7 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 0/z_index = 0
 
 [node name="Level2_Maze" type="Node2D"]
+script = ExtResource( 16 )
 
 [node name="BackgroundGrass" type="Sprite" parent="."]
 position = Vector2( 768, 136 )

@@ -232,8 +232,13 @@ func die():
 		print(rmTrans)
 		self.remove_child(rmTrans)
 		mainOtter.add_child(rmTrans)
-	stats.health = stats.max_health
-	queue_free()
+		stats.health = stats.max_health
+		queue_free()
+	else:
+		stats.health = stats.max_health
+		self.owner.queue_restart()
+		queue_free()
+	
 
 #func _on_Hurtbox_invincibility_started():
 #	if FOLLOW_TARGET == null:

@@ -24,7 +24,7 @@ func _ready():
 
 func _input(event):
 	if event is InputEventKey:
-		if event.pressed == true and event.scancode == KEY_SPACE:
+		if event.pressed == true and (event.scancode == KEY_SPACE or event.scancode == KEY_Z):
 			_on_Dialog_Player_pressed_spacebar()
 
 # Callback Methods

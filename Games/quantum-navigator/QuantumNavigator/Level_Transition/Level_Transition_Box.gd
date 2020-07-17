@@ -13,11 +13,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
-#	pass
+#
 
 
 func _on_Area2D_area_entered(area):
 	if nextScene != null:
-		get_tree().change_scene_to(nextScene)
 		OtterStats.reset()
 		TeleporterState.reset()
+		get_tree().change_scene_to(nextScene)
