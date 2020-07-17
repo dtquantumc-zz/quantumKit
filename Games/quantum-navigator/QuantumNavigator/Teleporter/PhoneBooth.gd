@@ -4,13 +4,14 @@ onready var playerDetectionZone = $PlayerDetectionZone
 onready var dialogPlayer = $Dialog_Player
 
 const UTIL = preload("res://Utility.gd")
+const grayClosed = preload("res://Teleporter/GrayPhoneBooth/PhoneBoothGray.png")
 const redClosed = preload("res://Teleporter/RedPhoneBooth/PhoneBoothClosed.png")
 const redClosedGlow = preload("res://Teleporter/RedPhoneBooth/PhoneBoothClosedGlowing.png")
 const redOpen = preload("res://Teleporter/RedPhoneBooth/PhoneBoothOpenConnected.png")
 const blueClosed = preload("res://Teleporter/BluePhoneBooth/PhoneBoothClosed.png")
 const blueClosedGlow = preload("res://Teleporter/BluePhoneBooth/PhoneBoothClosedGlowing.png")
 const blueOpen = preload("res://Teleporter/BluePhoneBooth/PhoneBoothOpenConnected.png")
-var color = "grey"
+var color = "gray"
 
 func _ready():
 	TeleporterState.connect("teleporters_are_connected", self, "on_teleporters_are_connected")
@@ -74,14 +75,14 @@ func handle_red_bit_fired():
 	OtterStats.red_bits -= 1
 	TeleporterState.current_bit_color = UTIL.RED
 	TeleporterState.num_red_teleporters += 1
-	TeleporterState.teleporters.append([self, 'red'])
+	TeleporterState.activeTeleporters.append([self, 'red'])
 	color = 'red'
 
 func handle_blue_bit_fired():
 	OtterStats.blue_bits -= 1
 	TeleporterState.current_bit_color = UTIL.BLUE
 	TeleporterState.num_blue_teleporters += 1
-	TeleporterState.teleporters.append([self, 'blue'])
+	TeleporterState.activeTeleporters.append([self, 'blue'])
 	color = 'blue'
 
 func open_booth():
@@ -96,8 +97,16 @@ func close_booth():
 	else:
 		$Sprite.set_texture(blueClosedGlow)
 
+func set_gray():
+	$Sprite.set_texture(grayClosed)
+	TeleporterState.activeTeleporters.erase([self, color])
+	color = 'gray'
+
 func _on_InteractableHurtbox_area_entered(area):
 	if !TeleporterState.are_all_teleporters_connected() or area.owner.stats.isEncoded == true:
+		return
+	
+	if !([self, color] in TeleporterState.activeTeleporters):
 		return
 
 	var toTeleport = area.owner
@@ -107,7 +116,7 @@ func _on_InteractableHurtbox_area_entered(area):
 	open_booth()
 
 	var otherBooth = null
-	for booth in TeleporterState.teleporters:
+	for booth in TeleporterState.activeTeleporters:
 		if booth[0] != self and booth[1] == color:
 			otherBooth = booth[0]
 	if otherBooth == null:
@@ -141,6 +150,7 @@ func complete_Teleport(toTeleport):
 		toTeleport.visible = true
 		toTeleport.isTeleporting = false
 
-	close_booth()
+#	close_booth()
+	set_gray()
 
 
