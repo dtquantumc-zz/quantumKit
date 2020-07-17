@@ -692,7 +692,7 @@ region_enabled = true
 region_rect = Rect2( -3, 0, 320, 180 )
 
 [node name="Title" type="Sprite" parent="."]
-position = Vector2( 168, 56 )
+position = Vector2( 164, 48 )
 texture = ExtResource( 12 )
 
 [node name="Grasses" type="YSort" parent="."]
@@ -834,5 +834,5 @@ position = Vector2( 104, 96 )
 texture = ExtResource( 5 )
 
 [node name="Menu" parent="." instance=ExtResource( 10 )]
-position = Vector2( 232, 120 )
+position = Vector2( 227, 112 )
 startScene = ExtResource( 11 )

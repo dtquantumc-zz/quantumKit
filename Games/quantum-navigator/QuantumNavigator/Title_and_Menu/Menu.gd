@@ -1,6 +1,6 @@
 extends Node2D
 
-var MenuItems = ["Start_Item", "Exit_Item"]
+var MenuItems = ["Start_Item", "Exit_Item", "Mute_Item"]
 var Selected = 0
 
 var MenuConfirmSound = preload("res://Title_and_Menu/MenuConfirmSound.tscn")
@@ -11,7 +11,6 @@ export(PackedScene) var startScene = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	BackgroundMusic.start_music()
-	pass
 
 func set_selection(val):
 	if Selected == val: return
@@ -46,5 +45,10 @@ func _process(delta):
 		if Selected == 0 and startScene != null:
 			get_tree().change_scene_to(startScene)
 			OtterStats.reset()
+		elif Selected == 2 and startScene != null:
+			if BackgroundMusic.is_playing():
+				BackgroundMusic.stop_music()
+			else:
+				BackgroundMusic.start_music()
 		else:
 			get_tree().quit()
