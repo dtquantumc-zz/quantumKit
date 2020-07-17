@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://World/BackgroundMusic.gd" type="Script" id=1]
+[ext_resource path="res://Music and Sounds/Space_Idea_Background.wav" type="AudioStream" id=2]
+
+[node name="BackgroundMusic" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -26.0
