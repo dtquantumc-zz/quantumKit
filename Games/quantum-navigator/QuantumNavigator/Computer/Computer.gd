@@ -8,8 +8,11 @@ var encoder_used = false
 func _physics_process(_delta):
 	if playerDetectionZone.can_see_player():
 		OtterStats.set_can_see_encoder(true)
-		if Input.is_action_just_pressed("info"):
+		if Input.is_action_just_pressed("info") || !InfoDialogState.get_has_encoder_dialog_been_seen():
 			dialogPlayer.play_dialog("EncoderInfoBox")
+
+		if !InfoDialogState.get_has_encoder_dialog_been_seen():
+			InfoDialogState.set_has_encoder_dialog_been_seen(true)
 	else:
 		OtterStats.set_can_see_encoder(false)
 		dialogPlayer.stop_dialog()

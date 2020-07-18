@@ -25,6 +25,7 @@ OtterStats="*res://Otter/OtterStats.tscn"
 TeleporterState="*res://Teleporter/TeleporterState.tscn"
 CustomSignals="*res://CustomSignals.tscn"
 BackgroundMusic="*res://World/BackgroundMusic.tscn"
+InfoDialogState="*res://InfoDialogState.tscn"
 
 [display]
 

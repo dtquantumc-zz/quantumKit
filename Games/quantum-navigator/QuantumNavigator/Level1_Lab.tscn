@@ -1350,7 +1350,7 @@ position = Vector2( 304, -120 )
 [node name="EntanglementBitsCollectable" type="YSort" parent="YSort"]
 
 [node name="RedEntanglementBitCollectable" parent="YSort/EntanglementBitsCollectable" instance=ExtResource( 22 )]
-position = Vector2( -199, 21 )
+position = Vector2( -181, 21 )
 
 [node name="RedEntanglementBitCollectable2" parent="YSort/EntanglementBitsCollectable" instance=ExtResource( 22 )]
 position = Vector2( -93, 21 )

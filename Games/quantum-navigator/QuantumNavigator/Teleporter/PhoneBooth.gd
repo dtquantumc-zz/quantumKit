@@ -16,6 +16,7 @@ var color = "gray"
 var ErrorSound = preload("res://Teleporter/ErrorSound.tscn")
 
 func _ready():
+	# warning-ignore:return_value_discarded
 	TeleporterState.connect("teleporters_are_connected", self, "on_teleporters_are_connected")
 
 func on_teleporters_are_connected(texture):
@@ -24,8 +25,11 @@ func on_teleporters_are_connected(texture):
 func _physics_process(_delta):
 	if playerDetectionZone.can_see_player():
 		OtterStats.set_can_see_teleporter({"name": get_name(), "value": true})
-		if Input.is_action_just_pressed("info"):
+		if Input.is_action_just_pressed("info") || !InfoDialogState.get_has_teleporter_dialog_been_seen():
 			dialogPlayer.play_dialog("TeleporterInfoBox")
+
+		if !InfoDialogState.get_has_teleporter_dialog_been_seen():
+			InfoDialogState.set_has_teleporter_dialog_been_seen(true)
 	else:
 		OtterStats.set_can_see_teleporter({"name": get_name(), "value": false})
 		dialogPlayer.stop_dialog()
