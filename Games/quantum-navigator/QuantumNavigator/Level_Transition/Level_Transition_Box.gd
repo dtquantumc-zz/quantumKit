@@ -1,6 +1,6 @@
 extends Area2D
 
-export(PackedScene) var nextScene = null
+export(String) var nextScene = null
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -19,6 +19,6 @@ func _on_Area2D_area_entered(area):
 	if nextScene != null:
 		OtterStats.reset()
 		TeleporterState.reset()
-		get_tree().change_scene_to(nextScene)
+		get_tree().change_scene_to(load(nextScene))
 	else:
 		get_tree().quit()
