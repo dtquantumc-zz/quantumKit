@@ -237,7 +237,7 @@ func die():
 		queue_free()
 	else:
 		stats.health = stats.max_health
-		self.owner.queue_restart()
+		get_parent().owner.queue_restart()
 		queue_free()
 
 #func _on_Hurtbox_invincibility_started():
