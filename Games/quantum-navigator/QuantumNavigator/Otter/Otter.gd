@@ -88,7 +88,8 @@ func move_state(delta):
 		self.call_deferred("swap_followers")
 
 func push_state():
-	animationState.travel("Push")
+	if (!InfoDialogOpenState.get_is_info_dialog_open()):
+		animationState.travel("Push")
 
 func shoot_state():
 	animationState.travel("Shoot")
@@ -238,7 +239,6 @@ func die():
 		stats.health = stats.max_health
 		self.owner.queue_restart()
 		queue_free()
-	
 
 #func _on_Hurtbox_invincibility_started():
 #	if FOLLOW_TARGET == null:

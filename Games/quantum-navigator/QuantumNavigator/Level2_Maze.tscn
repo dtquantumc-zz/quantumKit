@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=2]
+[gd_scene load_steps=75 format=2]
 
 [ext_resource path="res://World/CliffTileset.png" type="Texture" id=1]
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=2]
@@ -17,11 +17,14 @@
 [ext_resource path="res://Boulders/RightBoulder.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Level_Control.gd" type="Script" id=16]
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=17]
+[ext_resource path="res://UI/InfoHelpUI.tscn" type="PackedScene" id=18]
 [ext_resource path="res://UI/EncoderHelpUI.tscn" type="PackedScene" id=19]
 [ext_resource path="res://UI/FireHazardHelpUI.tscn" type="PackedScene" id=20]
 [ext_resource path="res://UI/BlueBellPairHelpUI.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Computer/Decoder.tscn" type="PackedScene" id=22]
 [ext_resource path="res://UI/DecoderHelpUI.tscn" type="PackedScene" id=23]
+[ext_resource path="res://ControlsDialog.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Level_Transition/Level_Transition_Box.tscn" type="PackedScene" id=25]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -1125,6 +1128,9 @@ position = Vector2( 696, 24 )
 [node name="FireTrap2" parent="YSort/FireTraps" instance=ExtResource( 11 )]
 position = Vector2( 728, 480 )
 
+[node name="Transition" parent="." instance=ExtResource( 25 )]
+position = Vector2( 1546, 90 )
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="EntanglementBitsUI" parent="CanvasLayer" instance=ExtResource( 7 )]
@@ -1140,23 +1146,37 @@ margin_right = 74.0
 margin_bottom = 18.0
 
 [node name="EncoderHelpUI" parent="CanvasLayer" instance=ExtResource( 19 )]
+margin_left = 1.0
 margin_top = 14.0
+margin_right = 22.0
 margin_bottom = 27.0
 
 [node name="FireHazardHelpUI" parent="CanvasLayer" instance=ExtResource( 20 )]
-margin_left = 2.0
+margin_left = 4.0
 margin_top = 16.0
-margin_right = 9.0
+margin_right = 11.0
 margin_bottom = 25.0
 
 [node name="Control2" parent="CanvasLayer" instance=ExtResource( 21 )]
-margin_left = 2.0
+margin_left = 3.0
 margin_top = 18.0
-margin_right = 42.0
+margin_right = 43.0
 margin_bottom = 58.0
 
 [node name="DecoderHelpUI" parent="CanvasLayer" instance=ExtResource( 23 )]
+margin_left = 1.0
 margin_top = 14.0
+margin_right = 41.0
 margin_bottom = 54.0
 
+[node name="InfoHelpUI" parent="CanvasLayer" instance=ExtResource( 18 )]
+margin_left = 7.0
+margin_top = 16.0
+margin_right = 47.0
+margin_bottom = 56.0
+
 [node name="Node" type="Node" parent="."]
+
+[node name="ControlsCanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ControlsDialog" parent="ControlsCanvasLayer" instance=ExtResource( 24 )]

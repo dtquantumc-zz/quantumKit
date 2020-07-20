@@ -10,6 +10,7 @@ var _did = 0
 var _nid = 0
 var _final_nid = 0
 var _Story_Reader
+var _signal
 
 # Virtual Methods
 
@@ -43,18 +44,37 @@ func _on_Dialog_Player_pressed_spacebar():
 # Public Methods
 
 func play_dialog(record_name : String):
+	_set_open_state_signal(record_name)
 	_did = _Story_Reader.get_did_via_record_name(record_name)
 	_nid = self._Story_Reader.get_nid_via_exact_text(_did, "<start>")
 	_final_nid = _Story_Reader.get_nid_via_exact_text(_did, "<end>")
 	_get_next_node()
 	_play_node()
 	_Dialog_Box.visible = true
+	_emit_dialog_open_signal(true)
 
 func stop_dialog():
 	if _is_playing():
 		_Dialog_Box.visible = false
+		_emit_dialog_open_signal(false)
+
 
 # Private Methods
+
+func _set_open_state_signal(record_name : String):
+	match record_name:
+		"GameIntroInfoBox":
+			_signal = "game_intro_dialog_open"
+		"BellPairsInfoBox":
+			_signal = "bell_pair_dialog_open"
+		"TeleporterInfoBox":
+			_signal = "teleporter_dialog_open"
+		"EncoderInfoBox":
+			_signal = "encoder_dialog_open"
+		"DecoderInfoBox":
+			_signal = "decoder_dialog_open"
+		"FireHazardInfoBox":
+			_signal = "fire_trap_dialog_open"
 
 func _is_playing():
 	return _Dialog_Box.visible
@@ -69,6 +89,7 @@ func _get_next_node():
 
 	if _nid == _final_nid:
 		_Dialog_Box.visible = false
+		_emit_dialog_open_signal(false)
 
 
 func _get_tagged_text(tag : String, text : String):
@@ -88,6 +109,10 @@ func _play_node():
 	_Speaker_LBL.text = speaker
 	_Body_LBL.text = dialog
 	_Body_AnimationPlayer.play("TextDisplay")
+
+func _emit_dialog_open_signal(value):
+	if _signal != null:
+		InfoDialogOpenState.emit_signal(_signal, value)
 
 func _get_story():
 	# Default Example Story:

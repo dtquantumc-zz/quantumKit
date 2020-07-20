@@ -163,6 +163,58 @@ story = {
 "text": "<end>"
 }
 }
+},
+6: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Intro</speaker>
+<dialog>Joey the Otter has been hard at work in the lab, and wants to go visit Bob on Mars for a picnic. Help Joey get there!
+
+Press c for Controls.</dialog>"
+},
+3: {
+"links": {
+
+},
+"text": "<end>"
+}
+}
+},
+7: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Controls</speaker>
+<dialog>Movement: Arrow Keys or WASD
+Interact: SPACEBAR
+Shoot Entanglement Bit: X
+Open Info Dialog (when icon appears in UI bar): I
+Restart Level: R</dialog>"
+},
+3: {
+"links": {
+
+},
+"text": "<end>"
+}
+}
 }
 }
 names = {
@@ -170,5 +222,7 @@ names = {
 "DecoderInfoBox": 2,
 "EncoderInfoBox": 1,
 "FireHazardInfoBox": 5,
+"GameControlsInfoBox": 7,
+"GameIntroInfoBox": 6,
 "TeleporterInfoBox": 4
 }

@@ -10,6 +10,8 @@ names = {
 "DecoderInfoBox": 2,
 "EncoderInfoBox": 1,
 "FireHazardInfoBox": 5,
+"GameControlsInfoBox": 7,
+"GameIntroInfoBox": 6,
 "TeleporterInfoBox": 4
 }
 story = {
@@ -265,6 +267,90 @@ story = {
 },
 3: {
 "graph_offset": Vector2( 920, 40 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<end>",
+"type": "line"
+}
+}
+},
+6: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "New Dialog - Enter Human Readable Description.",
+"name": "GameIntroInfoBox",
+"nodes": {
+1: {
+"graph_offset": Vector2( 160, -100 ),
+"links": {
+0: 2
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<start>",
+"type": "line"
+},
+2: {
+"graph_offset": Vector2( 1060, 80 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 855, 234 ),
+"slot_amount": 1,
+"text": "<speaker>Intro</speaker>
+<dialog>Joey the Otter has been hard at work in the lab, and wants to go visit Bob on Mars for a picnic. Help Joey get there!
+
+Press c for Controls.</dialog>",
+"type": "line"
+},
+3: {
+"graph_offset": Vector2( 1740, 380 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<end>",
+"type": "line"
+}
+}
+},
+7: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "New Dialog - Enter Human Readable Description.",
+"name": "GameControlsInfoBox",
+"nodes": {
+1: {
+"graph_offset": Vector2( -40, -200 ),
+"links": {
+0: 2
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<start>",
+"type": "line"
+},
+2: {
+"graph_offset": Vector2( 940, -40 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Controls</speaker>
+<dialog>Movement: Arrow Keys or WASD
+Interact: SPACEBAR
+Shoot Entanglement Bit: X
+Open Info Dialog (when icon appears in UI bar): I
+Restart Level: R</dialog>",
+"type": "line"
+},
+3: {
+"graph_offset": Vector2( 1860, 0 ),
 "links": {
 
 },

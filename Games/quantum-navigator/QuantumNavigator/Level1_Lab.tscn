@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://Lab/LabWall.png" type="Texture" id=1]
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=2]
@@ -24,6 +24,9 @@
 [ext_resource path="res://EntanglementBit/RedEntanglementBitCollectable.tscn" type="PackedScene" id=22]
 [ext_resource path="res://UI/RedBellPairHelpUI.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Level_Control.gd" type="Script" id=24]
+[ext_resource path="res://World/GameIntro.tscn" type="PackedScene" id=25]
+[ext_resource path="res://UI/InfoHelpUI.tscn" type="PackedScene" id=26]
+[ext_resource path="res://ControlsDialog.tscn" type="PackedScene" id=27]
 
 [sub_resource type="TileSet" id=1]
 0/name = "LabTile.png 0"
@@ -249,7 +252,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 script = ExtResource( 24 )
 
 [node name="BackgroundGrass" type="Sprite" parent="."]
-position = Vector2( -54.0001, 67.4999 )
+position = Vector2( -54, 67 )
 scale = Vector2( 5.0125, 5.63889 )
 texture = ExtResource( 2 )
 region_enabled = true
@@ -275,17 +278,20 @@ format = 1
 tile_data = PoolIntArray( 327702, 0, 0, 327703, 0, 1, 327704, 0, 2, 393238, 0, 65536, 393239, 0, 65537, 393240, 0, 65538, 458774, 0, 131072, 458775, 0, 131073, 458776, 0, 131074 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( -254, 14 )
+position = Vector2( -304, 16 )
 current = true
 smoothing_enabled = true
 
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Otter" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( -254, 14 )
+position = Vector2( -304, 16 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Otter"]
 remote_path = NodePath("../../../Camera2D")
+
+[node name="GameIntro" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( -305, 21 )
 
 [node name="Pickles" type="YSort" parent="YSort"]
 
@@ -1358,9 +1364,9 @@ position = Vector2( -93, 21 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="RedBellPairsHelpUI" parent="CanvasLayer" instance=ExtResource( 23 )]
-margin_left = 4.0
+margin_left = 6.0
 margin_top = 16.0
-margin_right = 20.0
+margin_right = 22.0
 margin_bottom = 24.0
 
 [node name="EntanglementBitsUI" parent="CanvasLayer" instance=ExtResource( 5 )]
@@ -1376,11 +1382,21 @@ margin_right = 74.0
 margin_bottom = 18.0
 
 [node name="TeleporterHelpUI" parent="CanvasLayer" instance=ExtResource( 21 )]
-margin_left = 4.0
+margin_left = 6.0
 margin_top = 17.0
-margin_right = 16.0
+margin_right = 18.0
 margin_bottom = 32.0
+
+[node name="InfoHelpUI" parent="CanvasLayer" instance=ExtResource( 26 )]
+margin_left = 6.0
+margin_top = 17.0
+margin_right = 46.0
+margin_bottom = 57.0
 
 [node name="Level_Transition" parent="." instance=ExtResource( 19 )]
 position = Vector2( 374.131, 94.9815 )
 nextScene = ExtResource( 20 )
+
+[node name="ControlsCanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ControlsDialog" parent="ControlsCanvasLayer" instance=ExtResource( 27 )]

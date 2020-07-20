@@ -26,6 +26,7 @@ TeleporterState="*res://Teleporter/TeleporterState.tscn"
 CustomSignals="*res://CustomSignals.tscn"
 BackgroundMusic="*res://World/BackgroundMusic.tscn"
 InfoDialogState="*res://InfoDialogState.tscn"
+InfoDialogOpenState="*res://InfoDialogOpenState.tscn"
 
 [display]
 
@@ -120,7 +121,7 @@ shoot={
 }
 push={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":90,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
  ]
 }
 swap={
@@ -136,6 +137,11 @@ info={
 restart={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":82,"unicode":0,"echo":false,"script":null)
+ ]
+}
+controls={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":67,"unicode":0,"echo":false,"script":null)
  ]
 }
 

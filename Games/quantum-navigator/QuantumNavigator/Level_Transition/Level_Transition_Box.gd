@@ -15,9 +15,10 @@ func _ready():
 #func _process(delta):
 #
 
-
 func _on_Area2D_area_entered(area):
 	if nextScene != null:
 		OtterStats.reset()
 		TeleporterState.reset()
 		get_tree().change_scene_to(nextScene)
+	else:
+		get_tree().quit()
