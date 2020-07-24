@@ -1124,7 +1124,7 @@ position = Vector2( -272, 136 )
 [node name="BlueEntanglementBitCollectable" parent="YSort/EntanglementBitsCollectable" instance=ExtResource( 2 )]
 position = Vector2( 416, 40 )
 
-[node name="BlueEntanglementBitCollectable2" parent="YSort/EntanglementBitsCollectable" instance=ExtResource( 2 )]
+[node name="BlueEntanglementBitCollectable_2" parent="YSort/EntanglementBitsCollectable" instance=ExtResource( 2 )]
 position = Vector2( 416, 0 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
