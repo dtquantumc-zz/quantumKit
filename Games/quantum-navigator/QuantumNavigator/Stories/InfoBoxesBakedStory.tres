@@ -31,7 +31,7 @@ story = {
 },
 4: {
 "links": {
-0: 5
+0: 6
 },
 "text": "<speaker>Encoder</speaker>
 <dialog>To get back the original qubit you’ll need a DECODER.</dialog>"
@@ -41,6 +41,13 @@ story = {
 
 },
 "text": "<end>"
+},
+6: {
+"links": {
+0: 5
+},
+"text": "<speaker>Encoder</speaker>
+<dialog>To use the ENCODER you need 2 pickles.</dialog>"
 }
 }
 },
@@ -178,6 +185,8 @@ story = {
 },
 "text": "<speaker>Intro</speaker>
 <dialog>Joey the Otter has been hard at work in the lab, and wants to go visit Bob on Mars for a picnic. Help Joey get there!
+
+Joey is a qubit and obeys the laws of Quantum Information.
 
 Press c for Controls.</dialog>"
 },

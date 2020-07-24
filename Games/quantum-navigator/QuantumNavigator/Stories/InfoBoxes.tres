@@ -57,7 +57,7 @@ story = {
 4: {
 "graph_offset": Vector2( 480, 400 ),
 "links": {
-0: 5
+0: 6
 },
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
@@ -66,13 +66,24 @@ story = {
 "type": "line"
 },
 5: {
-"graph_offset": Vector2( 920, 400 ),
+"graph_offset": Vector2( 940, 580 ),
 "links": {
 
 },
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<end>",
+"type": "line"
+},
+6: {
+"graph_offset": Vector2( 480, 580 ),
+"links": {
+0: 5
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Encoder</speaker>
+<dialog>To use the ENCODER you need 2 pickles.</dialog>",
 "type": "line"
 }
 }
@@ -302,6 +313,8 @@ story = {
 "slot_amount": 1,
 "text": "<speaker>Intro</speaker>
 <dialog>Joey the Otter has been hard at work in the lab, and wants to go visit Bob on Mars for a picnic. Help Joey get there!
+
+Joey is a qubit and obeys the laws of Quantum Information.
 
 Press c for Controls.</dialog>",
 "type": "line"
