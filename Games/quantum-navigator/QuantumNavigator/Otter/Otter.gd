@@ -97,9 +97,11 @@ func shoot_state():
 		if UTIL.hasRedBits():
 			TeleporterState.current_bit_color = UTIL.RED
 			create_entanglement_bit()
-		else:
+		elif UTIL.hasBlueBits():
 			TeleporterState.current_bit_color = UTIL.BLUE
 			create_entanglement_bit()
+		else:
+			TeleporterState.current_bit_color = null
 		restart_timer()
 
 func shoot_animation_finished():

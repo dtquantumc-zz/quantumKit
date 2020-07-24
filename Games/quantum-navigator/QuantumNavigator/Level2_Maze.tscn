@@ -1130,7 +1130,7 @@ position = Vector2( 728, 480 )
 
 [node name="Transition" parent="." instance=ExtResource( 25 )]
 position = Vector2( 1546, 90 )
-nextScene = "res://TitleScreen.tscn"
+nextScene = "res://Level3_Island.tscn"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

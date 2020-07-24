@@ -20,7 +20,19 @@ func _ready():
 	TeleporterState.connect("teleporters_are_connected", self, "on_teleporters_are_connected")
 
 func on_teleporters_are_connected(texture):
-	get_node("Sprite").set_texture(texture)
+	var connected_red_teleporter = load("res://Teleporter/RedPhoneBooth/PhoneBoothClosedGlowing.png")
+	var connected_blue_teleporter = load("res://Teleporter/BluePhoneBooth/PhoneBoothClosedGlowing.png")
+
+	var is_red_teleporter_connected = texture == connected_red_teleporter
+	var is_blue_teleporter_connected = texture == connected_blue_teleporter
+
+	for pair in TeleporterState.activeTeleporters:
+		if pair[0] == self:
+			if pair[1] == 'red' && is_red_teleporter_connected:
+				get_node("Sprite").set_texture(texture)
+			elif pair[1] == 'blue'&& is_blue_teleporter_connected:
+				get_node("Sprite").set_texture(connected_blue_teleporter)
+			break
 
 func _physics_process(_delta):
 	if playerDetectionZone.can_see_player():
@@ -40,12 +52,12 @@ func _on_Hurtbox_area_entered(_area):
 
 	update_teleporter_state()
 
-	if all_red_teleporters_are_same_color():
+	if two_red_teleporters_are_same_color():
 		TeleporterState.are_red_teleporters_connected = true
-	elif all_blue_teleporters_are_same_color():
+	elif two_blue_teleporters_are_same_color():
 		TeleporterState.are_blue_teleporters_connected = true
-	else:
-		update_teleporter_color()
+
+	update_teleporter_color()
 
 func is_gray_phone_booth():
 	return (get_node("Sprite").get_texture().get_path() ==
@@ -57,6 +69,12 @@ func update_teleporter_state():
 	else:
 		handle_blue_bit_fired()
 
+func two_red_teleporters_are_same_color():
+	return TeleporterState.num_red_teleporters == 2
+
+func two_blue_teleporters_are_same_color():
+	return TeleporterState.num_blue_teleporters == 2
+
 func all_red_teleporters_are_same_color():
 	return TeleporterState.num_red_teleporters == TeleporterState.num_teleporters
 
@@ -64,10 +82,10 @@ func all_blue_teleporters_are_same_color():
 	return TeleporterState.num_blue_teleporters == TeleporterState.num_teleporters
 
 func update_teleporter_color():
-	if TeleporterState.current_bit_color == UTIL.RED:
+	if color == 'red' && !two_red_teleporters_are_same_color():
 		color = "red"
 		set_red_teleporter_color()
-	else:
+	elif color == 'blue' && !two_blue_teleporters_are_same_color():
 		color = "blue"
 		set_blue_teleporter_color()
 
@@ -79,14 +97,23 @@ func set_blue_teleporter_color():
 
 func handle_red_bit_fired():
 	OtterStats.red_bits -= 1
-	TeleporterState.current_bit_color = UTIL.RED
+
+	if OtterStats.red_bits <= 0:
+		if OtterStats.blue_bits > 0:
+			TeleporterState.current_bit_color = UTIL.BLUE
+		else:
+			TeleporterState.current_bit_color = null
+
 	TeleporterState.num_red_teleporters += 1
 	TeleporterState.activeTeleporters.append([self, 'red'])
 	color = 'red'
 
 func handle_blue_bit_fired():
 	OtterStats.blue_bits -= 1
-	TeleporterState.current_bit_color = UTIL.BLUE
+
+	if OtterStats.blue_bits <= 0:
+			TeleporterState.current_bit_color = null
+
 	TeleporterState.num_blue_teleporters += 1
 	TeleporterState.activeTeleporters.append([self, 'blue'])
 	color = 'blue'
@@ -106,6 +133,14 @@ func close_booth():
 func set_gray():
 	$Sprite.set_texture(grayClosed)
 	TeleporterState.activeTeleporters.erase([self, color])
+
+	if color == 'red':
+		TeleporterState.are_red_teleporters_connected = false
+		TeleporterState.num_red_teleporters -= 2
+	elif color == 'blue':
+		TeleporterState.are_blue_teleporters_connected = false
+		TeleporterState.num_blue_teleporters -= 2
+
 	color = 'gray'
 
 func _on_InteractableHurtbox_area_entered(area):
@@ -115,7 +150,12 @@ func _on_InteractableHurtbox_area_entered(area):
 
 		return
 
-	if !([self, color] in TeleporterState.activeTeleporters):
+	var is_a_red_connected_teleporter = $Sprite.texture == redClosedGlow
+	var is_a_blue_connected_teleporter = $Sprite.texture == blueClosedGlow
+
+	var is_a_connected_teleporter = is_a_red_connected_teleporter or is_a_blue_connected_teleporter
+
+	if !([self, color] in TeleporterState.activeTeleporters) or !is_a_connected_teleporter:
 		var errorSound = ErrorSound.instance()
 		get_parent().add_child(errorSound)
 

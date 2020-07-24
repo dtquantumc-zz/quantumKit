@@ -32,6 +32,7 @@ modulate = Color( 1, 1, 1, 0.352941 )
 shape = SubResource( 2 )
 
 [node name="Dialog_Player" parent="." instance=ExtResource( 5 )]
+visible = true
 position = Vector2( -293.333, -106.667 )
 scale = Vector2( 3.333, 3.333 )
 z_index = 100
