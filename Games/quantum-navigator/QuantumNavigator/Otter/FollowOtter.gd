@@ -1,3 +1,8 @@
+# SPDX-License-Identifier: MIT
+
+# (C) Copyright 2020
+# Diversifying Talent in Quantum Computing, Geering Up, UBC
+
 extends KinematicBody2D
 
 export var ACCELERATION = 500
@@ -35,13 +40,13 @@ func _physics_process(delta):
 			if rng.randi_range(0, 60) < 1:
 				state = MOVE
 				dir = Vector2(rng.randf_range(-1, 1), rng.randf_range(-1, 1)).normalized()
-		
+
 
 func move_state(delta):
 	var input_vector = dir
 
 	input_vector = input_vector.normalized()
-	
+
 	if input_vector != Vector2.ZERO:
 		animationTree.set("parameters/Idle/blend_position", input_vector)
 		animationTree.set("parameters/Run/blend_position", input_vector)
@@ -52,16 +57,16 @@ func move_state(delta):
 	else:
 #		animationState.travel("Idle")
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
-	
+
 	velocity = move_and_slide(velocity)
-	
+
 	if velocity == Vector2.ZERO:
 		animationState.travel("Idle")
 
 
 func push_state():
 	animationState.travel("Push")
-	
+
 func shoot_state():
 	animationState.travel("Shoot")
 
@@ -70,7 +75,7 @@ func shoot_animation_finished():
 
 func push_animation_finished():
 	reset_to_move_state()
-	
+
 func reset_to_move_state():
 	velocity = Vector2.ZERO
 	state = MOVE
