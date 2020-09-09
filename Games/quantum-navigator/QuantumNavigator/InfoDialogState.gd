@@ -1,3 +1,8 @@
+# SPDX-License-Identifier: MIT
+
+# (C) Copyright 2020
+# Diversifying Talent in Quantum Computing, Geering Up, UBC
+
 extends Node2D
 
 var has_game_intro_dialog_been_seen = false setget set_has_game_intro_dialog_been_seen, get_has_game_intro_dialog_been_seen

@@ -1,3 +1,8 @@
+# SPDX-License-Identifier: MIT
+
+# (C) Copyright 2020
+# Diversifying Talent in Quantum Computing, Geering Up, UBC
+
 extends Control
 
 var fire_hazard_visible = {} setget set_fire_hazard_visible

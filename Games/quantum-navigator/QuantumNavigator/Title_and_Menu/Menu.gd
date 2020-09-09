@@ -1,3 +1,8 @@
+# SPDX-License-Identifier: MIT
+
+# (C) Copyright 2020
+# Diversifying Talent in Quantum Computing, Geering Up, UBC
+
 extends Node2D
 
 var MenuItems = ["Start_Item", "Exit_Item", "Mute_Item"]

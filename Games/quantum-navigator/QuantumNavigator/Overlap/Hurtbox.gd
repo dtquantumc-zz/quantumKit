@@ -1,3 +1,8 @@
+# SPDX-License-Identifier: MIT
+
+# (C) Copyright 2020
+# Diversifying Talent in Quantum Computing, Geering Up, UBC
+
 extends Area2D
 
 var invincible = false setget set_invincible
@@ -17,7 +22,7 @@ func set_invincible(value):
 func start_invincibility(duration):
 	self.invincible = true
 	timer.start(duration)
-	
+
 func _on_Timer_timeout():
 	self.invincible = false
 
