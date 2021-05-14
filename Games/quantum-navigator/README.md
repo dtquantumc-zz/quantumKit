@@ -15,6 +15,14 @@ The Quantum Navigator is a puzzle game that introduces fundamental Quantum Compu
 2. Place them inside the same folder
 3. Double click the `.exe` file
 
+## Controls
+
+1. Move with arrows or WASD 
+2. i - info on the object (click 'i' when next to a teleportation booth, encoder/decoder, etc.)
+3. Shoot bits using X
+4. Restart Level with R
+5. "Activate" elements with spacebar (i.e. when standing next to a teleporter booth, press spacebar to use).
+
 # Authors:
 Listed alphabetically, the authors wishing to be credited are:
 - Haris Amiri
