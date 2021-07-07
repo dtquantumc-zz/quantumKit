@@ -19,7 +19,7 @@
 [ext_resource path="res://Assets/BigManaPotion.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Assets/SmallHealthPotion.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Level_Transition/Level_Transition_Box.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Level2_Maze.tscn" type="PackedScene" id=20]
+[ext_resource path="res://UI/LevelCompleteMessage/Level_Transition_Box_With_Complete_Msg.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Computer/Computer.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Computer/Decoder.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Traps/FireTrap.tscn" type="PackedScene" id=23]
@@ -1019,8 +1019,11 @@ margin_bottom = 18.0
 [node name="Node" type="Node" parent="."]
 
 [node name="Level_Transition" parent="." instance=ExtResource( 19 )]
-position = Vector2( 374.131, 94.9815 )
-nextScene = ExtResource( 20 )
+position = Vector2( 410.131, 94.9815 )
 
 [node name="FireTrap" parent="." instance=ExtResource( 23 )]
 position = Vector2( 150.841, 90.9613 )
+
+[node name="Area2D" parent="." instance=ExtResource( 20 )]
+position = Vector2( 387.646, 93.4631 )
+nextScene = "res://Level2_Maze.tscn"
