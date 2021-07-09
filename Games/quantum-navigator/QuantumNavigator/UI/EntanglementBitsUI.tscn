@@ -15,7 +15,8 @@ __meta__ = {
 }
 
 [node name="RedEntanglementBitEmpty" type="TextureRect" parent="."]
-margin_right = 28.0
+margin_left = 32.0
+margin_right = 60.0
 margin_bottom = 14.0
 texture = ExtResource( 2 )
 expand = true
@@ -25,8 +26,7 @@ __meta__ = {
 }
 
 [node name="BlueEntanglementBitEmpty" type="TextureRect" parent="."]
-margin_left = 28.0
-margin_right = 56.0
+margin_right = 28.0
 margin_bottom = 14.0
 texture = ExtResource( 1 )
 expand = true
@@ -36,7 +36,8 @@ __meta__ = {
 }
 
 [node name="RedEntanglementBitFull" type="TextureRect" parent="."]
-margin_right = 28.0
+margin_left = 32.0
+margin_right = 60.0
 margin_bottom = 14.0
 texture = ExtResource( 4 )
 expand = true
@@ -46,8 +47,7 @@ __meta__ = {
 }
 
 [node name="BlueEntanglementBitFull" type="TextureRect" parent="."]
-margin_left = 28.0
-margin_right = 56.0
+margin_right = 28.0
 margin_bottom = 14.0
 texture = ExtResource( 3 )
 expand = true

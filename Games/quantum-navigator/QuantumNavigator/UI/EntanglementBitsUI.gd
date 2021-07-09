@@ -15,12 +15,21 @@ onready var redBitEmpty = $RedEntanglementBitEmpty
 onready var blueBitFull = $BlueEntanglementBitFull
 onready var blueBitEmpty = $BlueEntanglementBitEmpty
 
+func on_level_changed(value):
+	print('level changed')
+	if value == 1:
+		redBitFull.rect_size.x = 0
+		redBitEmpty.rect_size.x = 0
+	else:
+		redBitEmpty.rect_size.x = 28
+	
 func set_red_bits(value):
 	red_bits = clamp(value, 0, max_bits)
 	if redBitFull != null:
 		redBitFull.rect_size.x = red_bits * 14
 
 func set_blue_bits(value):
+	
 	blue_bits = clamp(value, 0, max_bits)
 	if blueBitFull != null:
 		blueBitFull.rect_size.x = blue_bits * 14
@@ -32,3 +41,9 @@ func _ready():
 	OtterStats.connect("red_bits_changed", self, "set_red_bits")
 	# warning-ignore:return_value_discarded
 	OtterStats.connect("blue_bits_changed", self, "set_blue_bits")
+	OtterStats.connect("level_changed", self, "on_level_changed")
+	
+	if OtterStats.curr_level == 1:
+		redBitFull.rect_size.x = 0
+		redBitEmpty.rect_size.x = 0
+		

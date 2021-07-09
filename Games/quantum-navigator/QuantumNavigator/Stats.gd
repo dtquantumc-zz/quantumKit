@@ -11,6 +11,7 @@ export var blue_bits = 0 setget set_blue_bits
 export var max_pickles = 2
 export var pickles = 0 setget set_pickles
 export var isEncoded = false
+export var curr_level = 1 setget set_level
 
 export var can_see_encoder = false setget set_can_see_encoder
 export var can_see_decoder = false setget set_can_see_decoder
@@ -26,6 +27,7 @@ signal health_changed(value)
 signal pickles_changed(value)
 signal red_bits_changed(value)
 signal blue_bits_changed(value)
+signal level_changed(value)
 signal max_pickles_collected
 
 signal encoder_visible(value)
@@ -55,8 +57,14 @@ func set_red_bits(value):
 func set_blue_bits(value):
 	blue_bits = value
 	emit_signal("blue_bits_changed", blue_bits)
+	
+func set_level(value):
+	# used to update the UI, assume scene already changed
+	curr_level = value
+	emit_signal("level_changed", curr_level)
 
 func reset():
+	# reset per level only, does not reset level
 	pickles = 0
 	health = max_health
 	red_bits = 0

@@ -685,6 +685,7 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 [node name="Node2D" type="Node2D"]
 
 [node name="BackgroundGrass" type="Sprite" parent="."]
+position = Vector2( -311.219, -174.406 )
 scale = Vector2( 3.5, 3.5 )
 texture = ExtResource( 2 )
 centered = false
