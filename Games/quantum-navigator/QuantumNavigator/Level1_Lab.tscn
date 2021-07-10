@@ -18,7 +18,7 @@
 [ext_resource path="res://Assets/BigHealthPotion.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Assets/BigManaPotion.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Assets/SmallHealthPotion.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Level_Transition/Level_Transition_Box.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Level_Transition/LevelCompleteMessage/Level_Transition_Box_With_Complete_Msg.tscn" type="PackedScene" id=19]
 [ext_resource path="res://UI/TeleporterHelpUI.tscn" type="PackedScene" id=21]
 [ext_resource path="res://EntanglementBit/RedEntanglementBitCollectable.tscn" type="PackedScene" id=22]
 [ext_resource path="res://UI/RedBellPairHelpUI.tscn" type="PackedScene" id=23]
@@ -1392,10 +1392,10 @@ margin_top = 17.0
 margin_right = 46.0
 margin_bottom = 57.0
 
-[node name="Level_Transition" parent="." instance=ExtResource( 19 )]
-position = Vector2( 374.131, 94.9815 )
-nextScene = "res://Level2_Maze.tscn"
-
 [node name="ControlsCanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ControlsDialog" parent="ControlsCanvasLayer" instance=ExtResource( 27 )]
+
+[node name="Level_Transition_With_Msg" parent="." instance=ExtResource( 19 )]
+position = Vector2( 375.959, 93.5444 )
+nextScene = "res://Level2_Maze.tscn"

@@ -5,4 +5,6 @@
 
 extends Node2D
 
+# Defines a custom signal decoder_used
+
 signal decoder_used()

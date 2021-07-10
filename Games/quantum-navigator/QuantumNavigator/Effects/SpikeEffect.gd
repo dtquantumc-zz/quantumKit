@@ -5,6 +5,11 @@
 
 extends AnimatedSprite
 
+# Script attached to the SpikeEffect object
+
+var animationName = "default"
+
+# Plays the animation (no listener upon animation completion)
 func _ready():
 	frame = 0
-	play("Animate")
+	play(animationName)

@@ -24,7 +24,7 @@
 [ext_resource path="res://Computer/Decoder.tscn" type="PackedScene" id=22]
 [ext_resource path="res://UI/DecoderHelpUI.tscn" type="PackedScene" id=23]
 [ext_resource path="res://ControlsDialog.tscn" type="PackedScene" id=24]
-[ext_resource path="res://Level_Transition/Level_Transition_Box.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Level_Transition/LevelCompleteMessage/Level_Transition_Box_With_Complete_Msg.tscn" type="PackedScene" id=26]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -1128,10 +1128,6 @@ position = Vector2( 696, 24 )
 [node name="FireTrap2" parent="YSort/FireTraps" instance=ExtResource( 11 )]
 position = Vector2( 728, 480 )
 
-[node name="Transition" parent="." instance=ExtResource( 25 )]
-position = Vector2( 1546, 90 )
-nextScene = "res://Level3_Island.tscn"
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="EntanglementBitsUI" parent="CanvasLayer" instance=ExtResource( 7 )]
@@ -1181,3 +1177,7 @@ margin_bottom = 56.0
 [node name="ControlsCanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ControlsDialog" parent="ControlsCanvasLayer" instance=ExtResource( 24 )]
+
+[node name="Level_Transition_With_Msg" parent="." instance=ExtResource( 26 )]
+position = Vector2( 1545.6, 89.9383 )
+nextScene = "res://Level3_Island.tscn"

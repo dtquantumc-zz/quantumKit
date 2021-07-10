@@ -5,18 +5,24 @@
 
 extends Node
 
+# Utility class containing useful methods/definitions
+
 const stats = OtterStats
 
+# Enum definitions for entanglement bit states
 enum {
 	RED,
 	BLUE
 }
 
-static func hasBitsToUse():
+# Determines whether the otter has available entanglement bits
+static func hasBitsToUse() -> bool:
 	return hasRedBits() or hasBlueBits()
 
-static func hasRedBits():
+# Determines whether the otter has available red entanglement bits
+static func hasRedBits() -> bool:
 	return stats.red_bits >= 1
 
-static func hasBlueBits():
+# Determines whether the otter has available blue entanglement bits
+static func hasBlueBits() -> bool:
 	return stats.blue_bits >= 1

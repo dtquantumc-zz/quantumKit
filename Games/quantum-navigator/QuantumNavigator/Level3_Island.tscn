@@ -12,7 +12,7 @@
 [ext_resource path="res://World/Grass.png" type="Texture" id=10]
 [ext_resource path="res://Boulders/LeftBoulder.tscn" type="PackedScene" id=11]
 [ext_resource path="res://World/DirtTileset.png" type="Texture" id=12]
-[ext_resource path="res://Level_Transition/Level_Transition_Box.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Level_Transition/LevelCompleteMessage/Level_Transition_Box_With_Complete_Msg.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Island/tileset16x16_1.png" type="Texture" id=20]
 [ext_resource path="res://UI/TeleporterHelpUI.tscn" type="PackedScene" id=21]
 [ext_resource path="res://EntanglementBit/RedEntanglementBitCollectable.tscn" type="PackedScene" id=22]
@@ -1165,9 +1165,8 @@ margin_top = 17.0
 margin_right = 46.0
 margin_bottom = 57.0
 
-[node name="Level_Transition" parent="." instance=ExtResource( 19 )]
-position = Vector2( 832, 80 )
-nextScene = "res://TitleScreen.tscn"
+[node name="Level_Transition_with_Msg" parent="." instance=ExtResource( 13 )]
+position = Vector2( 809.045, 79.6038 )
 
 [node name="ControlsCanvasLayer" type="CanvasLayer" parent="."]
 
