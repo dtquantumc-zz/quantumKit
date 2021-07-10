@@ -50,6 +50,7 @@ func _process(delta):
 		if Selected == 0 and startScene != null:
 			get_tree().change_scene_to(startScene)
 			OtterStats.reset()
+			OtterStats.set_level(1)
 		elif Selected == 2 and startScene != null:
 			if BackgroundMusic.is_playing():
 				BackgroundMusic.stop_music()

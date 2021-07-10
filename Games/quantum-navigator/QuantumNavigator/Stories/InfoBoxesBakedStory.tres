@@ -38,7 +38,6 @@ story = {
 },
 5: {
 "links": {
-
 },
 "text": "<end>"
 },
@@ -75,7 +74,6 @@ story = {
 },
 4: {
 "links": {
-
 },
 "text": "<end>"
 }
@@ -105,7 +103,6 @@ story = {
 },
 4: {
 "links": {
-
 },
 "text": "<end>"
 }
@@ -142,7 +139,6 @@ story = {
 },
 5: {
 "links": {
-
 },
 "text": "<end>"
 }
@@ -165,7 +161,6 @@ story = {
 },
 3: {
 "links": {
-
 },
 "text": "<end>"
 }
@@ -192,7 +187,6 @@ Press c for Controls.</dialog>"
 },
 3: {
 "links": {
-
 },
 "text": "<end>"
 }
@@ -219,7 +213,6 @@ Restart Level: R</dialog>"
 },
 3: {
 "links": {
-
 },
 "text": "<end>"
 }

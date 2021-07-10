@@ -143,4 +143,5 @@ __meta__ = {
 [node name="SpaceBar_AnimationPlayer" type="AnimationPlayer" parent="Dialog_Box/Body_NinePatchRect/SpaceBar_NinePatchRect"]
 autoplay = "Blink"
 anims/Blink = SubResource( 2 )
+
 [connection signal="animation_finished" from="Dialog_Box/Body_NinePatchRect/MarginContainer/Body_Label/Body_AnimationPlayer" to="." method="_on_Body_AnimationPlayer_animation_finished"]

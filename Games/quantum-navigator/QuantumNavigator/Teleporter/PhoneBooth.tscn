@@ -62,14 +62,12 @@ modulate = Color( 1, 1, 1, 0.352941 )
 shape = SubResource( 4 )
 
 [node name="Dialog_Player" parent="." instance=ExtResource( 5 )]
-visible = true
 position = Vector2( -88, -24 )
 z_index = 100
+
 [connection signal="area_entered" from="TeleporterHurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="area_entered" from="InteractableHurtbox" to="." method="_on_InteractableHurtbox_area_entered"]
 
 [editable path="TeleporterHurtbox"]
-
 [editable path="InteractableHurtbox"]
-
 [editable path="PlayerDetectionZone"]
