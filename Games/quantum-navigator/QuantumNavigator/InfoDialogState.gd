@@ -7,6 +7,7 @@ extends Node2D
 
 # Script attached to global dialogue info state object
 # Determines if various info boxes have been seen
+# Setters do not emit signals
 
 var has_game_intro_dialog_been_seen = false setget set_has_game_intro_dialog_been_seen, get_has_game_intro_dialog_been_seen
 var has_bell_pair_dialog_been_seen = false setget set_has_bell_pair_dialog_been_seen, get_has_bell_pair_dialog_been_seen

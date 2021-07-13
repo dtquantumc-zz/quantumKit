@@ -47,5 +47,5 @@ func get_is_encoder_dialog_open() -> bool:
 func get_is_decoder_dialog_open() -> bool:
 	return is_decoder_dialog_open
 
-func get_is_fire_trap_dialog_open() -> bool:
+func get_is_fire_trap_dialog_open() -> bool:	
 	return is_fire_trap_dialog_open
