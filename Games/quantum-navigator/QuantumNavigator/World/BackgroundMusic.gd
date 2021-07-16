@@ -7,6 +7,9 @@ extends Control
 
 onready var audioStreamPlayer = $AudioStreamPlayer
 
+func _ready():
+	pause_mode = Node.PAUSE_MODE_PROCESS
+
 func start_music():
 	audioStreamPlayer.play()
 
