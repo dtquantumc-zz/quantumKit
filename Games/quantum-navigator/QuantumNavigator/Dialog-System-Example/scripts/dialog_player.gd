@@ -37,7 +37,6 @@ func _ready():
 
 	_Story_Reader.read(load(_get_story()))
 
-	_Dialog_Box.visible = false
 	_SpaceBar_Icon.visible = false
 
 func _input(event):
@@ -68,7 +67,6 @@ func play_dialog(record_name : String):
 	_get_next_node()
 	_play_node()
 	_Dialog_Open = true
-	_Dialog_Box.visible = true
 	_emit_dialog_open_signal(true)
 	get_tree().paused = true
 	_Anim.stop()
@@ -77,7 +75,6 @@ func play_dialog(record_name : String):
 func stop_dialog():
 	if _is_playing():
 		_Dialog_Open = false
-		_Dialog_Box.visible = false
 		_emit_dialog_open_signal(false)
 
 
@@ -115,7 +112,6 @@ func _get_next_node():
 		_Anim.stop()
 		_Anim.play("dialog_disappear")
 		yield(_Anim, "animation_finished")
-		_Dialog_Box.visible = false
 		_emit_dialog_open_signal(false)
 
 
