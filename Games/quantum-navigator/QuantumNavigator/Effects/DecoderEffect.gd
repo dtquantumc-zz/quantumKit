@@ -22,12 +22,13 @@ func _ready():
 	play(animationName)
 
 # Adds a listener to decoder_effect_done that is signaled upon animation finish
-# And signals to the toTeleport object that the decoder effect is starting
-func connectTeleport(toTeleport):
+# And signals to objectToTeleport that the decoder effect is starting
+func connectTeleport(objectToTeleport):
+	# warning-ignore:return_value_discarded
 	self.connect("decoder_effect_done",
-		toTeleport,
+		objectToTeleport,
 		"_on_Decoder_effect_process_done")
-	toTeleport.call("_on_Decoder_effect_process_start")
+	objectToTeleport.call("_on_Decoder_effect_process_start")
 
 # Function called on animation finished - emits a signal when the decoder
 # effect is complete

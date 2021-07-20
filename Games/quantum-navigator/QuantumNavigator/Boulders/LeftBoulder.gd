@@ -27,4 +27,5 @@ func on_max_pickles_collected():
 # Set the method on_max_pickles_collected to listen to signals from
 # OtterStats (see res://Stats.gd for info)
 func _ready():
+	# warning-ignore:return_value_discarded
 	OtterStats.connect("max_pickles_collected", self, "on_max_pickles_collected")

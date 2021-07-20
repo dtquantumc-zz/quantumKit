@@ -25,12 +25,13 @@ func _ready():
 	animatedSprite.play(animationName)
 
 # Adds a listener to computer_effect_done that is signaled upon animation finish
-# And signals to the toTeleport object that the computer effect is starting
-func connectTeleport(toTeleport):
+# And signals to the objectToTeleport that the computer effect is starting
+func connectTeleport(objectToTeleport):
+	# warning-ignore:return_value_discarded
 	self.connect("computer_effect_done",
-		toTeleport,
+		objectToTeleport,
 		"_on_Computer_effect_process_done")
-	toTeleport.call("_on_Computer_effect_process_start")
+	objectToTeleport.call("_on_Computer_effect_process_start")
 
 # Function called on animation finished - emits a signal when the computer
 # effect is complete

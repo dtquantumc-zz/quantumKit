@@ -24,6 +24,6 @@ func _on_Hurtbox_area_entered(_area):
 
 # Runs upon an object exiting the 'hurtbox'
 # Creates a spike effect and deletes this object
-func _on_Hurtbox_area_exited(area):
+func _on_Hurtbox_area_exited(_area):
 	create_spike_effect()
 	queue_free()

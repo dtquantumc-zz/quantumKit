@@ -24,6 +24,7 @@ func goto_next_scene():
 	if nextScene != null:
 		OtterStats.reset()
 		TeleporterState.reset()
+		# warning-ignore:return_value_discarded
 		get_tree().change_scene_to(load(nextScene))
 	else:
 		get_tree().quit()

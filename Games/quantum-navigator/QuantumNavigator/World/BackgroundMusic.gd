@@ -10,6 +10,9 @@ extends Control
 # Note: $<Node-name> is shorthand for get_node(<Node-name>)
 onready var audioStreamPlayer = $AudioStreamPlayer
 
+func _ready():
+	pause_mode = Node.PAUSE_MODE_PROCESS
+
 # Starts playing the background music
 func start_music():
 	audioStreamPlayer.play()

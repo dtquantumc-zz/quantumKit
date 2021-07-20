@@ -51,6 +51,7 @@ func _ready():
 	OtterStats.connect("red_bits_changed", self, "set_red_bits")
 	# warning-ignore:return_value_discarded
 	OtterStats.connect("blue_bits_changed", self, "set_blue_bits")
+	# warning-ignore:return_value_discarded
 	OtterStats.connect("level_changed", self, "on_level_changed")
 	
 	if OtterStats.curr_level == 1:

@@ -67,9 +67,15 @@ func get_is_info_dialog_open() -> bool:
 		get_is_fire_trap_dialog_open())
 
 func _ready():
+	# warning-ignore:return_value_discarded
 	connect("game_intro_dialog_open", self, "set_is_game_intro_dialog_open")
+	# warning-ignore:return_value_discarded
 	connect("bell_pair_dialog_open", self, "set_is_bell_pair_dialog_open")
+	# warning-ignore:return_value_discarded
 	connect("teleporter_dialog_open", self, "set_is_teleporter_dialog_open")
+	# warning-ignore:return_value_discarded
 	connect("encoder_dialog_open", self, "set_is_encoder_dialog_open")
+	# warning-ignore:return_value_discarded
 	connect("decoder_dialog_open", self, "set_is_decoder_dialog_open")
+	# warning-ignore:return_value_discarded
 	connect("fire_trap_dialog_open", self, "set_is_fire_trap_dialog_open")

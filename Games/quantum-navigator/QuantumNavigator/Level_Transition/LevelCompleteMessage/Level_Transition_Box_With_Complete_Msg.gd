@@ -20,7 +20,7 @@ export(String) var nextScene = null
 var windowInstance = null
 
 # On area enter, create the window, if not already created
-func _on_Area2D_area_entered(area) -> void:
+func _on_Area2D_area_entered(_area) -> void:
 	if (windowInstance != null): return
 	windowInstance = LevelCompleteWindow.instance()
 	windowInstance.get_node(".").nextScene = nextScene

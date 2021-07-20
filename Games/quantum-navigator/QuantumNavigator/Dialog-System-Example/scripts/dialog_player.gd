@@ -20,6 +20,8 @@ onready var _Body_LBL = self.find_node("Body_Label")
 onready var _Dialog_Box = self.find_node("Dialog_Box")
 onready var _Speaker_LBL = self.find_node("Speaker_Label")
 onready var _SpaceBar_Icon = self.find_node("SpaceBar_NinePatchRect")
+onready var _Anim = self.find_node("AnimationPlayer")
+onready var _Dialog_Open = false
 
 var _did = 0
 var _nid = 0
@@ -35,7 +37,6 @@ func _ready():
 
 	_Story_Reader.read(load(_get_story()))
 
-	_Dialog_Box.visible = false
 	_SpaceBar_Icon.visible = false
 
 func _input(event):
@@ -45,7 +46,7 @@ func _input(event):
 
 # Callback Methods
 
-func _on_Body_AnimationPlayer_animation_finished(anim_name):
+func _on_Body_AnimationPlayer_animation_finished(_anim_name):
 	_SpaceBar_Icon.visible = true
 
 
@@ -65,12 +66,15 @@ func play_dialog(record_name : String):
 	_final_nid = _Story_Reader.get_nid_via_exact_text(_did, "<end>")
 	_get_next_node()
 	_play_node()
-	_Dialog_Box.visible = true
+	_Dialog_Open = true
 	_emit_dialog_open_signal(true)
+	get_tree().paused = true
+	_Anim.stop()
+	_Anim.play("dialog_appear")
 
 func stop_dialog():
 	if _is_playing():
-		_Dialog_Box.visible = false
+		_Dialog_Open = false
 		_emit_dialog_open_signal(false)
 
 
@@ -92,7 +96,7 @@ func _set_open_state_signal(record_name : String):
 			_signal = "fire_trap_dialog_open"
 
 func _is_playing():
-	return _Dialog_Box.visible
+	return _Dialog_Open
 
 
 func _is_waiting():
@@ -103,7 +107,11 @@ func _get_next_node():
 	_nid = _Story_Reader.get_nid_from_slot(_did, _nid, 0)
 
 	if _nid == _final_nid:
-		_Dialog_Box.visible = false
+		_Dialog_Open = false
+		get_tree().paused = false;
+		_Anim.stop()
+		_Anim.play("dialog_disappear")
+		yield(_Anim, "animation_finished")
 		_emit_dialog_open_signal(false)
 
 

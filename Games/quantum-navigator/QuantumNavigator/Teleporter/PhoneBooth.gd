@@ -215,7 +215,8 @@ func _on_InteractableHurtbox_area_entered(area):
 	if otherBooth == null:
 		print("Couldn't find second teleporter!")
 		return
-
+	
+	# warning-ignore:return_value_discarded
 	$Teleport_Timer.connect(
 		"timeout",
 		self,

@@ -97,7 +97,8 @@ func move_state(delta):
 		animationState.travel("Idle")
 
 	if Input.is_action_just_pressed("push"):
-		state = PUSH
+		if (!InfoDialogOpenState.get_is_info_dialog_open()):
+			state = PUSH
 
 	if Input.is_action_just_pressed("shoot"):
 		state = SHOOT

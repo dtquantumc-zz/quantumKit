@@ -32,7 +32,7 @@ func set_selection(val):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # Respond to keyboard input to change selected item, play sound effects
 # or execute menu actions
-func _process(delta):
+func _process(_delta):
 	var newselect = Selected
 	if Input.is_action_just_pressed("ui_up"):
 		newselect -= 1
@@ -55,6 +55,7 @@ func _process(delta):
 		get_parent().add_child(menuConfirmSound)
 
 		if Selected == 0 and startScene != null:
+			# warning-ignore:return_value_discarded
 			get_tree().change_scene_to(startScene)
 			OtterStats.reset()
 			OtterStats.set_level(1)

@@ -13,6 +13,7 @@ func restart(time=0):
 		yield(get_tree().create_timer(time), "timeout")
 	OtterStats.reset()
 	TeleporterState.reset()
+	# warning-ignore:return_value_discarded
 	get_tree().reload_current_scene()
 
 # Adds a restart call to a queue of actions with a time delay of 1 second
@@ -21,7 +22,7 @@ func queue_restart():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # Determines if restart button is pressed, and if so, restart immediately
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("restart"):
 		restart()
 
