@@ -46,7 +46,7 @@ func _input(event):
 
 # Callback Methods
 
-func _on_Body_AnimationPlayer_animation_finished(anim_name):
+func _on_Body_AnimationPlayer_animation_finished(_anim_name):
 	_SpaceBar_Icon.visible = true
 
 

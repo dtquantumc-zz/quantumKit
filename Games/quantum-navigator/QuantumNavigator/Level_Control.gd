@@ -5,28 +5,24 @@
 
 extends Node2D
 
+# Script attached to global level control
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
+# Restarts the level with a given time delay
 func restart(time=0):
 	if time > 0:
 		yield(get_tree().create_timer(time), "timeout")
 	OtterStats.reset()
 	TeleporterState.reset()
+	# warning-ignore:return_value_discarded
 	get_tree().reload_current_scene()
 
+# Adds a restart call to a queue of actions with a time delay of 1 second
 func queue_restart():
 	self.call_deferred("restart", 1)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+# Determines if restart button is pressed, and if so, restart immediately
+func _process(_delta):
 	if Input.is_action_just_pressed("restart"):
 		restart()
 

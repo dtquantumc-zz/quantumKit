@@ -5,21 +5,15 @@
 
 extends Area2D
 
+# Script attached to the Level_Transition_Box
+# Note: use LevelCompleteMessage instead for the "Level Complete!" transition
+# See also: res://Level_Transition/LevelCompleteMessage/LevelCompleteMessage.gd
+
+# export allows the value to be modified in inspector with type specified
 export(String) var nextScene = null
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#
-
+# Method runs upon another object entering this Area2D object
+# On entering this Area2D object, go to the next scene
 func _on_Area2D_area_entered(area):
 	if nextScene != null:
 		OtterStats.reset()

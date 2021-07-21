@@ -5,14 +5,22 @@
 
 extends KinematicBody2D
 
+# Script attached to the BlueEntanglementBitCollectable object
+# (blue floaty orbs)
+# See also: res://EntanglementBit/RedEntanglementBitCollectable.gd
+
+# Preload various scenes/prefabs to be created later
 const PickupItemEffect = preload("res://Effects/PickUpItemEffect.tscn")
 const BitCollectionSound = preload("res://EntanglementBit/BitCollectionSound.tscn")
 
+# Note: $<Node-name> is shorthand for get_node(<Node-name>)
 onready var playerDetectionZone = $PlayerDetectionZone
 onready var dialogPlayer = $Dialog_Player
 
 var bit_collected = false
 
+# Called upon physics update (_delta = time between physics updates)
+# Hide/show help info box upon near entanglement bit
 func _physics_process(_delta):
 	# TODO: Temporary so the 2nd entanglement bit on top of the fire trap
 	# doesn't create a help icon that overlaps with the help icon of the
@@ -30,20 +38,31 @@ func _physics_process(_delta):
 		OtterStats.set_can_see_blue_bell_pair({"name": get_name(), "value": false})
 		dialogPlayer.stop_dialog()
 
+# Instantiates the PickupItemEffect object and moves it to its current position
 func create_pickupitem_effect():
 	var pickupItemEffect = PickupItemEffect.instance()
 	get_parent().add_child(pickupItemEffect)
 	pickupItemEffect.global_position = global_position
 
+# Runs upon an object entering the 'hurtbox'
+# Note: hurtbox is not to be confused with the player detection zone
+# Increases the number of blue bits of the otter, hides the info box if open,
+# plays the correct sound, and deletes the object.
 func _on_Hurtbox_area_entered(_area):
+	# increase number of blue bits
 	OtterStats.blue_bits += 1
+	
+	# Create pickup item effect
 	create_pickupitem_effect()
-
+	
+	# Hide info box
 	OtterStats.set_can_see_blue_bell_pair({"name": get_name(), "value": false})
 	dialogPlayer.stop_dialog()
 	bit_collected = true
-
+	
+	# Generate sound
 	var bitCollectionSound = BitCollectionSound.instance()
 	get_parent().add_child(bitCollectionSound)
 
+	# Delete object
 	queue_free()

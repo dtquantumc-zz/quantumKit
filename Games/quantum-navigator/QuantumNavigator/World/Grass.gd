@@ -14,13 +14,19 @@
 
 extends Node2D
 
+# Script attached to grass objects
+
+# Preloaded grass effect
 const GrassEffect = preload("res://Effects/GrassEffect.tscn")
 
+# Creates a grass effect at this object's current position
 func create_grass_effect():
 	var grassEffect = GrassEffect.instance()
 	get_parent().add_child(grassEffect)
 	grassEffect.global_position = global_position
 
+# Runs upon an object entering the 'hurtbox'
+# Upon object entering the hurtbox, create the grass effect and delete the object
 func _on_Hurtbox_area_entered(_area):
 	create_grass_effect()
 	queue_free()

@@ -5,6 +5,8 @@
 
 extends Node2D
 
+# Script attached to the main menu object
+
 var MenuItems = ["Start_Item", "Exit_Item", "Mute_Item"]
 var Selected = 0
 
@@ -13,10 +15,13 @@ var MovingBetweenOptionsSound = preload("res://Title_and_Menu/MovingBetweenOptio
 
 export(PackedScene) var startScene = null
 
-# Called when the node enters the scene tree for the first time.
+# Called when the node enters the scene tree for the first time
+# Start the music upon the title loading
 func _ready():
 	BackgroundMusic.start_music()
 
+# Change selected item in the menu, and change animation states/animations
+# according to which menu item was selected
 func set_selection(val):
 	if Selected == val: return
 	get_node(MenuItems[Selected]).animation = "Static"
@@ -25,7 +30,9 @@ func set_selection(val):
 	Selected = val
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+# Respond to keyboard input to change selected item, play sound effects
+# or execute menu actions
+func _process(_delta):
 	var newselect = Selected
 	if Input.is_action_just_pressed("ui_up"):
 		newselect -= 1
@@ -48,6 +55,7 @@ func _process(delta):
 		get_parent().add_child(menuConfirmSound)
 
 		if Selected == 0 and startScene != null:
+			# warning-ignore:return_value_discarded
 			get_tree().change_scene_to(startScene)
 			OtterStats.reset()
 			OtterStats.set_level(1)
