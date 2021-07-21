@@ -13,6 +13,7 @@ export var ACCELERATION = 500
 export var MAX_SPEED = 80
 export var FRICTION = 500
 export(NodePath) var FOLLOW_TARGET = null
+export var IS_MAIN = true
 
 enum {
 	MOVE,
@@ -38,7 +39,12 @@ onready var timer = get_node("Timer")
 
 func _ready():
 	stats.connect("no_health", self, "zero_health")
+	if $RemoteTransform2D != null:
+		stats.set_curr_camera_rmtrans2d($RemoteTransform2D)
+		stats.set_curr_main_player(self)
+	print(stats.curr_main_player)
 
+	print(stats.curr_camera_rmtrans2d)
 func _physics_process(delta):
 	match state:
 		MOVE:
@@ -52,16 +58,17 @@ func move_state(delta):
 	if isTeleporting: return
 	var input_vector = Vector2.ZERO
 
-	if FOLLOW_TARGET == null:
+	if IS_MAIN == true:
 		input_vector.x = (Input.get_action_strength("ui_right") -
 			Input.get_action_strength("ui_left"))
 		input_vector.y = (Input.get_action_strength("ui_down") -
 			Input.get_action_strength("ui_up"))
-	else:
-		var target = get_node(FOLLOW_TARGET)
-		input_vector.x = target.position.x - position.x
-		input_vector.y = target.position.y - position.y
-		if (input_vector.length() < 30): input_vector = Vector2.ZERO
+	#else:
+
+		#var target = get_node(FOLLOW_TARGET)
+		#input_vector.x = target.position.x - position.x
+		#input_vector.y = target.position.y - position.y
+		#if (input_vector.length() < 30): input_vector = Vector2.ZERO
 
 	input_vector = input_vector.normalized()
 
@@ -89,7 +96,7 @@ func move_state(delta):
 	if Input.is_action_just_pressed("shoot"):
 		state = SHOOT
 
-	if Input.is_action_just_pressed("swap") and FOLLOW_TARGET == null:
+	if Input.is_action_just_pressed("swap") and IS_MAIN == true:
 		self.call_deferred("swap_followers")
 
 func push_state():
@@ -144,11 +151,13 @@ func spawn_followers(num_followers):
 		followers.append(newFollower)
 
 	followers[0].position = position + Vector2(-20, 0)
-	followers[0].FOLLOW_TARGET = self.get_path()
+	#followers[0].FOLLOW_TARGET = self.get_path()
+	followers[0].IS_MAIN = false
 	followers[0].get_node("End_Teleport_Particles").emitting = true
 	for i in range(1, followers.size()):
 		followers[i].position = followers[i-1].position + Vector2(-20, 0)
-		followers[i].FOLLOW_TARGET = followers[i-1].get_path()
+		#followers[i].FOLLOW_TARGET = self.get_path()
+		followers[i].IS_MAIN = false
 		followers[i].get_node("End_Teleport_Particles").emitting = true
 
 func swap_followers():
@@ -159,12 +168,16 @@ func swap_followers():
 	for i in range(1, followers.size()):
 		mainOtter.followers.append(followers[i])
 	mainOtter.FOLLOW_TARGET = null
+	mainOtter.IS_MAIN = true
+	IS_MAIN = false
+	stats.set_curr_main_player(mainOtter)
 	FOLLOW_TARGET = followers[-1].get_path()
 	mainOtter.followers.append(self)
 	followers = []
-	var rmTrans = $RemoteTransform2D
-	self.remove_child(rmTrans)
-	mainOtter.add_child(rmTrans)
+	if not OtterStats.camera_locked:
+		var rmTrans = $RemoteTransform2D
+		self.remove_child(rmTrans)
+		mainOtter.add_child(rmTrans)
 
 func _on_Hurtbox_area_entered(area):
 	if is_a_follower_otter():
@@ -184,7 +197,7 @@ func is_a_fire_trap(area):
 	return area.owner.get_name() in ["FireTrap", "SpikeTrap"]
 
 func is_a_follower_otter():
-	return FOLLOW_TARGET != null
+	return IS_MAIN == false
 
 func _on_Hurtbox_area_exited(area):
 	if is_a_fire_trap(area):
@@ -227,7 +240,7 @@ func _on_Decoder_effect_process_done(computer_position):
 	isTeleporting = false
 
 func zero_health():
-	if FOLLOW_TARGET == null:
+	if IS_MAIN == true:
 		self.call_deferred("die")
 
 func die():
@@ -236,10 +249,13 @@ func die():
 		for i in range(1, followers.size()):
 			mainOtter.followers.append(followers[i])
 		mainOtter.FOLLOW_TARGET = null
-		var rmTrans = $RemoteTransform2D
-		print(rmTrans)
-		self.remove_child(rmTrans)
-		mainOtter.add_child(rmTrans)
+		mainOtter.IS_MAIN = true
+		IS_MAIN = false
+		if not OtterStats.camera_locked:
+			var rmTrans = $RemoteTransform2D
+			print(rmTrans)
+			self.remove_child(rmTrans)
+			mainOtter.add_child(rmTrans)
 		stats.health = stats.max_health
 		queue_free()
 	else:

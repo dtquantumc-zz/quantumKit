@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[sub_resource type="GDScript" id=4]
+[sub_resource type="GDScript" id=1]
 script/source = "# SPDX-License-Identifier: MIT
 
 # (C) Copyright 2020
@@ -28,6 +28,7 @@ func _on_Area2D_area_entered(area):
 		OtterStats.reset()
 		OtterStats.set_level(OtterStats.curr_level + 1)
 		TeleporterState.reset()
+		print(nextScene)
 		get_tree().change_scene_to(load(nextScene))
 	else:
 		get_tree().quit()
@@ -41,13 +42,12 @@ load_path = "res://.import/icon.png-47dc6e8cad94817cb2e2b72e131ff5fa.stex"
 [node name="Area2D" type="Area2D"]
 collision_layer = 0
 collision_mask = 66
-script = SubResource( 4 )
+script = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 9.53674e-07, 9.53674e-07 )
 scale = Vector2( 0.328125, 0.328125 )
 texture = SubResource( 3 )
 

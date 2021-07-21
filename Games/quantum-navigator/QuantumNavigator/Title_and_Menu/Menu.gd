@@ -48,9 +48,11 @@ func _process(delta):
 		get_parent().add_child(menuConfirmSound)
 
 		if Selected == 0 and startScene != null:
-			get_tree().change_scene_to(startScene)
+			#get_tree().change_scene_to(startScene)
+			get_tree().change_scene_to(load("res://Level2_Maze.tscn"))
 			OtterStats.reset()
-			OtterStats.set_level(1)
+			OtterStats.set_level(2)
+			
 		elif Selected == 2 and startScene != null:
 			if BackgroundMusic.is_playing():
 				BackgroundMusic.stop_music()

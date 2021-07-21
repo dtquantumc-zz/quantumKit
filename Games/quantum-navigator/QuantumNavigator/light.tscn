@@ -1,0 +1,78 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Pickle/pickle-sprite-sheet.png" type="Texture" id=1]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 21, 55 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 21, 0, 21, 55 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 42, 0, 21, 55 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 63, 0, 21, 55 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 84, 0, 21, 55 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 1 )
+region = Rect2( 105, 0, 21, 55 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 1 )
+region = Rect2( 126, 0, 21, 55 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 1 )
+region = Rect2( 147, 0, 21, 55 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 1 )
+region = Rect2( 168, 0, 21, 55 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 1 )
+region = Rect2( 189, 0, 21, 55 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 1 )
+region = Rect2( 210, 0, 21, 55 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 1 )
+region = Rect2( 231, 0, 21, 55 )
+
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
+"loop": true,
+"name": "Rotate",
+"speed": 8.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=14]
+radius = 9.0
+height = 0.0
+
+[node name="Node2D" type="StaticBody2D"]
+
+[node name="light" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -10 )
+scale = Vector2( 0.3, 0.3 )
+frames = SubResource( 13 )
+animation = "Rotate"
+frame = 6
+playing = true
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2( 1, 0 )
+rotation = 1.5708
+shape = SubResource( 14 )

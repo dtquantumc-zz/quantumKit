@@ -34,8 +34,8 @@ shape = SubResource( 2 )
 [node name="Dialog_Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( -89, -32 )
 z_index = 100
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 
 [editable path="Hurtbox"]
-
 [editable path="PlayerDetectionZone"]

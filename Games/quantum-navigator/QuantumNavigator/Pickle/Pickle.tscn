@@ -77,7 +77,7 @@ position = Vector2( 0, -10 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 13 )
 animation = "Rotate"
-frame = 10
+frame = 11
 playing = true
 
 [node name="Hurtbox" parent="." instance=ExtResource( 4 )]
@@ -85,4 +85,5 @@ collision_layer = 2147483656
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource( 14 )
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]

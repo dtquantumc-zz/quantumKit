@@ -935,8 +935,8 @@ one_shot = true
 explosiveness = 0.5
 local_coords = false
 process_material = SubResource( 62 )
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 
 [editable path="Hurtbox"]
-
 [editable path="HitboxPivot/HandHitbox"]

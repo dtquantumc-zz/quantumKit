@@ -12,10 +12,12 @@ func can_see_player():
 	return player != null
 
 func _on_PlayerDetectionZone_body_entered(body):
+	print("entered detected: " + str(body))
 	player = body
 	players.append(body)
 
 func _on_PlayerDetectionZone_body_exited(_body):
+	print("exit detected: " + str(_body))
 	players.erase(_body)
 	if players.size() == 0:
 		player = null
