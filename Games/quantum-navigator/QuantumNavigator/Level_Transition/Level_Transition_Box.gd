@@ -16,6 +16,7 @@ export(String) var nextScene = null
 # On entering this Area2D object, go to the next scene
 func _on_Area2D_area_entered(area):
 	if nextScene != null:
+		SaveManager.save_progress(nextScene)
 		OtterStats.reset()
 		TeleporterState.reset()
 		get_tree().change_scene_to(load(nextScene))
