@@ -27,6 +27,7 @@ func _on_Area2D_area_entered(_area):
 	if nextScene != null:
 		OtterStats.reset()
 		OtterStats.set_level(OtterStats.curr_level + 1)
+		SaveManager.save_progress(nextScene)
 		TeleporterState.reset()
 		# warning-ignore:return_value_discarded
 		get_tree().change_scene_to(load(nextScene))

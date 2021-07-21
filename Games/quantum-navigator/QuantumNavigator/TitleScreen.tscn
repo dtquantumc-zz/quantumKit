@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=2]
+[gd_scene load_steps=82 format=2]
 
 [ext_resource path="res://Lab/LabWall.png" type="Texture" id=1]
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://Title_and_Menu/Menu.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Level1_Lab.tscn" type="PackedScene" id=11]
 [ext_resource path="res://TitleAssets/Title.png" type="Texture" id=12]
+[ext_resource path="res://Title_and_Menu/MenuLoadFile.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Title_and_Menu/MenuSetter.gd" type="Script" id=14]
 
 [sub_resource type="TileSet" id=1]
 0/name = "LabTile.png 0"
@@ -834,6 +836,16 @@ position = Vector2( 288, 8 )
 position = Vector2( 104, 96 )
 texture = ExtResource( 5 )
 
-[node name="Menu" parent="." instance=ExtResource( 10 )]
+[node name="MenuSetter" type="Node" parent="."]
+script = ExtResource( 14 )
+menuNoSaveExists = NodePath("Menu")
+menuSaveExists = NodePath("MenuLoadFile")
+
+[node name="Menu" parent="MenuSetter" instance=ExtResource( 10 )]
 position = Vector2( 227, 112 )
+startScene = ExtResource( 11 )
+
+[node name="MenuLoadFile" parent="MenuSetter" instance=ExtResource( 13 )]
+position = Vector2( 217.876, 106.252 )
+scale = Vector2( 0.8, 0.8 )
 startScene = ExtResource( 11 )
