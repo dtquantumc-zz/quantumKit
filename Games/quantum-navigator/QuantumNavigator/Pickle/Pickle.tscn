@@ -61,8 +61,9 @@ animations = [ {
 "speed": 8.0
 } ]
 
-[sub_resource type="CircleShape2D" id=14]
+[sub_resource type="CapsuleShape2D" id=14]
 radius = 4.0
+height = 10.0
 
 [node name="Pickle" type="KinematicBody2D"]
 collision_layer = 16
@@ -84,6 +85,7 @@ playing = true
 collision_layer = 2147483656
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2( 0.264862, -8.60814 )
 shape = SubResource( 14 )
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]

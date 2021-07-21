@@ -26,6 +26,7 @@ CustomSignals="*res://CustomSignals.tscn"
 BackgroundMusic="*res://World/BackgroundMusic.tscn"
 InfoDialogState="*res://InfoDialogState.tscn"
 InfoDialogOpenState="*res://InfoDialogOpenState.tscn"
+SaveManager="*res://SaveData/SaveManager.tscn"
 
 [display]
 

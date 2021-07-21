@@ -5,6 +5,8 @@
 
 extends Node
 
+# Collection of various stats in the game
+
 export var max_health = 1
 export var red_bits = 0 setget set_red_bits
 export var blue_bits = 0 setget set_blue_bits
@@ -48,6 +50,7 @@ signal curr_main_player_changed(nodepath)
 signal level2_state_changed(array)
 
 
+# Setter for the current health, and emits a signal
 func set_health(value):
 	health = value
 	print(health)
@@ -55,27 +58,31 @@ func set_health(value):
 	if health <= 0:
 		emit_signal("no_health")
 
+# Setter for number of pickles collected, and emits a signal
 func set_pickles(value):
 	pickles = value
 	emit_signal("pickles_changed", pickles)
 	if pickles == max_pickles:
 		emit_signal("max_pickles_collected")
 
+# Setter for number of red bits collected, and emits a signal
 func set_red_bits(value):
 	red_bits = value
 	emit_signal("red_bits_changed", red_bits)
 
+# Setter for number of blue bits collected, and emits a signal
 func set_blue_bits(value):
 	blue_bits = value
 	emit_signal("blue_bits_changed", blue_bits)
-	
+
+# Setter for the current level (used to update the UI)
+# Note: assumes scene had already changed
 func set_level(value):
-	# used to update the UI, assume scene already changed
 	curr_level = value
 	emit_signal("level_changed", curr_level)
 
+# Resets per-level stats, but does not reset to initial level
 func reset():
-	# reset per level only, does not reset level
 	pickles = 0
 	health = max_health
 	red_bits = 0
@@ -83,26 +90,33 @@ func reset():
 	level2_state = [false, false, false]
 	isEncoded = false
 
+# Setter for can_see_encoder, but emits a signal
 func set_can_see_encoder(value):
 	can_see_encoder = value
 	emit_signal("encoder_visible", can_see_encoder)
 
+# Setter for can_see_decoder, but emits a signal
 func set_can_see_decoder(value):
 	can_see_decoder = value
 	emit_signal("decoder_visible", can_see_decoder)
 
+# Setter for can_see_teleporter, but emits a signal
 func set_can_see_teleporter(dict):
 	can_see_teleporter = dict.value
 	emit_signal("teleporter_visible", dict)
 
+# Setter for can_see_fire_hazard, but emits a signal
 func set_can_see_fire_hazard(value):
 	can_see_fire_hazard = value
 	emit_signal("fire_hazard_visible", can_see_fire_hazard)
 
+# Setter for can_see_red_ball_pair, but emits a signal
 func set_can_see_red_bell_pair(dict):
 	can_see_red_bell_pair = dict.value
 	emit_signal("red_bell_pair_visible", dict)
 
+# Setter for can_see_blue_bell_pair, but emits a signal
+# Note: duplicate emit_signal purpose is unknown
 func set_can_see_blue_bell_pair(dict):
 	can_see_blue_bell_pair = dict.value
 	emit_signal("blue_bell_pair_visible", dict)

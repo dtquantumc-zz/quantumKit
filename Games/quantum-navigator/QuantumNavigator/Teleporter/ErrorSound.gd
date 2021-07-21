@@ -5,17 +5,10 @@
 
 extends AudioStreamPlayer
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+# Script attached to the ErrorSound object
 
 # Called when the node enters the scene tree for the first time.
+# Deletes this object when sound is finished
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	# warning-ignore:return_value_discarded
+	connect("finished", self, "queue_free")

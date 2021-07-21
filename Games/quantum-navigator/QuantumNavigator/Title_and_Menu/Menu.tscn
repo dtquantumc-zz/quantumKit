@@ -128,7 +128,7 @@ offset = Vector2( -15, 0 )
 [node name="Selection_Particle" type="AnimatedSprite" parent="."]
 position = Vector2( -40, -16 )
 frames = SubResource( 15 )
-frame = 2
+frame = 5
 playing = true
 
 [node name="ShadowSprite" type="Sprite" parent="Selection_Particle"]

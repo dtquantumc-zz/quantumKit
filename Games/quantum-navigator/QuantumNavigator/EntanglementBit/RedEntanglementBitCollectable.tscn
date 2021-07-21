@@ -7,50 +7,51 @@
 [ext_resource path="res://Dialog-System-Example/Dialog_Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://PlayerDetectionZone.tscn" type="PackedScene" id=6]
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 12, 16 )
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 1 )
 region = Rect2( 12, 0, 12, 16 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 1 )
 region = Rect2( 24, 0, 12, 16 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 1 )
 region = Rect2( 36, 0, 12, 16 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 1 )
 region = Rect2( 48, 0, 12, 16 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 1 )
 region = Rect2( 60, 0, 12, 16 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 1 )
 region = Rect2( 72, 0, 12, 16 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 1 )
 region = Rect2( 84, 0, 12, 16 )
 
-[sub_resource type="SpriteFrames" id=9]
+[sub_resource type="SpriteFrames" id=19]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
 "loop": true,
 "name": "default",
 "speed": 11.0
 } ]
 
-[sub_resource type="CircleShape2D" id=10]
-radius = 5.0
+[sub_resource type="CapsuleShape2D" id=10]
+radius = 6.0
+height = 4.0
 
-[sub_resource type="CircleShape2D" id=11]
+[sub_resource type="CircleShape2D" id=20]
 radius = 50.0
 
 [node name="RedEntanglementBitCollectable" type="KinematicBody2D"]
@@ -61,19 +62,21 @@ texture = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -7 )
-frames = SubResource( 9 )
+frames = SubResource( 19 )
+frame = 1
 playing = true
 
 [node name="Hurtbox" parent="." instance=ExtResource( 3 )]
 collision_layer = 8
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( 0, -4 )
 shape = SubResource( 10 )
 
 [node name="PlayerDetectionZone" parent="." instance=ExtResource( 6 )]
 
 [node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
-shape = SubResource( 11 )
+shape = SubResource( 20 )
 
 [node name="Dialog_Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( -88, -32 )
