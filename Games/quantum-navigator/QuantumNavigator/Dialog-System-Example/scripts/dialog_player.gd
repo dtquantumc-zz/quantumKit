@@ -111,7 +111,7 @@ func _get_next_node():
 		get_tree().paused = false;
 		_Anim.stop()
 		_Anim.play("dialog_disappear")
-		yield(_Anim, "animation_finished")
+		yield(get_tree(), "idle_frame")
 		_emit_dialog_open_signal(false)
 
 
