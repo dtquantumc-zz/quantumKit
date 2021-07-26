@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 48 )
+
+[sub_resource type="StreamTexture" id=2]
+load_path = "res://.import/StaticUnlockedDoor copy.png-7432433c3ad9293d31cdfededb932fae.stex"
+
+[node name="Node2D" type="StaticBody2D"]
+
+[node name="door_collision" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+disabled = true
+
+[node name="door_sprite" type="Sprite" parent="."]
+position = Vector2( 84, 48 )
+scale = Vector2( 2, 2 )
+texture = SubResource( 2 )
+offset = Vector2( -42, -24 )
