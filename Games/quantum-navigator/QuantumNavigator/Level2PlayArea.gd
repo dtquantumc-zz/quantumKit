@@ -24,7 +24,7 @@ func _physics_process(_delta):
 	if playerDetectionZone.can_see_player():
 		if see_player_debounce == false:
 			old_zoom = camera.zoom
-			camera.zoom = camera.zoom * 1.5
+			camera.zoom = camera.zoom * 2
 			
 			var rmTrans = OtterStats.curr_camera_rmtrans2d
 			held_rm_trans = rmTrans
@@ -37,7 +37,7 @@ func _physics_process(_delta):
 			see_player_debounce = true
 			OtterStats.set_camera_locked(true)
 		else:
-			held_rm_trans.position = Vector2(OtterStats.curr_main_player.position.x, $RemoteTransform2DRef.position.y)
+			held_rm_trans.position = Vector2(OtterStats.curr_main_player.position.x - $RemoteTransform2DRef.global_position.x, $RemoteTransform2DRef.position.y)
 	else:
 		if (not playerDetectionZone.can_see_player()) and see_player_debounce == true:
 			camera.zoom = old_zoom

@@ -53,7 +53,7 @@ func _ready():
 	print(stats.curr_main_player)
 
 	print(stats.curr_camera_rmtrans2d)
-
+	
 # Called upon physics update (_delta = time between physics updates)
 # Perform an action every physics update (e.g. move, push, shoot)
 func _physics_process(delta):
@@ -161,9 +161,20 @@ func _on_Computer_effect_process_done(computer_position):
 	var comput_dir = (computer_position - self.position).normalized()
 	var perp = Vector2(-comput_dir.y, comput_dir.x)
 	var center_pos = computer_position + 10 * comput_dir
-	self.position = center_pos + 5 * perp
-	followers[0].position = center_pos
-	followers[1].position = center_pos - 15 * perp
+	
+	if OtterStats.curr_level == 2:
+		self.position = get_tree().get_nodes_in_group("level2_otter_start_positions")[2].position
+		followers[0].position = get_tree().get_nodes_in_group("level2_otter_start_positions")[0].position
+		followers[1].position = get_tree().get_nodes_in_group("level2_otter_start_positions")[1].position
+		
+		var backdoors = get_tree().get_nodes_in_group("level2_backdoors")
+		for door in backdoors:
+			door.make_closed()
+	else:
+		self.position = center_pos + 5 * perp
+		followers[0].position = center_pos
+		followers[1].position = center_pos - 15 * perp
+	
 	stats.isEncoded = true
 	isTeleporting = false
 
@@ -228,7 +239,7 @@ func is_a_fire_trap(area) -> bool:
 # determines if this current otter object is a follower
 func is_a_follower_otter():
 	return IS_MAIN == false
-	
+
 # Runs upon an object exiting the 'hurtbox'
 # If the area previously entered was a fire trap, stop blinking
 # and play the otter hurt sound
@@ -289,6 +300,7 @@ func zero_health():
 func die():
 	if followers.size() > 0:
 		var mainOtter = followers[0]
+		stats.set_curr_main_player(mainOtter)
 		for i in range(1, followers.size()):
 			mainOtter.followers.append(followers[i])
 		mainOtter.FOLLOW_TARGET = null
