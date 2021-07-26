@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=2]
+[gd_scene load_steps=76 format=2]
 
 [ext_resource path="res://Otter/joey_sprite_sheet.png" type="Texture" id=1]
 [ext_resource path="res://Otter/Otter.gd" type="Script" id=2]
@@ -934,19 +934,6 @@ animation = "RunDownLeft"
 [sub_resource type="AnimationNodeAnimation" id=44]
 animation = "RunDownRight"
 
-[sub_resource type="AnimationNodeAnimation" id=45]
-animation = "RunUpLeft"
-
-[sub_resource type="AnimationNodeTimeScale" id=46]
-
-[sub_resource type="AnimationNodeBlendTree" id=47]
-nodes/Animation/node = SubResource( 45 )
-nodes/Animation/position = Vector2( 100, 80 )
-nodes/TimeScale/node = SubResource( 46 )
-nodes/TimeScale/position = Vector2( 275, 88 )
-nodes/output/position = Vector2( 440, 100 )
-node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
-
 [sub_resource type="AnimationNodeBlendSpace2D" id=48]
 blend_point_0/node = SubResource( 39 )
 blend_point_0/pos = Vector2( 0, 0.9 )
@@ -960,8 +947,6 @@ blend_point_4/node = SubResource( 43 )
 blend_point_4/pos = Vector2( -1, 0.1 )
 blend_point_5/node = SubResource( 44 )
 blend_point_5/pos = Vector2( 1, 0.1 )
-blend_point_6/node = SubResource( 47 )
-blend_point_6/pos = Vector2( -0.7, -0.5 )
 min_space = Vector2( -1, -1.1 )
 blend_mode = 1
 
@@ -1149,8 +1134,7 @@ active = true
 parameters/playback = SubResource( 63 )
 parameters/Idle/blend_position = Vector2( -0.00242132, 0.25 )
 parameters/Push/blend_position = Vector2( -0.00158983, 0.0603448 )
-parameters/Run/blend_position = Vector2( 0.00194931, 0.882327 )
-parameters/Run/6/TimeScale/scale = 1.0
+parameters/Run/blend_position = Vector2( -0.699805, -0.484483 )
 parameters/Shoot/blend_position = Vector2( -0.00518137, 0.224138 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 4 )]
