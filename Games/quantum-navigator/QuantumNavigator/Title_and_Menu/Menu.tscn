@@ -109,7 +109,6 @@ script = ExtResource( 4 )
 position = Vector2( 16, -16 )
 frames = SubResource( 1 )
 animation = "Selected"
-frame = 1
 playing = true
 
 [node name="Exit_Item" type="AnimatedSprite" parent="."]
@@ -129,7 +128,7 @@ offset = Vector2( -15, 0 )
 [node name="Selection_Particle" type="AnimatedSprite" parent="."]
 position = Vector2( -40, -16 )
 frames = SubResource( 15 )
-frame = 7
+frame = 5
 playing = true
 
 [node name="ShadowSprite" type="Sprite" parent="Selection_Particle"]

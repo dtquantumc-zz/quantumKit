@@ -1,17 +1,17 @@
-[gd_scene load_steps=82 format=2]
+[gd_scene load_steps=88 format=2]
 
 [ext_resource path="res://World/CliffTileset.png" type="Texture" id=1]
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=2]
 [ext_resource path="res://Teleporter/PhoneBooth.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Otter/Otter.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Pickle/Pickle.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Island/water.png" type="Texture" id=6]
+[ext_resource path="res://World/DirtTileset.png" type="Texture" id=6]
 [ext_resource path="res://UI/EntanglementBitsUI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Computer/Computer.tscn" type="PackedScene" id=8]
 [ext_resource path="res://UI/PickleCountsUI.tscn" type="PackedScene" id=9]
 [ext_resource path="res://EntanglementBit/BlueEntanglementBitCollectable.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Traps/FireTrap.tscn" type="PackedScene" id=11]
-[ext_resource path="res://World/DirtTileset.png" type="Texture" id=12]
+[ext_resource path="res://Island/water.png" type="Texture" id=12]
 [ext_resource path="res://World/Grass.tscn" type="PackedScene" id=13]
 [ext_resource path="res://World/Tree.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Island/tileset16x16_1.png" type="Texture" id=15]
@@ -24,7 +24,13 @@
 [ext_resource path="res://Computer/Decoder.tscn" type="PackedScene" id=22]
 [ext_resource path="res://UI/DecoderHelpUI.tscn" type="PackedScene" id=23]
 [ext_resource path="res://ControlsDialog.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Level2_door_button.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Level_Transition/LevelCompleteMessage/Level_Transition_Box_With_Complete_Msg.tscn" type="PackedScene" id=26]
+[ext_resource path="res://lockdoorbehind.tscn" type="PackedScene" id=27]
+[ext_resource path="res://lockdoorbehind.gd" type="Script" id=28]
+[ext_resource path="res://Level2PlayArea.tscn" type="PackedScene" id=31]
+[ext_resource path="res://light.tscn" type="PackedScene" id=32]
+[ext_resource path="res://level2_light.gd" type="Script" id=33]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -477,7 +483,7 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="TileSet" id=49]
 0/name = "DirtTileset.png 0"
-0/texture = ExtResource( 12 )
+0/texture = ExtResource( 6 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 176, 80 )
@@ -968,7 +974,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="TileSet" id=56]
 0/name = "water.png 0"
-0/texture = ExtResource( 6 )
+0/texture = ExtResource( 12 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 8, 8 )
@@ -991,7 +997,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 0/shapes = [  ]
 0/z_index = 0
 1/name = "water.png 1"
-1/texture = ExtResource( 6 )
+1/texture = ExtResource( 12 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 8, 0, 8, 8 )
@@ -1014,7 +1020,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 1/shapes = [  ]
 1/z_index = 0
 2/name = "water.png 2"
-2/texture = ExtResource( 6 )
+2/texture = ExtResource( 12 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 16, 0, 8, 8 )
@@ -1139,14 +1145,11 @@ position = Vector2( -48, 112 )
 
 [node name="Bushes" type="YSort" parent="YSort"]
 
-[node name="Bush" parent="YSort/Bushes" instance=ExtResource( 17 )]
-position = Vector2( 496, -32 )
-
 [node name="Bush5" parent="YSort/Bushes" instance=ExtResource( 17 )]
-position = Vector2( 496, 64 )
+position = Vector2( 240, -12 )
 
 [node name="Bush2" parent="YSort/Bushes" instance=ExtResource( 17 )]
-position = Vector2( 496, 160 )
+position = Vector2( 240, 112 )
 
 [node name="Trees" type="YSort" parent="YSort"]
 
@@ -1159,8 +1162,74 @@ position = Vector2( 48, -16 )
 [node name="Tree4" parent="YSort/Trees" instance=ExtResource( 14 )]
 position = Vector2( 16, -16 )
 
+[node name="Buttons" type="YSort" parent="YSort"]
+position = Vector2( 596, 0 )
+
+[node name="doorbutton1" parent="YSort/Buttons" instance=ExtResource( 25 )]
+position = Vector2( -3.05176e-05, -32.4657 )
+
+[node name="doorbutton2" parent="YSort/Buttons" instance=ExtResource( 25 )]
+position = Vector2( -3.05176e-05, 67.5 )
+
+[node name="doorbutton3" parent="YSort/Buttons" instance=ExtResource( 25 )]
+position = Vector2( -3.05176e-05, 160 )
+
+[node name="Doors" type="YSort" parent="YSort"]
+position = Vector2( 700, 0 )
+
+[node name="Door 1" type="Node2D" parent="YSort/Doors"]
+position = Vector2( 0, -32 )
+
+[node name="door1" parent="YSort/Doors/Door 1" instance=ExtResource( 32 )]
+position = Vector2( -4, -6 )
+script = ExtResource( 33 )
+
+[node name="Door 2" type="Node2D" parent="YSort/Doors"]
+position = Vector2( 0, 64 )
+
+[node name="door2" parent="YSort/Doors/Door 2" instance=ExtResource( 32 )]
+position = Vector2( -4, 0 )
+script = ExtResource( 33 )
+
+[node name="Door 3" type="Node2D" parent="YSort/Doors"]
+position = Vector2( 0, 160 )
+
+[node name="door3" parent="YSort/Doors/Door 3" instance=ExtResource( 32 )]
+position = Vector2( -4, 0 )
+script = ExtResource( 33 )
+
+[node name="Non-PuzzleDoors" type="YSort" parent="YSort"]
+position = Vector2( 500, 0 )
+
+[node name="Door 1" type="Node2D" parent="YSort/Non-PuzzleDoors"]
+position = Vector2( 0, -32 )
+
+[node name="door1" parent="YSort/Non-PuzzleDoors/Door 1" groups=[
+"level2_backdoors",
+] instance=ExtResource( 27 )]
+position = Vector2( 0, -6 )
+script = ExtResource( 28 )
+
+[node name="Door 2" type="Node2D" parent="YSort/Non-PuzzleDoors"]
+position = Vector2( 0, 64 )
+
+[node name="door2" parent="YSort/Non-PuzzleDoors/Door 2" groups=[
+"level2_backdoors",
+] instance=ExtResource( 27 )]
+position = Vector2( 0, -6 )
+script = ExtResource( 28 )
+
+[node name="Door 3" type="Node2D" parent="YSort/Non-PuzzleDoors"]
+position = Vector2( 0, 160 )
+
+[node name="door3" parent="YSort/Non-PuzzleDoors/Door 3" groups=[
+"level2_backdoors",
+] instance=ExtResource( 27 )]
+position = Vector2( 0, -6 )
+script = ExtResource( 28 )
+
 [node name="Computer" parent="YSort" instance=ExtResource( 8 )]
-position = Vector2( 94, 47 )
+position = Vector2( 312, 48.5 )
 
 [node name="Decoder" parent="YSort" instance=ExtResource( 22 )]
 position = Vector2( 1240, 48 )
@@ -1199,6 +1268,32 @@ position = Vector2( -6, 12.5 )
 
 [node name="BlueEntanglementBitCollectable8" parent="YSort/FireBellPairs/FireBellPair3" instance=ExtResource( 10 )]
 position = Vector2( 6, 12.5 )
+
+[node name="Level2PlayArea" parent="YSort" instance=ExtResource( 31 )]
+visible = false
+position = Vector2( 680, 67.8295 )
+scale = Vector2( 0.504, 0.553 )
+
+[node name="RemoteTransform2DRef" type="RemoteTransform2D" parent="YSort/Level2PlayArea"]
+position = Vector2( -79.3651, 1.79713 )
+remote_path = NodePath("../../../Camera2D")
+
+[node name="StartPositions" type="YSort" parent="YSort"]
+
+[node name="otter1" type="Node2D" parent="YSort/StartPositions" groups=[
+"level2_otter_start_positions",
+]]
+position = Vector2( 544, -32 )
+
+[node name="otter2" type="Node2D" parent="YSort/StartPositions" groups=[
+"level2_otter_start_positions",
+]]
+position = Vector2( 544, 67.1718 )
+
+[node name="otter3" type="Node2D" parent="YSort/StartPositions" groups=[
+"level2_otter_start_positions",
+]]
+position = Vector2( 544, 160 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

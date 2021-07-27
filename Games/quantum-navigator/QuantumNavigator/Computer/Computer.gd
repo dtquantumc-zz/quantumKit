@@ -45,7 +45,8 @@ func create_computer_effect(toTeleport):
 # not already been used
 func _on_Hurtbox_area_entered(_area):
 #	print(_area.owner.stats.pickles)
-	if (!encoder_used and _area.owner.stats.pickles >= 2):
-		_area.owner.stats.pickles -= 2
+#	if (!encoder_used and _area.owner.stats.pickles >= 2):
+#		_area.owner.stats.pickles -= 2
+	if (!encoder_used):
 		create_computer_effect(_area.owner)
 		encoder_used = true

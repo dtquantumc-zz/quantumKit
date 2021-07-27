@@ -78,7 +78,7 @@ position = Vector2( 0, -10 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 13 )
 animation = "Rotate"
-frame = 2
+frame = 11
 playing = true
 
 [node name="Hurtbox" parent="." instance=ExtResource( 4 )]

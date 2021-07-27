@@ -17,6 +17,7 @@ export var REGULAR_SPEED = 80
 export var SPRINT_SPEED = 140
 export var FRICTION = 500
 export(NodePath) var FOLLOW_TARGET = null
+export var IS_MAIN = true
 
 # Enum defining various Otter states
 
@@ -49,6 +50,11 @@ onready var timer = get_node("Timer")
 # Add a listener on no_health signal to call zero_health
 func _ready():
 	stats.connect("no_health", self, "zero_health")
+	if $RemoteTransform2D != null:
+		stats.set_curr_camera_rmtrans2d($RemoteTransform2D)
+		stats.set_curr_main_player(self)
+	print(stats.curr_main_player)
+  print(stats.curr_camera_rmtrans2d)
 
 func update_sprint():
 	sprintParticles.rotation = entanglement_bit_direction.angle() + deg2rad(90)
@@ -60,6 +66,7 @@ func update_sprint():
 		sprintParticles.emitting = false
 		speed = REGULAR_SPEED
 		animationTree.set("parameters/BlendTree/TimeScale/scale", 1.0)
+
 
 # Called upon physics update (_delta = time between physics updates)
 # Perform an action every physics update (e.g. move, push, shoot)
@@ -80,16 +87,17 @@ func move_state(delta):
 	if isTeleporting: return
 	var input_vector = Vector2.ZERO
 
-	if FOLLOW_TARGET == null:
+	if IS_MAIN == true:
 		input_vector.x = (Input.get_action_strength("ui_right") -
 			Input.get_action_strength("ui_left"))
 		input_vector.y = (Input.get_action_strength("ui_down") -
 			Input.get_action_strength("ui_up"))
-	else:
-		var target = get_node(FOLLOW_TARGET)
-		input_vector.x = target.position.x - position.x
-		input_vector.y = target.position.y - position.y
-		if (input_vector.length() < 30): input_vector = Vector2.ZERO
+	#else:
+
+		#var target = get_node(FOLLOW_TARGET)
+		#input_vector.x = target.position.x - position.x
+		#input_vector.y = target.position.y - position.y
+		#if (input_vector.length() < 30): input_vector = Vector2.ZERO
 
 	input_vector = input_vector.normalized()
 
@@ -118,7 +126,7 @@ func move_state(delta):
 	if Input.is_action_just_pressed("shoot"):
 		state = SHOOT
 
-	if Input.is_action_just_pressed("swap") and FOLLOW_TARGET == null:
+	if Input.is_action_just_pressed("swap") and IS_MAIN == true:
 		self.call_deferred("swap_followers")
 
 # If the information dialogue is not open, set animation state to 'push'
@@ -168,9 +176,20 @@ func _on_Computer_effect_process_done(computer_position):
 	var comput_dir = (computer_position - self.position).normalized()
 	var perp = Vector2(-comput_dir.y, comput_dir.x)
 	var center_pos = computer_position + 10 * comput_dir
-	self.position = center_pos + 5 * perp
-	followers[0].position = center_pos
-	followers[1].position = center_pos - 15 * perp
+	
+	if OtterStats.curr_level == 2:
+		self.position = get_tree().get_nodes_in_group("level2_otter_start_positions")[2].position
+		followers[0].position = get_tree().get_nodes_in_group("level2_otter_start_positions")[0].position
+		followers[1].position = get_tree().get_nodes_in_group("level2_otter_start_positions")[1].position
+		
+		var backdoors = get_tree().get_nodes_in_group("level2_backdoors")
+		for door in backdoors:
+			door.make_closed()
+	else:
+		self.position = center_pos + 5 * perp
+		followers[0].position = center_pos
+		followers[1].position = center_pos - 15 * perp
+	
 	stats.isEncoded = true
 	isTeleporting = false
 
@@ -182,11 +201,13 @@ func spawn_followers(num_followers):
 		followers.append(newFollower)
 
 	followers[0].position = position + Vector2(-20, 0)
-	followers[0].FOLLOW_TARGET = self.get_path()
+	#followers[0].FOLLOW_TARGET = self.get_path()
+	followers[0].IS_MAIN = false
 	followers[0].get_node("End_Teleport_Particles").emitting = true
 	for i in range(1, followers.size()):
 		followers[i].position = followers[i-1].position + Vector2(-20, 0)
-		followers[i].FOLLOW_TARGET = followers[i-1].get_path()
+		#followers[i].FOLLOW_TARGET = self.get_path()
+		followers[i].IS_MAIN = false
 		followers[i].get_node("End_Teleport_Particles").emitting = true
 
 # Swap followers and set a new follower as the follow target
@@ -198,12 +219,16 @@ func swap_followers():
 	for i in range(1, followers.size()):
 		mainOtter.followers.append(followers[i])
 	mainOtter.FOLLOW_TARGET = null
+	mainOtter.IS_MAIN = true
+	IS_MAIN = false
+	stats.set_curr_main_player(mainOtter)
 	FOLLOW_TARGET = followers[-1].get_path()
 	mainOtter.followers.append(self)
 	followers = []
-	var rmTrans = $RemoteTransform2D
-	self.remove_child(rmTrans)
-	mainOtter.add_child(rmTrans)
+	if not OtterStats.camera_locked:
+		var rmTrans = $RemoteTransform2D
+		self.remove_child(rmTrans)
+		mainOtter.add_child(rmTrans)
 
 # Runs upon an object entering the 'hurtbox'
 # Upon object entering the hurtbox, check if current otter is a follower
@@ -227,8 +252,8 @@ func is_a_fire_trap(area) -> bool:
 	return area.owner.get_name() in ["FireTrap", "SpikeTrap"]
 
 # determines if this current otter object is a follower
-func is_a_follower_otter() -> bool:
-	return FOLLOW_TARGET != null
+func is_a_follower_otter():
+	return IS_MAIN == false
 
 # Runs upon an object exiting the 'hurtbox'
 # If the area previously entered was a fire trap, stop blinking
@@ -282,7 +307,7 @@ func _on_Decoder_effect_process_done(computer_position):
 
 # Method called upon reaching 0 health (kill the otter)
 func zero_health():
-	if FOLLOW_TARGET == null:
+	if IS_MAIN == true:
 		self.call_deferred("die")
 
 # Method called upon the otter dying
@@ -290,13 +315,17 @@ func zero_health():
 func die():
 	if followers.size() > 0:
 		var mainOtter = followers[0]
+		stats.set_curr_main_player(mainOtter)
 		for i in range(1, followers.size()):
 			mainOtter.followers.append(followers[i])
 		mainOtter.FOLLOW_TARGET = null
-		var rmTrans = $RemoteTransform2D
-		print(rmTrans)
-		self.remove_child(rmTrans)
-		mainOtter.add_child(rmTrans)
+		mainOtter.IS_MAIN = true
+		IS_MAIN = false
+		if not OtterStats.camera_locked:
+			var rmTrans = $RemoteTransform2D
+			print(rmTrans)
+			self.remove_child(rmTrans)
+			mainOtter.add_child(rmTrans)
 		stats.health = stats.max_health
 		queue_free()
 	else:
