@@ -27,4 +27,4 @@ margin_top = 10.0
 margin_right = 29.0
 margin_bottom = 24.0
 rect_scale = Vector2( 0.25, 0.25 )
-text = "info"
+text = "Press I for info"

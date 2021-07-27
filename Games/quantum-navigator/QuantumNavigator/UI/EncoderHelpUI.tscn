@@ -19,12 +19,12 @@ texture = ExtResource( 2 )
 expand = true
 
 [node name="Label" type="Label" parent="."]
-margin_left = 14.0
-margin_top = 10.0
-margin_right = 38.0
-margin_bottom = 24.0
+margin_left = 11.9955
+margin_top = 12.0045
+margin_right = 104.995
+margin_bottom = 26.0045
 rect_scale = Vector2( 0.25, 0.25 )
-text = "info"
+text = "Press I for info"
 __meta__ = {
 "_edit_use_anchors_": false
 }
