@@ -54,7 +54,7 @@ func _ready():
 		stats.set_curr_camera_rmtrans2d($RemoteTransform2D)
 		stats.set_curr_main_player(self)
 	print(stats.curr_main_player)
-  print(stats.curr_camera_rmtrans2d)
+	print(stats.curr_camera_rmtrans2d)
 
 func update_sprint():
 	sprintParticles.rotation = entanglement_bit_direction.angle() + deg2rad(90)
