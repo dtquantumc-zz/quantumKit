@@ -13,7 +13,8 @@ const UTIL = preload("res://Utility.gd")
 
 # export allows the value to be modified in inspector with type specified
 export var ACCELERATION = 500
-export var MAX_SPEED = 80
+export var REGULAR_SPEED = 80
+export var SPRINT_SPEED = 140
 export var FRICTION = 500
 export(NodePath) var FOLLOW_TARGET = null
 export var IS_MAIN = true
@@ -32,6 +33,7 @@ var velocity = Vector2.ZERO
 var stats = OtterStats
 var followers = []
 var isTeleporting = false
+var speed = REGULAR_SPEED
 
 # Note: $<Node-name> is shorthand for get_node(<Node-name>)
 onready var animationPlayer = $AnimationPlayer
@@ -39,6 +41,7 @@ onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 onready var hurtbox = $Hurtbox
 onready var blinkAnimationPlayer = $BlinkAnimationPlayer
+onready var sprintParticles = $Sprint_Particles
 
 # Timer for the entanglement bit projectile
 onready var timer = get_node("Timer")
@@ -51,12 +54,24 @@ func _ready():
 		stats.set_curr_camera_rmtrans2d($RemoteTransform2D)
 		stats.set_curr_main_player(self)
 	print(stats.curr_main_player)
-
 	print(stats.curr_camera_rmtrans2d)
-	
+
+func update_sprint():
+	sprintParticles.rotation = entanglement_bit_direction.angle() + deg2rad(90)
+	if Input.is_action_pressed("sprint") && velocity != Vector2.ZERO:
+		sprintParticles.emitting = true
+		speed = SPRINT_SPEED
+		animationTree.set("parameters/BlendTree/TimeScale/scale", 2.0)
+	else:
+		sprintParticles.emitting = false
+		speed = REGULAR_SPEED
+		animationTree.set("parameters/BlendTree/TimeScale/scale", 1.0)
+
+
 # Called upon physics update (_delta = time between physics updates)
 # Perform an action every physics update (e.g. move, push, shoot)
 func _physics_process(delta):
+	update_sprint()
 	match state:
 		MOVE:
 			move_state(delta)
@@ -92,7 +107,7 @@ func move_state(delta):
 		animationTree.set("parameters/Shoot/blend_position", input_vector)
 		animationTree.set("parameters/Push/blend_position", input_vector)
 		animationState.travel("Run")
-		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
+		velocity = velocity.move_toward(input_vector * speed, ACCELERATION * delta)
 
 		entanglement_bit_direction = input_vector
 	else:

@@ -128,7 +128,9 @@ story = {
 0: 4
 },
 "text": "<speaker>Teleporter</speaker>
-<dialog>To travel between two teleporters, the teleporters have to each hold one of the qubits from a single Bell pair.</dialog>"
+<dialog>To travel between two teleporters, the teleporters have to each hold one of the qubits from a single Bell pair. 
+
+Use 'X' to shoot one at each teleporter.</dialog>"
 },
 4: {
 "links": {
