@@ -1304,6 +1304,7 @@ margin_right = 59.0
 margin_bottom = 18.0
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource( 9 )]
+visible = false
 margin_left = 66.0
 margin_top = 2.0
 margin_right = 74.0
