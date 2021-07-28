@@ -58,7 +58,7 @@ func _process(_delta):
 			#get_tree().change_scene_to(startScene)
 			OtterStats.set_level(2)
 			get_tree().change_scene_to(load("res://Level2_Maze.tscn"))
-			get_tree().change_scene_to(startScene)
+			#get_tree().change_scene_to(startScene)
 
 			OtterStats.reset()
 
