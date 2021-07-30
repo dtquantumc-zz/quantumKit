@@ -1140,8 +1140,8 @@ script = ExtResource( 18 )
 __meta__ = {
 "_editor_description_": "You cannot believe how long this took to place."
 }
-maxActiveTiles = 25
-timeBetweenVibrations = 2
+maxActiveTiles = 15
+timeBetweenVibrations = 3
 
 [node name="VibratingTile" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
 position = Vector2( 464, 420 )

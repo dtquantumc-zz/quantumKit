@@ -24,6 +24,8 @@ var otterInside = null setget _set_otter
 # 0 = not vibrating, 1 = vibrating slightly, 2 = kill, 3 = cooldown
 var state : int = 0
 
+# TODO add particle/stone effect around vibrating tile
+
 # Internally sets the otter, and if the otter is on this object while vibrating,
 # make it take damage
 func _set_otter(otter):
