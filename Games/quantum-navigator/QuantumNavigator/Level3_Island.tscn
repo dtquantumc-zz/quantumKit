@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=2]
+[gd_scene load_steps=79 format=2]
 
 [ext_resource path="res://World/CliffTileset.png" type="Texture" id=1]
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://UI/EntanglementBitsUI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Otter/Otter.tscn" type="PackedScene" id=6]
 [ext_resource path="res://UI/BlueBellPairHelpUI.tscn" type="PackedScene" id=7]
+[ext_resource path="res://VibratingTile/VibratingTile.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Teleporter/PhoneBooth.tscn" type="PackedScene" id=9]
 [ext_resource path="res://World/Grass.tscn" type="PackedScene" id=10]
 [ext_resource path="res://World/Tree.tscn" type="PackedScene" id=11]
@@ -16,6 +17,7 @@
 [ext_resource path="res://UI/EncoderHelpUI.tscn" type="PackedScene" id=15]
 [ext_resource path="res://UI/FireHazardHelpUI.tscn" type="PackedScene" id=16]
 [ext_resource path="res://UI/DecoderHelpUI.tscn" type="PackedScene" id=17]
+[ext_resource path="res://VibratingTile/VibratingTileManager.gd" type="Script" id=18]
 [ext_resource path="res://Island/tileset16x16_1.png" type="Texture" id=20]
 [ext_resource path="res://Level_Control.gd" type="Script" id=24]
 [ext_resource path="res://UI/InfoHelpUI.tscn" type="PackedScene" id=26]
@@ -1133,6 +1135,1180 @@ position = Vector2( 48.6258, -40 )
 [node name="Tree4" parent="YSort/Trees" instance=ExtResource( 11 )]
 position = Vector2( 16, -40 )
 
+[node name="VibratingTiles" type="YSort" parent="YSort"]
+script = ExtResource( 18 )
+__meta__ = {
+"_editor_description_": "You cannot believe how long this took to place."
+}
+maxActiveTiles = 15
+timeBetweenVibrations = 3
+
+[node name="VibratingTile" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 464, 420 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile2" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 464, 452 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile3" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 464, 484 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile4" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 432, 420 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile5" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 432, 452 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile6" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 432, 484 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile7" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 400, 420 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile8" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 400, 452 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile9" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 400, 484 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile10" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 368, 420 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile11" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 368, 452 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile12" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 368, 484 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile13" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 336, 420 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile14" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 336, 452 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile15" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 336, 484 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile16" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 304, 420 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile17" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 304, 452 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile18" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 304, 484 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile19" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 272, 420 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile20" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 272, 452 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile21" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 272, 484 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile22" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 240, 420 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile23" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 240, 452 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile24" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 240, 484 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile25" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 208, 420 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile26" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 208, 452 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile27" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 208, 484 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile28" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 176, 420 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile29" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 176, 452 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile30" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 176, 484 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile31" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 144, 420 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile32" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 144, 452 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile33" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 144, 484 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile34" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 112, 420 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile35" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 112, 452 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile36" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 112, 484 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile37" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 80, 420 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile38" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 80, 452 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile39" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 80, 484 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile40" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 48, 420 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile41" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 48, 452 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile42" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 48, 484 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile43" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 16, 420 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile44" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 16, 452 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile45" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 16, 484 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile46" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 80, 516 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile47" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 80, 548 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile48" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 80, 580 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile49" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 48, 516 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile50" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 48, 548 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile51" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 48, 580 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile52" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 16, 516 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile53" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 16, 548 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile54" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 16, 580 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile55" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 80, 612 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile56" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 80, 644 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile57" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 80, 676 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile58" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 48, 612 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile59" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 48, 644 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile60" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 48, 676 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile61" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 16, 612 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile62" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 16, 644 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile63" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 16, 676 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile64" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 80, 708 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile65" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 80, 740 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile66" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 80, 772 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile67" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 48, 708 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile68" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 48, 740 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile69" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 48, 772 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile70" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 16, 708 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile71" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 16, 740 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile72" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 16, 772 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile73" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 80, 804 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile74" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 48, 804 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile75" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 16, 804 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile94" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 336, 836 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile95" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 304, 836 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile100" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 272, 836 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile103" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 336, 868 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile104" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 336, 900 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile105" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 336, 932 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile106" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 304, 868 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile107" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 304, 900 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile108" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 304, 932 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile109" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 272, 868 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile110" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 272, 900 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile111" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 272, 932 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile112" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 432, 900 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile113" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 432, 932 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile114" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 400, 900 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile115" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 400, 932 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile116" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 368, 900 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile117" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 368, 932 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile118" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 528, 900 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile119" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 528, 932 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile120" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 496, 900 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile121" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 496, 932 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile122" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 464, 900 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile123" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 464, 932 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile124" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 624, 900 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile125" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 624, 932 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile126" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 592, 900 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile127" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 592, 932 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile128" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 560, 900 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile129" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 560, 932 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile130" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 528, 836 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile131" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 528, 868 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile132" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 624, 836 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile133" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 624, 868 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile134" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 592, 836 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile135" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 592, 868 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile136" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 560, 836 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile137" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 560, 868 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile138" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 528, 772 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile139" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 528, 804 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile140" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 624, 772 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile141" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 624, 804 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile142" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 592, 772 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile143" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 592, 804 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile144" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 560, 772 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile145" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 560, 804 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile147" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 528, 740 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile149" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 624, 740 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile151" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 592, 740 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile153" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 560, 740 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile146" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 656, 772 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile148" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 656, 804 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile150" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 752, 772 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile152" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 752, 804 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile154" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 720, 772 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile155" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 720, 804 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile156" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 688, 772 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile157" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 688, 804 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile158" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 656, 740 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile159" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 752, 740 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile160" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 720, 740 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile161" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 688, 740 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile162" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 784, 772 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile163" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 784, 804 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile164" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 880, 772 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile165" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 880, 804 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile166" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 848, 772 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile167" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 848, 804 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile168" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 816, 772 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile169" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 816, 804 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile170" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 784, 740 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile171" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 880, 740 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile172" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 848, 740 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile173" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 816, 740 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile174" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 912, 772 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile175" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 912, 804 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile178" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 976, 772 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile179" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 976, 804 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile180" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 944, 772 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile181" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 944, 804 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile182" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 912, 740 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile184" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 976, 740 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile185" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 944, 740 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile176" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 880, 868 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile177" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 880, 900 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile183" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 880, 836 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile186" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 912, 868 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile187" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 912, 900 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile188" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 976, 868 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile189" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 976, 900 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile190" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 944, 868 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile191" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 944, 900 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile192" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 912, 836 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile193" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 976, 836 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile194" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 944, 836 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile76" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 176, 740 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile77" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 176, 772 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile78" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 144, 740 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile79" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 144, 772 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile80" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 112, 740 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile81" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 112, 772 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile82" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 176, 804 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile83" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 144, 804 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile84" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 112, 804 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile85" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 272, 740 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile86" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 272, 772 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile87" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 240, 740 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile88" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 240, 772 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile89" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 208, 740 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile90" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 208, 772 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile91" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 272, 804 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile92" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 240, 804 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile93" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 208, 804 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile96" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 336, 740 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile97" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 336, 772 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile98" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 304, 740 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile99" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 304, 772 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile101" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 336, 804 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTile102" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
+position = Vector2( 304, 804 )
+TimeSlowVibrate = 2.0
+TimeFullVibrate = 1.25
+MinTimeBeforeVibrate = 1.25
+
+[node name="VibratingTileTimer" type="Timer" parent="YSort/VibratingTiles"]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="EntanglementBitsUI" parent="CanvasLayer" instance=ExtResource( 5 )]
@@ -1187,4 +2363,5 @@ visible = false
 
 [node name="Level_Transition_With_Msg" parent="." instance=ExtResource( 13 )]
 position = Vector2( 920, 1160 )
-nextScene = "res://Level3_Island.tscn"
+
+[connection signal="timeout" from="YSort/VibratingTiles/VibratingTileTimer" to="YSort/VibratingTiles" method="_on_timer_finished"]
