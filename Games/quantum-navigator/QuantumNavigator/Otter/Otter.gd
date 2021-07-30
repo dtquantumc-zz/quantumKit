@@ -10,6 +10,7 @@ extends KinematicBody2D
 const OtterHurtSound = preload("res://Otter/OtterHurtSound.tscn")
 const ENTANGLEMENT_BIT_SCENE = preload("res://Projectiles/EntanglementBitProjectile.tscn")
 const UTIL = preload("res://Utility.gd")
+const VibratingTileHitbox = preload("res://VibratingTile/VibratingTileHitbox.gd")
 
 # export allows the value to be modified in inspector with type specified
 export var ACCELERATION = 500
@@ -17,6 +18,7 @@ export var REGULAR_SPEED = 80
 export var SPRINT_SPEED = 140
 export var FRICTION = 500
 export(NodePath) var FOLLOW_TARGET = null
+export(bool) var Debug = true
 export var IS_MAIN = true
 
 # Enum defining various Otter states
@@ -237,19 +239,25 @@ func _on_Hurtbox_area_entered(area):
 	if is_a_follower_otter():
 		print("I am a follower")
 		return
-	if !is_a_fire_trap(area):
-		stats.health -= 1
-		var otterHurtSound = OtterHurtSound.instance()
-		get_tree().current_scene.add_child(otterHurtSound)
-	else:
-		blinkAnimationPlayer.play("Start")
+	if !(area is VibratingTileHitbox):
+		if !is_a_fire_trap(area):
+			take_damage()
+		else:
+			blinkAnimationPlayer.play("Start")
 	# hurtbox.start_invincibility(0.5)
 
 # determines if a given area is a fire trap
 func is_a_fire_trap(area) -> bool:
-	print(area.owner.get_name())
-	print(area.get_name())
+	if (Debug):
+		print("is_a_fire_trap area owner name: " + area.owner.get_name())
+		print("is_a_fire_trap area name: " + area.get_name())
 	return area.owner.get_name() in ["FireTrap", "SpikeTrap"]
+
+# decrements health and plays a hurt sound
+func take_damage():
+	stats.health -= 1
+	var otterHurtSound = OtterHurtSound.instance()
+	get_tree().current_scene.add_child(otterHurtSound)
 
 # determines if this current otter object is a follower
 func is_a_follower_otter():
@@ -260,9 +268,7 @@ func is_a_follower_otter():
 # and play the otter hurt sound
 func _on_Hurtbox_area_exited(area):
 	if is_a_fire_trap(area):
-		stats.health -= 1
-		var otterHurtSound = OtterHurtSound.instance()
-		get_tree().current_scene.add_child(otterHurtSound)
+		take_damage()
 		blinkAnimationPlayer.play("Stop")
 
 # Creates an entanglement bit in the direction the player is facing
