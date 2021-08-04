@@ -11,7 +11,7 @@
 extents = Vector2( 14, 14 )
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 200.0
+radius = 2000.0
 
 [sub_resource type="Animation" id=3]
 resource_name = "IdleAnim"
@@ -45,7 +45,7 @@ tracks/0/keys = {
 "values": [ Vector2( -4, 8 ), Vector2( 4, 8 ), Vector2( 0, 12 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=5]
 resource_name = "VibrateFast2"
 length = 0.3
 loop = true
@@ -62,7 +62,7 @@ tracks/0/keys = {
 "values": [ Vector2( -4, 16 ), Vector2( 4, 16 ), Vector2( 0, 12 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 0.3
 loop = true
 tracks/0/type = "value"
@@ -78,8 +78,7 @@ tracks/0/keys = {
 "values": [ Vector2( -0.5, 11.5 ), Vector2( 0.5, 11.5 ), Vector2( 0, 12 ) ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "VibrateSlow2"
+[sub_resource type="Animation" id=7]
 length = 0.3
 loop = true
 tracks/0/type = "value"
@@ -104,7 +103,7 @@ data = {
 "width": 2048
 }
 
-[sub_resource type="ImageTexture" id=10]
+[sub_resource type="ImageTexture" id=9]
 flags = 0
 flags = 0
 image = SubResource( 13 )
@@ -119,16 +118,16 @@ data = {
 "width": 2048
 }
 
-[sub_resource type="ImageTexture" id=12]
+[sub_resource type="ImageTexture" id=11]
 flags = 0
 flags = 0
 image = SubResource( 14 )
 size = Vector2( 2048, 1 )
 
-[sub_resource type="ParticlesMaterial" id=8]
+[sub_resource type="ParticlesMaterial" id=12]
 emission_shape = 3
-emission_point_texture = SubResource( 12 )
-emission_color_texture = SubResource( 10 )
+emission_point_texture = SubResource( 11 )
+emission_color_texture = SubResource( 9 )
 emission_point_count = 932
 flag_disable_z = true
 direction = Vector3( 0, -1, 0 )
@@ -179,16 +178,16 @@ one_shot = true
 [node name="VibrationPlayer" type="AnimationPlayer" parent="."]
 anims/IdleAnim = SubResource( 3 )
 anims/VibrateFast = SubResource( 4 )
-anims/VibrateFast2 = SubResource( 7 )
-anims/VibrateSlow = SubResource( 5 )
-anims/VibrateSlow2 = SubResource( 6 )
+anims/VibrateFast2 = SubResource( 5 )
+anims/VibrateSlow = SubResource( 6 )
+anims/VibrateSlow2 = SubResource( 7 )
 
 [node name="Particles2D" type="Particles2D" parent="."]
 position = Vector2( -16, -4 )
 emitting = false
 lifetime = 2.0
 randomness = 1.0
-process_material = SubResource( 8 )
+process_material = SubResource( 12 )
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
 [connection signal="area_exited" from="Hitbox" to="." method="_on_Hitbox_area_exited"]

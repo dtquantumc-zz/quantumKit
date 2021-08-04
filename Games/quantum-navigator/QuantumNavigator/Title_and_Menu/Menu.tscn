@@ -12,52 +12,52 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "Static",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "Selected",
 "speed": 2.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "Static",
+"speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "Static",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "Selected",
 "speed": 2.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "Static",
+"speed": 5.0
 } ]
 
 [sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 9 )
+atlas = ExtResource( 8 )
 region = Rect2( 0, 0, 47, 10 )
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 8 )
-region = Rect2( 0, 0, 47, 10 )
+region = Rect2( 47, 0, 47, 10 )
 
 [sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 8 )
-region = Rect2( 47, 0, 47, 10 )
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 47, 10 )
 
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
-"frames": [ SubResource( 3 ) ],
-"loop": true,
-"name": "Static",
-"speed": 2.0
-}, {
-"frames": [ SubResource( 4 ), SubResource( 5 ) ],
+"frames": [ SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
 "name": "Selected",
+"speed": 2.0
+}, {
+"frames": [ SubResource( 5 ) ],
+"loop": true,
+"name": "Static",
 "speed": 2.0
 } ]
 
@@ -109,7 +109,6 @@ script = ExtResource( 4 )
 position = Vector2( 16, -16 )
 frames = SubResource( 1 )
 animation = "Selected"
-frame = 1
 playing = true
 
 [node name="Exit_Item" type="AnimatedSprite" parent="."]
@@ -129,7 +128,7 @@ offset = Vector2( -15, 0 )
 [node name="Selection_Particle" type="AnimatedSprite" parent="."]
 position = Vector2( -40, -16 )
 frames = SubResource( 15 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="ShadowSprite" type="Sprite" parent="Selection_Particle"]
