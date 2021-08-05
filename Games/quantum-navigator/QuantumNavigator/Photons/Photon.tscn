@@ -1,0 +1,108 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Photons/blue_wave.png" type="Texture" id=2]
+[ext_resource path="res://Photons/mask.png" type="Texture" id=3]
+[ext_resource path="res://Photons/Photon.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "hideWave"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Photon/Light2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.696, 1 ), Vector2( 1e-05, 1 ) ]
+}
+
+[sub_resource type="CanvasItemMaterial" id=2]
+light_mode = 2
+
+[sub_resource type="Animation" id=3]
+resource_name = "blueWave"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Wave:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 25.51, 0 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 5.54514
+height = 31.7191
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 1
+emission_sphere_radius = 8.25
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 50.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 2.0
+color = Color( 0, 0.231373, 0.764706, 1 )
+
+[node name="Photon" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Photon" type="Node2D" parent="."]
+rotation = 0.785398
+
+[node name="PhotonAnimation" type="AnimationPlayer" parent="Photon"]
+method_call_mode = 1
+anims/hideWave = SubResource( 1 )
+
+[node name="Light2D" type="Light2D" parent="Photon"]
+position = Vector2( 0, -0.372154 )
+scale = Vector2( 0.670037, 0.236674 )
+texture = ExtResource( 3 )
+offset = Vector2( -32, 0 )
+mode = 2
+range_item_cull_mask = 16
+
+[node name="Wave" type="Sprite" parent="Photon"]
+light_mask = 16
+material = SubResource( 2 )
+position = Vector2( 25.51, 0 )
+scale = Vector2( 0.1, 0.1 )
+z_index = 1
+texture = ExtResource( 2 )
+centered = false
+offset = Vector2( -1024, -128 )
+region_rect = Rect2( 0, 0, 500, 250 )
+
+[node name="WaveAnimation" type="AnimationPlayer" parent="Photon"]
+method_call_mode = 1
+anims/blueWave = SubResource( 3 )
+
+[node name="Hitbox" type="Area2D" parent="Photon"]
+rotation = -1.5708
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Photon/Hitbox"]
+position = Vector2( 0.743252, -22.4463 )
+shape = SubResource( 4 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+visible = false
+emitting = false
+amount = 20
+lifetime = 0.1
+process_material = SubResource( 5 )
+
+[connection signal="body_entered" from="Photon/Hitbox" to="." method="_on_Hitbox_body_entered"]
