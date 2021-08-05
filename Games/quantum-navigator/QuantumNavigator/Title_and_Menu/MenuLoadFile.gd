@@ -67,6 +67,9 @@ func _load_game():
 	OtterStats.reset()
 	OtterStats.set_level(save_data["level_number"])
 	
+	#OtterStats.set_level(2)
+	#get_tree().change_scene_to(load("res://Level2_Maze.tscn"))
+	
 func _new_game():
 	var dir = Directory.new()
 	dir.remove(SaveManager.save_path)

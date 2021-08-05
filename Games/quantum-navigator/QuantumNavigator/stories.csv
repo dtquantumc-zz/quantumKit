@@ -1,0 +1,54 @@
+DID,NID,Dialog
+1,1,<start>
+1,2,"<speaker>Encoder</speaker>
+<dialog>An ENCODER stores the state of one qubit into three qubits.</dialog> "
+1,3,"<speaker>Encoder</speaker>
+<dialog>It does this in a special way called an error correcting code, so that even if one qubit is lost the other two can be used to get the original qubit back. </dialog>
+"
+1,4,"<speaker>Encoder</speaker>
+<dialog>To get back the original qubit you’ll need a DECODER.</dialog>"
+1,5,<end>
+1,6,"<speaker>Encoder</speaker>
+<dialog>To use the ENCODER you need 2 pickles.</dialog>"
+2,1,<start>
+2,2,"<speaker>Decoder</speaker>
+<dialog>A DECODER takes the parts of an error-correcting code and gives you back the original qubit. </dialog>"
+2,3,"<speaker>Decoder</speaker>
+<dialog>You need at least two of the three qubits of the error correcting code for the decoder to work. </dialog>"
+2,4,<end>
+3,1,<start>
+3,2,"<speaker>Bell Pairs</speaker>
+<dialog>Sometimes two qubits can be ENTANGLED.</dialog>"
+3,3,"<speaker>Bell Pairs</speaker>
+<dialog>When qubits are entangled they share a special relationship, and can be used to do QUANTUM TELEPORTATION.</dialog>"
+3,4,<end>
+4,1,<start>
+4,2,"<speaker>Teleporter</speaker>
+<dialog>A quantum teleporter can be used to send qubits from place to place.</dialog>"
+4,3,"<speaker>Teleporter</speaker>
+<dialog>To travel between two teleporters, the teleporters have to each hold one of the qubits from a single Bell pair. 
+
+Use 'X' to shoot one at each teleporter.</dialog>"
+4,4,"<speaker>Teleporter</speaker>
+<dialog>The teleporters will change colour to show you which other teleporter they share a Bell pair with. </dialog>"
+4,5,<end>
+5,1,<start>
+5,2,"<speaker>Fire Hazard</speaker>
+<dialog>Qubits are fragile. If they get too warm, they’ll decohere. This means they lose their quantum information.</dialog>"
+5,3,<end>
+6,1,<start>
+6,2,"<speaker>Intro</speaker>
+<dialog>Joey the Otter has been hard at work in the lab, and wants to go visit Bob on Mars for a picnic. Help Joey get there!
+
+Joey is a qubit and obeys the laws of Quantum Information.
+
+Press c for Controls.</dialog>"
+6,3,<end>
+7,1,<start>
+7,2,"<speaker>Controls</speaker>
+<dialog>Movement: Arrow Keys or WASD
+Interact: SPACEBAR
+Shoot Entanglement Bit: X
+Open Info Dialog (when icon appears in UI bar): I
+Restart Level: R</dialog>"
+7,3,<end>
