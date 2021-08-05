@@ -1,18 +1,16 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 onready var light = $light
 onready var doorcollision = $door_collision
 onready var doorsprite = $door_sprite
-var red_light = preload("res://LightBulb/StaticRedBulb.png")
-var yellow_light = preload("res://LightBulb/StaticYellowBulb.png")
-var green_light = preload("res://LightBulb/StaticGreenBulb.png")
-var door_locked = preload("res://Assets/StaticLockedDoor.png")
-var door_unlocked = preload("res://Assets/StaticUnlockedDoor.png")
-var door_open = preload("res://Assets/StaticOpenDoor.png")
+var red_light = preload("res://ThreeButtonPuzzle/LightBulb/StaticRedBulb.png")
+var yellow_light = preload("res://ThreeButtonPuzzle/LightBulb/StaticYellowBulb.png")
+var green_light = preload("res://ThreeButtonPuzzle/LightBulb/StaticGreenBulb.png")
+var door_locked = preload("res://ThreeButtonPuzzle/StaticLockedDoor.png")
+var door_unlocked = preload("res://ThreeButtonPuzzle/StaticUnlockedDoor.png")
+var door_open = preload("res://ThreeButtonPuzzle/StaticOpenDoor.png")
+
+signal should_explode()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -38,16 +36,14 @@ func _on_level_state_changed(state):
 		self.light.set_texture(green_light)
 		
 	if state == [2, 2, 2]:
-		doorcollision.set_deferred("disabled", true)
-		print(doorcollision.disabled)
-		doorsprite.set_texture(door_unlocked)
+		emit_signal("should_explode")
+		#doorcollision.set_deferred("disabled", true)
+		#print(doorcollision.disabled)
+		#doorsprite.set_texture(door_unlocked)
 	else:
-		doorcollision.set_deferred("disabled", false)
-		doorsprite.set_texture(door_locked)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+		pass
+		#doorcollision.set_deferred("disabled", false)
+		#doorsprite.set_texture(door_locked)
 
 
 func _on_door1_area_entered(area):

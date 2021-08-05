@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/StaticButton.png-ffc8c52abb4addc7e7d727863433b449.stex"
+path="res://.import/StaticGreenBulb.png-4eccbdfd28a61943dbc10880fa233519.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/StaticButton.png"
-dest_files=[ "res://.import/StaticButton.png-ffc8c52abb4addc7e7d727863433b449.stex" ]
+source_file="res://ThreeButtonPuzzle/LightBulb/StaticGreenBulb.png"
+dest_files=[ "res://.import/StaticGreenBulb.png-4eccbdfd28a61943dbc10880fa233519.stex" ]
 
 [params]
 

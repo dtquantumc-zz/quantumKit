@@ -562,6 +562,7 @@ position = Vector2( 659, 275 )
 
 [node name="BlueEntanglementBitCollectable2" parent="YSort/EntanglementBitsCollectable" instance=ExtResource( 10 )]
 position = Vector2( 696, 40 )
+ForceNeverSeeHelpIcon = true
 
 [node name="LeftBoulders" type="YSort" parent="YSort"]
 position = Vector2( 2, 5 )

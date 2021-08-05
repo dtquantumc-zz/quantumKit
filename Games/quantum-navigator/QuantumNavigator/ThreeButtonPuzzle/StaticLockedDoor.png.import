@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/StaticGreenBulb.png-4565b07e88bbd638b07e95f15f5443c4.stex"
+path="res://.import/StaticLockedDoor.png-9e3c85a16e4e160cd1a688ac005c7f04.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://LightBulb/StaticGreenBulb.png"
-dest_files=[ "res://.import/StaticGreenBulb.png-4565b07e88bbd638b07e95f15f5443c4.stex" ]
+source_file="res://ThreeButtonPuzzle/StaticLockedDoor.png"
+dest_files=[ "res://.import/StaticLockedDoor.png-9e3c85a16e4e160cd1a688ac005c7f04.stex" ]
 
 [params]
 
