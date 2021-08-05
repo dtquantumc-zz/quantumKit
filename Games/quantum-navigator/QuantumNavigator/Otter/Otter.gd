@@ -44,6 +44,8 @@ onready var animationState = animationTree.get("parameters/playback")
 onready var hurtbox = $Hurtbox
 onready var blinkAnimationPlayer = $BlinkAnimationPlayer
 onready var sprintParticles = $Sprint_Particles
+onready var decFadeAnimationPlayer = $Decoherence/FadePlayer
+onready var decFlashAnimationPlayer = $Decoherence/FlashPlayer
 
 # Timer for the entanglement bit projectile
 onready var timer = get_node("Timer")
@@ -338,6 +340,15 @@ func die():
 		stats.health = stats.max_health
 		get_parent().owner.queue_restart()
 		queue_free()
+		
+func decohere():
+	decFadeAnimationPlayer.play("Fade")
+	decFlashAnimationPlayer.play("Flash")
+	$Decoherence/Particles2D.emitting = true
+	REGULAR_SPEED = 0
+	SPRINT_SPEED = 0
+	yield(get_tree().create_timer(3.0), "timeout")
+	die()
 
 #func _on_Hurtbox_invincibility_started():
 #	if FOLLOW_TARGET == null:

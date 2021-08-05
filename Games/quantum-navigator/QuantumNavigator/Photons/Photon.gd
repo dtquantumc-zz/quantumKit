@@ -6,24 +6,24 @@ onready var waveAnimation = $Photon/WaveAnimation
 onready var hitbox = $Hitbox/CollisionShape2D
 onready var particles = $Particles2D
 
+onready var x
+onready var y 
+
 func _ready():
-	hitbox.set_disabled(true)
-	shoot_photon()
-
-
-func shoot_photon():
-	yield(get_tree().create_timer(3.0),"timeout")
-	targetAnimation.play("photonTarget")
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	self.position = get_viewport().get_canvas_transform().affine_inverse().xform(get_viewport_rect().position)
+	self.position.x += stepify(rng.randi_range(0,200),50)
+	self.position.y -= 25
 	waveAnimation.play("blueWave")
-	yield(get_tree().create_timer(3.0),"timeout")
-	photonAnimation.play("moveToTarget")
-	yield(photonAnimation,"animation_finished")
-	particles.emitting = true
-	hitbox.set_disabled(false)
-	targetAnimation.seek(0)
-	targetAnimation.stop()
-	photonAnimation.play("hideWave")
-	yield(get_tree().create_timer(3.0),"timeout")
-	hitbox.set_disabled(true)
-	particles.emitting = false
-	get_parent().remove_child(self)
+	x = self.position.x+1000
+	y = self.position.y+1000
+	
+func _process(delta):
+	self.position = position.move_toward(Vector2(x,y), delta * 150)
+	if self.position.x == x:
+		get_parent().remove_child(self)
+
+
+func _on_Hitbox_body_entered(body):
+	body.decohere()
