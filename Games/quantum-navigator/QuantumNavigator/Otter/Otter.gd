@@ -241,6 +241,14 @@ func _on_Hurtbox_area_entered(area):
 	if is_a_follower_otter():
 		print("I am a follower")
 		return
+	# if is_a_fire_trap(area):
+	# 	blinkAnimationPlayer.play("Start")
+	# elif is_a_vibrating_block(area):
+	# 	print("kk")
+	# else:
+	# 	stats.health -= 1
+	# 	var otterHurtSound = OtterHurtSound.instance()
+	# 	get_tree().current_scene.add_child(otterHurtSound)
 	if !(area is VibratingTileHitbox):
 		if !is_a_fire_trap(area):
 			take_damage()
@@ -255,6 +263,8 @@ func is_a_fire_trap(area) -> bool:
 		print("is_a_fire_trap area name: " + area.get_name())
 	return area.owner.get_name() in ["FireTrap", "SpikeTrap"]
 
+func is_a_vibrating_block(area) -> bool:
+		return area.owner.get_node("..").get_name() in ["VibratingBlocks"]
 # decrements health and plays a hurt sound
 func take_damage():
 	stats.health -= 1
@@ -293,8 +303,11 @@ func _on_Timer_timeout():
 func _on_Decoder_effect_process_start():
 	$Teleport_Particles.emitting = true
 	isTeleporting = true
-	for follower in followers:
-		follower.get_node("Teleport_Particles").emitting = true
+	for i in range(1, followers.size()):
+		followers[i].position = self.position + Vector2(-20, 0)
+		followers[i].get_node("Teleport_Particles").emitting = true
+	#for follower in followers:
+	#	follower.get_node("Teleport_Particles").emitting = true
 
 # Upon decoder process end, stop emitting particles, and delete all followers
 # see also: _on_Computer_effect_process_end

@@ -55,10 +55,10 @@ func _process(_delta):
 		get_parent().add_child(menuConfirmSound)
 
 		if Selected == 0 and startScene != null:
-			#get_tree().change_scene_to(startScene)
-			OtterStats.set_level(2)
-			get_tree().change_scene_to(load("res://Level2_Maze.tscn"))
-			#get_tree().change_scene_to(startScene)
+			get_tree().change_scene_to(startScene)
+			OtterStats.set_level(3)
+			
+			#get_tree().change_scene_to(load("res://Level2_Maze.tscn"))
 
 			OtterStats.reset()
 

@@ -75,6 +75,10 @@ func set_blue_bits(value):
 	blue_bits = value
 	emit_signal("blue_bits_changed", blue_bits)
 
+# Sets the current value without emitting a signal
+func set_level_no_signal(value):
+	curr_level = value
+
 # Setter for the current level (used to update the UI)
 # Note: assumes scene had already changed
 func set_level(value):
