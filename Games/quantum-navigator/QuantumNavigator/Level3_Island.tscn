@@ -1,4 +1,5 @@
-[gd_scene load_steps=80 format=2]
+[gd_scene load_steps=83 format=2]
+
 [ext_resource path="res://World/CliffTileset.png" type="Texture" id=1]
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=2]
 [ext_resource path="res://Island/water.png" type="Texture" id=3]
@@ -19,6 +20,7 @@
 [ext_resource path="res://VibratingTile/VibratingTileManager.gd" type="Script" id=18]
 [ext_resource path="res://EntanglementBit/BlueEntanglementBitCollectable.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Island/tileset16x16_1.png" type="Texture" id=20]
+[ext_resource path="res://Photons/PhotonSpawner.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Level_Control.gd" type="Script" id=24]
 [ext_resource path="res://UI/InfoHelpUI.tscn" type="PackedScene" id=26]
 [ext_resource path="res://ControlsDialog.tscn" type="PackedScene" id=27]
@@ -1034,8 +1036,46 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 2/shapes = [  ]
 2/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=57]
-extents = Vector2( 332.769, 227.047 )
+[sub_resource type="GDScript" id=57]
+script/source = "extends Node2D
+
+
+onready var area = $Area2D/CollisionShape2D
+onready var size = area.shape.extents
+onready var photon = load(\"res://Photons/Photon.tscn\")
+onready var playerInArea = false
+
+export(float) var HowOftenToSpawn : float = 1
+export(float) var HowManyToSpawn : int = 1
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	var timer = Timer.new()
+	timer.set_wait_time(HowOftenToSpawn)
+	timer.set_one_shot(false)
+	timer.connect(\"timeout\", self, \"repeat_me\")
+	add_child(timer)
+	timer.start()
+
+func repeat_me():
+	if playerInArea:
+		for x in HowManyToSpawn:
+			spawn()
+	
+func spawn():
+	var spawn = photon.instance()
+	add_child(spawn)
+
+func _on_Area2D_body_entered(body):
+	playerInArea = true
+
+
+func _on_Area2D_body_exited(body):
+	playerInArea = false
+"
+
+[sub_resource type="RectangleShape2D" id=58]
+extents = Vector2( 320.479, 239.742 )
 
 [node name="Level2_Maze" type="Node2D"]
 script = ExtResource( 24 )
@@ -1085,6 +1125,17 @@ position = Vector2( -16, 48 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Otter"]
 remote_path = NodePath("../../../Camera2D")
+
+[node name="PhotonSpawner" parent="YSort" instance=ExtResource( 21 )]
+script = SubResource( 57 )
+HowOftenToSpawn = 1.0
+
+[node name="Area2D" parent="YSort/PhotonSpawner" index="0"]
+position = Vector2( 100, 0 )
+
+[node name="CollisionShape2D" parent="YSort/PhotonSpawner/Area2D" index="0"]
+position = Vector2( 397.213, 160.032 )
+shape = SubResource( 58 )
 
 [node name="Pickles" type="YSort" parent="YSort"]
 
@@ -1140,13 +1191,6 @@ position = Vector2( 48.6258, -40 )
 
 [node name="Tree4" parent="YSort/Trees" instance=ExtResource( 11 )]
 position = Vector2( 16, -40 )
-
-[node name="PhotonSpawner" parent="YSort" instance=ExtResource( 19 )]
-HowOftenToSpawn = 1.0
-
-[node name="CollisionShape2D" parent="YSort/PhotonSpawner/Area2D" index="0"]
-position = Vector2( 493.353, 169.654 )
-shape = SubResource( 57 )
 
 [node name="VibratingTiles" type="YSort" parent="YSort"]
 script = ExtResource( 18 )
