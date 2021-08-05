@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/StaticPushedButton.png-e18ca666abfa1b3bd033d8a324f7a1b7.stex"
+path="res://.import/StaticUnlockedDoor.png-c3b2282478b4f02e81090367bcbcc10e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/StaticPushedButton.png"
-dest_files=[ "res://.import/StaticPushedButton.png-e18ca666abfa1b3bd033d8a324f7a1b7.stex" ]
+source_file="res://ThreeButtonPuzzle/StaticUnlockedDoor.png"
+dest_files=[ "res://.import/StaticUnlockedDoor.png-c3b2282478b4f02e81090367bcbcc10e.stex" ]
 
 [params]
 

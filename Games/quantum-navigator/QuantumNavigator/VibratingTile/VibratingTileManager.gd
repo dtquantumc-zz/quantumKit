@@ -9,13 +9,11 @@ export(int) var maxActiveTiles = 10
 # Time between vvibrations
 export(int) var timeBetweenVibrations = 5
 
-var rng = RandomNumberGenerator.new()
 var seenTiles = []
 
 # Called when the node enters the scene tree for the first time
-# Initializes the RNG and starts the vibration timer
+# Starts the vibration timer
 func _ready():
-	rng.randomize()
 	VibratingTileTimer.wait_time = timeBetweenVibrations
 	VibratingTileTimer.start()
 

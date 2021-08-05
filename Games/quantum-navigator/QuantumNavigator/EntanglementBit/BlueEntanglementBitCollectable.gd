@@ -13,6 +13,8 @@ extends KinematicBody2D
 const PickupItemEffect = preload("res://Effects/PickUpItemEffect.tscn")
 const BitCollectionSound = preload("res://EntanglementBit/BitCollectionSound.tscn")
 
+export(bool) var ForceNeverSeeHelpIcon = false
+
 # Note: $<Node-name> is shorthand for get_node(<Node-name>)
 onready var playerDetectionZone = $PlayerDetectionZone
 onready var dialogPlayer = $Dialog_Player
@@ -22,12 +24,7 @@ var bit_collected = false
 # Called upon physics update (_delta = time between physics updates)
 # Hide/show help info box upon near entanglement bit
 func _physics_process(_delta):
-	# TODO: Temporary so the 2nd entanglement bit on top of the fire trap
-	# doesn't create a help icon that overlaps with the help icon of the
-	# fire trap itself in Level2_Maze
-	var is_second_bit = get_name() == "BlueEntanglementBitCollectable2"
-
-	if !is_second_bit and !bit_collected and playerDetectionZone.can_see_player():
+	if !ForceNeverSeeHelpIcon and !bit_collected and playerDetectionZone.can_see_player():
 		OtterStats.set_can_see_blue_bell_pair({"name": get_name(), "value": true})
 		if Input.is_action_just_pressed("info") || !InfoDialogState.get_has_bell_pair_dialog_been_seen():
 			dialogPlayer.play_dialog("BellPairsInfoBox")

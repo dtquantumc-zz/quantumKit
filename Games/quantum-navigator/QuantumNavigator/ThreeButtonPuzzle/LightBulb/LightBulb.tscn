@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Shadows/SmallShadow.png" type="Texture" id=1]
-[ext_resource path="res://LightBulb/LightBulb.gd" type="Script" id=2]
-[ext_resource path="res://LightBulb/StaticGreenBulb.png" type="Texture" id=3]
+[ext_resource path="res://ThreeButtonPuzzle/LightBulb/LightBulb.gd" type="Script" id=2]
+[ext_resource path="res://ThreeButtonPuzzle/LightBulb/StaticGreenBulb.png" type="Texture" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 7.0
