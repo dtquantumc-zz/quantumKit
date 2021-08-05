@@ -13,67 +13,55 @@ texture = ExtResource( 1 )
 
 [node name="Boulders" type="YSort" parent="."]
 
-[node name="Boulder" parent="Boulders" instance=ExtResource( 2 )]
-position = Vector2( 3, -21 )
-
 [node name="Boulder2" parent="Boulders" instance=ExtResource( 2 )]
-position = Vector2( -13, -21 )
-
-[node name="Boulder3" parent="Boulders" instance=ExtResource( 2 )]
-position = Vector2( 3, -14 )
+position = Vector2( -17, -10 )
+scale = Vector2( 2, 2 )
 
 [node name="Boulder4" parent="Boulders" instance=ExtResource( 2 )]
-position = Vector2( -13, -14 )
-
-[node name="Boulder5" parent="Boulders" instance=ExtResource( 2 )]
-position = Vector2( 3, -6 )
+position = Vector2( -17, 0 )
+scale = Vector2( 2, 2 )
 
 [node name="Boulder6" parent="Boulders" instance=ExtResource( 2 )]
-position = Vector2( -13, -6 )
-
-[node name="Boulder7" parent="Boulders" instance=ExtResource( 2 )]
-position = Vector2( 3, 1 )
+position = Vector2( -17, 10 )
+scale = Vector2( 2, 2 )
 
 [node name="Boulder8" parent="Boulders" instance=ExtResource( 2 )]
-position = Vector2( -13, 1 )
+position = Vector2( -17, 20 )
+scale = Vector2( 2, 2 )
+
+[node name="Boulder3" parent="Boulders" instance=ExtResource( 2 )]
+position = Vector2( 14, -10 )
+scale = Vector2( 2, 2 )
+
+[node name="Boulder5" parent="Boulders" instance=ExtResource( 2 )]
+position = Vector2( 14, 0 )
+scale = Vector2( 2, 2 )
+
+[node name="Boulder7" parent="Boulders" instance=ExtResource( 2 )]
+position = Vector2( 14, 10 )
+scale = Vector2( 2, 2 )
 
 [node name="Boulder9" parent="Boulders" instance=ExtResource( 2 )]
-position = Vector2( 3, 9 )
+position = Vector2( 14, 20 )
+scale = Vector2( 2, 2 )
 
-[node name="Boulder10" parent="Boulders" instance=ExtResource( 2 )]
-position = Vector2( -13, 9 )
+[node name="Boulder17" parent="Boulders" instance=ExtResource( 2 )]
+position = Vector2( -5, -19 )
+scale = Vector2( 2, 2 )
 
-[node name="Boulder11" parent="Boulders" instance=ExtResource( 2 )]
-position = Vector2( 3, 16 )
+[node name="Boulder18" parent="Boulders" instance=ExtResource( 2 )]
+position = Vector2( -5, -9 )
+scale = Vector2( 2, 2 )
 
-[node name="Boulder12" parent="Boulders" instance=ExtResource( 2 )]
-position = Vector2( -13, 16 )
+[node name="Boulder19" parent="Boulders" instance=ExtResource( 2 )]
+position = Vector2( -5, 1 )
+scale = Vector2( 2, 2 )
 
-[node name="Boulder13" parent="Boulders" instance=ExtResource( 2 )]
-position = Vector2( 3, 24 )
+[node name="Boulder20" parent="Boulders" instance=ExtResource( 2 )]
+position = Vector2( -5, 11 )
+scale = Vector2( 2, 2 )
 
-[node name="Boulder14" parent="Boulders" instance=ExtResource( 2 )]
-position = Vector2( -13, 24 )
-
-[node name="Boulder15" parent="Boulders" instance=ExtResource( 2 )]
-position = Vector2( 3, 31 )
-
-[node name="Boulder16" parent="Boulders" instance=ExtResource( 2 )]
-position = Vector2( -13, 31 )
-
-[connection signal="should_explode" from="." to="Boulders/Boulder15" method="signal_explode"]
-[connection signal="should_explode" from="." to="Boulders/Boulder" method="signal_explode"]
-[connection signal="should_explode" from="." to="Boulders/Boulder8" method="signal_explode"]
-[connection signal="should_explode" from="." to="Boulders/Boulder16" method="signal_explode"]
-[connection signal="should_explode" from="." to="Boulders/Boulder7" method="signal_explode"]
-[connection signal="should_explode" from="." to="Boulders/Boulder9" method="signal_explode"]
-[connection signal="should_explode" from="." to="Boulders/Boulder10" method="signal_explode"]
-[connection signal="should_explode" from="." to="Boulders/Boulder12" method="signal_explode"]
-[connection signal="should_explode" from="." to="Boulders/Boulder3" method="signal_explode"]
-[connection signal="should_explode" from="." to="Boulders/Boulder2" method="signal_explode"]
 [connection signal="should_explode" from="." to="Boulders/Boulder6" method="signal_explode"]
-[connection signal="should_explode" from="." to="Boulders/Boulder11" method="signal_explode"]
-[connection signal="should_explode" from="." to="Boulders/Boulder13" method="signal_explode"]
+[connection signal="should_explode" from="." to="Boulders/Boulder2" method="signal_explode"]
 [connection signal="should_explode" from="." to="Boulders/Boulder4" method="signal_explode"]
-[connection signal="should_explode" from="." to="Boulders/Boulder14" method="signal_explode"]
-[connection signal="should_explode" from="." to="Boulders/Boulder5" method="signal_explode"]
+[connection signal="should_explode" from="." to="Boulders/Boulder8" method="signal_explode"]
