@@ -33,7 +33,7 @@ func validate_save_data(save_data):
 	if !save_data.has("level_number") || !save_data.has("level_scene"):
 		return false
 	
-	if !ResourceLoader.exists(save_data["level_scene"]):
+	if save_data["level_scene"] != null && !ResourceLoader.exists(save_data["level_scene"]):
 		return false
 		
 	return true
