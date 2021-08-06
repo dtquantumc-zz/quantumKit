@@ -848,3 +848,4 @@ startScene = ExtResource( 11 )
 [node name="MenuLoadFile" parent="MenuSetter" instance=ExtResource( 14 )]
 position = Vector2( 216.524, 107.085 )
 scale = Vector2( 0.75, 0.75 )
+startScene = ExtResource( 11 )
