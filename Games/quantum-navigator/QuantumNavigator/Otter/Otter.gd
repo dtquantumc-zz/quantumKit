@@ -15,7 +15,7 @@ const VibratingTileHitbox = preload("res://VibratingTile/VibratingTileHitbox.gd"
 # export allows the value to be modified in inspector with type specified
 export var ACCELERATION = 500
 export var REGULAR_SPEED = 80
-export var SPRINT_SPEED = 140
+export var SPRINT_SPEED = 110
 export var FRICTION = 500
 export(NodePath) var FOLLOW_TARGET = null
 export(bool) var Debug = true
