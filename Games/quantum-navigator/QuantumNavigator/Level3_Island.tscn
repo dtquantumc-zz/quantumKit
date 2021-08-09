@@ -2303,7 +2303,6 @@ remote_path = NodePath("../../../Camera2D")
 
 [node name="PhotonSpawner" parent="YSort" instance=ExtResource( 21 )]
 script = SubResource( 57 )
-HowOftenToSpawn = 1.0
 
 [node name="Area2D" parent="YSort/PhotonSpawner" index="0"]
 position = Vector2( 100, 0 )
