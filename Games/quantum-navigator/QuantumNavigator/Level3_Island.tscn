@@ -1077,7 +1077,7 @@ func _on_Area2D_body_exited(body):
 [sub_resource type="RectangleShape2D" id=58]
 extents = Vector2( 320.479, 239.742 )
 
-[node name="Level2_Maze" type="Node2D"]
+[node name="Level3_Island" type="Node2D"]
 script = ExtResource( 24 )
 
 [node name="BackgroundGrass" type="Sprite" parent="."]
