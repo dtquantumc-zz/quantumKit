@@ -1,9 +1,9 @@
 extends Node2D
 
-onready var targetAnimation = $TargetAnimation
-onready var photonAnimation = $PhotonAnimation
+# onready var targetAnimation = $TargetAnimation
+onready var photonAnimation = $Photon/PhotonAnimation
 onready var waveAnimation = $Photon/WaveAnimation
-onready var hitbox = $Hitbox/CollisionShape2D
+onready var hitbox = $Photon/Hitbox/CollisionShape2D
 onready var particles = $Particles2D
 
 onready var x
