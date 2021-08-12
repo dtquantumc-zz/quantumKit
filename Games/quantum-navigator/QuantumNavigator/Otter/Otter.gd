@@ -46,6 +46,7 @@ onready var blinkAnimationPlayer = $BlinkAnimationPlayer
 onready var sprintParticles = $Sprint_Particles
 onready var decFadeAnimationPlayer = $Decoherence/FadePlayer
 onready var decFlashAnimationPlayer = $Decoherence/FlashPlayer
+onready var measurementEffect = $MeasurementEffect
 
 # Timer for the entanglement bit projectile
 onready var timer = get_node("Timer")
@@ -124,6 +125,7 @@ func move_state(delta):
 		animationState.travel("Idle")
 
 	if Input.is_action_just_pressed("push"):
+		#self.measure()
 		if (!InfoDialogOpenState.get_is_info_dialog_open()):
 			state = PUSH
 
@@ -363,9 +365,20 @@ func decohere():
 	yield(get_tree().create_timer(3.0), "timeout")
 	die()
 
+
+func measure():
+	measurementEffect.visible = true
+	measurementEffect.frame = 0
+	measurementEffect.play('default')
+	
 #func _on_Hurtbox_invincibility_started():
 #	if FOLLOW_TARGET == null:
 #		blinkAnimationPlayer.play("Start")
 #
 #func _on_Hurtbox_invincibility_ended():
 #	blinkAnimationPlayer.play("Stop")
+
+
+func _on_MeasurementEffect_animation_finished():
+	measurementEffect.visible = false
+	print("do the measurement")

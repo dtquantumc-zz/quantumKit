@@ -12,15 +12,20 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_right = 47.0
-margin_bottom = 32.0
+margin_top = 24.0
+margin_right = 35.0
+margin_bottom = 48.0
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="."]
-margin_left = 40.0
-margin_top = 8.0
-margin_right = 80.0
-margin_bottom = 22.0
-text = "0"
+margin_left = 27.4328
+margin_top = 32.4725
+margin_right = 91.4328
+margin_bottom = 48.4725
+rect_scale = Vector2( 0.5, 0.5 )
+text = "1"
+__meta__ = {
+"_edit_use_anchors_": false
+}

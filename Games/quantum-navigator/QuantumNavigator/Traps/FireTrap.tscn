@@ -5,7 +5,7 @@
 [ext_resource path="res://PlayerDetectionZone.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Dialog-System-Example/Dialog_Player.tscn" type="PackedScene" id=5]
 
-[sub_resource type="GDScript" id=3]
+[sub_resource type="GDScript" id=1]
 script/source = "# SPDX-License-Identifier: MIT
 
 # (C) Copyright 2020
@@ -48,14 +48,14 @@ func _on_Hitbox_area_entered(_area):
 	create_fire_effect()
 "
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 11, 10 )
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=3]
 radius = 50.0
 
 [node name="FireTrap" type="Node2D"]
-script = SubResource( 3 )
+script = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -0.122145, 11.7863 )
@@ -69,13 +69,13 @@ collision_mask = 4
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2( 0, 2 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="PlayerDetectionZone" parent="." instance=ExtResource( 3 )]
 
 [node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
 position = Vector2( 0, 11 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Dialog_Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( -88, -24 )

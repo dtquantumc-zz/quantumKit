@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=2]
+[gd_scene load_steps=89 format=2]
 
 [ext_resource path="res://Otter/joey_sprite_sheet.png" type="Texture" id=1]
 [ext_resource path="res://Otter/Otter.gd" type="Script" id=2]
@@ -8,6 +8,15 @@
 [ext_resource path="res://WhiteColorShader.shader" type="Shader" id=6]
 [ext_resource path="res://Music and Sounds/ShootingBit.wav" type="AudioStream" id=7]
 [ext_resource path="res://Music and Sounds/Footsteps.wav" type="AudioStream" id=8]
+[ext_resource path="res://Monitor/monitor_empty.png" type="Texture" id=9]
+[ext_resource path="res://Monitor/monitor_1.png" type="Texture" id=10]
+[ext_resource path="res://Monitor/monitor_3.png" type="Texture" id=11]
+[ext_resource path="res://Monitor/monitor_4.png" type="Texture" id=12]
+[ext_resource path="res://Monitor/monitor_5.png" type="Texture" id=13]
+[ext_resource path="res://Monitor/monitor_6.png" type="Texture" id=14]
+[ext_resource path="res://Monitor/monitor_7.png" type="Texture" id=15]
+[ext_resource path="res://Monitor/monitor_2.png" type="Texture" id=16]
+[ext_resource path="res://Otter/MeasurementEffect.gd" type="Script" id=17]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -1006,7 +1015,7 @@ states/Shoot/node = SubResource( 52 )
 states/Shoot/position = Vector2( 156, 151 )
 transitions = [ "Idle", "Run", SubResource( 53 ), "Run", "Idle", SubResource( 54 ), "Shoot", "Idle", SubResource( 55 ), "Idle", "Shoot", SubResource( 56 ), "Push", "Idle", SubResource( 57 ), "Idle", "Push", SubResource( 58 ) ]
 start_node = "Idle"
-graph_offset = Vector2( 0, -37.056 )
+graph_offset = Vector2( -183, -45.7378 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=60]
 
@@ -1245,6 +1254,14 @@ orbit_velocity_random = 0.0
 scale = 0.75
 color = Color( 0.698039, 0.729412, 0.772549, 1 )
 
+[sub_resource type="SpriteFrames" id=71]
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 16 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+} ]
+
 [node name="Otter2" type="KinematicBody2D"]
 collision_layer = 2
 collision_mask = 2147483649
@@ -1311,6 +1328,7 @@ shape = SubResource( 61 )
 
 [node name="HitboxPivot" type="Position2D" parent="."]
 position = Vector2( 0, -4 )
+rotation = -1.5708
 
 [node name="HandHitbox" parent="HitboxPivot" instance=ExtResource( 5 )]
 position = Vector2( 4, 0 )
@@ -1319,7 +1337,6 @@ collision_mask = 32
 
 [node name="CollisionShape2D" parent="HitboxPivot/HandHitbox" index="0"]
 shape = SubResource( 62 )
-disabled = true
 
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 0, -9 )
@@ -1375,9 +1392,9 @@ visibility_rect = Rect2( -100, -100, 200, 300 )
 process_material = SubResource( 67 )
 
 [node name="Decoherence" type="Node2D" parent="."]
+visible = false
 
 [node name="Sprite" type="Sprite" parent="Decoherence"]
-visible = false
 material = SubResource( 1 )
 position = Vector2( 0, -9 )
 scale = Vector2( 0.5, 0.5 )
@@ -1387,7 +1404,6 @@ hframes = 123
 frame = 44
 
 [node name="SpriteLeft" type="Sprite" parent="Decoherence"]
-visible = false
 material = SubResource( 1 )
 position = Vector2( 0, -9 )
 scale = Vector2( 0.5, 0.5 )
@@ -1396,7 +1412,6 @@ hframes = 123
 frame = 44
 
 [node name="SpriteRight" type="Sprite" parent="Decoherence"]
-visible = false
 material = SubResource( 1 )
 position = Vector2( 0, -9 )
 scale = Vector2( 0.5, 0.5 )
@@ -1416,11 +1431,20 @@ emitting = false
 amount = 25
 process_material = SubResource( 70 )
 
+[node name="MeasurementEffect" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( -0.787456, -0.787452 )
+scale = Vector2( 0.419255, 0.419255 )
+z_index = 1
+frames = SubResource( 71 )
+script = ExtResource( 17 )
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="area_exited" from="Hurtbox" to="." method="_on_Hurtbox_area_exited"]
 [connection signal="invincibility_ended" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_ended"]
 [connection signal="invincibility_started" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_started"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="animation_finished" from="MeasurementEffect" to="." method="_on_MeasurementEffect_animation_finished"]
 
 [editable path="Hurtbox"]
 [editable path="HitboxPivot/HandHitbox"]

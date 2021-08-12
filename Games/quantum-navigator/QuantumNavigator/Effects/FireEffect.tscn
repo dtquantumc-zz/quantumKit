@@ -69,5 +69,4 @@ animations = [ {
 
 [node name="FireEffect" type="AnimatedSprite"]
 frames = SubResource( 15 )
-frame = 5
 script = ExtResource( 2 )
