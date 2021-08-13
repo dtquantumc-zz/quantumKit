@@ -26,6 +26,8 @@ export var can_see_fire_hazard = false setget set_can_see_fire_hazard
 export var can_see_red_bell_pair = false setget set_can_see_red_bell_pair
 export var can_see_blue_bell_pair = false setget set_can_see_blue_bell_pair
 export var camera_locked = false setget set_camera_locked
+export var measurement_area = false setget set_measurement_area
+export var keys = 0 setget set_keys
 
 onready var health = max_health setget set_health
 
@@ -48,6 +50,9 @@ signal blue_bell_pair_visible(dict)
 signal camera_rmtrans2d_changed(nodepath)
 signal curr_main_player_changed(nodepath)
 signal level2_state_changed(array)
+
+signal measurement_area_changed(value)
+signal keys_changed(value)
 
 
 # Setter for the current health, and emits a signal
@@ -93,6 +98,8 @@ func reset():
 	blue_bits = 0
 	set_level2_state([2, 0, 2])
 	isEncoded = false
+	set_measurement_area(false)
+	keys = 0
 
 # Setter for can_see_encoder, but emits a signal
 func set_can_see_encoder(value):
@@ -142,3 +149,16 @@ func set_level2_state(array):
 	level2_state = array
 	print(array)
 	emit_signal("level2_state_changed", level2_state)
+	
+func set_measurement_area(value):
+	print(value)
+	measurement_area = value
+	emit_signal("measurement_area_changed", measurement_area)
+
+func set_keys(value):
+	keys = value
+	emit_signal('keys_changed', value)
+	
+func inc_keys():
+	set_keys(keys + 1)
+	

@@ -125,7 +125,6 @@ func move_state(delta):
 		animationState.travel("Idle")
 
 	if Input.is_action_just_pressed("push"):
-		#self.measure()
 		if (!InfoDialogOpenState.get_is_info_dialog_open()):
 			state = PUSH
 
@@ -134,6 +133,9 @@ func move_state(delta):
 
 	if Input.is_action_just_pressed("swap") and IS_MAIN == true:
 		self.call_deferred("swap_followers")
+		
+	if Input.is_action_pressed("MeasureKey") and OtterStats.measurement_area:
+		self.measure()
 
 # If the information dialogue is not open, set animation state to 'push'
 func push_state():

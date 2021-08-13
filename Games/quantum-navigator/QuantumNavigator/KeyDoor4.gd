@@ -4,6 +4,7 @@ extends StaticBody2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+var opened = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -16,9 +17,8 @@ func _ready():
 #	pass
 
 
-func _on_Hurtbox_area_entered(area):
-	OtterStats.set_measurement_area(self.get_parent().name)
-
-
-func _on_Hurtbox_area_exited(area):
-	OtterStats.set_measurement_area(0)
+func _on_Area2D_area_entered(area):
+	if OtterStats.keys >= 4 and opened == false:
+		opened = true
+		OtterStats.set_keys(OtterStats.keys - 1)
+		$Collision.set_deferred("disabled", true)

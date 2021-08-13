@@ -1,6 +1,6 @@
 extends Node2D
 
-export(Array,String) var Ignored_Nodes : Array = ["Timer"]
+export(Array,String) var Ignored_Nodes : Array = ["Timer", "Hurtbox"]
 export(float) var DeadZone : float = 0.1
 export(bool) var IsActive : bool = false
 export(float) var ChangeSpeed : float = 0.05
@@ -13,6 +13,7 @@ onready var Timer = $Timer
 var prev_probabilities : Array = []
 var next_probabilities : Array = []
 var lerp_state : float = 0
+export var in_measurement_area = false
 
 var keys : Array = []
 # Called when the node enters the scene tree for the first time.
@@ -80,7 +81,7 @@ func randomize_probabilities_immediately():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if (!measured and Input.is_action_pressed("MeasureKey")):
+	if (!measured and Input.is_action_pressed("MeasureKey") and in_measurement_area):
 		var value = rng.randf_range(0,1)
 		var solid_set : bool = false
 		for key in keys:

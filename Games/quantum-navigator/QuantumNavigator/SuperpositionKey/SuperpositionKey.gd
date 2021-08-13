@@ -31,10 +31,12 @@ func make_solid() -> void:
 		make_enemy_pickup_key(objects_in_hitbox[0])
 
 func make_enemy_pickup_key(enemy):
+	
 	printerr("----Enemy pickup/inventory code not implemented: Make enemy pick up key----")
 	queue_free()
 
 func make_otter_pickup_key(otter):
+	OtterStats.inc_keys()
 	printerr("----Otter pickup/inventory code not implemented: Make otter pick up key----")
 	queue_free()
 	
@@ -57,3 +59,13 @@ func _on_Hitbox_area_entered(area):
 
 func _on_Hitbox_area_exited(area):
 	objects_in_hitbox.erase(area)
+
+
+func _on_Hurtbox2_area_entered(area):
+	self.get_parent().in_measurement_area = true
+	OtterStats.set_measurement_area(true)
+
+
+func _on_Hurtbox2_area_exited(area):
+	self.get_parent().in_measurement_area = false
+	OtterStats.set_measurement_area(false)

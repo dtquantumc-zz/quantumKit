@@ -7,6 +7,7 @@
 radius = 64.0
 
 [sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 56, 48 )
 
 [node name="MeasureArea" type="StaticBody2D"]
 script = ExtResource( 2 )
@@ -17,8 +18,10 @@ disabled = true
 
 [node name="Hurtbox" parent="." instance=ExtResource( 1 )]
 collision_layer = 32
+collision_mask = 2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource( 2 )
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="area_exited" from="Hurtbox" to="." method="_on_Hurtbox_area_exited"]
