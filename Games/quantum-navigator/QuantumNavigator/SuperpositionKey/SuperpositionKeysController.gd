@@ -12,7 +12,7 @@ onready var Timer = $Timer
 
 var prev_probabilities : Array = []
 var next_probabilities : Array = []
-var lerp_state : float = 0
+var lerp_state : float = 1
 
 var keys : Array = []
 # Called when the node enters the scene tree for the first time.
@@ -80,7 +80,7 @@ func randomize_probabilities_immediately():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if (!measured and Input.is_action_pressed("MeasureKey")):
+	if (!measured and IsActive and Input.is_action_pressed("MeasureKey")):
 		var value = rng.randf_range(0,1)
 		var solid_set : bool = false
 		for key in keys:
@@ -100,7 +100,8 @@ func _process(delta):
 
 func _on_Timer_timeout():
 	if (DoRandomizeRepeatedly):
-		randomize_probabilities_interpolate()
+		if (lerp_state == 1):
+			randomize_probabilities_interpolate()
 		Timer.wait_time = rng.randf_range(MinTimeBeforeRandomize,MaxTimeBeforeRandomize)
 	else:
 		printerr("Timer on SuperpositionKeysController is running when DoRandomizeRepeatedly is false.")
