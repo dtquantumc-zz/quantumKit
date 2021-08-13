@@ -18,12 +18,11 @@ func _ready():
 	waveAnimation.play("blueWave")
 	x = self.position.x+1000
 	y = self.position.y+1000
+	yield(get_tree().create_timer(5), "timeout")
+	queue_free()
 	
 func _process(delta):
 	self.position = position.move_toward(Vector2(x,y), delta * 150)
-	if self.position.x == x:
-		get_parent().remove_child(self)
-
 
 func _on_Hitbox_body_entered(body):
 	body.decohere()

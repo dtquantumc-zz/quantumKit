@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[sub_resource type="GDScript" id=3]
+[sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
 
 
@@ -42,7 +42,7 @@ func _on_Area2D_body_exited(body):
 extents = Vector2( 328, 272 )
 
 [node name="PhotonSpawner" type="Node2D"]
-script = SubResource( 3 )
+script = SubResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0

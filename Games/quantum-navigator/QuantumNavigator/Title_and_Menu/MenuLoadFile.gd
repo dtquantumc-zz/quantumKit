@@ -68,7 +68,7 @@ func _load_game():
 	#OtterStats.set_level(save_data["level_number"])
 	
 	OtterStats.set_level(3)
-	get_tree().change_scene_to(load("res://Level3_Island_yon.tscn"))
+	get_tree().change_scene_to(load("res://Level3_Island.tscn"))
 	
 func _new_game():
 	var dir = Directory.new()
