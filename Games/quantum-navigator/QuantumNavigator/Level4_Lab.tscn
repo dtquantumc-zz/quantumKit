@@ -1,4 +1,4 @@
-[gd_scene load_steps=153 format=2]
+[gd_scene load_steps=154 format=2]
 
 [ext_resource path="res://World/CliffTileset.png" type="Texture" id=1]
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=2]
@@ -22,12 +22,13 @@
 [ext_resource path="res://Island/tileset16x16_1.png" type="Texture" id=20]
 [ext_resource path="res://ChestUI.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Boulders/LeftBoulder.png" type="Texture" id=22]
-[ext_resource path="res://SuperpositionKey/SuperpositionKey.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Villain/Villain.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Level_Control.gd" type="Script" id=24]
 [ext_resource path="res://Door/Door.tscn" type="PackedScene" id=25]
 [ext_resource path="res://UI/InfoHelpUI.tscn" type="PackedScene" id=26]
 [ext_resource path="res://ControlsDialog.tscn" type="PackedScene" id=27]
 [ext_resource path="res://SuperpositionKey/SuperpositionKeysController.tscn" type="PackedScene" id=28]
+[ext_resource path="res://SuperpositionKey/SuperpositionKey.tscn" type="PackedScene" id=29]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -1812,7 +1813,13 @@ position = Vector2( -20, 50 )
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Otter"]
 remote_path = NodePath("../../../Camera2D")
 
+[node name="Villain2" parent="YSort" instance=ExtResource( 23 )]
+position = Vector2( 500, 47.09 )
+
 [node name="Pickles" type="YSort" parent="YSort"]
+
+[node name="Villain" parent="YSort" instance=ExtResource( 29 )]
+position = Vector2( 50, 0 )
 
 [node name="Teleporters" type="YSort" parent="YSort"]
 
@@ -1885,90 +1892,90 @@ position = Vector2( 600, 376 )
 IsActive = true
 ChangeSpeed = 0.02
 
-[node name="SuperpositonKey2" parent="YSort/SuperpositionKeysController" instance=ExtResource( 23 )]
+[node name="SuperpositonKey2" parent="YSort/SuperpositionKeysController" instance=ExtResource( 29 )]
 position = Vector2( -96.384, 33.7029 )
 
-[node name="SuperpositonKey" parent="YSort/SuperpositionKeysController" instance=ExtResource( 23 )]
+[node name="SuperpositonKey" parent="YSort/SuperpositionKeysController" instance=ExtResource( 29 )]
 position = Vector2( 61.4212, 32.128 )
 
 [node name="SuperpositionKeysController2" parent="YSort" instance=ExtResource( 28 )]
 position = Vector2( 530, 50 )
 ChangeSpeed = 0.02
 
-[node name="SuperpositonKey2" parent="YSort/SuperpositionKeysController2" instance=ExtResource( 23 )]
+[node name="SuperpositonKey2" parent="YSort/SuperpositionKeysController2" instance=ExtResource( 29 )]
 position = Vector2( -96.384, 33.7029 )
 
-[node name="SuperpositonKey" parent="YSort/SuperpositionKeysController2" instance=ExtResource( 23 )]
+[node name="SuperpositonKey" parent="YSort/SuperpositionKeysController2" instance=ExtResource( 29 )]
 position = Vector2( 61.4212, 32.128 )
 
-[node name="SuperpositonKey3" parent="YSort/SuperpositionKeysController2" instance=ExtResource( 23 )]
+[node name="SuperpositonKey3" parent="YSort/SuperpositionKeysController2" instance=ExtResource( 29 )]
 position = Vector2( -93.8641, -59.5313 )
 
-[node name="SuperpositonKey4" parent="YSort/SuperpositionKeysController2" instance=ExtResource( 23 )]
+[node name="SuperpositonKey4" parent="YSort/SuperpositionKeysController2" instance=ExtResource( 29 )]
 position = Vector2( 58.5863, -60.1612 )
 
 [node name="SuperpositionKeysController3" parent="YSort" instance=ExtResource( 28 )]
 position = Vector2( 1100, -30 )
 ChangeSpeed = 0.02
 
-[node name="SuperpositonKey2" parent="YSort/SuperpositionKeysController3" instance=ExtResource( 23 )]
+[node name="SuperpositonKey2" parent="YSort/SuperpositionKeysController3" instance=ExtResource( 29 )]
 position = Vector2( -96.384, 33.7029 )
 
-[node name="SuperpositonKey" parent="YSort/SuperpositionKeysController3" instance=ExtResource( 23 )]
+[node name="SuperpositonKey" parent="YSort/SuperpositionKeysController3" instance=ExtResource( 29 )]
 position = Vector2( 61.4212, 32.128 )
 
-[node name="SuperpositonKey3" parent="YSort/SuperpositionKeysController3" instance=ExtResource( 23 )]
+[node name="SuperpositonKey3" parent="YSort/SuperpositionKeysController3" instance=ExtResource( 29 )]
 position = Vector2( -93.8641, -59.5313 )
 
-[node name="SuperpositonKey4" parent="YSort/SuperpositionKeysController3" instance=ExtResource( 23 )]
+[node name="SuperpositonKey4" parent="YSort/SuperpositionKeysController3" instance=ExtResource( 29 )]
 position = Vector2( 58.5863, -60.1612 )
 
 [node name="SuperpositionKeysController4" parent="YSort" instance=ExtResource( 28 )]
 position = Vector2( 1100, 230 )
 ChangeSpeed = 0.02
 
-[node name="SuperpositonKey2" parent="YSort/SuperpositionKeysController4" instance=ExtResource( 23 )]
+[node name="SuperpositonKey2" parent="YSort/SuperpositionKeysController4" instance=ExtResource( 29 )]
 position = Vector2( -96.384, 33.7029 )
 
-[node name="SuperpositonKey" parent="YSort/SuperpositionKeysController4" instance=ExtResource( 23 )]
+[node name="SuperpositonKey" parent="YSort/SuperpositionKeysController4" instance=ExtResource( 29 )]
 position = Vector2( 61.4212, 32.128 )
 
-[node name="SuperpositonKey3" parent="YSort/SuperpositionKeysController4" instance=ExtResource( 23 )]
+[node name="SuperpositonKey3" parent="YSort/SuperpositionKeysController4" instance=ExtResource( 29 )]
 position = Vector2( -93.8641, -59.5313 )
 
-[node name="SuperpositonKey4" parent="YSort/SuperpositionKeysController4" instance=ExtResource( 23 )]
+[node name="SuperpositonKey4" parent="YSort/SuperpositionKeysController4" instance=ExtResource( 29 )]
 position = Vector2( 58.5863, -60.1612 )
 
 [node name="SuperpositionKeysController5" parent="YSort" instance=ExtResource( 28 )]
 position = Vector2( 1500, 230 )
 ChangeSpeed = 0.02
 
-[node name="SuperpositonKey2" parent="YSort/SuperpositionKeysController5" instance=ExtResource( 23 )]
+[node name="SuperpositonKey2" parent="YSort/SuperpositionKeysController5" instance=ExtResource( 29 )]
 position = Vector2( -96.384, 33.7029 )
 
-[node name="SuperpositonKey" parent="YSort/SuperpositionKeysController5" instance=ExtResource( 23 )]
+[node name="SuperpositonKey" parent="YSort/SuperpositionKeysController5" instance=ExtResource( 29 )]
 position = Vector2( 61.4212, 32.128 )
 
-[node name="SuperpositonKey3" parent="YSort/SuperpositionKeysController5" instance=ExtResource( 23 )]
+[node name="SuperpositonKey3" parent="YSort/SuperpositionKeysController5" instance=ExtResource( 29 )]
 position = Vector2( -93.8641, -59.5313 )
 
-[node name="SuperpositonKey4" parent="YSort/SuperpositionKeysController5" instance=ExtResource( 23 )]
+[node name="SuperpositonKey4" parent="YSort/SuperpositionKeysController5" instance=ExtResource( 29 )]
 position = Vector2( 58.5863, -60.1612 )
 
 [node name="SuperpositionKeysController6" parent="YSort" instance=ExtResource( 28 )]
 position = Vector2( 1500, -30 )
 ChangeSpeed = 0.02
 
-[node name="SuperpositonKey2" parent="YSort/SuperpositionKeysController6" instance=ExtResource( 23 )]
+[node name="SuperpositonKey2" parent="YSort/SuperpositionKeysController6" instance=ExtResource( 29 )]
 position = Vector2( -96.384, 33.7029 )
 
-[node name="SuperpositonKey" parent="YSort/SuperpositionKeysController6" instance=ExtResource( 23 )]
+[node name="SuperpositonKey" parent="YSort/SuperpositionKeysController6" instance=ExtResource( 29 )]
 position = Vector2( 61.4212, 32.128 )
 
-[node name="SuperpositonKey3" parent="YSort/SuperpositionKeysController6" instance=ExtResource( 23 )]
+[node name="SuperpositonKey3" parent="YSort/SuperpositionKeysController6" instance=ExtResource( 29 )]
 position = Vector2( -93.8641, -59.5313 )
 
-[node name="SuperpositonKey4" parent="YSort/SuperpositionKeysController6" instance=ExtResource( 23 )]
+[node name="SuperpositonKey4" parent="YSort/SuperpositionKeysController6" instance=ExtResource( 29 )]
 position = Vector2( 58.5863, -60.1612 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
