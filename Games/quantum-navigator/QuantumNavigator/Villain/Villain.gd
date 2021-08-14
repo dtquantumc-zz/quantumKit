@@ -1,6 +1,6 @@
 extends Node2D
 
-export var reg_speed = 25
+export var reg_speed = 2
 export var run_speed = 70
 
 onready var anim = $AnimationPlayer
