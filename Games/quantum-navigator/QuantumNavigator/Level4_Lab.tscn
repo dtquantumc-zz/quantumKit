@@ -1,4 +1,4 @@
-[gd_scene load_steps=150 format=2]
+[gd_scene load_steps=151 format=2]
 
 [ext_resource path="res://World/CliffTileset.png" type="Texture" id=1]
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://Island/tileset16x16_1.png" type="Texture" id=20]
 [ext_resource path="res://ChestUI.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Boulders/LeftBoulder.png" type="Texture" id=22]
+[ext_resource path="res://Villain/Villain.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Level_Control.gd" type="Script" id=24]
 [ext_resource path="res://UI/InfoHelpUI.tscn" type="PackedScene" id=26]
 [ext_resource path="res://ControlsDialog.tscn" type="PackedScene" id=27]
@@ -1810,6 +1811,9 @@ position = Vector2( -20, 50 )
 remote_path = NodePath("../../../Camera2D")
 
 [node name="Pickles" type="YSort" parent="YSort"]
+
+[node name="Villain" parent="YSort" instance=ExtResource( 23 )]
+position = Vector2( 50, 0 )
 
 [node name="Teleporters" type="YSort" parent="YSort"]
 
