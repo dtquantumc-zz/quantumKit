@@ -259,8 +259,13 @@ func _on_Hurtbox_area_entered(area):
 # determines if a given area is a fire trap
 func is_a_fire_trap(area) -> bool:
 	if (Debug):
-		print("is_a_fire_trap area owner name: " + area.owner.get_name())
 		print("is_a_fire_trap area name: " + area.get_name())
+	if (area.owner == null):
+		if (Debug):
+			print("is_a_fire_trap area owner name: null")
+		return false
+	if (Debug):
+		print("is_a_fire_trap area owner name: " + area.owner.get_name())
 	return area.owner.get_name() in ["FireTrap", "SpikeTrap"]
 
 func is_a_vibrating_block(area) -> bool:
