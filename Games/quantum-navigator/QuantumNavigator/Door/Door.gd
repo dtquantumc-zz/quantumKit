@@ -39,19 +39,20 @@ func switch_to_correct_texture():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	CurrentDoorState = DoorState.LOCKED
 	switch_to_correct_texture()
-	update_collision()
+	#update_collision()
 
 func unlock_door():
 	if (CurrentDoorState == DoorState.LOCKED):
 		CurrentDoorState = DoorState.UNLOCKED
 		switch_to_correct_texture()
-		update_collision()
+		#update_collision()
 		
 func lock_door():
 	CurrentDoorState = DoorState.LOCKED
 	switch_to_correct_texture()
-	update_collision()
+	#update_collision()
 
 func _on_Area2D_body_entered(body):
 	if (CurrentDoorState == DoorState.UNLOCKED):

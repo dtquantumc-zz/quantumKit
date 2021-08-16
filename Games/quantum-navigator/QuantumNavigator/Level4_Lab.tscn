@@ -1,4 +1,4 @@
-[gd_scene load_steps=164 format=2]
+[gd_scene load_steps=165 format=2]
 
 [ext_resource path="res://World/CliffTileset.png" type="Texture" id=1]
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=2]
@@ -39,6 +39,7 @@
 [ext_resource path="res://Lab/LabTile2.png" type="Texture" id=37]
 [ext_resource path="res://KeysUI.tscn" type="PackedScene" id=38]
 [ext_resource path="res://KeysUI.gd" type="Script" id=39]
+[ext_resource path="res://Villain/Villain.tscn" type="PackedScene" id=40]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -1864,8 +1865,6 @@ position = Vector2( -20, 50 )
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Otter"]
 remote_path = NodePath("../../../Camera2D")
 
-[node name="Pickles" type="YSort" parent="YSort"]
-
 [node name="Teleporters" type="YSort" parent="YSort"]
 
 [node name="PhoneBooth" parent="YSort/Teleporters" instance=ExtResource( 9 )]
@@ -1905,10 +1904,9 @@ position = Vector2( -32, 128 )
 position = Vector2( -48, 128 )
 
 [node name="Bushes" type="YSort" parent="YSort"]
-visible = false
 
 [node name="Bush5" parent="YSort/Bushes" instance=ExtResource( 14 )]
-position = Vector2( 240, -12 )
+position = Vector2( 200, 18.9782 )
 
 [node name="BellPairs" type="YSort" parent="YSort"]
 
@@ -2113,6 +2111,9 @@ position = Vector2( -160, 127.978 )
 
 [node name="Tree4" parent="YSort/Trees" instance=ExtResource( 11 )]
 position = Vector2( 280, 18 )
+
+[node name="Villain2" parent="YSort" instance=ExtResource( 40 )]
+position = Vector2( 500.434, 47.09 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
