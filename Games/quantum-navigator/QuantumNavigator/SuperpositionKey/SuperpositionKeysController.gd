@@ -1,9 +1,9 @@
 extends Node2D
 
 export(Array,String) var Ignored_Nodes : Array = ["Timer", "Hurtbox"]
-export(float) var DeadZone : float = 0.1
-export(bool) var IsActive : bool = false
-export(float) var ChangeSpeed : float = 0.05
+export(float) var DeadZone : float = 0
+#export(bool) var IsActive : bool = false
+export(float) var ChangeSpeed : float = 0.1
 export(float) var MinTimeBeforeRandomize : float = 2
 export(float) var MaxTimeBeforeRandomize : float = 5
 export(bool) var DoRandomizeRepeatedly : bool = true
@@ -12,7 +12,7 @@ onready var Timer = $Timer
 
 var prev_probabilities : Array = []
 var next_probabilities : Array = []
-var lerp_state : float = 0
+var lerp_state : float = 1
 export var in_measurement_area = false
 
 var keys : Array = []
@@ -82,18 +82,25 @@ func randomize_probabilities_immediately():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if (!measured and Input.is_action_pressed("MeasureKey") and in_measurement_area):
-		var value = rng.randf_range(0,1)
-		var solid_set : bool = false
+
+		var measured_key
 		for key in keys:
-			if (value > key.probability):
-				key.make_gone()
-				value -= key.probability
-			elif !solid_set:
-				key.make_solid()
-				solid_set = true
-			else:
-				key.make_gone()
-		measured = true
+			if key.in_key_area:
+				print(key.probability)
+			if key.in_key_area and key.probability > 0.8:
+				measured_key = key
+				measured_key.make_solid()
+
+		if measured_key != null:
+			OtterStats.curr_main_player.measure()
+			var solid_set : bool = false
+			for key in keys:
+				if (key != measured_key):
+					key.make_gone()
+			measured = true
+		else:
+			OtterStats.curr_main_player.measure_error()
+		
 	if (!measured):
 		if (lerp_state < 1):
 			lerp_state = clamp(lerp_state + ChangeSpeed,0,1)
@@ -101,7 +108,8 @@ func _process(delta):
 
 func _on_Timer_timeout():
 	if (DoRandomizeRepeatedly):
-		randomize_probabilities_interpolate()
+		if (lerp_state == 1):
+			randomize_probabilities_interpolate()
 		Timer.wait_time = rng.randf_range(MinTimeBeforeRandomize,MaxTimeBeforeRandomize)
 	else:
 		printerr("Timer on SuperpositionKeysController is running when DoRandomizeRepeatedly is false.")

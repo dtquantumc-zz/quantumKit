@@ -134,8 +134,8 @@ func move_state(delta):
 	if Input.is_action_just_pressed("swap") and IS_MAIN == true:
 		self.call_deferred("swap_followers")
 		
-	if Input.is_action_pressed("MeasureKey") and OtterStats.measurement_area:
-		self.measure()
+#	if Input.is_action_pressed("MeasureKey") and OtterStats.measurement_area:
+#		self.measure()
 
 # If the information dialogue is not open, set animation state to 'push'
 func push_state():
@@ -377,6 +377,11 @@ func measure():
 	measurementEffect.visible = true
 	measurementEffect.frame = 0
 	measurementEffect.play('default')
+
+func measure_error():
+	measurementEffect.visible = true
+	measurementEffect.frame = 0
+	measurementEffect.play('error')
 	
 #func _on_Hurtbox_invincibility_started():
 #	if FOLLOW_TARGET == null:
@@ -388,4 +393,3 @@ func measure():
 
 func _on_MeasurementEffect_animation_finished():
 	measurementEffect.visible = false
-	print("do the measurement")

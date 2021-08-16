@@ -4,6 +4,7 @@ onready var KeySprite = $Sprite
 onready var Hitbox = $Hitbox
 
 var probability : float = 0 setget set_probability
+export var in_key_area : bool = false
 var is_solid : bool = false
 var has_measured : bool = false
 var objects_in_hitbox : Array = []
@@ -63,9 +64,11 @@ func _on_Hitbox_area_exited(area):
 
 func _on_Hurtbox2_area_entered(area):
 	self.get_parent().in_measurement_area = true
+	in_key_area = true
 	OtterStats.set_measurement_area(true)
 
 
 func _on_Hurtbox2_area_exited(area):
 	self.get_parent().in_measurement_area = false
+	in_key_area = false
 	OtterStats.set_measurement_area(false)

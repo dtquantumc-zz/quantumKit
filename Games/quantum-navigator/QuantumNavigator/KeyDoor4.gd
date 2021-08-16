@@ -20,5 +20,5 @@ func _ready():
 func _on_Area2D_area_entered(area):
 	if OtterStats.keys >= 4 and opened == false:
 		opened = true
-		OtterStats.set_keys(OtterStats.keys - 1)
+		OtterStats.set_keys(OtterStats.keys - 4)
 		$Collision.set_deferred("disabled", true)
