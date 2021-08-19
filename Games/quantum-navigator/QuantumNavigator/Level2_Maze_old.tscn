@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=2]
+[gd_scene load_steps=76 format=2]
 
 [ext_resource path="res://World/CliffTileset.png" type="Texture" id=1]
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://Computer/Decoder.tscn" type="PackedScene" id=22]
 [ext_resource path="res://UI/DecoderHelpUI.tscn" type="PackedScene" id=23]
 [ext_resource path="res://ControlsDialog.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Level3_Island.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Level_Transition/LevelCompleteMessage/Level_Transition_Box_With_Complete_Msg.tscn" type="PackedScene" id=26]
 
 [sub_resource type="TileSet" id=1]
@@ -1181,4 +1182,4 @@ margin_bottom = 56.0
 
 [node name="Level_Transition_With_Msg" parent="." instance=ExtResource( 26 )]
 position = Vector2( 1545.6, 89.9383 )
-nextScene = "res://Level3_Island.tscn"
+nextScene = ExtResource( 25 )

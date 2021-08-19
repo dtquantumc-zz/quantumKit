@@ -2,7 +2,8 @@ extends Node2D
 
 export(Array,String) var Ignored_Nodes : Array = ["Timer", "Hurtbox"]
 export(float) var DeadZone : float = 0
-#export(bool) var IsActive : bool = false
+export(int) var CyclesBeforeGuarantee : int = 3
+export(float) var MeasurementCutoff : float = 0.8
 export(float) var ChangeSpeed : float = 0.1
 export(float) var MinTimeBeforeRandomize : float = 2
 export(float) var MaxTimeBeforeRandomize : float = 5
@@ -10,6 +11,7 @@ export(bool) var DoRandomizeRepeatedly : bool = true
 
 onready var Timer = $Timer
 
+var cycles_to_next_guarantee = CyclesBeforeGuarantee
 var prev_probabilities : Array = []
 var next_probabilities : Array = []
 var lerp_state : float = 1
@@ -45,6 +47,24 @@ static func float_array_lerp(array_one : Array, array_two : Array, amt : float) 
 		result.append(((array_two[i]-array_one[i]) * amt) + array_one[i])
 	return result
 
+func generate_guarantee_probabilities() -> Array:
+	var index = rng.randi_range(0,keys.size()-1)
+	var probability_guarantee = rng.randf_range(MeasurementCutoff,1-DeadZone)
+	var result : Array = []
+	var floats : Array = [0.0,1-probability_guarantee]
+	for i in range(keys.size()):
+		if i != 0 and i != index:
+			floats.append(rng.randf_range(0,1-probability_guarantee))
+		if i == index:
+			floats.append(floats[max(i-1,0)])
+	floats.sort()
+	for i in range(keys.size()):
+		if i == index:
+			result.append(probability_guarantee)
+		else:
+			result.append(floats[i+1]-floats[i])
+	return result
+
 func generate_probabilities() -> Array:
 	var floats : Array = [0.0,1.0]
 	var result : Array = []
@@ -67,6 +87,16 @@ func set_current_lerp_probabilities():
 	for i in range(keys.size()):
 		keys[i].set_probability(probabilities[i])
 
+func randomize_probabilites():
+	if (cycles_to_next_guarantee == 0):
+		prev_probabilities = next_probabilities
+		next_probabilities = generate_guarantee_probabilities()
+		lerp_state = 0
+		cycles_to_next_guarantee = CyclesBeforeGuarantee
+	else:
+		randomize_probabilities_interpolate()
+		cycles_to_next_guarantee = cycles_to_next_guarantee - 1
+
 func randomize_probabilities_interpolate():
 	prev_probabilities = next_probabilities
 	next_probabilities = generate_probabilities()
@@ -86,14 +116,13 @@ func _process(delta):
 		var measured_key
 		for key in keys:
 			if key.in_key_area:
-				print(key.probability)
-			if key.in_key_area and key.probability > 0.8:
+				print("SuprpositionKeysController _process: " + str(key.probability))
+			if key.in_key_area and key.probability > MeasurementCutoff:
 				measured_key = key
 				measured_key.make_solid()
 
 		if measured_key != null:
 			OtterStats.curr_main_player.measure()
-			var solid_set : bool = false
 			for key in keys:
 				if (key != measured_key):
 					key.make_gone()
@@ -109,7 +138,7 @@ func _process(delta):
 func _on_Timer_timeout():
 	if (DoRandomizeRepeatedly):
 		if (lerp_state == 1):
-			randomize_probabilities_interpolate()
+			randomize_probabilites()
 		Timer.wait_time = rng.randf_range(MinTimeBeforeRandomize,MaxTimeBeforeRandomize)
 	else:
 		printerr("Timer on SuperpositionKeysController is running when DoRandomizeRepeatedly is false.")

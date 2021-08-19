@@ -36,9 +36,8 @@ func make_enemy_pickup_key(enemy):
 	printerr("----Enemy pickup/inventory code not implemented: Make enemy pick up key----")
 	queue_free()
 
-func make_otter_pickup_key(otter):
+func make_otter_pickup_key(_otter):
 	OtterStats.inc_keys()
-	printerr("----Otter pickup/inventory code not implemented: Make otter pick up key----")
 	queue_free()
 	
 func get_otter():
@@ -48,7 +47,7 @@ func get_otter():
 	return null
 
 func is_object_otter(obj) -> bool:
-	return true
+	return "Otter" in obj.get_parent().get_name()
 
 func _on_Hitbox_area_entered(area):
 	objects_in_hitbox.append(area)

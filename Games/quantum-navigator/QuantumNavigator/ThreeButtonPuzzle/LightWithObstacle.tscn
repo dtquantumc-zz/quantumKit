@@ -61,15 +61,15 @@ scale = Vector2( 2, 2 )
 position = Vector2( -5, 11 )
 scale = Vector2( 2, 2 )
 
-[connection signal="should_explode" from="." to="Boulders/Boulder20" method="signal_explode"]
-[connection signal="should_explode" from="." to="Boulders/Boulder19" method="signal_explode"]
-[connection signal="should_explode" from="." to="Boulders/Boulder6" method="signal_explode"]
 [connection signal="should_explode" from="." to="Boulders/Boulder3" method="signal_explode"]
-[connection signal="should_explode" from="." to="Boulders/Boulder2" method="signal_explode"]
-[connection signal="should_explode" from="." to="Boulders/Boulder5" method="signal_explode"]
+[connection signal="should_explode" from="." to="Boulders/Boulder4" method="signal_explode"]
 [connection signal="should_explode" from="." to="Boulders/Boulder7" method="signal_explode"]
 [connection signal="should_explode" from="." to="Boulders/Boulder18" method="signal_explode"]
+[connection signal="should_explode" from="." to="Boulders/Boulder5" method="signal_explode"]
+[connection signal="should_explode" from="." to="Boulders/Boulder19" method="signal_explode"]
 [connection signal="should_explode" from="." to="Boulders/Boulder8" method="signal_explode"]
-[connection signal="should_explode" from="." to="Boulders/Boulder9" method="signal_explode"]
-[connection signal="should_explode" from="." to="Boulders/Boulder4" method="signal_explode"]
 [connection signal="should_explode" from="." to="Boulders/Boulder17" method="signal_explode"]
+[connection signal="should_explode" from="." to="Boulders/Boulder9" method="signal_explode"]
+[connection signal="should_explode" from="." to="Boulders/Boulder20" method="signal_explode"]
+[connection signal="should_explode" from="." to="Boulders/Boulder6" method="signal_explode"]
+[connection signal="should_explode" from="." to="Boulders/Boulder2" method="signal_explode"]

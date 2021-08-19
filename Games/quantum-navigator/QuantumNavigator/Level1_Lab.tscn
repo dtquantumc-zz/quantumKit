@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Lab/LabWall.png" type="Texture" id=1]
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Level_Transition/Chest.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UI/EntanglementBitsUI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Otter/Otter.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Level2_Maze.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Teleporter/PhoneBooth.tscn" type="PackedScene" id=9]
 [ext_resource path="res://World/Grass.png" type="Texture" id=10]
 [ext_resource path="res://Level_Transition/LevelCompleteMessage/Level_Transition_Box_With_Complete_Msg.gd" type="Script" id=11]
@@ -501,7 +502,7 @@ position = Vector2( 16, 16 )
 [node name="Level_Transition_With_Msg" parent="." instance=ExtResource( 19 )]
 position = Vector2( 375.959, 93.5444 )
 script = ExtResource( 11 )
-nextScene = "res://Level2_Maze.tscn"
+nextScene = ExtResource( 7 )
 
 [node name="Chest" parent="." instance=ExtResource( 4 )]
 position = Vector2( 336, -40 )
