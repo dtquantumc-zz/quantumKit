@@ -208,14 +208,18 @@ func spawn_followers(num_followers):
 		get_parent().add_child(newFollower)
 		followers.append(newFollower)
 
+	self.modulate.a = 0.5
+	
 	followers[0].position = position + Vector2(-20, 0)
 	#followers[0].FOLLOW_TARGET = self.get_path()
 	followers[0].IS_MAIN = false
 	followers[0].get_node("End_Teleport_Particles").emitting = true
+	followers[0].modulate.a = 0.5
 	for i in range(1, followers.size()):
 		followers[i].position = followers[i-1].position + Vector2(-20, 0)
 		#followers[i].FOLLOW_TARGET = self.get_path()
 		followers[i].IS_MAIN = false
+		followers[i].modulate.a = 0.5
 		followers[i].get_node("End_Teleport_Particles").emitting = true
 
 # Swap followers and set a new follower as the follow target
@@ -331,6 +335,7 @@ func _on_Decoder_effect_process_done(computer_position):
 
 	var center_pos = computer_position + 10 * comput_dir
 	self.position = center_pos
+	self.modulate.a = 1
 
 	stats.isEncoded = false
 	isTeleporting = false
