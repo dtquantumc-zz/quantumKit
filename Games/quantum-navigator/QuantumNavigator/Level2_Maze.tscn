@@ -1,9 +1,10 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://World/CliffTileset.png" type="Texture" id=1]
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=2]
 [ext_resource path="res://Teleporter/PhoneBooth.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Otter/Otter.tscn" type="PackedScene" id=4]
+[ext_resource path="res://LightSign.tscn" type="PackedScene" id=5]
 [ext_resource path="res://World/DirtTileset.png" type="Texture" id=6]
 [ext_resource path="res://UI/EntanglementBitsUI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Computer/Computer.tscn" type="PackedScene" id=8]
@@ -1175,6 +1176,17 @@ position = Vector2( 544, 67.1718 )
 "level2_otter_start_positions",
 ]]
 position = Vector2( 544, 160 )
+
+[node name="Signs" type="YSort" parent="YSort"]
+
+[node name="sign2" parent="YSort/Signs" instance=ExtResource( 5 )]
+position = Vector2( 696, 86.5 )
+
+[node name="sign3" parent="YSort/Signs" instance=ExtResource( 5 )]
+position = Vector2( 696, -7 )
+
+[node name="sign4" parent="YSort/Signs" instance=ExtResource( 5 )]
+position = Vector2( 696, -102 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=166 format=2]
+[gd_scene load_steps=168 format=2]
 
 [ext_resource path="res://World/CliffTileset.png" type="Texture" id=1]
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=2]
@@ -40,6 +40,8 @@
 [ext_resource path="res://KeysUI.tscn" type="PackedScene" id=38]
 [ext_resource path="res://KeysUI.gd" type="Script" id=39]
 [ext_resource path="res://Villain/Villain.tscn" type="PackedScene" id=40]
+[ext_resource path="res://SuperpositionKey/SuperpositionKeySprite.png" type="Texture" id=41]
+[ext_resource path="res://Assets/signpost.png" type="Texture" id=42]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -2575,3 +2577,27 @@ visible = false
 
 [node name="Level_Transition_With_Msg" parent="." instance=ExtResource( 13 )]
 position = Vector2( 2024, 64 )
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( 1672, 24 )
+
+[node name="Sprite" type="Sprite" parent="Node2D"]
+position = Vector2( 9.53674e-07, 3.8147e-06 )
+scale = Vector2( 0.916667, 0.916667 )
+texture = ExtResource( 42 )
+
+[node name="Sprite2" type="Sprite" parent="Node2D"]
+position = Vector2( 6.58862, -3.65698 )
+scale = Vector2( 0.443677, 0.443677 )
+texture = ExtResource( 41 )
+
+[node name="Label" type="Label" parent="Node2D"]
+margin_left = -11.3589
+margin_top = -8.90899
+margin_right = 3.64111
+margin_bottom = 5.09101
+rect_scale = Vector2( 0.7, 0.7 )
+text = "x4"
+__meta__ = {
+"_edit_use_anchors_": false
+}
