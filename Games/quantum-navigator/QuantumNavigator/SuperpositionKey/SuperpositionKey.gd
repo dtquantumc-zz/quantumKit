@@ -4,7 +4,8 @@ onready var KeySprite = $Sprite
 onready var Hitbox = $Hitbox
 
 var probability : float = 0 setget set_probability
-export var in_key_area : bool = false
+export(bool) var in_key_area : bool = false
+export(float) var MinRenderOpacity : float = 0.1
 var is_solid : bool = false
 var has_measured : bool = false
 var objects_in_hitbox : Array = []
@@ -15,7 +16,7 @@ func _ready():
 func set_probability(value: float) -> void:
 	value = clamp(value,0,1)
 	probability=value
-	KeySprite.modulate.a = probability
+	KeySprite.modulate.a = max(MinRenderOpacity,probability)
 
 func make_gone() -> void:
 	has_measured = true
