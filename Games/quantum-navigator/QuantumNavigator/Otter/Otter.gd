@@ -18,8 +18,9 @@ export var REGULAR_SPEED = 80
 export var SPRINT_SPEED = 110
 export var FRICTION = 500
 export(NodePath) var FOLLOW_TARGET = null
-export(bool) var Debug = true
-export var IS_MAIN = true
+export(bool) var Debug : bool = true
+export(Color) var DarkenAmount : Color = Color(150/255,150/255,150/255,1)
+export(bool) var IS_MAIN : bool = true
 
 # Enum defining various Otter states
 
@@ -201,6 +202,19 @@ func _on_Computer_effect_process_done(computer_position):
 	stats.isEncoded = true
 	isTeleporting = false
 
+# Update all otter dark indicators
+func update_all_darkened_indicators():
+	update_darkened_indicator()
+	for follower in followers:
+		follower.update_darkened_indicator()
+
+# Updates how dark the otter looks given whether the otter is main
+func update_darkened_indicator():
+	if IS_MAIN:
+		modulate = Color(1,1,1,1)
+	else:
+		modulate = DarkenAmount
+
 # Create num_followers followers that are following this otter
 func spawn_followers(num_followers):
 	for _i in range(num_followers):
@@ -217,10 +231,11 @@ func spawn_followers(num_followers):
 		#followers[i].FOLLOW_TARGET = self.get_path()
 		followers[i].IS_MAIN = false
 		followers[i].get_node("End_Teleport_Particles").emitting = true
+	update_all_darkened_indicators()
 
 # Swap followers and set a new follower as the follow target
 func swap_followers():
-	print(followers.size())
+	print("Otter.gd:swap_followers: " + str(followers.size()))
 	if (followers.size() == 0):
 		return
 	var mainOtter = followers[0]
@@ -232,6 +247,7 @@ func swap_followers():
 	stats.set_curr_main_player(mainOtter)
 	FOLLOW_TARGET = followers[-1].get_path()
 	mainOtter.followers.append(self)
+	update_all_darkened_indicators()
 	followers = []
 	if not OtterStats.camera_locked:
 		var rmTrans = $RemoteTransform2D
@@ -362,7 +378,8 @@ func die():
 		stats.health = stats.max_health
 		get_parent().owner.queue_restart()
 		queue_free()
-		
+	update_all_darkened_indicators()
+	
 func decohere():
 	decFadeAnimationPlayer.play("Fade")
 	decFlashAnimationPlayer.play("Flash")
