@@ -58,14 +58,14 @@ func _on_Area2D_body_entered(body):
 	if (CurrentDoorState == DoorState.UNLOCKED):
 		CurrentDoorState = DoorState.OPEN
 		switch_to_correct_texture()
-		_created_door_frame = DoorFrame.instance()
-		_created_door_frame.transform = transform
-		_created_door_frame.set_sprite(DoorFrameTexture)
-		get_tree().current_scene.add_child(_created_door_frame)
+#		_created_door_frame = DoorFrame.instance()
+#		_created_door_frame.transform = transform
+#		_created_door_frame.set_sprite(DoorFrameTexture)
+#		get_tree().current_scene.add_child(_created_door_frame)
 
 
 func _on_Area2D_body_exited(body):
 	if (CurrentDoorState == DoorState.OPEN):
 		CurrentDoorState = DoorState.UNLOCKED
-		_created_door_frame.queue_free()
+#		_created_door_frame.queue_free()
 		switch_to_correct_texture()

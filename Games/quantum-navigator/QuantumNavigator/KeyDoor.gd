@@ -22,3 +22,4 @@ func _on_Area2D_area_entered(area):
 		opened = true
 		OtterStats.set_keys(OtterStats.keys - 1)
 		$Collision.set_deferred("disabled", true)
+		$Door.unlock_door()
