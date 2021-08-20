@@ -14,7 +14,7 @@ const LevelCompleteWindow = preload("res://Level_Transition/LevelCompleteMessage
 
 # export allows the value to be modified in inspector with type specified
 # What scene we want the button to move to
-export(String) var nextScene = null
+export(PackedScene) var nextScene = null
 
 # Current window instance
 var windowInstance = null

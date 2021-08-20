@@ -1,8 +1,7 @@
 extends Node2D
 
 onready var light = $light
-onready var doorcollision = $door_collision
-onready var doorsprite = $door_sprite
+
 var red_light = preload("res://ThreeButtonPuzzle/LightBulb/StaticRedBulb.png")
 var yellow_light = preload("res://ThreeButtonPuzzle/LightBulb/StaticYellowBulb.png")
 var green_light = preload("res://ThreeButtonPuzzle/LightBulb/StaticGreenBulb.png")
@@ -37,20 +36,3 @@ func _on_level_state_changed(state):
 		
 	if state == [2, 2, 2]:
 		emit_signal("should_explode")
-		#doorcollision.set_deferred("disabled", true)
-		#print(doorcollision.disabled)
-		#doorsprite.set_texture(door_unlocked)
-	else:
-		pass
-		#doorcollision.set_deferred("disabled", false)
-		#doorsprite.set_texture(door_locked)
-
-
-func _on_door1_area_entered(area):
-	if doorcollision.disabled == true:
-		doorsprite.set_texture(door_open)
-
-
-func _on_door1_area_exited(area):
-	if doorcollision.disabled == true:
-		doorsprite.set_texture(door_unlocked)

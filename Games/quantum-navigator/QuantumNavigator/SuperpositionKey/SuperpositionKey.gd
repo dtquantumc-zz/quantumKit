@@ -4,7 +4,8 @@ onready var KeySprite = $Sprite
 onready var Hitbox = $Hitbox
 
 var probability : float = 0 setget set_probability
-export var in_key_area : bool = false
+export(bool) var in_key_area : bool = false
+export(float) var MinRenderOpacity : float = 0.1
 var is_solid : bool = false
 var has_measured : bool = false
 var objects_in_hitbox : Array = []
@@ -15,7 +16,7 @@ func _ready():
 func set_probability(value: float) -> void:
 	value = clamp(value,0,1)
 	probability=value
-	KeySprite.modulate.a = probability
+	KeySprite.modulate.a = max(MinRenderOpacity,probability)
 
 func make_gone() -> void:
 	has_measured = true
@@ -36,9 +37,8 @@ func make_enemy_pickup_key(enemy):
 	printerr("----Enemy pickup/inventory code not implemented: Make enemy pick up key----")
 	queue_free()
 
-func make_otter_pickup_key(otter):
+func make_otter_pickup_key(_otter):
 	OtterStats.inc_keys()
-	printerr("----Otter pickup/inventory code not implemented: Make otter pick up key----")
 	queue_free()
 	
 func get_otter():
@@ -48,7 +48,7 @@ func get_otter():
 	return null
 
 func is_object_otter(obj) -> bool:
-	return true
+	return "Otter" in obj.get_parent().get_name()
 
 func _on_Hitbox_area_entered(area):
 	objects_in_hitbox.append(area)
