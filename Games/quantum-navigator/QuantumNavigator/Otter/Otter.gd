@@ -391,6 +391,7 @@ func die():
 
 # Plays decoherence animation and kills the otter
 func decohere():
+	$Decoherence.visible = true
 	decFadeAnimationPlayer.play("Fade")
 	decFlashAnimationPlayer.play("Flash")
 	$Decoherence/Particles2D.emitting = true
