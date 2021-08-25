@@ -9,31 +9,31 @@ extends Node
 
 const UTIL = preload("res://Utility.gd")
 
-var num_teleporters = 2 setget set_num_teleporters
-var num_red_teleporters = 0 setget set_num_red_teleporters
-var num_blue_teleporters = 0 setget set_num_blue_teleporters
+var num_teleporters : int = 2 setget set_num_teleporters
+var num_red_teleporters : int = 0 setget set_num_red_teleporters
+var num_blue_teleporters : int = 0 setget set_num_blue_teleporters
 var current_bit_color = UTIL.RED setget set_current_bit_color
-var are_red_teleporters_connected = false setget set_are_red_teleporters_connected
-var are_blue_teleporters_connected = false setget set_are_blue_teleporters_connected
+var are_red_teleporters_connected : bool = false setget set_are_red_teleporters_connected
+var are_blue_teleporters_connected : bool = false setget set_are_blue_teleporters_connected
 
-var activeTeleporters = []
+var activeTeleporters : Array = []
 
 # Defined signal upon teleporter connection
 signal teleporters_are_connected(value)
 
 # Setter for the number of teleporters, but clamps it to a non-negative value
-func set_num_teleporters(value):
-	num_teleporters = max(value, 0)
+func set_num_teleporters(value : int):
+	num_teleporters = int(max(value, 0))
 	
 # Setter for the number of red teleporters, but clamps it to a non-negative valuev
-func set_num_red_teleporters(value):
-	num_red_teleporters = max(value, 0)
+func set_num_red_teleporters(value : int):
+	num_red_teleporters = int(max(value, 0))
 
 # Setter for the number of blue teleporters, but clamps it to a non-negative value
-func set_num_blue_teleporters(value):
-	num_blue_teleporters = max(value, 0)
+func set_num_blue_teleporters(value : int):
+	num_blue_teleporters = int(max(value, 0))
 
-# Setter for the current number of bits
+# Setter for the current color of bits
 func set_current_bit_color(value):
 	current_bit_color = value
 
@@ -50,19 +50,19 @@ func set_are_blue_teleporters_connected(value: bool):
 		emit_blue_teleporters_are_connected_signal()
 
 # Setter for whether one pair of teleporters are connected
-func are_all_teleporters_connected():
+func are_all_teleporters_connected() -> bool:
 	return are_red_teleporters_connected || are_blue_teleporters_connected
 
 # Emits the teleporters_are_connected signal, and attaches an image of which
 # teleporter was connected (i.e. a red one)
 func emit_red_teleporters_are_connected_signal():
-	var connected_red_teleporter = load("res://Teleporter/RedPhoneBooth/PhoneBoothClosedGlowing.png")
+	var connected_red_teleporter : Texture = load("res://Teleporter/RedPhoneBooth/PhoneBoothClosedGlowing.png")
 	emit_signal("teleporters_are_connected", connected_red_teleporter)
 
 # Emits the teleporters_are_connected signal, and attaches an image of which
 # teleporter was connected (i.e. a blue one)
 func emit_blue_teleporters_are_connected_signal():
-	var connected_blue_teleporter = load("res://Teleporter/BluePhoneBooth/PhoneBoothClosedGlowing.png")
+	var connected_blue_teleporter : Texture = load("res://Teleporter/BluePhoneBooth/PhoneBoothClosedGlowing.png")
 	emit_signal("teleporters_are_connected", connected_blue_teleporter)
 
 # Resets all variables/counts of teleporters and states

@@ -10,16 +10,17 @@ extends KinematicBody2D
 # See also: res://EntanglementBit/RedEntanglementBitCollectable.gd
 
 # Preload various scenes/prefabs to be created later
-const PickupItemEffect = preload("res://Effects/PickUpItemEffect.tscn")
-const BitCollectionSound = preload("res://EntanglementBit/BitCollectionSound.tscn")
+const PickupItemEffect : PackedScene = preload("res://Effects/PickUpItemEffect.tscn")
+const BitCollectionSound : PackedScene = preload("res://EntanglementBit/BitCollectionSound.tscn")
 
-export(bool) var ForceNeverSeeHelpIcon = false
+# export allows the value to be modified in inspector with type specified
+export(bool) var ForceNeverSeeHelpIcon : bool = false
 
 # Note: $<Node-name> is shorthand for get_node(<Node-name>)
 onready var playerDetectionZone = $PlayerDetectionZone
 onready var dialogPlayer = $Dialog_Player
 
-var bit_collected = false
+var bit_collected : bool = false
 
 # Called upon physics update (_delta = time between physics updates)
 # Hide/show help info box upon near entanglement bit

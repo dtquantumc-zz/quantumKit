@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=2]
 [ext_resource path="res://UI/PickleCountsUI.tscn" type="PackedScene" id=4]
@@ -6,7 +6,6 @@
 [ext_resource path="res://Otter/Otter.tscn" type="PackedScene" id=6]
 [ext_resource path="res://UI/BlueBellPairHelpUI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Lab/LabTile.png" type="Texture" id=8]
-[ext_resource path="res://Teleporter/PhoneBooth.tscn" type="PackedScene" id=9]
 [ext_resource path="res://World/Tree.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Level_Transition/LevelCompleteMessage/Level_Transition_Box_With_Complete_Msg.tscn" type="PackedScene" id=13]
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=14]
@@ -14,7 +13,6 @@
 [ext_resource path="res://UI/FireHazardHelpUI.tscn" type="PackedScene" id=16]
 [ext_resource path="res://UI/DecoderHelpUI.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Lab/LabWall.png" type="Texture" id=18]
-[ext_resource path="res://EntanglementBit/BlueEntanglementBitCollectable.tscn" type="PackedScene" id=19]
 [ext_resource path="res://ChestUI.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Assets/BigManaPotion.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Level_Control.gd" type="Script" id=24]
@@ -26,7 +24,6 @@
 [ext_resource path="res://KeyDoor.tscn" type="PackedScene" id=30]
 [ext_resource path="res://SuperpositionKey/SuperpositionKeysController.tscn" type="PackedScene" id=31]
 [ext_resource path="res://SuperpositionKey/SuperpositionKey.tscn" type="PackedScene" id=32]
-[ext_resource path="res://KeyDoor4.gd" type="Script" id=33]
 [ext_resource path="res://Assets/SmallHealthPotion.tscn" type="PackedScene" id=34]
 [ext_resource path="res://Lab/LabTile3.png" type="Texture" id=35]
 [ext_resource path="res://Lab/LabTile4.png" type="Texture" id=36]
@@ -273,54 +270,6 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 9.83349, 16, 9.83349, 6.28514, 0
 } ]
 0/z_index = 0
 
-[sub_resource type="GDScript" id=19]
-script/source = "extends Node2D
-
-export var reg_speed = 2
-export var run_speed = 70
-
-onready var anim = $AnimationPlayer
-
-var target = null
-var wanderTarget = null
-var chasing = false
-
-func _process(delta):
-	if target != null:
-		$Sprite.set_flip_h(global_transform.origin.x > target.position.x)
-		if (!chasing):
-			anim.play(\"Jump\")
-			yield (anim, \"animation_finished\")
-			chasing = true
-		else:
-			position = position.move_toward(target.position, delta*run_speed)
-	else:
-		chasing = false
-		if wanderTarget == null:
-			wanderTarget = Vector2(position.x + rand_range(-20, 30), position.y + rand_range(-20, 30))
-		else:
-			position = position.move_toward(wanderTarget, delta*reg_speed)
-			$Sprite.set_flip_h(global_transform.origin.x > wanderTarget.x)
-			if position == wanderTarget:
-				wanderTarget = null
-			
-		
-	
-
-func _ready():
-	pass
-	
-
-
-
-func _on_DetectBox_body_entered(body):
-	target = body
-
-
-func _on_DetectBox_body_exited(body):
-	target = null
-"
-
 [node name="Level4_Lab" type="Node2D"]
 script = ExtResource( 24 )
 
@@ -358,14 +307,6 @@ position = Vector2( -20, 50 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Otter"]
 remote_path = NodePath("../../../Camera2D")
-
-[node name="Teleporters" type="YSort" parent="YSort"]
-
-[node name="PhoneBooth" parent="YSort/Teleporters" instance=ExtResource( 9 )]
-position = Vector2( 968, 408 )
-
-[node name="PhoneBooth2" parent="YSort/Teleporters" instance=ExtResource( 9 )]
-position = Vector2( 1112, 408 )
 
 [node name="Bushes" type="YSort" parent="YSort"]
 
@@ -690,16 +631,9 @@ position = Vector2( 1557.59, -139.178 )
 [node name="Bush45" parent="YSort/Bushes" instance=ExtResource( 14 )]
 position = Vector2( 1589.9, -139.178 )
 
-[node name="BellPairs" type="YSort" parent="YSort"]
-
-[node name="BlueEntanglementBitCollectable" parent="YSort/BellPairs" instance=ExtResource( 19 )]
-position = Vector2( 760, 384 )
-
-[node name="BlueEntanglementBitCollectable2" parent="YSort/BellPairs" instance=ExtResource( 19 )]
-position = Vector2( 600, 376 )
-
 [node name="SuperpositionKeysController" parent="YSort" instance=ExtResource( 31 )]
 position = Vector2( -0.513, 0 )
+ChangeSpeed = 1.0
 
 [node name="SuperpositonKey2" parent="YSort/SuperpositionKeysController" instance=ExtResource( 32 )]
 position = Vector2( -96.384, 33.7029 )
@@ -709,6 +643,7 @@ position = Vector2( 59.233, 32.128 )
 
 [node name="SuperpositionKeysController2" parent="YSort" instance=ExtResource( 31 )]
 position = Vector2( 521.976, 22.3502 )
+ChangeSpeed = 1.0
 
 [node name="SuperpositonKey2" parent="YSort/SuperpositionKeysController2" instance=ExtResource( 32 )]
 position = Vector2( -96.384, 33.7029 )
@@ -724,6 +659,7 @@ position = Vector2( 58.5863, -60.1612 )
 
 [node name="SuperpositionKeysController3" parent="YSort" instance=ExtResource( 31 )]
 position = Vector2( 1099.5, -18.0218 )
+ChangeSpeed = 1.0
 
 [node name="SuperpositonKey2" parent="YSort/SuperpositionKeysController3" instance=ExtResource( 32 )]
 position = Vector2( -96.384, 33.7029 )
@@ -739,6 +675,7 @@ position = Vector2( 58.5863, -60.1612 )
 
 [node name="SuperpositionKeysController4" parent="YSort" instance=ExtResource( 31 )]
 position = Vector2( 1448, -19.0218 )
+ChangeSpeed = 1.0
 
 [node name="SuperpositonKey2" parent="YSort/SuperpositionKeysController4" instance=ExtResource( 32 )]
 position = Vector2( -96.384, 33.7029 )
@@ -754,6 +691,7 @@ position = Vector2( 58.5863, -60.1612 )
 
 [node name="SuperpositionKeysController5" parent="YSort" instance=ExtResource( 31 )]
 position = Vector2( 1448, 192 )
+ChangeSpeed = 1.0
 
 [node name="SuperpositonKey2" parent="YSort/SuperpositionKeysController5" instance=ExtResource( 32 )]
 position = Vector2( -96.384, 33.7029 )
@@ -769,6 +707,7 @@ position = Vector2( 58.5863, -60.1612 )
 
 [node name="SuperpositionKeysController6" parent="YSort" instance=ExtResource( 31 )]
 position = Vector2( 1099, 197.936 )
+ChangeSpeed = 1.0
 
 [node name="SuperpositonKey2" parent="YSort/SuperpositionKeysController6" instance=ExtResource( 32 )]
 position = Vector2( -96.384, 33.7029 )
@@ -845,19 +784,22 @@ position = Vector2( 128, 49.7029 )
 
 [node name="Door" parent="YSort/Doors/Node2D" instance=ExtResource( 25 )]
 position = Vector2( 0, -1.5749 )
+InitialDoorState = 0
 
 [node name="Node2D2" parent="YSort/Doors" instance=ExtResource( 30 )]
 position = Vector2( 736, 50.5 )
 
 [node name="Door" parent="YSort/Doors/Node2D2" instance=ExtResource( 25 )]
 position = Vector2( 3.34088, -12.0218 )
+InitialDoorState = 0
 
 [node name="Node2D3" parent="YSort/Doors" instance=ExtResource( 30 )]
 position = Vector2( 1672, 72 )
-script = ExtResource( 33 )
+NumKeysRequired = 4
 
 [node name="Door" parent="YSort/Doors/Node2D3" instance=ExtResource( 25 )]
 position = Vector2( 0, -1.5218 )
+InitialDoorState = 0
 
 [node name="Trees" type="YSort" parent="YSort"]
 
@@ -920,11 +862,9 @@ position = Vector2( 500, 50 )
 
 [node name="Villain3" parent="YSort" instance=ExtResource( 40 )]
 position = Vector2( 1096, 23 )
-script = SubResource( 19 )
 
 [node name="Villain4" parent="YSort" instance=ExtResource( 40 )]
 position = Vector2( 1440, 145.689 )
-script = SubResource( 19 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -987,5 +927,5 @@ script = ExtResource( 39 )
 visible = false
 
 [node name="Level_Transition_With_Msg" parent="." instance=ExtResource( 13 )]
-position = Vector2( 2024, 64 )
+position = Vector2( 1750, 72 )
 nextScene = ExtResource( 41 )

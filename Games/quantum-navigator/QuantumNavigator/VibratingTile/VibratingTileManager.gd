@@ -5,11 +5,11 @@ extends Node
 # Note: $<Node-name> is shorthand for get_node(<Node-name>)
 onready var VibratingTileTimer = $VibratingTileTimer
 # Number of tiles set vibrating upon each timer timeout
-export(int) var maxActiveTiles = 10
-# Time between vvibrations
-export(int) var timeBetweenVibrations = 5
+export(int) var maxActiveTiles : int = 10
+# Time between vibrations
+export(int) var timeBetweenVibrations : int = 5
 
-var seenTiles = []
+var seenTiles : Array = []
 
 # Called when the node enters the scene tree for the first time
 # Starts the vibration timer

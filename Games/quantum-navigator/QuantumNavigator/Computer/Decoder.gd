@@ -46,7 +46,6 @@ func create_decoder_effect(toTeleport):
 #   -   The otter has enough followers (i.e. 1)
 #   -   The encoder has been used
 func _on_Hurtbox_area_entered(_area):
-#	print(_area.owner.followers)
 	if (!decoder_used and _area.owner.followers.size() >= 1 and _area.owner.stats.isEncoded):
 		create_decoder_effect(_area.owner)
 		CustomSignals.emit_signal("decoder_used")

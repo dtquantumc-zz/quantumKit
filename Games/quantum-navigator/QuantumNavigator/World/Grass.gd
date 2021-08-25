@@ -17,7 +17,7 @@ extends Node2D
 # Script attached to grass objects
 
 # Preloaded grass effect
-const GrassEffect = preload("res://Effects/GrassEffect.tscn")
+const GrassEffect : PackedScene = preload("res://Effects/GrassEffect.tscn")
 
 # Creates a grass effect at this object's current position
 func create_grass_effect():

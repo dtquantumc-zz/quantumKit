@@ -6,8 +6,7 @@
 extends KinematicBody2D
 
 # Script attached to FollowOtter object
-# Note: Normal Otter objects are created instead... this does not appear to be
-# used
+# Note: unusued - use res://Otter/Otter.gd instead
 
 # export allows the value to be modified in inspector with type specified
 export var ACCELERATION = 500

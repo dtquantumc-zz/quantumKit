@@ -7,8 +7,8 @@ extends KinematicBody2D
 
 # Script attached to the pickle objects
 
-const PickupItemEffect = preload("res://Effects/PickUpItemEffect.tscn")
-const PickleCollectionSound = preload("res://Pickle/PickleCollectionSound.tscn")
+const PickupItemEffect : PackedScene = preload("res://Effects/PickUpItemEffect.tscn")
+const PickleCollectionSound : PackedScene = preload("res://Pickle/PickleCollectionSound.tscn")
 
 # Creates a pickup item effect at the pickle's position
 func create_pickupitem_effect():

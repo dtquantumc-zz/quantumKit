@@ -1,40 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[sub_resource type="GDScript" id=1]
-script/source = "# SPDX-License-Identifier: MIT
-
-# (C) Copyright 2020
-# Diversifying Talent in Quantum Computing, Geering Up, UBC
-
-extends Area2D
-
-export(String) var nextScene = null
-# Declare member variables here. Examples:
-# var a = 2
-# var b = \"text\"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#
-
-func _on_Area2D_area_entered(_area):
-	if nextScene != null:
-		OtterStats.reset()
-		OtterStats.set_level(OtterStats.curr_level + 1)
-		SaveManager.save_progress(nextScene)
-		TeleporterState.reset()
-		print(nextScene)
-		# warning-ignore:return_value_discarded
-		get_tree().change_scene_to(load(nextScene))
-	else:
-		get_tree().quit()
-"
+[ext_resource path="res://Level_Transition/Level_Transition_Box.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=2]
 
@@ -44,7 +10,7 @@ load_path = "res://.import/icon.png-47dc6e8cad94817cb2e2b72e131ff5fa.stex"
 [node name="Area2D" type="Area2D"]
 collision_layer = 0
 collision_mask = 66
-script = SubResource( 1 )
+script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )

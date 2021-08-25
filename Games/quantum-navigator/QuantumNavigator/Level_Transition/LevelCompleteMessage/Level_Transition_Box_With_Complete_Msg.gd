@@ -10,11 +10,11 @@ extends Area2D
 # See Also: res://Level_Transition/Level_Transition_Box.gd
 
 # Window prefab/scene location
-const LevelCompleteWindow = preload("res://Level_Transition/LevelCompleteMessage/LevelComplete.tscn")
+const LevelCompleteWindow : PackedScene = preload("res://Level_Transition/LevelCompleteMessage/LevelComplete.tscn")
 
 # export allows the value to be modified in inspector with type specified
 # What scene we want the button to move to
-export(PackedScene) var nextScene = null
+export(PackedScene) var nextScene : PackedScene = null
 
 # Current window instance
 var windowInstance = null
