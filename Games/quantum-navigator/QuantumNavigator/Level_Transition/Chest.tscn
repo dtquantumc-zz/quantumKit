@@ -10,24 +10,15 @@ script/source = "# SPDX-License-Identifier: MIT
 
 extends Area2D
 
-export(String) var nextScene = null
-# Declare member variables here. Examples:
-# var a = 2
-# var b = \"text\"
+# Currently unused script.
+# Unknown original script.
 
+export(PackedScene) var nextScene : PackedScene = null
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#
-
+# Runs upon object entering this area
+# TODO implementation: deposit item
 func _on_Area2D_area_entered(area):
 	pass
-# deposit item
 "
 
 [sub_resource type="RectangleShape2D" id=2]

@@ -1,13 +1,17 @@
 extends Node2D
 
-export var reg_speed = 2
-export var run_speed = 70
+# Script attached to the villain in level 4
+
+export(int) var reg_speed : int = 2
+export(int) var run_speed : int = 70
 
 onready var anim = $AnimationPlayer
 
 var target = null
 var wanderTarget = null
-var chasing = false
+var chasing : bool = false
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _process(delta):
 	if target != null:
@@ -27,19 +31,13 @@ func _process(delta):
 			$Sprite.set_flip_h(global_transform.origin.x > wanderTarget.x)
 			if position == wanderTarget:
 				wanderTarget = null
-			
-		
-	
 
-func _ready():
-	pass
-	
-
-
-
+# Runs upon object entering the detection area/detection box
+# Internally sets the target to be the new object
 func _on_DetectBox_body_entered(body):
 	target = body
 
-
-func _on_DetectBox_body_exited(body):
+# Runs upon object exiting the detection area/detection box
+# Internally removes the target
+func _on_DetectBox_body_exited(_body):
 	target = null

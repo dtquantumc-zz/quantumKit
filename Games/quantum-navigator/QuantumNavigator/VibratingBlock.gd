@@ -6,6 +6,8 @@
 extends Node2D
 
 # Script attached to the fire trap
+# Currently unused.
+
 const FireEffectResource = preload("res://Effects/FireEffect.tscn")
 const OtterHurtSound = preload("res://Otter/OtterHurtSound.tscn")
 var trap_idle = preload("res://Traps/trap.png")
@@ -17,21 +19,6 @@ var pickle = preload("res://Traps/firetraptest.png")
 onready var trap_sprite = $SpikeTrapOpen
 var debounce = false
 var players = []
-
-# Called upon physics update (_delta = time between physics updates)
-# Checks if the player can see the fire trap, and shows/hides the info box if so
-func _physics_process(_delta):
-	pass
-#	if playerDetectionZone.can_see_player():
-#		OtterStats.set_can_see_fire_hazard({"name": get_name(), "value": true})
-#		if Input.is_action_just_pressed("info") || !InfoDialogState.get_has_fire_trap_dialog_been_seen():
-#			dialogPlayer.play_dialog("FireHazardInfoBox")
-#
-#		if !InfoDialogState.get_has_fire_trap_dialog_been_seen():
-#			InfoDialogState.set_has_fire_trap_dialog_been_seen(true)
-#	else:
-#		OtterStats.set_can_see_fire_hazard({"name": get_name(), "value": false})
-#		dialogPlayer.stop_dialog()
 
 # Creates the fire effect in the scene and sets its position
 func create_fire_effect():

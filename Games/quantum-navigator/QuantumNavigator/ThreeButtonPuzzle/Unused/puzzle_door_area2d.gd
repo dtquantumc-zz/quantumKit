@@ -1,5 +1,9 @@
 extends Area2D
 
+# Currently unused script
+# Script that appears to control the texture of a door depending on whether
+# it is locked/unlocked
+
 onready var light = $"../light"
 onready var doorcollision = $"../door_collision"
 onready var doorsprite = $"../door_sprite"

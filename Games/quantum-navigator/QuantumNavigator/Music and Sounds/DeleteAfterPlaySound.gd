@@ -5,11 +5,11 @@
 
 extends AudioStreamPlayer
 
-# Script attached to the hit sound object to auto-delete the object upon
-# the sound completing
+# Script attached to an AudioStreamPlayer - deletes the node after the sound is
+# played.
 
 # Called when the node enters the scene tree for the first time.
-# Attaches a listener to the sound object to delete this object
+# Add a listener upon audio effect finish to delete the object after it plays
 func _ready():
 	# warning-ignore:return_value_discarded
 	connect("finished", self, "queue_free")

@@ -10,7 +10,7 @@ extends AnimatedSprite
 #				   res://Effects/FireEffect.gd
 #                  res://Effects/PickUpItemEffect.gd
 
-var animationName = "default"
+var animationName : String = "default"
 
 # Called when the node enters the scene tree for the first time.
 # Plays the effect's animation, and attaches a listener for animation completion

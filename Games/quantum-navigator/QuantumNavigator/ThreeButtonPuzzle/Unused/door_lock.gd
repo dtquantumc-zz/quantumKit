@@ -1,5 +1,7 @@
 extends StaticBody2D
 
+# Currently unused script with unknown purpose.
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	OtterStats.connect("level2_state_changed", self, "_on_level_state_changed")

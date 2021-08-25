@@ -8,10 +8,10 @@ extends Area2D
 # Script attached to PlayerDetectionZone objects
 # (basically an object that detects player enter/exit)
 
-export(bool) var Debug = false
+export(bool) var Debug : bool = false
 
 var player = null
-var players = []
+var players : Array = []
 
 # Determines if the player is inside this player detection zone
 func can_see_player() -> bool:
@@ -21,7 +21,7 @@ func can_see_player() -> bool:
 # Save entered body in an array of objects that are currently in the zone
 func _on_PlayerDetectionZone_body_entered(body):
 	if (Debug):
-		print("entered detected: " + str(body))
+		print("[PlayerDetectionZone _on_PDZ_body_entered]: " + str(body))
 	player = body
 	players.append(body)
 
@@ -29,7 +29,7 @@ func _on_PlayerDetectionZone_body_entered(body):
 # Remove exiting body from the array of objects currently in the zone
 func _on_PlayerDetectionZone_body_exited(_body):
 	if (Debug):
-		print("exit detected: " + str(_body))
+		print("[PlayerDetectionZone _on_PDZ_body_exited]: " + str(_body))
 	players.erase(_body)
 	if players.size() == 0:
 		player = null

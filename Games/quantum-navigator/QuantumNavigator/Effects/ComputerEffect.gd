@@ -13,7 +13,7 @@ extends Node2D
 onready var animatedSprite = $AnimatedSprite
 
 var toTeleport = null
-var animationName = "default"
+var animationName : String = "default"
 
 signal computer_effect_done(position)
 signal computer_effect_start

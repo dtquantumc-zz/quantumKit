@@ -12,16 +12,16 @@ onready var playerDetectionZone = $PlayerDetectionZone
 onready var dialogPlayer = $Dialog_Player
 
 const UTIL = preload("res://Utility.gd")
-const grayClosed = preload("res://Teleporter/GrayPhoneBooth/PhoneBoothGray.png")
-const redClosed = preload("res://Teleporter/RedPhoneBooth/PhoneBoothClosed.png")
-const redClosedGlow = preload("res://Teleporter/RedPhoneBooth/PhoneBoothClosedGlowing.png")
-const redOpen = preload("res://Teleporter/RedPhoneBooth/PhoneBoothOpenConnected.png")
-const blueClosed = preload("res://Teleporter/BluePhoneBooth/PhoneBoothClosed.png")
-const blueClosedGlow = preload("res://Teleporter/BluePhoneBooth/PhoneBoothClosedGlowing.png")
-const blueOpen = preload("res://Teleporter/BluePhoneBooth/PhoneBoothOpenConnected.png")
+const grayClosed : Texture = preload("res://Teleporter/GrayPhoneBooth/PhoneBoothGray.png")
+const redClosed : Texture = preload("res://Teleporter/RedPhoneBooth/PhoneBoothClosed.png")
+const redClosedGlow : Texture = preload("res://Teleporter/RedPhoneBooth/PhoneBoothClosedGlowing.png")
+const redOpen : Texture = preload("res://Teleporter/RedPhoneBooth/PhoneBoothOpenConnected.png")
+const blueClosed : Texture = preload("res://Teleporter/BluePhoneBooth/PhoneBoothClosed.png")
+const blueClosedGlow : Texture = preload("res://Teleporter/BluePhoneBooth/PhoneBoothClosedGlowing.png")
+const blueOpen : Texture = preload("res://Teleporter/BluePhoneBooth/PhoneBoothOpenConnected.png")
 
-var color = "gray"
-var ErrorSound = preload("res://Teleporter/ErrorSound.tscn")
+var color : String = "gray"
+var ErrorSound : PackedScene = preload("res://Teleporter/ErrorSound.tscn")
 
 # Called when the node enters the scene tree for the first time.
 # Attach a listener upon teleporters being connected
@@ -33,17 +33,17 @@ func _ready():
 # Changes the current texture of the sprite given the texture to load
 # and the state of connected/active teleporters
 func on_teleporters_are_connected(texture):
-	var connected_red_teleporter = load("res://Teleporter/RedPhoneBooth/PhoneBoothClosedGlowing.png")
-	var connected_blue_teleporter = load("res://Teleporter/BluePhoneBooth/PhoneBoothClosedGlowing.png")
+	var connected_red_teleporter : Texture = load("res://Teleporter/RedPhoneBooth/PhoneBoothClosedGlowing.png")
+	var connected_blue_teleporter : Texture = load("res://Teleporter/BluePhoneBooth/PhoneBoothClosedGlowing.png")
 
-	var is_red_teleporter_connected = texture == connected_red_teleporter
-	var is_blue_teleporter_connected = texture == connected_blue_teleporter
+	var is_red_teleporter_connected : bool = texture == connected_red_teleporter
+	var is_blue_teleporter_connected : bool = texture == connected_blue_teleporter
 
 	for pair in TeleporterState.activeTeleporters:
 		if pair[0] == self:
 			if pair[1] == 'red' && is_red_teleporter_connected:
 				get_node("Sprite").set_texture(texture)
-			elif pair[1] == 'blue'&& is_blue_teleporter_connected:
+			elif pair[1] == 'blue' && is_blue_teleporter_connected:
 				get_node("Sprite").set_texture(connected_blue_teleporter)
 			break
 
@@ -61,6 +61,8 @@ func _physics_process(_delta):
 		OtterStats.set_can_see_teleporter({"name": get_name(), "value": false})
 		dialogPlayer.stop_dialog()
 
+# Runs upon an object entering the hurtbox
+# Updates teleporter state and color if this teleporter is not active
 func _on_Hurtbox_area_entered(_area):
 	if !is_gray_phone_booth():
 		return
@@ -192,10 +194,10 @@ func _on_InteractableHurtbox_area_entered(area):
 		create_error_sound()
 		return
 
-	var is_a_red_connected_teleporter = $Sprite.texture == redClosedGlow
-	var is_a_blue_connected_teleporter = $Sprite.texture == blueClosedGlow
+	var is_a_red_connected_teleporter : bool = $Sprite.texture == redClosedGlow
+	var is_a_blue_connected_teleporter : bool = $Sprite.texture == blueClosedGlow
 
-	var is_a_connected_teleporter = is_a_red_connected_teleporter or is_a_blue_connected_teleporter
+	var is_a_connected_teleporter : bool = is_a_red_connected_teleporter or is_a_blue_connected_teleporter
 	
 	# Prevent teleportation if teleporter is not connected to another teleporter
 	if !([self, color] in TeleporterState.activeTeleporters) or !is_a_connected_teleporter:

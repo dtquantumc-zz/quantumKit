@@ -7,16 +7,16 @@ extends KinematicBody2D
 
 # Script that controls Follower Otters and the Otter player character
 
-const OtterHurtSound = preload("res://Otter/OtterHurtSound.tscn")
-const ENTANGLEMENT_BIT_SCENE = preload("res://Projectiles/EntanglementBitProjectile.tscn")
+const OtterHurtSound : PackedScene = preload("res://Otter/OtterHurtSound.tscn")
+const ENTANGLEMENT_BIT_SCENE : PackedScene = preload("res://Projectiles/EntanglementBitProjectile.tscn")
 const UTIL = preload("res://Utility.gd")
 const VibratingTileHitbox = preload("res://VibratingTile/VibratingTileHitbox.gd")
 
 # export allows the value to be modified in inspector with type specified
-export var ACCELERATION = 500
-export var REGULAR_SPEED = 80
-export var SPRINT_SPEED = 110
-export var FRICTION = 500
+export(int) var ACCELERATION : int = 500
+export(int) var REGULAR_SPEED : int = 80
+export(int) var SPRINT_SPEED : int = 110
+export(int) var FRICTION : int = 500
 export(NodePath) var FOLLOW_TARGET = null
 export(bool) var Debug : bool = true
 export(Color) var DarkenAmount : Color = Color(150/255,150/255,150/255,1)
@@ -31,12 +31,12 @@ enum {
 }
 
 var state = MOVE
-var entanglement_bit_direction = Vector2(0, 1)
-var velocity = Vector2.ZERO
+var entanglement_bit_direction : Vector2 = Vector2(0, 1)
+var velocity : Vector2 = Vector2.ZERO
 var stats = OtterStats
-var followers = []
-var isTeleporting = false
-var speed = REGULAR_SPEED
+var followers : Array = []
+var isTeleporting : bool = false
+var speed : int = REGULAR_SPEED
 
 # Note: $<Node-name> is shorthand for get_node(<Node-name>)
 onready var animationPlayer = $AnimationPlayer
@@ -62,6 +62,8 @@ func _ready():
 	print(stats.curr_main_player)
 	print(stats.curr_camera_rmtrans2d)
 
+# Updates the otter's sprint particles and speed of run animation, or
+# hides it if not sprinting
 func update_sprint():
 	sprintParticles.rotation = entanglement_bit_direction.angle() + deg2rad(90)
 	if Input.is_action_pressed("sprint") && velocity != Vector2.ZERO:
@@ -91,7 +93,7 @@ func _physics_process(delta):
 # delta = delta time
 func move_state(delta):
 	if isTeleporting: return
-	var input_vector = Vector2.ZERO
+	var input_vector : Vector2 = Vector2.ZERO
 
 	if IS_MAIN == true:
 		input_vector.x = (Input.get_action_strength("ui_right") -
@@ -263,7 +265,7 @@ func swap_followers():
 # before decreasing health/blinking due to being in a trap
 func _on_Hurtbox_area_entered(area):
 	if is_a_follower_otter():
-		print("I am a follower")
+		print("[Otter.gd _on_Hurtbox_area_entered]: I am a follower")
 		return
 	# if is_a_fire_trap(area):
 	# 	blinkAnimationPlayer.play("Start")
@@ -292,8 +294,10 @@ func is_a_fire_trap(area) -> bool:
 		print("is_a_fire_trap area owner name: " + area.owner.get_name())
 	return area.owner.get_name() in ["FireTrap", "SpikeTrap"]
 
+# Determines if an area is a vibrating block
 func is_a_vibrating_block(area) -> bool:
-		return area.owner.get_node("..").get_name() in ["VibratingBlocks"]
+	return area.owner.get_node("..").get_name() in ["VibratingBlocks"]
+
 # decrements health and plays a hurt sound
 func take_damage():
 	stats.health -= 1
@@ -384,7 +388,8 @@ func die():
 		get_parent().owner.queue_restart()
 		queue_free()
 	update_all_darkened_indicators()
-	
+
+# Plays decoherence animation and kills the otter
 func decohere():
 	decFadeAnimationPlayer.play("Fade")
 	decFlashAnimationPlayer.play("Flash")
@@ -394,12 +399,13 @@ func decohere():
 	yield(get_tree().create_timer(3.0), "timeout")
 	die()
 
-
+# Plays the default measurement animation
 func measure():
 	measurementEffect.visible = true
 	measurementEffect.frame = 0
 	measurementEffect.play('default')
 
+# Plays the 'error' measurement animation
 func measure_error():
 	measurementEffect.visible = true
 	measurementEffect.frame = 0
@@ -412,6 +418,7 @@ func measure_error():
 #func _on_Hurtbox_invincibility_ended():
 #	blinkAnimationPlayer.play("Stop")
 
-
+# Runs upon measurement effect animation completion - hides the effect
+# after completion
 func _on_MeasurementEffect_animation_finished():
 	measurementEffect.visible = false

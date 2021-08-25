@@ -5,12 +5,10 @@
 
 extends AnimatedSprite
 
-# Script attached to FireEffect objects
-# Duplicate files: res://Effects/Effect.gd
-#				   res://Effects/FireEffect.gd
-#                  res://Effects/PickUpItemEffect.gd
+# Script attached to MeasurementEffect object on Otter
+# Does nothing.
 
-var animationName = "default"
+var animationName : String = "default"
 
 # Called when the node enters the scene tree for the first time.
 # Plays the effect's animation, and attaches a listener for animation completion

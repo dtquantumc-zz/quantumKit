@@ -6,7 +6,8 @@
 extends Node2D
 
 # Script attached to the fire trap
-const FireEffectResource = preload("res://Effects/FireEffect.tscn")
+
+const FireEffectResource : PackedScene = preload("res://Effects/FireEffect.tscn")
 
 # Note: $<Node-name> is shorthand for get_node(<Node-name>)
 onready var playerDetectionZone = $PlayerDetectionZone

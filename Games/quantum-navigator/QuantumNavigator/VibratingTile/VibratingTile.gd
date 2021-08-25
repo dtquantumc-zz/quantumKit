@@ -38,7 +38,6 @@ var otterInside = null setget _set_otter
 var state : int = 0
 
 var rng = RandomNumberGenerator.new()
-# TODO add particle/stone effect around vibrating tile
 
 # Called when the node enters the scene tree for the first time
 # Initializes the RNG
@@ -56,7 +55,7 @@ func _set_otter(otter):
 
 # Utility to play an animation in reverse randomly
 func _play_random_reverse(var animName : String) -> void:
-	var reverse = _random_reverse()
+	var reverse : bool = _random_reverse()
 	if (reverse):
 		vibrationPlayer.play_backwards(animName)
 	else:
@@ -64,7 +63,7 @@ func _play_random_reverse(var animName : String) -> void:
 
 # Utility to return a random boolean
 func _random_reverse() -> bool:
-	var result = rng.randi_range(0,1)
+	var result : int = rng.randi_range(0,1)
 	return result == 1
 
 # Begin the timer for vibrating, if it can
@@ -74,13 +73,13 @@ func start_vibrating():
 	if state == 0:
 		state = 1
 		timer.wait_time = TimeSlowVibrate
-		var index = rng.randi_range(0,SlowAnimations.size()-1)
+		var index : int = rng.randi_range(0,SlowAnimations.size()-1)
 		_play_random_reverse(SlowAnimations[index])
 		particles.emitting = true
 		particles.amount = ParticleSlowVibrating
 		particles.process_material.initial_velocity = ParticleSlowSpeed
 		if (Debug):
-			print("Vibrating soon...")
+			print("[VibratingTile.gd start_vibrating]: Vibrating soon...")
 		timer.start()
 
 # Runs on timer timeout
@@ -89,8 +88,8 @@ func _on_timer_timeout():
 	if state == 1:
 		timer.wait_time = TimeFullVibrate
 		if (Debug):
-			print("Vibrating")
-		var index = rng.randi_range(0,FastAnimations.size()-1)
+			print("[VibratingTile.gd start_vibrating]: Vibrating")
+		var index : int = rng.randi_range(0,FastAnimations.size()-1)
 		_play_random_reverse(FastAnimations[index])
 		particles.amount = ParticleFastVibrating
 		particles.process_material.initial_velocity = ParticleFastSpeed
@@ -104,21 +103,21 @@ func _on_timer_timeout():
 		timer.wait_time = MinTimeBeforeVibrate
 		timer.start()
 		if (Debug):
-			print("No longer vibrating")
+			print("[VibratingTile.gd start_vibrating]: No longer vibrating")
 		state = 3
 	elif state == 3:
 		if (Debug):
-			print("Vibrating Cooldown over")
+			print("[VibratingTile.gd start_vibrating]: Vibrating Cooldown over")
 		state = 0
 
 # When player is close to the vibrating tile, signal to the tile manager
 # that this tile can vibrate
-func _on_player_close(body):
+func _on_player_close(_body):
 	self.get_parent().add_tile(self)
 
 # When player is far from the vibrating tile, signal to the tile manager
 # that this tile should not vibrate
-func _on_player_not_close(body):
+func _on_player_not_close(_body):
 	self.get_parent().remove_tile(self)
 
 # Runs upon an object entering the 'hitbox'
@@ -126,7 +125,7 @@ func _on_player_not_close(body):
 # Note: hurtbox is not to be confused with the player detection zone
 func _on_Hitbox_area_entered(_area):
 	if (Debug):
-		print("Otter entered vibrating tile: " + _area.get_name())
+		print("[VibratingTile.gd start_vibrating]: Otter entered vibrating tile: " + _area.get_name())
 	_set_otter(_area.get_parent())
 	
 # Runs upon an object exiting the 'hitbox'

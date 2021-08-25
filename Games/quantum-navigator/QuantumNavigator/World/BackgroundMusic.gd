@@ -10,6 +10,8 @@ extends Control
 # Note: $<Node-name> is shorthand for get_node(<Node-name>)
 onready var audioStreamPlayer = $AudioStreamPlayer
 
+# Called when the node enters the scene tree for the first time.
+# Internally sets the pause mode
 func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS
 

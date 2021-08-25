@@ -1,5 +1,7 @@
 extends Node2D
 
+# Currently unused script
+
 onready var doorcollision = $door_collision
 onready var doorsprite = $door_sprite
 var door_locked = preload("res://ThreeButtonPuzzle/StaticLockedDoor.png")

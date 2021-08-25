@@ -1,18 +1,13 @@
 extends Control
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+# Script to be attached to the UI displaying the number of keys
 
 # Called when the node enters the scene tree for the first time.
+# Attaches a listener to a change in the number of keys
 func _ready():
+	# warning-ignore:return_value_discarded
 	OtterStats.connect("keys_changed", self, "set_keys")
-	
-func set_keys(value):
+
+# Sets the displayed number of keys
+func set_keys(value : int):
 	$keys.text = str(value)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

@@ -1050,9 +1050,11 @@ position = Vector2( -3.05176e-05, -32.4657 )
 
 [node name="doorbutton2" parent="YSort/Buttons" instance=ExtResource( 25 )]
 position = Vector2( -3.05176e-05, 67.5 )
+ButtonID = 1
 
 [node name="doorbutton3" parent="YSort/Buttons" instance=ExtResource( 25 )]
 position = Vector2( -3.05176e-05, 160 )
+ButtonID = 2
 
 [node name="Doors" type="YSort" parent="YSort"]
 position = Vector2( 700, 0 )
@@ -1070,6 +1072,7 @@ position = Vector2( 0, 56 )
 [node name="door2" parent="YSort/Doors/Door 2" instance=ExtResource( 32 )]
 position = Vector2( -4, 0 )
 script = ExtResource( 33 )
+DoorID = 1
 
 [node name="Door 3" type="Node2D" parent="YSort/Doors"]
 position = Vector2( 0, 152 )
@@ -1077,6 +1080,7 @@ position = Vector2( 0, 152 )
 [node name="door3" parent="YSort/Doors/Door 3" instance=ExtResource( 32 )]
 position = Vector2( -4, 0 )
 script = ExtResource( 33 )
+DoorID = 2
 
 [node name="Computer" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 312, 48.5 )
