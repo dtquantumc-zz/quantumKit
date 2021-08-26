@@ -31,7 +31,7 @@ story = {
 },
 4: {
 "links": {
-0: 6
+0: 5
 },
 "text": "<speaker>Encoder</speaker>
 <dialog>To get back the original qubit you’ll need a DECODER.</dialog>"
@@ -40,13 +40,6 @@ story = {
 "links": {
 },
 "text": "<end>"
-},
-6: {
-"links": {
-0: 5
-},
-"text": "<speaker>Encoder</speaker>
-<dialog>To use the ENCODER you need 2 pickles.</dialog>"
 }
 }
 },
@@ -211,7 +204,10 @@ Press c for Controls.</dialog>"
 Interact: SPACEBAR
 Shoot Entanglement Bit: X
 Open Info Dialog (when icon appears in UI bar): I
-Restart Level: R</dialog>"
+Restart Level: R
+Sprint: Shift
+Switch Otters: T
+Measure: M</dialog>"
 },
 3: {
 "links": {

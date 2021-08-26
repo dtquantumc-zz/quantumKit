@@ -82,7 +82,7 @@ func randomize_probabilities_immediately():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if (!measured and Input.is_action_pressed("MeasureKey") and in_measurement_area):
-
+		print("called")
 		var measured_key
 		for key in keys:
 			if key.in_key_area:
