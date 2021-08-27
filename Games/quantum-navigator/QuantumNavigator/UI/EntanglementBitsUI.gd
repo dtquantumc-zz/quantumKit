@@ -8,10 +8,10 @@ extends Control
 # Script attached to the EntanglementBitsUI object that displays red and blue
 # bit counts
 
-var max_bits = 2
+var max_bits : int = 2
 
-var red_bits = 2 setget set_red_bits
-var blue_bits = 2 setget set_blue_bits
+var red_bits : int = 2 setget set_red_bits
+var blue_bits : int = 2 setget set_blue_bits
 
 # Note: $<Node-name> is shorthand for get_node(<Node-name>)
 onready var redBitFull = $RedEntanglementBitFull
@@ -20,26 +20,27 @@ onready var blueBitFull = $BlueEntanglementBitFull
 onready var blueBitEmpty = $BlueEntanglementBitEmpty
 
 # Code that runs on a level change to adjust positions of entanglement bits
-func on_level_changed(value):
-	print(value)
-	if value == 1:
-		redBitFull.rect_size.x = 0
-		redBitEmpty.rect_size.x = 0
-	elif value == 2:
-		redBitFull.rect_size.x = 0
-		redBitEmpty.rect_size.x = 0
-	else:
-		redBitEmpty.rect_size.x = 28
+func on_level_changed(value: int):
+	print("[EntanglementBitsUI on_level_changed]: " + str(value))
+	match value:
+		1:
+			redBitFull.rect_size.x = 0
+			redBitEmpty.rect_size.x = 0
+		2:
+			redBitFull.rect_size.x = 0
+			redBitEmpty.rect_size.x = 0
+		_:
+			redBitEmpty.rect_size.x = 28
 
-# Setter for red_bits, after clamping it to a range of [0, max_bits]v
-func set_red_bits(value):
-	red_bits = clamp(value, 0, max_bits)
+# Setter for red_bits, after clamping it to a range of [0, max_bits]
+func set_red_bits(value : int):
+	red_bits = int(clamp(value, 0, max_bits))
 	if redBitFull != null:
 		redBitFull.rect_size.x = red_bits * 14
 
 # Setter for blue_bits, after clamping it to a range of [0, max_bits]
-func set_blue_bits(value):
-	blue_bits = clamp(value, 0, max_bits)
+func set_blue_bits(value : int):
+	blue_bits = int(clamp(value, 0, max_bits))
 	if blueBitFull != null:
 		blueBitFull.rect_size.x = blue_bits * 14
 

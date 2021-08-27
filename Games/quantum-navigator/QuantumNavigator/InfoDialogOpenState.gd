@@ -7,6 +7,7 @@ extends Node2D
 
 # Script attached to global open dialogue info state object
 # Determines if various info boxes are currently open
+# Note: unusued duplicate res://World/InfoDialogOpenState.gd exists
 
 signal game_intro_dialog_open(value)
 signal bell_pair_dialog_open(value)
@@ -15,29 +16,29 @@ signal encoder_dialog_open(value)
 signal decoder_dialog_open(value)
 signal fire_trap_dialog_open(value)
 
-var is_game_intro_dialog_open = false setget set_is_game_intro_dialog_open, get_is_game_intro_dialog_open
-var is_bell_pair_dialog_open = false setget set_is_bell_pair_dialog_open, get_is_bell_pair_dialog_open
-var is_teleporter_dialog_open = false setget set_is_teleporter_dialog_open, get_is_teleporter_dialog_open
-var is_encoder_dialog_open = false setget set_is_encoder_dialog_open, get_is_encoder_dialog_open
-var is_decoder_dialog_open = false setget set_is_decoder_dialog_open, get_is_decoder_dialog_open
-var is_fire_trap_dialog_open = false setget set_is_fire_trap_dialog_open, get_is_fire_trap_dialog_open
+var is_game_intro_dialog_open : bool = false setget set_is_game_intro_dialog_open, get_is_game_intro_dialog_open
+var is_bell_pair_dialog_open : bool = false setget set_is_bell_pair_dialog_open, get_is_bell_pair_dialog_open
+var is_teleporter_dialog_open : bool = false setget set_is_teleporter_dialog_open, get_is_teleporter_dialog_open
+var is_encoder_dialog_open : bool = false setget set_is_encoder_dialog_open, get_is_encoder_dialog_open
+var is_decoder_dialog_open : bool = false setget set_is_decoder_dialog_open, get_is_decoder_dialog_open
+var is_fire_trap_dialog_open : bool = false setget set_is_fire_trap_dialog_open, get_is_fire_trap_dialog_open
 
-func set_is_game_intro_dialog_open(value):
+func set_is_game_intro_dialog_open(value : bool):
 	is_game_intro_dialog_open = value
 
-func set_is_bell_pair_dialog_open(value):
+func set_is_bell_pair_dialog_open(value : bool):
 	is_bell_pair_dialog_open = value
 
-func set_is_teleporter_dialog_open(value):
+func set_is_teleporter_dialog_open(value : bool):
 	is_teleporter_dialog_open = value
 
-func set_is_encoder_dialog_open(value):
+func set_is_encoder_dialog_open(value : bool):
 	is_encoder_dialog_open = value
 
-func set_is_decoder_dialog_open(value):
+func set_is_decoder_dialog_open(value : bool):
 	is_decoder_dialog_open = value
 
-func set_is_fire_trap_dialog_open(value):
+func set_is_fire_trap_dialog_open(value : bool):
 	is_fire_trap_dialog_open = value
 
 func get_is_game_intro_dialog_open() -> bool:

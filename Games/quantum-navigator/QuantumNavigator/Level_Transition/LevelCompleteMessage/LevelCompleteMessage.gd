@@ -5,7 +5,7 @@ extends Node
 
 # export allows the value to be modified in inspector with type specified
 # What scene we're supposed to move to
-export(String) var nextScene = null
+export(PackedScene) var nextScene : PackedScene = null
 
 # Called when the node enters the scene tree for the first time.
 # Play animation upon ready
@@ -25,6 +25,6 @@ func goto_next_scene():
 		OtterStats.reset()
 		TeleporterState.reset()
 		# warning-ignore:return_value_discarded
-		get_tree().change_scene_to(load(nextScene))
+		get_tree().change_scene_to(nextScene)
 	else:
 		get_tree().quit()

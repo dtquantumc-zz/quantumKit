@@ -7,14 +7,14 @@ extends Control
 
 # Script attached to the Decoder Help UI icon
 
-var decoder_visible = false setget set_decoder_visible
+var decoder_visible : bool = false setget set_decoder_visible
 
 # Note: $<Node-name> is shorthand for get_node(<Node-name>)
 onready var icon = $Icon
 onready var label = $Label
 
 # Setter for decoder_visible that adjusts the label and icon visibility
-func set_decoder_visible(value):
+func set_decoder_visible(value: bool):
 	decoder_visible = value
 
 	if decoder_visible:

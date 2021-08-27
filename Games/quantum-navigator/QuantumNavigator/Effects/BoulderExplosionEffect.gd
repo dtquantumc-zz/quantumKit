@@ -7,7 +7,7 @@ extends AnimatedSprite
 
 # Script added to the boulder explosion effect object
 
-var animationName = "default"
+var animationName : String = "default"
 
 # Called when the node enters the scene tree for the first time.
 # Adds a listener to the animation_finished signal and plays the animation

@@ -7,13 +7,13 @@ extends Node2D
 
 # Script attached to the main menu object
 
-var MenuItems = ["Start_Item", "Exit_Item", "Mute_Item"]
-var Selected = 0
+var MenuItems : Array = ["Start_Item", "Exit_Item", "Mute_Item"]
+var Selected : int = 0
 
-var MenuConfirmSound = preload("res://Title_and_Menu/MenuConfirmSound.tscn")
-var MovingBetweenOptionsSound = preload("res://Title_and_Menu/MovingBetweenOptionsSound.tscn")
+var MenuConfirmSound : PackedScene = preload("res://Title_and_Menu/MenuConfirmSound.tscn")
+var MovingBetweenOptionsSound : PackedScene = preload("res://Title_and_Menu/MovingBetweenOptionsSound.tscn")
 
-export(PackedScene) var startScene = null
+export(PackedScene) var startScene : PackedScene = null
 
 # Called when the node enters the scene tree for the first time
 # Start the music upon the title loading
@@ -33,7 +33,7 @@ func set_selection(val):
 # Respond to keyboard input to change selected item, play sound effects
 # or execute menu actions
 func _process(_delta):
-	var newselect = Selected
+	var newselect : int = Selected
 	if Input.is_action_just_pressed("ui_up"):
 		newselect -= 1
 		newselect += MenuItems.size()
@@ -55,14 +55,20 @@ func _process(_delta):
 		get_parent().add_child(menuConfirmSound)
 
 		if Selected == 0 and startScene != null:
+			# warning-ignore:return_value_discarded
 			get_tree().change_scene_to(startScene)
+			# hm... is this  supposed to be removed?
+			#					|
+			#					|
+			#        		   \  /
+			#					\/
 			OtterStats.set_level(3)
 			
 			#get_tree().change_scene_to(load("res://Level2_Maze.tscn"))
 
 			OtterStats.reset()
 
-			
+				
 		elif Selected == 2 and startScene != null:
 			if BackgroundMusic.is_playing():
 				BackgroundMusic.stop_music()

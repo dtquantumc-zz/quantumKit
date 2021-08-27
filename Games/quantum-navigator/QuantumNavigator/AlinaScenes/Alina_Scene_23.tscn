@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://AlinaScenes/Scene-1_Quantum_Geering-Up.ogv" type="VideoStream" id=1]
+[ext_resource path="res://AlinaScenes/Sequential_Video_Player.gd" type="Script" id=2]
+[ext_resource path="res://AlinaScenes/Scene-2_Quantum_Geering-Up.ogv" type="VideoStream" id=3]
+[ext_resource path="res://AlinaScenes/Scene-3_Quantum_Geering-Up.ogv" type="VideoStream" id=4]
+
+[node name="AlinaScene_2_and_3" type="Node2D"]
+script = ExtResource( 2 )
+Videos = [ ExtResource( 3 ), ExtResource( 4 ) ]
+
+[node name="VideoPlayer" type="VideoPlayer" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+rect_scale = Vector2( 0.167, 0.167 )
+stream = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="finished" from="VideoPlayer" to="." method="_on_VideoPlayer_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

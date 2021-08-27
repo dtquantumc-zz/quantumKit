@@ -7,14 +7,15 @@ extends Control
 
 # Script attached to the help UI item for pickles
 
-var pickles = 0 setget set_pickles
+var pickles : int = 0 setget set_pickles
 
 # Note: $<Node-name> is shorthand for get_node(<Node-name>)
 onready var label = $Label
 
-# Sets the internal value of pickles and changes the displayed text
-func set_pickles(value):
-	pickles = max(value, 0)
+# Sets the internal value of pickles (after clamping it to a non-negative value)
+# and changes the displayed text
+func set_pickles(value : int):
+	pickles = int(max(value, 0))
 	if label != null:
 		label.text = str(pickles)
 

@@ -10,7 +10,7 @@ extends AnimatedSprite
 #           res://Computer/Decoder.gd
 
 var toTeleport = null
-var animationName = "default"
+var animationName : String = "default"
 
 signal decoder_effect_done(position)
 signal decoder_effect_start

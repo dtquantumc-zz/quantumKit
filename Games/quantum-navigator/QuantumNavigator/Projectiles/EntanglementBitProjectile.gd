@@ -7,7 +7,7 @@ extends Node2D
 
 # Script attached to the entanglement bit projectile
 
-const ENTANGLEMENT_BIT_SPEED = 200
+const ENTANGLEMENT_BIT_SPEED : int= 200
 const UTIL = preload("res://Utility.gd")
 
 var direction = null

@@ -7,7 +7,7 @@ extends Node2D
 
 # Script to be attached to the SpikeTrap object to create the spikes
 
-const SpikeEffectResource = preload("res://Effects/SpikeEffect.tscn")
+const SpikeEffectResource : PackedScene = preload("res://Effects/SpikeEffect.tscn")
 
 # Instantiate and create a spike trap
 func create_spike_effect():

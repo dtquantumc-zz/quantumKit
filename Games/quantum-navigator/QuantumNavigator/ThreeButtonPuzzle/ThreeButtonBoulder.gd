@@ -8,7 +8,7 @@ extends Node2D
 # The Boulder explodes upon signal_explode being called (and should be deleted
 # after explosion)
 
-const ExplosionEffect = preload("res://Effects/BoulderExplosionEffect.tscn")
+const ExplosionEffect : PackedScene = preload("res://Effects/BoulderExplosionEffect.tscn")
 
 # Create an explosion effect instance and add it to the current scene
 func create_explosion_effect():

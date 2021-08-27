@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://AlinaScenes/Alina_Scene_23.tscn" type="PackedScene" id=1]
+[ext_resource path="res://AlinaScenes/Revised_-Scene-1_Quantum_Geering-Up.ogv" type="VideoStream" id=2]
+[ext_resource path="res://Level1_Lab.tscn" type="PackedScene" id=3]
+
+[node name="AlinaScene1" type="Node2D"]
+
+[node name="AlinaScene_2_and_3" parent="." instance=ExtResource( 1 )]
+Videos = [ ExtResource( 2 ) ]
+NextScene = ExtResource( 3 )

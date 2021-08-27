@@ -7,14 +7,14 @@ extends Control
 
 # Script attached to the Encoder Help UI icon
 
-var encoder_visible = false setget set_encoder_visible
+var encoder_visible : bool = false setget set_encoder_visible
 
 # Note: $<Node-name> is shorthand for get_node(<Node-name>)
 onready var icon = $Icon
 onready var label = $Label
 
 # Setter for encoder_visible that adjusts the label and icon visibility
-func set_encoder_visible(value):
+func set_encoder_visible(value : bool):
 	encoder_visible = value
 
 	if encoder_visible:

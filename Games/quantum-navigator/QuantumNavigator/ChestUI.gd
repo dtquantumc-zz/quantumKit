@@ -1,5 +1,7 @@
 extends Control
 
+# Script attached to the ChestUI object
+# Currently has no implementation
 
 # Declare member variables here. Examples:
 # var a = 2
