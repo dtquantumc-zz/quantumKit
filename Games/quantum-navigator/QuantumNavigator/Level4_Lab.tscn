@@ -1045,7 +1045,7 @@ position = Vector2( 0, -5 )
 scale = Vector2( 0.13, 0.13 )
 texture = ExtResource( 19 )
 hframes = 24
-frame = 1
+frame = 4
 
 [node name="NoticeSprite" type="Sprite" parent="YSort/Villain3/Sprite"]
 visible = false
@@ -1104,7 +1104,7 @@ position = Vector2( 0, -5 )
 scale = Vector2( 0.13, 0.13 )
 texture = ExtResource( 20 )
 hframes = 24
-frame = 1
+frame = 4
 
 [node name="NoticeSprite" type="Sprite" parent="YSort/Villain4/Sprite"]
 visible = false
