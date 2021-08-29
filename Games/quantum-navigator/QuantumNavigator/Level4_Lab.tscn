@@ -780,17 +780,19 @@ position = Vector2( 96, 112 )
 [node name="Doors" type="YSort" parent="YSort"]
 
 [node name="Node2D" parent="YSort/Doors" instance=ExtResource( 30 )]
-position = Vector2( 128, 49.7029 )
+position = Vector2( 128, 50 )
 
 [node name="Door" parent="YSort/Doors/Node2D" instance=ExtResource( 25 )]
-position = Vector2( 0, -1.5749 )
+position = Vector2( 0, -2.5 )
+scale = Vector2( 0.7, 0.7 )
 InitialDoorState = 0
 
 [node name="Node2D2" parent="YSort/Doors" instance=ExtResource( 30 )]
 position = Vector2( 736, 50.5 )
 
 [node name="Door" parent="YSort/Doors/Node2D2" instance=ExtResource( 25 )]
-position = Vector2( 3.34088, -12.0218 )
+position = Vector2( 3.341, -13 )
+scale = Vector2( 1.1, 1.1 )
 InitialDoorState = 0
 
 [node name="Node2D3" parent="YSort/Doors" instance=ExtResource( 30 )]
@@ -798,7 +800,8 @@ position = Vector2( 1672, 72 )
 NumKeysRequired = 4
 
 [node name="Door" parent="YSort/Doors/Node2D3" instance=ExtResource( 25 )]
-position = Vector2( 0, -1.5218 )
+position = Vector2( 0, -2.4 )
+scale = Vector2( 1.1, 1.1 )
 InitialDoorState = 0
 
 [node name="Trees" type="YSort" parent="YSort"]
