@@ -28,6 +28,7 @@ export(bool) var can_see_blue_bell_pair : bool = false setget set_can_see_blue_b
 export(bool) var camera_locked : bool = false setget set_camera_locked
 export(bool) var measurement_area : bool = false setget set_measurement_area
 export(int) var keys : int= 0 setget set_keys
+export(int) var level3_progress: int=0 setget set_level3_progress
 
 onready var health : int = max_health setget set_health
 
@@ -164,6 +165,9 @@ func set_measurement_area(value):
 func set_keys(value : int):
 	keys = value
 	emit_signal('keys_changed', value)
+	
+func set_level3_progress(value: int):
+	level3_progress = value
 
 # Increments keys by one
 func inc_keys():

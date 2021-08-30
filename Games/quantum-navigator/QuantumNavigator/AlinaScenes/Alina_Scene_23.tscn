@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://AlinaScenes/Scene-1_Quantum_Geering-Up.ogv" type="VideoStream" id=1]
 [ext_resource path="res://AlinaScenes/Sequential_Video_Player.gd" type="Script" id=2]
 [ext_resource path="res://AlinaScenes/Scene-2_Quantum_Geering-Up.ogv" type="VideoStream" id=3]
 [ext_resource path="res://AlinaScenes/Scene-3_Quantum_Geering-Up.ogv" type="VideoStream" id=4]
+[ext_resource path="res://GodotCredits.tscn" type="PackedScene" id=5]
 
 [node name="AlinaScene_2_and_3" type="Node2D"]
 script = ExtResource( 2 )
 Videos = [ ExtResource( 3 ), ExtResource( 4 ) ]
+NextScene = ExtResource( 5 )
 
 [node name="VideoPlayer" type="VideoPlayer" parent="."]
 margin_right = 1920.0
