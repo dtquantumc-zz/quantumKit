@@ -79,7 +79,7 @@ func _load_game():
 	#		   \  /
 	#			\/
 	#OtterStats.set_level(4)
-	#get_tree().change_scene_to(load("res://Level4_Lab.tscn"))
+	#get_tree().change_scene_to(load("res://GodotCredits.tscn"))
 	
 # Starts a new game
 func _new_game():
