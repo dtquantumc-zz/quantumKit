@@ -2266,9 +2266,6 @@ MinTimeBeforeVibrate = 1.25
 
 [node name="VibratingTileTimer" type="Timer" parent="YSort/VibratingTiles"]
 
-[node name="Node2D" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 937.432, 943.996 )
-
 [node name="Checkpoints" type="YSort" parent="YSort"]
 
 [node name="1" parent="YSort/Checkpoints" instance=ExtResource( 10 )]
@@ -2310,9 +2307,11 @@ margin_bottom = 32.0
 visible = false
 
 [node name="Level_Transition_With_Msg" parent="." instance=ExtResource( 13 )]
-position = Vector2( 1119.25, 1028.36 )
+position = Vector2( 1248, 1000 )
 nextScene = ExtResource( 15 )
-NextScenePath = "res://Level4_Lab.tscn"
+
+[node name="QubitBox" parent="Level_Transition_With_Msg" instance=ExtResource( 2 )]
+position = Vector2( 4, 0 )
 
 [connection signal="timeout" from="YSort/VibratingTiles/VibratingTileTimer" to="YSort/VibratingTiles" method="_on_timer_finished"]
 

@@ -22,15 +22,16 @@ onready var blueBitEmpty = $BlueEntanglementBitEmpty
 # Code that runs on a level change to adjust positions of entanglement bits
 func on_level_changed(value: int):
 	print("[EntanglementBitsUI on_level_changed]: " + str(value))
-	match value:
-		1:
-			redBitFull.rect_size.x = 0
-			redBitEmpty.rect_size.x = 0
-		2:
-			redBitFull.rect_size.x = 0
-			redBitEmpty.rect_size.x = 0
-		_:
-			redBitEmpty.rect_size.x = 28
+	return
+#	match value:
+#		1:
+#			redBitFull.rect_size.x = 0
+#			redBitEmpty.rect_size.x = 0
+#		2:
+#			redBitFull.rect_size.x = 0
+#			redBitEmpty.rect_size.x = 0
+#		_:
+#			redBitEmpty.rect_size.x = 28
 
 # Setter for red_bits, after clamping it to a range of [0, max_bits]
 func set_red_bits(value : int):
@@ -58,7 +59,7 @@ func _ready():
 	# warning-ignore:return_value_discarded
 	OtterStats.connect("level_changed", self, "on_level_changed")
 	
-	if OtterStats.curr_level == 1 or OtterStats.curr_level == 2:
-		redBitFull.rect_size.x = 0
-		redBitEmpty.rect_size.x = 0
+	#if OtterStats.curr_level == 1 or OtterStats.curr_level == 2:
+	redBitFull.rect_size.x = 0
+	redBitEmpty.rect_size.x = 0
 		

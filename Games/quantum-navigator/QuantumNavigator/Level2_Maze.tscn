@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://World/CliffTileset.png" type="Texture" id=1]
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=2]
@@ -1217,8 +1217,10 @@ margin_bottom = 56.0
 [node name="ControlsDialog" parent="ControlsCanvasLayer" instance=ExtResource( 24 )]
 
 [node name="Level_Transition_With_Msg" parent="." instance=ExtResource( 26 )]
-position = Vector2( 1036, 69 )
+position = Vector2( 1100, 69 )
 nextScene = ExtResource( 5 )
-NextScenePath = "res://Level3_Island.tscn"
+
+[node name="Node2D" parent="Level_Transition_With_Msg" instance=ExtResource( 28 )]
+position = Vector2( 4, 0 )
 
 [node name="BackupSceneInformationSetter" parent="." instance=ExtResource( 29 )]
