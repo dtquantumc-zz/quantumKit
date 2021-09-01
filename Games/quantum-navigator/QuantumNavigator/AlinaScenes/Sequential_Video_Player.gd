@@ -47,6 +47,7 @@ func play_current_index():
 	elif NextScene != null:
 		# warning-ignore:return_value_discarded
 		get_tree().change_scene_to(NextScene)
+		OtterStats.set_level(1)
 	else:
 		get_tree().quit()
 

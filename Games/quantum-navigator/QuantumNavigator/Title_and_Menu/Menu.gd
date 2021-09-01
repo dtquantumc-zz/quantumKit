@@ -55,18 +55,12 @@ func _process(_delta):
 		get_parent().add_child(menuConfirmSound)
 
 		if Selected == 0 and startScene != null:
+			var dir = Directory.new()
+			dir.remove(SaveManager.save_path)
 			# warning-ignore:return_value_discarded
 			get_tree().change_scene_to(startScene)
-			# hm... is this  supposed to be removed?
-			#					|
-			#					|
-			#        		   \  /
-			#					\/
-			OtterStats.set_level(3)
-			
-			#get_tree().change_scene_to(load("res://Level2_Maze.tscn"))
-
 			OtterStats.reset()
+			OtterStats.set_level(1)
 
 				
 		elif Selected == 2 and startScene != null:

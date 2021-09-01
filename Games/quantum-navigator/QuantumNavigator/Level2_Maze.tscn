@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://World/CliffTileset.png" type="Texture" id=1]
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=2]
@@ -25,6 +25,8 @@
 [ext_resource path="res://ControlsDialog.tscn" type="PackedScene" id=24]
 [ext_resource path="res://ThreeButtonPuzzle/Level2_door_button.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Level_Transition/LevelCompleteMessage/Level_Transition_Box_With_Complete_Msg.tscn" type="PackedScene" id=26]
+[ext_resource path="res://LightSign.tscn" type="PackedScene" id=27]
+[ext_resource path="res://QubitBox.tscn" type="PackedScene" id=28]
 [ext_resource path="res://BackupSceneInformationSetter.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Level2PlayArea.tscn" type="PackedScene" id=31]
 [ext_resource path="res://ThreeButtonPuzzle/LightWithObstacle.tscn" type="PackedScene" id=32]
@@ -1155,6 +1157,20 @@ position = Vector2( 544, 67.1718 )
 "level2_otter_start_positions",
 ]]
 position = Vector2( 544, 160 )
+
+[node name="Signs" type="YSort" parent="YSort"]
+
+[node name="sign2" parent="YSort/Signs" instance=ExtResource( 27 )]
+position = Vector2( 696, 86.5 )
+
+[node name="sign3" parent="YSort/Signs" instance=ExtResource( 27 )]
+position = Vector2( 696, -7 )
+
+[node name="sign4" parent="YSort/Signs" instance=ExtResource( 27 )]
+position = Vector2( 696, -102 )
+
+[node name="Node2D" parent="YSort" instance=ExtResource( 28 )]
+position = Vector2( 1360, 47.534 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

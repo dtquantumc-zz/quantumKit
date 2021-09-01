@@ -12,10 +12,13 @@ func save_progress(level_scene_path):
 		"level_number" : OtterStats.curr_level,
 		"level_scene" : level_scene_path
 	}
+	print('saved')
+	print(save_data)
 	var save_file = File.new()
 	save_file.open(save_path, File.WRITE)
 	save_file.store_line(to_json(save_data))
 	save_file.close()
+
 
 # Returns a JSON containing saved information
 func load_progress():

@@ -94,6 +94,10 @@ func _set_open_state_signal(record_name : String):
 			_signal = "decoder_dialog_open"
 		"FireHazardInfoBox":
 			_signal = "fire_trap_dialog_open"
+		"SuperpositionInfoBox":
+			_signal = "superposition_dialog_open"
+		"KeyInfoBox":
+			_signal = "key_dialog_open"
 
 func _is_playing():
 	return _Dialog_Open
