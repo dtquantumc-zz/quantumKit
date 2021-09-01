@@ -131,8 +131,10 @@ func randomize_probabilities_immediately():
 # Updates the linearly interpolated probabilities, and makes a key solid if
 # the measurement key is pressed
 func _process(delta):
+#	if (Input.is_action_pressed("MeasureKey")):
+#		print(measured)
+#		print(in_measurement_area)
 	if (!measured and Input.is_action_pressed("MeasureKey") and in_measurement_area):
-		print("called")
 		var measured_key
 		for key in keys:
 			if key.in_key_area:

@@ -19,14 +19,14 @@ story = {
 0: 3
 },
 "text": "<speaker>Encoder</speaker>
-<dialog>An ENCODER stores the state of one qubit into three qubits.</dialog> "
+<dialog>A quantum ENCODER stores the state of one qubit into three qubits.</dialog> "
 },
 3: {
 "links": {
 0: 4
 },
 "text": "<speaker>Encoder</speaker>
-<dialog>It does this in a special way called an error correcting code, so that even if one qubit is lost the other two can be used to get the original qubit back. </dialog>
+<dialog>It does this in a special way called a quantum error correcting code, so that even if one qubit is lost the other two can be used to get the original qubit back. </dialog>
 "
 },
 4: {
@@ -34,7 +34,7 @@ story = {
 0: 5
 },
 "text": "<speaker>Encoder</speaker>
-<dialog>To get back the original qubit you’ll need a DECODER.</dialog>"
+<dialog>To get back the original qubit you’ll need a quantum DECODER, and two of the three encoded qubits.</dialog>"
 },
 5: {
 "links": {
@@ -56,7 +56,7 @@ story = {
 0: 3
 },
 "text": "<speaker>Decoder</speaker>
-<dialog>A DECODER takes the parts of an error-correcting code and gives you back the original qubit. </dialog>"
+<dialog>A quantum DECODER takes the parts of an error-correcting code and gives you back the original qubit. </dialog>"
 },
 3: {
 "links": {
@@ -92,7 +92,7 @@ story = {
 0: 4
 },
 "text": "<speaker>Bell Pairs</speaker>
-<dialog>When qubits are entangled they share a special relationship, and can be used to do QUANTUM TELEPORTATION.</dialog>"
+<dialog>When qubits are entangled they share a special relationship, and can be used to do QUANTUM TELEPORTATION. A pair of entangled qubits is called a BELL PAIR.</dialog>"
 },
 4: {
 "links": {
@@ -130,7 +130,7 @@ Use 'X' to shoot one at each teleporter.</dialog>"
 0: 5
 },
 "text": "<speaker>Teleporter</speaker>
-<dialog>The teleporters will change colour to show you which other teleporter they share a Bell pair with. </dialog>"
+<dialog>The teleporters will change colour to show you which other teleporter they share a Bell pair with. Press SPACEBAR to use the teleporters once they have changed color. </dialog>"
 },
 5: {
 "links": {
@@ -215,6 +215,65 @@ Measure: M</dialog>"
 "text": "<end>"
 }
 }
+},
+8: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 4
+},
+"text": "<speaker>Info</speaker>
+<dialog>Quantum objects don’t always have a fixed location; they can be in a “superposition” of different locations. </dialog>"
+},
+3: {
+"links": {
+},
+"text": "<end>"
+},
+4: {
+"links": {
+0: 3
+},
+"text": "<speaker>Info</speaker>
+<dialog>Measurement forces the quantum object to appear in a definite location, but some locations are more likely than others, depending on the superposition.</dialog>"
+}
+}
+},
+9: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 4
+},
+"text": "<speaker>Info</speaker>
+<dialog>The keys in this level are in a quantum superposition.
+To pick up a key, you will have to measure its location by pressing M.</dialog>"
+},
+3: {
+"links": {
+},
+"text": "<end>"
+},
+4: {
+"links": {
+0: 3
+},
+"text": "<speaker>Info</speaker>
+<dialog>Pay attention to the superposition, because when you measure, the key is more likely to show up in the locations where it looks more opaque!</dialog>"
+}
+}
 }
 }
 names = {
@@ -224,5 +283,7 @@ names = {
 "FireHazardInfoBox": 5,
 "GameControlsInfoBox": 7,
 "GameIntroInfoBox": 6,
+"KeyInfoBox": 9,
+"SuperpositionInfoBox": 8,
 "TeleporterInfoBox": 4
 }

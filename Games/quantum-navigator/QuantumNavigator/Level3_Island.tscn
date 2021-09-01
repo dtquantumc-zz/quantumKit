@@ -1133,7 +1133,7 @@ position = Vector2( 428, 922.162 )
 position = Vector2( 936, 1000 )
 
 [node name="PhoneBooth2" parent="YSort/Teleporters" instance=ExtResource( 9 )]
-position = Vector2( 1200, 1008 )
+position = Vector2( 1124.78, 1006.94 )
 
 [node name="BellPairs" type="YSort" parent="YSort"]
 
@@ -2308,7 +2308,7 @@ margin_bottom = 32.0
 visible = false
 
 [node name="Level_Transition_With_Msg" parent="." instance=ExtResource( 13 )]
-position = Vector2( 1192, 1068.41 )
+position = Vector2( 1189.48, 1004.15 )
 nextScene = ExtResource( 15 )
 
 [connection signal="timeout" from="YSort/VibratingTiles/VibratingTileTimer" to="YSort/VibratingTiles" method="_on_timer_finished"]

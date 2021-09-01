@@ -60,12 +60,15 @@ func _ready():
 		stats.set_curr_camera_rmtrans2d($RemoteTransform2D)
 		stats.set_curr_main_player(self)
 		
+		print(OtterStats.curr_level)
 		if OtterStats.curr_level == 3:
 			var progress = OtterStats.level3_progress
+			print("progress:")
+			print(progress)
 			if progress > 0:
 				self.position = get_parent().get_node('Checkpoints').get_node(str(progress)).position
 				OtterStats.blue_bits += 1
-				get_parent().get_node("BellPairs").get_node("BlueEntanglementBitCollectable").queue_free()
+				get_parent().get_node("BellPairs").get_node("BlueEntanglementBitCollectable2").queue_free()
 
 # Updates the otter's sprint particles and speed of run animation, or
 # hides it if not sprinting
@@ -134,7 +137,8 @@ func move_state(delta):
 
 	if Input.is_action_just_pressed("push"):
 		if (!InfoDialogOpenState.get_is_info_dialog_open()):
-			state = PUSH
+			if OtterStats.curr_level != 4:
+				state = PUSH
 
 	if Input.is_action_just_pressed("shoot"):
 		state = SHOOT

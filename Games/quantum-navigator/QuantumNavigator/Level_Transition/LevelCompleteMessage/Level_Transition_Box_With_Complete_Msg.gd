@@ -22,7 +22,8 @@ var windowInstance = null
 # On area enter, create the window, if not already created
 func _on_Area2D_area_entered(_area) -> void:
 	if (windowInstance != null): return
-	SaveManager.save_progress(nextScene)
+	OtterStats.set_level(OtterStats.curr_level + 1)
+	SaveManager.save_progress(nextScene.get_path())
 	windowInstance = LevelCompleteWindow.instance()
 	windowInstance.get_node(".").nextScene = nextScene
 	get_tree().current_scene.get_node("CanvasLayer").add_child(windowInstance)

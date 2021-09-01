@@ -6,6 +6,8 @@ extends Node2D
 onready var KeySprite = $Sprite
 onready var Hitbox = $Hitbox
 
+onready var dialogPlayer = $Dialog_Player
+onready var playerDetectionZone = $PlayerDetectionZone
 # export allows the value to be modified in inspector with type specified
 export(bool) var in_key_area : bool = false
 export(float) var MinRenderOpacity : float = 0.1
@@ -92,3 +94,13 @@ func _on_Hurtbox2_area_exited(_area):
 	self.get_parent().in_measurement_area = false
 	in_key_area = false
 	OtterStats.set_measurement_area(false)
+
+func _physics_process(_delta):
+	if playerDetectionZone.can_see_player():
+		if Input.is_action_just_pressed("info") || !InfoDialogState.get_has_key_dialog_been_seen():
+			dialogPlayer.play_dialog("KeyInfoBox")
+
+		if !InfoDialogState.get_has_key_dialog_been_seen():
+			InfoDialogState.set_has_key_dialog_been_seen(true)
+	else:
+		dialogPlayer.stop_dialog()

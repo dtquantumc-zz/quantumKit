@@ -55,9 +55,11 @@ func _process(_delta):
 		get_parent().add_child(menuConfirmSound)
 
 		if Selected == 0 and startScene != null:
-			print("called")
+			var dir = Directory.new()
+			dir.remove(SaveManager.save_path)
 			# warning-ignore:return_value_discarded
-			get_tree().change_scene_to(load("res://Level1_Lab.tscn"))
+			get_tree().change_scene_to(startScene)
+			OtterStats.reset()
 			OtterStats.set_level(1)
 
 				

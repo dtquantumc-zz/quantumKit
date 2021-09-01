@@ -28,11 +28,10 @@ func load_progress():
 		
 	save_file.open(save_path, File.READ)
 	var save_data = parse_json(save_file.get_as_text())
-	print(save_data)
 	return save_data
 	
 # Returns true if information in a given save data JSON is valid, false otherwise
-func validate_save_data(save_data):
+func validate_save_data(save_data) -> bool:
 	if !save_data.has("level_number") || !save_data.has("level_scene"):
 		return false
 #	if save_data["level_scene"] != null && !ResourceLoader.exists(save_data["level_scene"]):

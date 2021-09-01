@@ -31,3 +31,6 @@ func set_red_bell_pair_visible(dict):
 func _ready():
 	# warning-ignore:return_value_discarded
 	OtterStats.connect("red_bell_pair_visible", self, "set_red_bell_pair_visible")
+	icon.rect_size.x = 0
+	icon.rect_size.y = 0
+	label.set_percent_visible(0)

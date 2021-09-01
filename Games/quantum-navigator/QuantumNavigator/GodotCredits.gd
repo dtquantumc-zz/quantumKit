@@ -24,28 +24,28 @@ var credits = [
 	[
 		"Quantum Navigator by Geering Up"
 	],[
-		"Management",
-		"Programmer Name 1",
-		"Programmer Name 2"
+		"Game Co-Creators",
+		"Haris Amiri",
+		"Paul Herringer",
+		"Wyatt Reeves",
+		"Alex May"
 	],[
-		"Programming",
-		"Programmer Name 1",
-		"Programmer Name 2"
+		"Senior Developer",
+		"Yon Zhou",
+		"Tanraj Saran"
 	],[
-		"Art",
-		"Artist Name"
+		"Junior Developers",
+		"Daniel Holker",
+		"Jonathan Nah"
 	],[
-		"Testers",
-		"Name 1",
-		"Name 2",
-		"Name 3"
+		"Product Manager",
+		"Aayush Sahai"
 	],[
-		"Tools used",
-		"Developed with Godot Engine",
-		"https://godotengine.org/license",
-		"",
-		"Art created with My Favourite Art Program",
-		"https://myfavouriteartprogram.com"
+		"Lead Artist",
+		"Alina Charissa"
+	],[
+		"Special Thanks to",
+		"Ella Meyer and Ari Blondal for their help in the development of the game"
 	]
 ]
 

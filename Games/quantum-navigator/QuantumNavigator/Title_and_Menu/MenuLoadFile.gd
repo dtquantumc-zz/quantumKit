@@ -65,13 +65,15 @@ func _process(_delta):
 # Sets up game based on save data, creates new game if data or format is invalid
 func _load_game():
 	var save_data = SaveManager.load_progress()
+	print(save_data)
 	if !SaveManager.validate_save_data(save_data):
 		print("Save file is invalid, starting a new game")
 		_new_game()
 		return
+	print(save_data)
 	get_tree().change_scene(save_data["level_scene"])
 	OtterStats.reset()
-	OtterStats.set_level(save_data["level_number"])
+	OtterStats.set_level(int(save_data["level_number"]))
 	# Hm... is this supposed to be temporary?
 	#			|
 	#			|
@@ -79,7 +81,7 @@ func _load_game():
 	#		   \  /
 	#			\/
 	#OtterStats.set_level(4)
-	#get_tree().change_scene_to(load("res://GodotCredits.tscn"))
+	#get_tree().change_scene_to(load("res://Level4_Lab.tscn"))
 	
 # Starts a new game
 func _new_game():

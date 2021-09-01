@@ -15,6 +15,8 @@ var has_teleporter_dialog_been_seen : bool = false setget set_has_teleporter_dia
 var has_encoder_dialog_been_seen : bool = false setget set_has_encoder_dialog_been_seen, get_has_encoder_dialog_been_seen
 var has_decoder_dialog_been_seen : bool = false setget set_has_decoder_dialog_been_seen, get_has_decoder_dialog_been_seen
 var has_fire_trap_dialog_been_seen : bool = false setget set_has_fire_trap_dialog_been_seen, get_has_fire_trap_dialog_been_seen
+var has_superposition_dialog_been_seen: bool = false setget set_has_superposition_dialog_been_seen, get_has_superposition_dialog_been_seen
+var has_key_dialog_been_seen: bool = false setget set_has_key_dialog_been_seen, get_has_key_dialog_been_seen
 
 func set_has_game_intro_dialog_been_seen(value : bool):
 	has_game_intro_dialog_been_seen = value
@@ -34,6 +36,12 @@ func set_has_decoder_dialog_been_seen(value : bool):
 func set_has_fire_trap_dialog_been_seen(value : bool):
 	has_fire_trap_dialog_been_seen = value
 
+func set_has_superposition_dialog_been_seen(value: bool):
+	has_superposition_dialog_been_seen = value
+	
+func set_has_key_dialog_been_seen(value: bool):
+	has_key_dialog_been_seen = value
+	
 func get_has_game_intro_dialog_been_seen() -> bool:
 	return has_game_intro_dialog_been_seen
 
@@ -51,3 +59,9 @@ func get_has_decoder_dialog_been_seen() -> bool:
 
 func get_has_fire_trap_dialog_been_seen() -> bool:
 	return has_fire_trap_dialog_been_seen
+	
+func get_has_superposition_dialog_been_seen() -> bool:
+	return has_superposition_dialog_been_seen
+	
+func get_has_key_dialog_been_seen() -> bool:
+	return has_key_dialog_been_seen
