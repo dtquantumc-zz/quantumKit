@@ -149,6 +149,7 @@ ParticleFastVibrating = 8.0
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, 12 )
+z_index = -2
 texture = ExtResource( 1 )
 
 [node name="Hitbox" parent="." instance=ExtResource( 2 )]
