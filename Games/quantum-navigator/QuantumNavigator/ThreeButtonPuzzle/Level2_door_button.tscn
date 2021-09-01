@@ -3,8 +3,9 @@
 [ext_resource path="res://ThreeButtonPuzzle/StaticButton.png" type="Texture" id=1]
 [ext_resource path="res://ThreeButtonPuzzle/Level2_door_button.gd" type="Script" id=2]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 16.0
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 11.0
+height = 5.0
 
 [node name="DoorButton1" type="Area2D"]
 collision_mask = 66

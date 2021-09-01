@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://SuperpositionKey/SuperpositionKeySprite.png" type="Texture" id=1]
+[ext_resource path="res://Dialog-System-Example/fonts/Cave-Story.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 70
+font_data = ExtResource( 2 )
 
 [node name="Keys" type="Control"]
 anchor_right = 1.0
@@ -19,9 +24,11 @@ __meta__ = {
 
 [node name="keys" type="Label" parent="."]
 margin_left = 32.0
-margin_top = 8.0
+margin_top = 6.0
 margin_right = 72.0
 margin_bottom = 22.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_fonts/font = SubResource( 1 )
 text = "0"
 __meta__ = {
 "_edit_use_anchors_": false

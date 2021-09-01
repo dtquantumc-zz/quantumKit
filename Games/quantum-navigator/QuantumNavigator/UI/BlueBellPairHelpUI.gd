@@ -30,6 +30,9 @@ func set_blue_bell_pair_visible(dict):
 # Add a listener for blue_bell_pair_visible upon entering the scene
 # See Also: res://Stats.gd
 func _ready():
+	icon.rect_size.x = 0
+	icon.rect_size.y = 0
+	label.set_percent_visible(0)
 	# warning-ignore:return_value_discarded
 	OtterStats.connect("blue_bell_pair_visible", self, "set_blue_bell_pair_visible")
 

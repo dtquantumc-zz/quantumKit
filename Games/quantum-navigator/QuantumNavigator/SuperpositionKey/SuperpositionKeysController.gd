@@ -127,6 +127,37 @@ func randomize_probabilities_immediately():
 	prev_probabilities = arraycopy(floats)
 	next_probabilities = floats
 
+# Called upon the measure key being pressed
+# Randomly makes a key solid
+func _on_measure():
+	var value = rng.randf_range(0,1)
+	var solid_set : bool = false
+	for key in keys:
+		if (value > key.probability):
+			key.make_gone()
+			value -= key.probability
+		elif !solid_set:
+			key.make_solid()
+			solid_set = true
+		else:
+			key.make_gone()
+	OtterStats.curr_main_player.measure()
+#	var measured_key
+#	for key in keys:
+#		if key.in_key_area:
+#			print("SuprpositionKeysController _process: " + str(key.probability))
+#		if key.in_key_area and key.probability > MeasurementCutoff:
+#			measured_key = key
+#			measured_key.make_solid()
+#	if measured_key != null:
+#		OtterStats.curr_main_player.measure()
+#	else:
+#		OtterStats.curr_main_player.measure_error()
+#	for key in keys:
+#		if (key != measured_key):
+#			key.make_gone()
+	measured = true
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # Updates the linearly interpolated probabilities, and makes a key solid if
 # the measurement key is pressed
@@ -135,23 +166,7 @@ func _process(delta):
 #		print(measured)
 #		print(in_measurement_area)
 	if (!measured and Input.is_action_pressed("MeasureKey") and in_measurement_area):
-		var measured_key
-		for key in keys:
-			if key.in_key_area:
-				print("SuprpositionKeysController _process: " + str(key.probability))
-			if key.in_key_area and key.probability > MeasurementCutoff:
-				measured_key = key
-				measured_key.make_solid()
-
-		if measured_key != null:
-			OtterStats.curr_main_player.measure()
-			for key in keys:
-				if (key != measured_key):
-					key.make_gone()
-			measured = true
-		else:
-			OtterStats.curr_main_player.measure_error()
-		
+		_on_measure()
 	if (!measured):
 		if (lerp_state < 1):
 			lerp_state = clamp(lerp_state + (ChangeSpeed * delta),0,1)

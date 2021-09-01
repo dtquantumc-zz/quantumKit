@@ -401,14 +401,15 @@ func die():
 
 # Plays decoherence animation and kills the otter
 func decohere():
-	$Decoherence.visible = true
-	decFadeAnimationPlayer.play("Fade")
-	decFlashAnimationPlayer.play("Flash")
-	$Decoherence/Particles2D.emitting = true
-	REGULAR_SPEED = 0
-	SPRINT_SPEED = 0
-	yield(get_tree().create_timer(3.0), "timeout")
-	die()
+	if !$Decoherence.visible:
+		$Decoherence.visible = true
+		decFadeAnimationPlayer.play("Fade")
+		decFlashAnimationPlayer.play("Flash")
+		$Decoherence/Particles2D.emitting = true
+		REGULAR_SPEED = 0
+		SPRINT_SPEED = 0
+		yield(get_tree().create_timer(3.0), "timeout")
+		die()
 
 # Plays the default measurement animation
 func measure():
