@@ -7,6 +7,7 @@
 [ext_resource path="res://UI/EntanglementBitsUI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Otter/Otter.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Level2_Maze.tscn" type="PackedScene" id=7]
+[ext_resource path="res://UI/BlueBellPairHelpUI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Teleporter/PhoneBooth.tscn" type="PackedScene" id=9]
 [ext_resource path="res://World/Grass.png" type="Texture" id=10]
 [ext_resource path="res://Level_Transition/LevelCompleteMessage/Level_Transition_Box_With_Complete_Msg.gd" type="Script" id=11]
@@ -19,7 +20,6 @@
 [ext_resource path="res://Level_Transition/Level_Transition_Box.tscn" type="PackedScene" id=19]
 [ext_resource path="res://EntanglementBit/BlueEntanglementBitCollectable.tscn" type="PackedScene" id=20]
 [ext_resource path="res://UI/TeleporterHelpUI.tscn" type="PackedScene" id=21]
-[ext_resource path="res://UI/RedBellPairHelpUI.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Level_Control.gd" type="Script" id=24]
 [ext_resource path="res://World/GameIntro.tscn" type="PackedScene" id=25]
 [ext_resource path="res://UI/InfoHelpUI.tscn" type="PackedScene" id=26]
@@ -462,11 +462,11 @@ position = Vector2( -144, 24 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="BellPair" parent="CanvasLayer" instance=ExtResource( 23 )]
+[node name="BlueBellPairHelpUI" parent="CanvasLayer" instance=ExtResource( 8 )]
 margin_left = 6.0
 margin_top = 16.0
-margin_right = 22.0
-margin_bottom = 24.0
+margin_right = 46.0
+margin_bottom = 56.0
 
 [node name="EntanglementBitsUI" parent="CanvasLayer" instance=ExtResource( 5 )]
 margin_right = 57.0
@@ -494,6 +494,7 @@ position = Vector2( 16, 16 )
 position = Vector2( 375.959, 93.5444 )
 script = ExtResource( 11 )
 nextScene = ExtResource( 7 )
+NextScenePath = "res://Level2_Maze.tscn"
 
 [node name="Chest" parent="." instance=ExtResource( 4 )]
 position = Vector2( 336, -40 )

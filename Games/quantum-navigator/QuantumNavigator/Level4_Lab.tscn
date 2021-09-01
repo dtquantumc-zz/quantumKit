@@ -1,17 +1,12 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=2]
-[ext_resource path="res://UI/PickleCountsUI.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UI/EntanglementBitsUI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Otter/Otter.tscn" type="PackedScene" id=6]
-[ext_resource path="res://UI/BlueBellPairHelpUI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Lab/LabTile.png" type="Texture" id=8]
 [ext_resource path="res://World/Tree.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Level_Transition/LevelCompleteMessage/Level_Transition_Box_With_Complete_Msg.tscn" type="PackedScene" id=13]
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=14]
-[ext_resource path="res://UI/EncoderHelpUI.tscn" type="PackedScene" id=15]
-[ext_resource path="res://UI/FireHazardHelpUI.tscn" type="PackedScene" id=16]
-[ext_resource path="res://UI/DecoderHelpUI.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Lab/LabWall.png" type="Texture" id=18]
 [ext_resource path="res://ChestUI.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Assets/BigManaPotion.tscn" type="PackedScene" id=23]
@@ -877,37 +872,6 @@ margin_top = 2.0
 margin_right = 59.0
 margin_bottom = 18.0
 
-[node name="Control" parent="CanvasLayer" instance=ExtResource( 4 )]
-visible = false
-margin_left = 66.0
-margin_top = 2.0
-margin_right = 74.0
-margin_bottom = 18.0
-
-[node name="EncoderHelpUI" parent="CanvasLayer" instance=ExtResource( 15 )]
-margin_left = 1.0
-margin_top = 14.0
-margin_right = 22.0
-margin_bottom = 27.0
-
-[node name="FireHazardHelpUI" parent="CanvasLayer" instance=ExtResource( 16 )]
-margin_left = 4.0
-margin_top = 16.0
-margin_right = 11.0
-margin_bottom = 25.0
-
-[node name="Control2" parent="CanvasLayer" instance=ExtResource( 7 )]
-margin_left = 3.0
-margin_top = 18.0
-margin_right = 43.0
-margin_bottom = 58.0
-
-[node name="DecoderHelpUI" parent="CanvasLayer" instance=ExtResource( 17 )]
-margin_left = 1.0
-margin_top = 14.0
-margin_right = 41.0
-margin_bottom = 54.0
-
 [node name="InfoHelpUI" parent="CanvasLayer" instance=ExtResource( 26 )]
 margin_left = 7.0
 margin_top = 16.0
@@ -932,3 +896,4 @@ visible = false
 [node name="Level_Transition_With_Msg" parent="." instance=ExtResource( 13 )]
 position = Vector2( 1750, 72 )
 nextScene = ExtResource( 41 )
+NextScenePath = "res://AlinaScenes/Alina_Scene_23.tscn"

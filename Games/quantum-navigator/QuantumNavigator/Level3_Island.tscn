@@ -1800,19 +1800,19 @@ TimeFullVibrate = 1.25
 MinTimeBeforeVibrate = 1.25
 
 [node name="VibratingTile133" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
-position = Vector2( 624, 872 )
+position = Vector2( 624, 868 )
 TimeSlowVibrate = 2.0
 TimeFullVibrate = 1.25
 MinTimeBeforeVibrate = 1.25
 
 [node name="VibratingTile134" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
-position = Vector2( 591.591, 837.477 )
+position = Vector2( 592, 836 )
 TimeSlowVibrate = 2.0
 TimeFullVibrate = 1.25
 MinTimeBeforeVibrate = 1.25
 
 [node name="VibratingTile135" parent="YSort/VibratingTiles" instance=ExtResource( 8 )]
-position = Vector2( 592, 872 )
+position = Vector2( 592, 868 )
 TimeSlowVibrate = 2.0
 TimeFullVibrate = 1.25
 MinTimeBeforeVibrate = 1.25
@@ -2353,6 +2353,7 @@ visible = false
 [node name="Level_Transition_With_Msg" parent="." instance=ExtResource( 13 )]
 position = Vector2( 1119.25, 1028.36 )
 nextScene = ExtResource( 15 )
+NextScenePath = "res://Level4_Lab.tscn"
 
 [connection signal="timeout" from="YSort/VibratingTiles/VibratingTileTimer" to="YSort/VibratingTiles" method="_on_timer_finished"]
 

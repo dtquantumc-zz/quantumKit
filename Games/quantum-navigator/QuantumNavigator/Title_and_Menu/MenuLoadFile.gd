@@ -69,17 +69,9 @@ func _load_game():
 		print("Save file is invalid, starting a new game")
 		_new_game()
 		return
-	#get_tree().change_scene(save_data["level_scene"])
+	get_tree().change_scene(save_data["level_scene"])
 	OtterStats.reset()
-	#OtterStats.set_level(save_data["level_number"])
-	# Hm... is this supposed to be temporary?
-	#			|
-	#			|
-	#			|
-	#		   \  /
-	#			\/
-	OtterStats.set_level(4)
-	get_tree().change_scene_to(load("res://Level4_Lab.tscn"))
+	OtterStats.set_level(save_data["level_number"])
 
 # Starts a new game
 func _new_game():

@@ -15,6 +15,7 @@ const LevelCompleteWindow : PackedScene = preload("res://Level_Transition/LevelC
 # export allows the value to be modified in inspector with type specified
 # What scene we want the button to move to
 export(PackedScene) var nextScene : PackedScene = null
+export(String,FILE,"*.tscn") var NextScenePath : String
 
 # Current window instance
 var windowInstance = null
@@ -22,7 +23,7 @@ var windowInstance = null
 # On area enter, create the window, if not already created
 func _on_Area2D_area_entered(_area) -> void:
 	if (windowInstance != null): return
-	SaveManager.save_progress(nextScene)
+	SaveManager.save_progress(NextScenePath)
 	windowInstance = LevelCompleteWindow.instance()
 	windowInstance.get_node(".").nextScene = nextScene
 	get_tree().current_scene.get_node("CanvasLayer").add_child(windowInstance)

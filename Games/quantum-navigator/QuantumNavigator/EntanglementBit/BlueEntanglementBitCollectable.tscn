@@ -63,7 +63,6 @@ texture = ExtResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -7 )
 frames = SubResource( 9 )
-frame = 1
 playing = true
 
 [node name="Hurtbox" parent="." instance=ExtResource( 3 )]
