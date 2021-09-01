@@ -1088,7 +1088,7 @@ DoorID = 2
 position = Vector2( 312, 48.5 )
 
 [node name="Decoder" parent="YSort" instance=ExtResource( 22 )]
-position = Vector2( 887, 48 )
+position = Vector2( 890, 48 )
 
 [node name="FireBellPairs" type="Node2D" parent="YSort"]
 position = Vector2( 780, 70 )
@@ -1132,7 +1132,7 @@ position = Vector2( 6, 12.5 )
 ForceNeverSeeHelpIcon = true
 
 [node name="Level2PlayArea" parent="YSort" instance=ExtResource( 31 )]
-position = Vector2( 674.476, 66.1249 )
+position = Vector2( 690, 66 )
 scale = Vector2( 0.504, 0.553 )
 
 [node name="RemoteTransform2DRef" type="RemoteTransform2D" parent="YSort/Level2PlayArea"]
