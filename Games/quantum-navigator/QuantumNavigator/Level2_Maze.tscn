@@ -1187,22 +1187,22 @@ margin_right = 22.0
 margin_bottom = 27.0
 
 [node name="FireHazardHelpUI" parent="CanvasLayer" instance=ExtResource( 20 )]
-margin_left = 4.0
+margin_left = 34.0
 margin_top = 16.0
 margin_right = 11.0
 margin_bottom = 25.0
 
 [node name="Control2" parent="CanvasLayer" instance=ExtResource( 21 )]
-margin_left = 3.0
-margin_top = 18.0
-margin_right = 43.0
+margin_left = 36.0
+margin_top = 29.0
+margin_right = 63.0
 margin_bottom = 58.0
 
 [node name="DecoderHelpUI" parent="CanvasLayer" instance=ExtResource( 23 )]
 margin_left = 1.0
-margin_top = 14.0
+margin_top = 24.0
 margin_right = 41.0
-margin_bottom = 54.0
+margin_bottom = 32.0
 
 [node name="InfoHelpUI" parent="CanvasLayer" instance=ExtResource( 18 )]
 margin_left = 7.0

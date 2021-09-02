@@ -10,7 +10,7 @@ extents = Vector2( 82.0207, 75.3244 )
 script = ExtResource( 2 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 1 )]
-collision_layer = 64
+collision_layer = 72
 collision_mask = 2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]

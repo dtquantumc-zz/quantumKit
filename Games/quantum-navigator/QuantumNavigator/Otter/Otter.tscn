@@ -1016,7 +1016,7 @@ states/Shoot/node = SubResource( 52 )
 states/Shoot/position = Vector2( 156, 151 )
 transitions = [ "Idle", "Run", SubResource( 53 ), "Run", "Idle", SubResource( 54 ), "Shoot", "Idle", SubResource( 55 ), "Idle", "Shoot", SubResource( 56 ), "Push", "Idle", SubResource( 57 ), "Idle", "Push", SubResource( 58 ) ]
 start_node = "Idle"
-graph_offset = Vector2( -183, -45.7378 )
+graph_offset = Vector2( -183, -162.329 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=60]
 
@@ -1335,7 +1335,7 @@ shape = SubResource( 61 )
 
 [node name="HitboxPivot" type="Position2D" parent="."]
 position = Vector2( 0, -4 )
-rotation = -1.5708
+rotation = 3.14159
 
 [node name="HandHitbox" parent="HitboxPivot" instance=ExtResource( 5 )]
 position = Vector2( 4, 0 )
@@ -1344,6 +1344,7 @@ collision_mask = 32
 
 [node name="CollisionShape2D" parent="HitboxPivot/HandHitbox" index="0"]
 shape = SubResource( 62 )
+disabled = true
 
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 0, -9 )

@@ -462,12 +462,6 @@ position = Vector2( -144, 24 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="BlueBellPairHelpUI" parent="CanvasLayer" instance=ExtResource( 8 )]
-margin_left = 6.0
-margin_top = 16.0
-margin_right = 46.0
-margin_bottom = 56.0
-
 [node name="EntanglementBitsUI" parent="CanvasLayer" instance=ExtResource( 5 )]
 margin_right = 57.0
 margin_bottom = 16.0
@@ -484,6 +478,12 @@ margin_left = 6.0
 margin_top = 17.0
 margin_right = 46.0
 margin_bottom = 57.0
+
+[node name="BlueBellPairHelpUI" parent="CanvasLayer" instance=ExtResource( 8 )]
+anchor_left = 0.12
+anchor_top = 0.092
+anchor_right = 0.12
+anchor_bottom = 0.173
 
 [node name="ControlsCanvasLayer" type="CanvasLayer" parent="."]
 

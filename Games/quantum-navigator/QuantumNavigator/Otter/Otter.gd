@@ -137,8 +137,7 @@ func move_state(delta):
 
 	if Input.is_action_just_pressed("push"):
 		if (!InfoDialogOpenState.get_is_info_dialog_open()):
-			if OtterStats.curr_level != 4:
-				state = PUSH
+			state = PUSH
 
 	if Input.is_action_just_pressed("shoot"):
 		state = SHOOT

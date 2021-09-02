@@ -70,6 +70,7 @@ func _load_game():
 		print("Save file is invalid, starting a new game")
 		_new_game()
 		return
+	print(save_data)
 	get_tree().change_scene(save_data["level_scene"])
 	OtterStats.reset()
 	OtterStats.set_level(int(save_data["level_number"]))
@@ -80,7 +81,8 @@ func _load_game():
 	#		   \  /
 	#			\/
 	#OtterStats.set_level(4)
-	#get_tree().change_scene_to(load("res://Level4_Lab.tscn"))
+	#get_tree().change_scene_to(load("res://GodotCredits.tscn"))
+	
 # Starts a new game
 func _new_game():
 	var dir = Directory.new()

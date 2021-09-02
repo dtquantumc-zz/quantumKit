@@ -29,14 +29,15 @@ func load_progress():
 	save_file.open(save_path, File.READ)
 	var save_data = parse_json(save_file.get_as_text())
 	return save_data
-
+	
 # Returns true if information in a given save data JSON is valid, false otherwise
 func validate_save_data(save_data) -> bool:
-	return save_data.has("level_number") and \
-		   save_data.has("level_scene") and \
-		   save_data["level_scene"] != null and \
-		   ResourceLoader.exists(save_data["level_scene"])
-
+	if !save_data.has("level_number") || !save_data.has("level_scene"):
+		return false
+#	if save_data["level_scene"] != null && !ResourceLoader.exists(save_data["level_scene"]):
+#		return false
+	return true
+	
 # Gets the save file path
 func get_save_file_path() -> String:
 	return save_path
