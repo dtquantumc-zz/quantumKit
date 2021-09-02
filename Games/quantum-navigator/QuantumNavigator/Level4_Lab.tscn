@@ -1,12 +1,10 @@
-[gd_scene load_steps=78 format=2]
+[gd_scene load_steps=73 format=2]
 
 [ext_resource path="res://SuperpositionKey/SuperpositionKeySprite.png" type="Texture" id=1]
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=2]
 [ext_resource path="res://QubitBox.tscn" type="PackedScene" id=3]
-[ext_resource path="res://UI/PickleCountsUI.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UI/EntanglementBitsUI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Otter/Otter.tscn" type="PackedScene" id=6]
-[ext_resource path="res://UI/BlueBellPairHelpUI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Lab/LabTile.png" type="Texture" id=8]
 [ext_resource path="res://Assets/signpost.png" type="Texture" id=9]
 [ext_resource path="res://Villain/Villain.gd" type="Script" id=10]
@@ -14,9 +12,6 @@
 [ext_resource path="res://Shadows/MediumShadow.png" type="Texture" id=12]
 [ext_resource path="res://Level_Transition/LevelCompleteMessage/Level_Transition_Box_With_Complete_Msg.tscn" type="PackedScene" id=13]
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=14]
-[ext_resource path="res://UI/EncoderHelpUI.tscn" type="PackedScene" id=15]
-[ext_resource path="res://UI/FireHazardHelpUI.tscn" type="PackedScene" id=16]
-[ext_resource path="res://UI/DecoderHelpUI.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Lab/LabWall.png" type="Texture" id=18]
 [ext_resource path="res://Villain/Green Bald.png" type="Texture" id=19]
 [ext_resource path="res://Villain/Cyan G.png" type="Texture" id=20]
@@ -952,17 +947,19 @@ position = Vector2( 96, 112 )
 [node name="Doors" type="YSort" parent="YSort"]
 
 [node name="Node2D" parent="YSort/Doors" instance=ExtResource( 30 )]
-position = Vector2( 128, 49.7029 )
+position = Vector2( 128, 50 )
 
 [node name="Door" parent="YSort/Doors/Node2D" instance=ExtResource( 25 )]
-position = Vector2( 0, -1.5749 )
+position = Vector2( 0, -2.45 )
+scale = Vector2( 0.685, 0.685 )
 InitialDoorState = 0
 
 [node name="Node2D2" parent="YSort/Doors" instance=ExtResource( 30 )]
 position = Vector2( 736, 50.5 )
 
 [node name="Door" parent="YSort/Doors/Node2D2" instance=ExtResource( 25 )]
-position = Vector2( 3.34088, -12.0218 )
+position = Vector2( 3.341, -13 )
+scale = Vector2( 1.1, 1.1 )
 InitialDoorState = 0
 
 [node name="Node2D3" parent="YSort/Doors" instance=ExtResource( 30 )]
@@ -970,7 +967,8 @@ position = Vector2( 1672, 72 )
 NumKeysRequired = 4
 
 [node name="Door" parent="YSort/Doors/Node2D3" instance=ExtResource( 25 )]
-position = Vector2( 0, -1.5218 )
+position = Vector2( 0, -2.4 )
+scale = Vector2( 1.1, 1.1 )
 InitialDoorState = 0
 
 [node name="Trees" type="YSort" parent="YSort"]
@@ -1055,9 +1053,10 @@ position = Vector2( 0, -5 )
 scale = Vector2( 0.13, 0.13 )
 texture = ExtResource( 19 )
 hframes = 24
-frame = 4
+frame = 5
 
 [node name="NoticeSprite" type="Sprite" parent="YSort/Villain3/Sprite"]
+visible = false
 position = Vector2( 0, -170 )
 scale = Vector2( 0.3, 0.3 )
 texture = SubResource( 20 )
@@ -1113,7 +1112,7 @@ position = Vector2( 0, -5 )
 scale = Vector2( 0.13, 0.13 )
 texture = ExtResource( 20 )
 hframes = 24
-frame = 4
+frame = 5
 
 [node name="NoticeSprite" type="Sprite" parent="YSort/Villain4/Sprite"]
 visible = false
@@ -1226,9 +1225,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Node2D" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 1714.98, 73.2334 )
-
 [node name="LevelStartDialog" type="Node2D" parent="YSort"]
 script = ExtResource( 43 )
 
@@ -1247,41 +1243,6 @@ margin_left = 2.0
 margin_top = 2.0
 margin_right = 59.0
 margin_bottom = 18.0
-
-[node name="Control" parent="CanvasLayer" instance=ExtResource( 4 )]
-visible = false
-margin_left = 66.0
-margin_top = 2.0
-margin_right = 74.0
-margin_bottom = 18.0
-
-[node name="EncoderHelpUI" parent="CanvasLayer" instance=ExtResource( 15 )]
-visible = false
-margin_left = 1.0
-margin_top = 14.0
-margin_right = 22.0
-margin_bottom = 27.0
-
-[node name="FireHazardHelpUI" parent="CanvasLayer" instance=ExtResource( 16 )]
-visible = false
-margin_left = 4.0
-margin_top = 16.0
-margin_right = 11.0
-margin_bottom = 25.0
-
-[node name="Control2" parent="CanvasLayer" instance=ExtResource( 7 )]
-visible = false
-margin_left = 3.0
-margin_top = 18.0
-margin_right = 43.0
-margin_bottom = 58.0
-
-[node name="DecoderHelpUI" parent="CanvasLayer" instance=ExtResource( 17 )]
-visible = false
-margin_left = 1.0
-margin_top = 14.0
-margin_right = 41.0
-margin_bottom = 54.0
 
 [node name="InfoHelpUI" parent="CanvasLayer" instance=ExtResource( 26 )]
 margin_left = 7.0
@@ -1307,6 +1268,9 @@ visible = false
 [node name="Level_Transition_With_Msg" parent="." instance=ExtResource( 13 )]
 position = Vector2( 1750, 72 )
 nextScene = ExtResource( 41 )
+
+[node name="QubitBox" parent="Level_Transition_With_Msg" instance=ExtResource( 3 )]
+position = Vector2( 4, 0 )
 
 [connection signal="body_entered" from="YSort/Villain3/Hitbox" to="YSort/Villain3" method="_on_Hitbox_body_entered"]
 [connection signal="body_exited" from="YSort/Villain3/Hitbox" to="YSort/Villain3" method="_on_Hitbox_body_exited"]

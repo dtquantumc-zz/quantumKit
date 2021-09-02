@@ -95,7 +95,7 @@ func _on_timer_timeout():
 		particles.process_material.initial_velocity = ParticleFastSpeed
 		timer.start()
 		if otterInside != null:
-			otterInside.take_damage()	
+			otterInside.decohere()	
 		state = 2
 	elif state == 2:
 		vibrationPlayer.play("IdleAnim")
