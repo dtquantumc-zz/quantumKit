@@ -30,7 +30,7 @@ var credits = [
 		"Wyatt Reeves",
 		"Alex May"
 	],[
-		"Senior Developer",
+		"Senior Developers",
 		"Yon Zhou",
 		"Tanraj Saran"
 	],[
