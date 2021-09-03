@@ -174,7 +174,7 @@ Use 'X' to shoot one at each teleporter.</dialog>"
 0: 3
 },
 "text": "<speaker>Intro</speaker>
-<dialog>Joey the Otter has been hard at work in the lab, and wants to go visit Bob on Mars for a picnic. Help Joey get there!
+<dialog>Joey the Otter has crashed his spaceship and needs qubits to refuel it. Help Joey collect qubit boxes so he can get back home!
 
 Joey is a qubit and obeys the laws of Quantum Information.
 
@@ -274,11 +274,41 @@ To pick up a key, you will have to measure its location by pressing M.</dialog>"
 <dialog>Pay attention to the superposition, because when you measure, the key is more likely to show up in the locations where it looks more opaque!</dialog>"
 }
 }
+},
+10: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Info</speaker>
+<dialog>There are many ways for a qubit to decohere besides getting warm; getting hit by a stray photon or being shaken around too much are some common ones!</dialog>"
+},
+3: {
+"links": {
+0: 4
+},
+"text": "<speaker>Info</speaker>
+<dialog>Watch out for the photons and shaking areas!</dialog>"
+},
+4: {
+"links": {
+},
+"text": "<end>"
+}
+}
 }
 }
 names = {
 "BellPairsInfoBox": 3,
 "DecoderInfoBox": 2,
+"DecoherenceInfoBox": 10,
 "EncoderInfoBox": 1,
 "FireHazardInfoBox": 5,
 "GameControlsInfoBox": 7,

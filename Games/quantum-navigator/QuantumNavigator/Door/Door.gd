@@ -64,7 +64,9 @@ func lock_door():
 # On object enter and state is unlocked, open the door and switch to correct
 # texture.
 func _on_Area2D_body_entered(_body):
+	print(CurrentDoorState)
 	if (CurrentDoorState == DoorState.UNLOCKED):
+		print("hi")
 		CurrentDoorState = DoorState.OPEN
 		switch_to_correct_texture()
 #		_created_door_frame = DoorFrame.instance()

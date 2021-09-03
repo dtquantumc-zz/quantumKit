@@ -98,6 +98,8 @@ func _set_open_state_signal(record_name : String):
 			_signal = "superposition_dialog_open"
 		"KeyInfoBox":
 			_signal = "key_dialog_open"
+		"DecoherenceInfoBox":
+			_signal = "decoherence_dialog_open"
 
 func _is_playing():
 	return _Dialog_Open

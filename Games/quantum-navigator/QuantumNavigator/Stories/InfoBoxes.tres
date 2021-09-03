@@ -8,6 +8,7 @@ TYPE = "EXP_Story_editor"
 names = {
 "BellPairsInfoBox": 3,
 "DecoderInfoBox": 2,
+"DecoherenceInfoBox": 10,
 "EncoderInfoBox": 1,
 "FireHazardInfoBox": 5,
 "GameControlsInfoBox": 7,
@@ -300,7 +301,7 @@ Use 'X' to shoot one at each teleporter.</dialog>",
 "rect_size": Vector2( 855, 234 ),
 "slot_amount": 1,
 "text": "<speaker>Intro</speaker>
-<dialog>Joey the Otter has been hard at work in the lab, and wants to go visit Bob on Mars for a picnic. Help Joey get there!
+<dialog>Joey the Otter has crashed his spaceship and needs qubits to refuel it. Help Joey collect qubit boxes so he can get back home!
 
 Joey is a qubit and obeys the laws of Quantum Information.
 
@@ -458,6 +459,55 @@ To pick up a key, you will have to measure its location by pressing M.</dialog>"
 "slot_amount": 1,
 "text": "<speaker>Info</speaker>
 <dialog>Pay attention to the superposition, because when you measure, the key is more likely to show up in the locations where it looks more opaque!</dialog>",
+"type": "line"
+}
+}
+},
+10: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "New Dialog - Enter Human Readable Description.",
+"name": "DecoherenceInfoBox",
+"nodes": {
+1: {
+"graph_offset": Vector2( 40, 40 ),
+"links": {
+0: 2
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<start>",
+"type": "line"
+},
+2: {
+"graph_offset": Vector2( 460, 40 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Info</speaker>
+<dialog>There are many ways for a qubit to decohere besides getting warm; getting hit by a stray photon or being shaken around too much are some common ones!</dialog>",
+"type": "line"
+},
+3: {
+"graph_offset": Vector2( 820, 40 ),
+"links": {
+0: 4
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Info</speaker>
+<dialog>Watch out for the photons and shaking areas!</dialog>",
+"type": "line"
+},
+4: {
+"graph_offset": Vector2( 1200, 40 ),
+"links": {
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<end>",
 "type": "line"
 }
 }

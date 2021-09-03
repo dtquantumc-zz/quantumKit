@@ -14,10 +14,17 @@ func _ready():
 
 func _physics_process(_delta):
 	if playerDetectionZone.can_see_player():
-		if Input.is_action_just_pressed("info") || !InfoDialogState.get_has_superposition_dialog_been_seen():
-			dialogPlayer.play_dialog("SuperpositionInfoBox")
+		if OtterStats.curr_level == 3:
+			if Input.is_action_just_pressed("info") || !InfoDialogState.get_has_decoherence_dialog_been_seen():
+				dialogPlayer.play_dialog("DecoherenceInfoBox")
 
-		if !InfoDialogState.get_has_superposition_dialog_been_seen():
-			InfoDialogState.set_has_superposition_dialog_been_seen(true)
+			if !InfoDialogState.get_has_decoherence_dialog_been_seen():
+				InfoDialogState.set_has_decoherence_dialog_been_seen(true)
+		if OtterStats.curr_level == 4:
+			if Input.is_action_just_pressed("info") || !InfoDialogState.get_has_superposition_dialog_been_seen():
+				dialogPlayer.play_dialog("SuperpositionInfoBox")
+
+			if !InfoDialogState.get_has_superposition_dialog_been_seen():
+				InfoDialogState.set_has_superposition_dialog_been_seen(true)
 	else:
 		dialogPlayer.stop_dialog()

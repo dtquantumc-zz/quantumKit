@@ -71,17 +71,17 @@ func _load_game():
 		_new_game()
 		return
 	print(save_data)
-	get_tree().change_scene(save_data["level_scene"])
+	#get_tree().change_scene(save_data["level_scene"])
 	OtterStats.reset()
-	OtterStats.set_level(int(save_data["level_number"]))
+	#OtterStats.set_level(int(save_data["level_number"]))
 	# Hm... is this supposed to be temporary?
 	#			|
 	#			|
 	#			|
 	#		   \  /
 	#			\/
-	#OtterStats.set_level(4)
-	#get_tree().change_scene_to(load("res://GodotCredits.tscn"))
+	OtterStats.set_level(4)
+	get_tree().change_scene_to(load("res://Level4_Lab.tscn"))
 	
 # Starts a new game
 func _new_game():

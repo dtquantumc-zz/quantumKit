@@ -481,9 +481,9 @@ margin_bottom = 57.0
 
 [node name="BlueBellPairHelpUI" parent="CanvasLayer" instance=ExtResource( 8 )]
 anchor_left = 0.12
-anchor_top = 0.092
+anchor_top = 0.132
 anchor_right = 0.12
-anchor_bottom = 0.173
+anchor_bottom = 0.225
 
 [node name="ControlsCanvasLayer" type="CanvasLayer" parent="."]
 

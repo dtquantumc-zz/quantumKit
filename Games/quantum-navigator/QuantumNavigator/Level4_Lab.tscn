@@ -958,7 +958,7 @@ InitialDoorState = 0
 position = Vector2( 736, 50.5 )
 
 [node name="Door" parent="YSort/Doors/Node2D2" instance=ExtResource( 25 )]
-position = Vector2( 3.341, -13 )
+position = Vector2( 5.75647, -14.0798 )
 scale = Vector2( 1.1, 1.1 )
 InitialDoorState = 0
 
@@ -967,7 +967,7 @@ position = Vector2( 1672, 72 )
 NumKeysRequired = 4
 
 [node name="Door" parent="YSort/Doors/Node2D3" instance=ExtResource( 25 )]
-position = Vector2( 0, -2.4 )
+position = Vector2( 2.39148, -1.8709 )
 scale = Vector2( 1.1, 1.1 )
 InitialDoorState = 0
 
@@ -1053,7 +1053,6 @@ position = Vector2( 0, -5 )
 scale = Vector2( 0.13, 0.13 )
 texture = ExtResource( 19 )
 hframes = 24
-frame = 5
 
 [node name="NoticeSprite" type="Sprite" parent="YSort/Villain3/Sprite"]
 visible = false
@@ -1112,7 +1111,6 @@ position = Vector2( 0, -5 )
 scale = Vector2( 0.13, 0.13 )
 texture = ExtResource( 20 )
 hframes = 24
-frame = 5
 
 [node name="NoticeSprite" type="Sprite" parent="YSort/Villain4/Sprite"]
 visible = false

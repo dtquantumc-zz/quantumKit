@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=2]
+[gd_scene load_steps=84 format=2]
 
 [ext_resource path="res://World/CliffTileset.png" type="Texture" id=1]
 [ext_resource path="res://QubitBox.tscn" type="PackedScene" id=2]
@@ -10,9 +10,12 @@
 [ext_resource path="res://VibratingTile/VibratingTile.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Teleporter/PhoneBooth.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Checkpoint.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Level4DialogPlayer.gd" type="Script" id=11]
 [ext_resource path="res://World/DirtTileset.png" type="Texture" id=12]
 [ext_resource path="res://Level_Transition/LevelCompleteMessage/Level_Transition_Box_With_Complete_Msg.tscn" type="PackedScene" id=13]
+[ext_resource path="res://PlayerDetectionZone.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Level4_Lab.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Dialog-System-Example/Dialog_Player.tscn" type="PackedScene" id=16]
 [ext_resource path="res://VibratingTile/VibratingTileManager.gd" type="Script" id=18]
 [ext_resource path="res://EntanglementBit/BlueEntanglementBitCollectable.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Island/tileset16x16_1.png" type="Texture" id=20]
@@ -1060,6 +1063,9 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 } ]
 1/z_index = 0
 
+[sub_resource type="CircleShape2D" id=59]
+radius = 20.417
+
 [node name="Level3_Island" type="Node2D"]
 script = ExtResource( 24 )
 
@@ -1120,6 +1126,7 @@ position = Vector2( 100, 0 )
 position = Vector2( 532, 152 )
 
 [node name="PhotonSpawner2" parent="YSort" instance=ExtResource( 21 )]
+HowOftenToSpawn = 2.0
 
 [node name="Area2D" parent="YSort/PhotonSpawner2" index="0"]
 position = Vector2( 100, 0 )
@@ -2273,6 +2280,17 @@ position = Vector2( 744.497, 474.573 )
 
 [node name="2" parent="YSort/Checkpoints" instance=ExtResource( 10 )]
 position = Vector2( 151.744, 784.164 )
+
+[node name="LevelStartDialog" type="Node2D" parent="YSort"]
+script = ExtResource( 11 )
+
+[node name="PlayerDetectionZone" parent="YSort/LevelStartDialog" instance=ExtResource( 14 )]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="YSort/LevelStartDialog/PlayerDetectionZone"]
+position = Vector2( -22.0311, 47.0277 )
+shape = SubResource( 59 )
+
+[node name="Dialog_Player" parent="YSort/LevelStartDialog" instance=ExtResource( 16 )]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

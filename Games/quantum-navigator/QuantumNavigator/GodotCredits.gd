@@ -45,7 +45,7 @@ var credits = [
 		"Alina Charissa"
 	],[
 		"Special Thanks to",
-		"Ella Meyer and Ari Blondal for their help in the development of the game"
+		"Ella Meyer and Ari Blondal"
 	]
 ]
 
@@ -88,7 +88,7 @@ func finish():
 		finished = true
 		# NOTE: This is called when the credits finish
 		# - Hook up your code to return to the relevant scene here, eg...
-		#get_tree().change_scene("res://scenes/MainMenu.tscn")
+		get_tree().change_scene("res://TitleScreen.tscn")
 
 
 func add_line():
