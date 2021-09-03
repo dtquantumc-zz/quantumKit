@@ -28,6 +28,10 @@ func _ready():
 		VideoPlayerObject.play()
 		index = 0
 
+func _process(_delta):
+	if (Input.is_action_just_pressed("push")):
+		_on_VideoPlayer_finished()
+
 # Runs upon video player finish - starts playing the next video if SwitchDelay
 # is zero, or starts a timer for the next video to play otherwise
 func _on_VideoPlayer_finished():
